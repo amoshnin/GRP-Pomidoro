@@ -4,7 +4,7 @@ import { compose } from "redux"
 import { connect } from "react-redux"
 
 // COMPONENTS IMPORTS //
-import Dashboard from "./Dashboard"
+import DashboardScreen from "./DashboardScreen"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "../../Redux/ReduxStore"
@@ -22,11 +22,11 @@ const mapStateToProps = (state: any): MapStateToPropsType => {
   return {}
 }
 
-const DashboardContainer = compose(
+const DashboardScreenScreenContainer = compose(
   connect<MapStateToPropsType, MapDispatchToPropsType, AppStateType>(
     mapStateToProps,
     {}
   )
-)(Dashboard)
+)(DashboardScreen)
 
-export default DashboardContainer
+export default DashboardScreenScreenContainer

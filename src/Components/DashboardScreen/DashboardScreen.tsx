@@ -12,7 +12,7 @@ import { RectButton } from "react-native-gesture-handler"
 
 type PropsType = {}
 
-const Dashboard: React.FC<PropsType> = (props) => {
+const DashboardScreen: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <RectButton style={styles.item_wrap}>
@@ -80,4 +80,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Dashboard
+export default DashboardScreen

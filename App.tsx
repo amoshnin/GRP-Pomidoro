@@ -2,17 +2,19 @@
 import React from "react"
 
 import { NavigationContainer } from "@react-navigation/native"
-import { createStackNavigator } from "@react-navigation/stack"
+import { createStackNavigator, TransitionSpecs } from "@react-navigation/stack"
 
 import store from "./src/Redux/ReduxStore"
 import { Provider } from "react-redux"
 
 // COMPONENTS IMPORTS //
-import DashboardContainer from "./src/Components/Dashboard/DashboardContainer"
+import DashboardScreenContainer from "./src/Components/DashboardScreen/DashboardScreenContainer"
+import MainScreen from "./src/Components/MainScreen/MainScreenContainer"
 
 // EXTRA IMPORTS //
 import GeneralHeader from "./src/Components/Shared/GeneralHeader/GeneralHeader"
 import { AntDesign } from "@expo/vector-icons"
+import { MaterialIcons } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -28,10 +30,10 @@ const App: React.FC<PropsType> = (props) => {
           colors: { background: "#fff" },
         }}
       >
-        <Stack.Navigator initialRouteName="Dashboard">
+        <Stack.Navigator initialRouteName="MainScreen">
           <Stack.Screen
-            name="Dashboard"
-            component={DashboardContainer}
+            name="DashboardScreen"
+            component={DashboardScreenContainer}
             options={({ navigation, route }: any) => ({
               header: () => (
                 <GeneralHeader
@@ -41,6 +43,24 @@ const App: React.FC<PropsType> = (props) => {
                       size={24}
                       color="#1C1C1C"
                       onPress={() => navigation.goBack()}
+                    />
+                  }
+                />
+              ),
+            })}
+          />
+          <Stack.Screen
+            name="MainScreen"
+            component={MainScreen}
+            options={({ navigation, route }: any) => ({
+              header: () => (
+                <GeneralHeader
+                  leftIcon={
+                    <MaterialIcons
+                      name="menu"
+                      size={24}
+                      color="#1C1C1C"
+                      onPress={() => navigation.navigate("DashboardScreen")}
                     />
                   }
                 />
