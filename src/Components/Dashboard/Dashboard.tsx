@@ -6,6 +6,7 @@ import { View, Text, StyleSheet } from "react-native"
 
 // EXTRA IMPORTS //
 import { Feather } from "@expo/vector-icons"
+import { RectButton } from "react-native-gesture-handler"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -14,46 +15,46 @@ type PropsType = {}
 const Dashboard: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
-      <View style={styles.item_wrap}>
-        <Feather name="menu" size={24} color="black" />
-        <Text>Главная</Text>
-      </View>
-      <View style={styles.item_wrap}>
-        <Feather name="menu" size={24} color="black" />
-        <Text>Личный кабинет</Text>
-      </View>
-      <View style={styles.item_wrap}>
-        <Feather name="menu" size={24} color="black" />
-        <Text>Меню</Text>
-      </View>
-      <View style={styles.item_wrap}>
-        <Feather name="menu" size={24} color="black" />
-        <Text>Конструктор пиццы</Text>
-      </View>
-      <View style={styles.item_wrap}>
-        <Feather name="menu" size={24} color="black" />
-        <Text>Ваши заказы</Text>
-      </View>
-      <View style={styles.item_wrap}>
-        <Feather name="menu" size={24} color="black" />
-        <Text>Корзина</Text>
-      </View>
-      <View style={styles.item_wrap}>
-        <Feather name="menu" size={24} color="black" />
-        <Text>Акции</Text>
-      </View>
-      <View style={styles.item_wrap}>
-        <Feather name="menu" size={24} color="black" />
-        <Text>Подписка</Text>
-      </View>
-      <View style={styles.item_wrap}>
-        <Feather name="menu" size={24} color="black" />
-        <Text>Условия доставки</Text>
-      </View>
-      <View style={styles.item_wrap}>
-        <Feather name="menu" size={24} color="black" />
-        <Text>Контакты</Text>
-      </View>
+      <RectButton style={styles.item_wrap}>
+        <Feather name="menu" size={24} color="#96A637" />
+        <Text style={styles.text}>Главная</Text>
+      </RectButton>
+      <RectButton style={styles.item_wrap}>
+        <Feather name="menu" size={24} color="#96A637" />
+        <Text style={styles.text}>Личный кабинет</Text>
+      </RectButton>
+      <RectButton style={styles.item_wrap}>
+        <Feather name="menu" size={24} color="#96A637" />
+        <Text style={styles.text}>Меню</Text>
+      </RectButton>
+      <RectButton style={styles.item_wrap}>
+        <Feather name="menu" size={24} color="#96A637" />
+        <Text style={styles.text}>Конструктор пиццы</Text>
+      </RectButton>
+      <RectButton style={styles.item_wrap}>
+        <Feather name="menu" size={24} color="#96A637" />
+        <Text style={styles.text}>Ваши заказы</Text>
+      </RectButton>
+      <RectButton style={styles.item_wrap}>
+        <Feather name="menu" size={24} color="#96A637" />
+        <Text style={styles.text}>Корзина</Text>
+      </RectButton>
+      <RectButton style={styles.item_wrap}>
+        <Feather name="menu" size={24} color="#96A637" />
+        <Text style={styles.text}>Акции</Text>
+      </RectButton>
+      <RectButton style={styles.item_wrap}>
+        <Feather name="menu" size={24} color="#96A637" />
+        <Text style={styles.text}>Подписка</Text>
+      </RectButton>
+      <RectButton style={styles.item_wrap}>
+        <Feather name="menu" size={24} color="#96A637" />
+        <Text style={styles.text}>Условия доставки</Text>
+      </RectButton>
+      <RectButton style={styles.item_wrap}>
+        <Feather name="menu" size={24} color="#96A637" />
+        <Text style={styles.text}>Контакты</Text>
+      </RectButton>
     </View>
   )
 }
@@ -61,12 +62,21 @@ const Dashboard: React.FC<PropsType> = (props) => {
 //   STYLES   //
 const styles = StyleSheet.create({
   container: {
-    marginTop: 30,
+    marginTop: 20,
     flexDirection: "column",
   },
 
   item_wrap: {
     flexDirection: "row",
+    paddingHorizontal: 20,
+    paddingVertical: 17,
+    alignItems: "center",
+  },
+
+  text: {
+    fontSize: 20,
+    letterSpacing: 0.3,
+    marginLeft: 20,
   },
 })
 
