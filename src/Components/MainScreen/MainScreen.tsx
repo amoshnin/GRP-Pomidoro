@@ -30,12 +30,12 @@ const MainScreen: React.FC<PropsType> = (props) => {
           fontSize: 30,
           letterSpacing: 0.3,
           width: 221,
-          color: "#1A1824",
         }}
-        scroll_horizontal={false}
+        scroll_horizontal={true}
         imageStyle={{
-          width: 350,
-          marginRight: 20,
+          width: 270,
+          height: 300,
+          marginRight: 16,
         }}
       />
     </View>

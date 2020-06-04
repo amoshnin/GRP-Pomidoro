@@ -27,23 +27,33 @@ const SalesSection: React.FC<PropsType> = (props) => {
           horizontal={props.scroll_horizontal}
           style={styles.scroll_container}
         >
-          <Image
-            style={{ ...styles.image, ...props.imageStyle }}
-            source={require(`../../../../../Images/Sales/sale-1.png`)}
-          />
-
-          <Image
-            style={{ ...styles.image, ...props.imageStyle }}
-            source={require(`../../../../../Images/Sales/sale-1.png`)}
-          />
-          <Image
-            style={{ ...styles.image, ...props.imageStyle }}
-            source={require(`../../../../../Images/Sales/sale-1.png`)}
-          />
-          <Image
-            style={{ ...styles.image, ...props.imageStyle }}
-            source={require(`../../../../../Images/Sales/sale-1.png`)}
-          />
+          <View style={styles.image_wrap}>
+            <Image
+              style={{ ...styles.image, ...props.imageStyle }}
+              source={require(`../../../../../Images/Sales/sale-1.png`)}
+            />
+            <View style={styles.image_text_wrap}>
+              <Text style={styles.image_subtitle}>Акция</Text>
+            </View>
+          </View>
+          <View style={styles.image_wrap}>
+            <Image
+              style={{ ...styles.image, ...props.imageStyle }}
+              source={require(`../../../../../Images/Sales/sale-2.png`)}
+            />
+          </View>
+          <View style={styles.image_wrap}>
+            <Image
+              style={{ ...styles.image, ...props.imageStyle }}
+              source={require(`../../../../../Images/Sales/sale-1.png`)}
+            />
+          </View>
+          <View style={styles.image_wrap}>
+            <Image
+              style={{ ...styles.image, ...props.imageStyle }}
+              source={require(`../../../../../Images/Sales/sale-1.png`)}
+            />
+          </View>
         </ScrollView>
       </View>
     </View>
@@ -53,12 +63,13 @@ const SalesSection: React.FC<PropsType> = (props) => {
 //   STYLES   //
 const styles = StyleSheet.create({
   container: {
-    marginTop: 10,
-    marginHorizontal: 15,
+    marginTop: 12,
+    marginLeft: 20,
   },
 
   title: {
     fontWeight: "bold",
+    color: "#1A1824",
   },
 
   scroll_wrap: {
@@ -69,7 +80,27 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 
-  image: {},
+  image_wrap: {
+    opacity: 0.9,
+  },
+
+  image: {
+    backgroundColor: "#000",
+    opacity: 0.8,
+    borderRadius: 15,
+  },
+
+  image_text_wrap: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+
+  image_subtitle: {
+    color: "black",
+  },
 })
 
 export default SalesSection

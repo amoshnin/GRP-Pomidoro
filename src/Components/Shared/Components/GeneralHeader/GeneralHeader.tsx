@@ -33,6 +33,7 @@ const GeneralHeader: React.FC<PropsType> = (props) => {
 //   STYLES   //
 const styles = StyleSheet.create({
   container: {
+    marginTop: 16,
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 16,
