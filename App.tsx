@@ -11,6 +11,7 @@ import { Provider } from "react-redux"
 import DashboardContainer from "./src/Components/Dashboard/DashboardContainer"
 
 // EXTRA IMPORTS //
+import GeneralHeader from "./src/Components/Shared/GeneralHeader/GeneralHeader"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -21,13 +22,19 @@ const App: React.FC<PropsType> = (props) => {
 
   return (
     <Provider store={store}>
-      <NavigationContainer>
+      <NavigationContainer
+        theme={{
+          colors: { background: "#fff" },
+        }}
+      >
         <Stack.Navigator initialRouteName="Dashboard">
           {/* GENERAL SCREENS */}
           <Stack.Screen
             name="Dashboard"
             component={DashboardContainer}
-            options={({ navigation, route }: any) => ({})}
+            options={({ navigation, route }: any) => ({
+              header: () => <GeneralHeader />,
+            })}
           />
         </Stack.Navigator>
       </NavigationContainer>
