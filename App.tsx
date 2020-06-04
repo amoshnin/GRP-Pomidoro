@@ -1,19 +1,38 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+// PLUGINS IMPORTS //
+import React from "react"
 
-export default function App() {
+import { NavigationContainer } from "@react-navigation/native"
+import { createStackNavigator } from "@react-navigation/stack"
+
+import store from "./src/Redux/ReduxStore"
+import { Provider } from "react-redux"
+
+// COMPONENTS IMPORTS //
+import DashboardContainer from "./src/Components/Dashboard/DashboardContainer"
+
+// EXTRA IMPORTS //
+
+/////////////////////////////////////////////////////////////////////////////
+
+type PropsType = {}
+
+const App: React.FC<PropsType> = (props) => {
+  const Stack = createStackNavigator()
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
-  );
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Dashboard">
+          {/* GENERAL SCREENS */}
+          <Stack.Screen
+            name="Dashboard"
+            component={DashboardContainer}
+            options={({ navigation, route }: any) => ({})}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
