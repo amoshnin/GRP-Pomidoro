@@ -12,7 +12,7 @@ import DashboardScreenContainer from "./src/Components/DashboardScreen/Dashboard
 import MainScreen from "./src/Components/MainScreen/MainScreenContainer"
 
 // EXTRA IMPORTS //
-import GeneralHeader from "./src/Components/Shared/GeneralHeader/GeneralHeader"
+import GeneralHeader from "./src/Components/Shared/Components/GeneralHeader/GeneralHeader"
 import { AntDesign } from "@expo/vector-icons"
 import { MaterialIcons } from "@expo/vector-icons"
 
