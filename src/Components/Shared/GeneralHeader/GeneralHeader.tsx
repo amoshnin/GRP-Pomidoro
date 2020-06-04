@@ -6,19 +6,20 @@ import { SafeAreaView } from "react-native-safe-area-context"
 // COMPONENTS IMPORTS //
 
 // EXTRA IMPORTS //
-import { AntDesign } from "@expo/vector-icons"
 import { Feather } from "@expo/vector-icons"
 import { FontAwesome5 } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  leftIcon: any
+}
 
 const GeneralHeader: React.FC<PropsType> = (props) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <AntDesign name="close" size={24} color="#1C1C1C" />
+        {props.leftIcon}
         <TextInput style={styles.input} />
         <View style={styles.icons_wrap}>
           <Feather name="shopping-cart" size={24} color="#1C1C1C" />

@@ -12,6 +12,7 @@ import DashboardContainer from "./src/Components/Dashboard/DashboardContainer"
 
 // EXTRA IMPORTS //
 import GeneralHeader from "./src/Components/Shared/GeneralHeader/GeneralHeader"
+import { AntDesign } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -28,12 +29,22 @@ const App: React.FC<PropsType> = (props) => {
         }}
       >
         <Stack.Navigator initialRouteName="Dashboard">
-          {/* GENERAL SCREENS */}
           <Stack.Screen
             name="Dashboard"
             component={DashboardContainer}
             options={({ navigation, route }: any) => ({
-              header: () => <GeneralHeader />,
+              header: () => (
+                <GeneralHeader
+                  leftIcon={
+                    <AntDesign
+                      name="close"
+                      size={24}
+                      color="#1C1C1C"
+                      onPress={() => navigation.goBack()}
+                    />
+                  }
+                />
+              ),
             })}
           />
         </Stack.Navigator>
