@@ -32,8 +32,8 @@ const Button: React.FC<PropsType> = (props) => {
 const styles = StyleSheet.create({
   container: {
     alignSelf: "center",
-    paddingHorizontal: 80,
-    paddingVertical: 10,
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   text: {

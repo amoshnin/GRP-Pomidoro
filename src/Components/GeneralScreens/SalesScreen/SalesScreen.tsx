@@ -20,6 +20,8 @@ const SalesScreen: React.FC<PropsType> = (props) => {
       <Button
         buttonStyle={{
           backgroundColor: "#96A637",
+          height: 40,
+          width: 315,
           borderRadius: 20,
           marginTop: 16,
         }}

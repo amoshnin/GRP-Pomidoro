@@ -22,6 +22,8 @@ const MainScreen: React.FC<PropsType> = (props) => {
       <Button
         buttonStyle={{
           borderRadius: 20,
+          height: 40,
+          width: 315,
           backgroundColor: "#96A637",
         }}
         textStyle={{ color: "#FFFFFF" }}
