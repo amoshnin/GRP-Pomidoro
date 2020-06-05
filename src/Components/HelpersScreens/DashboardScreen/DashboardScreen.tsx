@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, TouchableWithoutFeedback, StyleSheet } from "react-native"
+import { View, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
@@ -28,7 +28,11 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
           <Text style={styles.text}>Главная</Text>
         </View>
       </RectButton>
-      <RectButton>
+      <RectButton
+        onPress={() => {
+          props.navigation.navigate("PrivateCabinetScreen")
+        }}
+      >
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Личный кабинет</Text>

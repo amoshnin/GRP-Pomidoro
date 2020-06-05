@@ -1,6 +1,12 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, Text, TextInput, StyleSheet } from "react-native"
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  StyleSheet,
+} from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 
 // COMPONENTS IMPORTS //
@@ -12,6 +18,7 @@ import { FontAwesome5 } from "@expo/vector-icons"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  navigation: any
   leftIcon: any
 }
 
@@ -22,8 +29,16 @@ const GeneralHeader: React.FC<PropsType> = (props) => {
         {props.leftIcon}
         <TextInput style={styles.input} />
         <View style={styles.icons_wrap}>
-          <Feather name="shopping-cart" size={24} color="#1C1C1C" />
-          <FontAwesome5 name="user" size={24} color="#1C1C1C" />
+          <TouchableOpacity>
+            <Feather name="shopping-cart" size={24} color="#1C1C1C" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              props.navigation.navigate("PrivateCabinetScreen")
+            }}
+          >
+            <FontAwesome5 name="user" size={24} color="#1C1C1C" />
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>

@@ -1,7 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { ScrollView, StyleSheet } from "react-native"
-import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
 import Button from "../../Shared/Components/Button/Button"

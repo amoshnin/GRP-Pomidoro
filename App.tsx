@@ -17,6 +17,7 @@ import DashboardScreenContainer from "./src/Components/HelpersScreens/DashboardS
 import IndividualSaleScreen from "./src/Components/HelpersScreens/IndividualSaleScreen/IndividualSaleScreen"
 
 import MainScreen from "./src/Components/GeneralScreens/MainScreen/MainScreenContainer"
+import PrivateCabinerScreen from "./src/Components/GeneralScreens/PrivateCabinetScreen/PrivateCabinetScreen"
 import MenuScreenContainer from "./src/Components/GeneralScreens/MenuScreen/MenuScreenContainer"
 import SalesScreenContainer from "./src/Components/GeneralScreens/SalesScreen/SalesScreenContainer"
 import DeliveryTermsScreen from "./src/Components/GeneralScreens/DeliveryTermsScreen/DeliveryTermsScreen"
@@ -68,6 +69,7 @@ const App: React.FC<PropsType> = (props) => {
               options={({ navigation, route }: any) => ({
                 header: () => (
                   <GeneralHeader
+                    navigation={navigation}
                     leftIcon={
                       <AntDesign
                         name="close"
@@ -86,6 +88,7 @@ const App: React.FC<PropsType> = (props) => {
               options={({ navigation, route }: any) => ({
                 header: () => (
                   <GeneralHeader
+                    navigation={navigation}
                     leftIcon={
                       <MaterialIcons
                         name="menu"
@@ -99,11 +102,19 @@ const App: React.FC<PropsType> = (props) => {
               })}
             />
             <Stack.Screen
+              name="PrivateCabinetScreen"
+              component={PrivateCabinerScreen}
+              options={({ navigation, route }: any) => ({
+                headerShown: false,
+              })}
+            />
+            <Stack.Screen
               name="MenuScreen"
               component={MenuScreenContainer}
               options={({ navigation, route }: any) => ({
                 header: () => (
                   <GeneralHeader
+                    navigation={navigation}
                     leftIcon={
                       <AntDesign
                         name="close"
@@ -122,6 +133,7 @@ const App: React.FC<PropsType> = (props) => {
               options={({ navigation, route }: any) => ({
                 header: () => (
                   <GeneralHeader
+                    navigation={navigation}
                     leftIcon={
                       <MaterialIcons
                         name="menu"
@@ -140,6 +152,7 @@ const App: React.FC<PropsType> = (props) => {
               options={({ navigation, route }: any) => ({
                 header: () => (
                   <GeneralHeader
+                    navigation={navigation}
                     leftIcon={
                       <MaterialIcons
                         name="menu"
