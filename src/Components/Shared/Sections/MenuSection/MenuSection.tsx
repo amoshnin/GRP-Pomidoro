@@ -77,7 +77,6 @@ const styles = StyleSheet.create({
   },
 
   content_wrap: {
-    marginTop: 14,
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",

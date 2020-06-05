@@ -15,7 +15,7 @@ type PropsType = {
   titleStyle?: any
   scroll_horizontal?: boolean
 
-  imageStyle?: any
+  imageStyle: any
 }
 
 const SalesSection: React.FC<PropsType> = (props) => {
@@ -43,7 +43,7 @@ const SalesSection: React.FC<PropsType> = (props) => {
             imageStyle={props.imageStyle}
           />
           <SaleItem
-            imageURL={`../../../../../Images/sale-1.png`}
+            imageURL={``}
             saleTitle="Три пиццы по цене двух"
             saleType="Акция"
             imageStyle={props.imageStyle}
