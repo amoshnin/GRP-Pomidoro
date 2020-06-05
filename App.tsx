@@ -23,6 +23,8 @@ import DeliveryTermsScreen from "./src/Components/GeneralScreens/DeliveryTermsSc
 // EXTRA IMPORTS //
 import { AntDesign } from "@expo/vector-icons"
 import { MaterialIcons } from "@expo/vector-icons"
+import { Ionicons } from "@expo/vector-icons"
+import { TouchableOpacity } from "react-native-gesture-handler"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -137,23 +139,23 @@ const App: React.FC<PropsType> = (props) => {
               name="IndividualSaleScreen"
               component={IndividualSaleScreen}
               options={({ navigation, route }: any) => ({
-                header: () => (
-                  <GeneralHeader
-                    leftIcon={
-                      <AntDesign
-                        name="close"
-                        size={24}
-                        color="#1C1C1C"
-                        onPress={() => navigation.goBack()}
-                      />
-                    }
-                  />
+                title: "",
+                headerLeft: () => (
+                  <TouchableOpacity>
+                    <Ionicons
+                      name="ios-arrow-back"
+                      size={24}
+                      color="#1C1C1C"
+                      onPress={() => navigation.goBack()}
+                      style={{ marginLeft: 14 }}
+                    />
+                  </TouchableOpacity>
                 ),
               })}
               initialParams={{
                 saleTitle: null as string | null,
                 description: null as string | null,
-                type: null as string | null,
+                saleType: null as string | null,
                 image: null as string | null,
               }}
             />

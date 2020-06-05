@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, ImageBackground, StyleSheet } from "react-native"
+import { View, Image, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
@@ -27,14 +27,14 @@ const DeliveryTermsScreen: React.FC<PropsType> = (props) => {
           собственном транспорте 🙂
         </Text>
       </View>
-      <ImageBackground
+      <Image
         style={styles.image}
         source={require("../../../Images/delivery-map.png")}
       >
         <View style={styles.location_icon_wrap}>
           <MaterialIcons name="location-on" size={26} color="white" />
         </View>
-      </ImageBackground>
+      </Image>
     </View>
   )
 }

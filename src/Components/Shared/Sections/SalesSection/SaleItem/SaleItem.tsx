@@ -4,7 +4,7 @@ import {
   View,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  ImageBackground,
+  Image,
   StyleSheet,
 } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
@@ -34,7 +34,7 @@ const SalesSection: React.FC<PropsType> = (props) => {
         colors={["rgba(0, 0, 0, 0.8)", "rgba(0, 0, 0, 0.16)"]}
         style={{ ...styles.image, ...props.imageStyle }}
       >
-        <ImageBackground
+        <Image
           style={{ ...styles.image, ...props.imageStyle }}
           source={require(`../../../../../Images/sale-1-horiz.png`)}
         />
@@ -49,7 +49,7 @@ const SalesSection: React.FC<PropsType> = (props) => {
               props.navigation.navigate("IndividualSaleScreen", {
                 saleTitle: props.saleTitle as string,
                 description: props.saleDescription as string,
-                type: props.saleType as string,
+                saleType: props.saleType as string,
                 image: props.imageURL as string,
               })
             }
