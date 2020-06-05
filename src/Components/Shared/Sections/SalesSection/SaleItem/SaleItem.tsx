@@ -33,7 +33,7 @@ const SalesSection: React.FC<PropsType> = (props) => {
     >
       <ImageBackground
         style={{ ...styles.image, ...props.imageStyle }}
-        source={require(`../../../../../Images/Sales/sale-1.png`)}
+        source={require(`../../../../../Images/sale-1.png`)}
       />
       <View style={styles.image_text_wrap}>
         <Text style={styles.image_subtitle}>Акция</Text>

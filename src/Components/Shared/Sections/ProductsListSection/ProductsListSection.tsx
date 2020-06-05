@@ -1,35 +1,29 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import {
-  View,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  ImageBackground,
-  StyleSheet,
-} from "react-native"
-import { LinearGradient } from "expo-linear-gradient"
+import { View, StyleSheet } from "react-native"
 
 // COMPONENTS IMPORTS //
+import ProductItem from "./ProductItem/ProductItem"
 
 // EXTRA IMPORTS //
-import { MaterialIcons } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {
-  titleText: string
-  titleStyle: any
-  scroll_horizontal: boolean
-
-  imageStyle: any
-}
+type PropsType = {}
 
 const ProductListSection: React.FC<PropsType> = (props) => {
-  return <View></View>
+  return (
+    <View style={styles.container}>
+      <ProductItem />
+    </View>
+  )
 }
 
 //   STYLES   //
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 56.77,
+  },
+})
 
 export default ProductListSection

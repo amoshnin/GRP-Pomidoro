@@ -17,7 +17,7 @@ type PropsType = {
 const MenuNormalItem: React.FC<PropsType> = (props) => {
   return (
     <RectButton style={styles.image_wrap}>
-      <Image source={require(`../../../../../Images/Sales/menu-1.png`)} />
+      <Image source={require(`../../../../../Images/menu-1.png`)} />
       <Text style={styles.text}>{props.title}</Text>
     </RectButton>
   )

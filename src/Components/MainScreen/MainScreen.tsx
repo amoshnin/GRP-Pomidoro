@@ -5,6 +5,7 @@ import { ScrollView, StyleSheet } from "react-native"
 // COMPONENTS IMPORTS //
 import SalesSection from "../Shared/Sections/SalesSection/SalesSection"
 import MenuSection from "../Shared/Sections/MenuSection/MenuSection"
+import ProductListSection from "../Shared/Sections/ProductsListSection/ProductsListSection"
 
 // EXTRA IMPORTS //
 import Button from "../Shared/Components/Button/Button"
@@ -39,7 +40,7 @@ const MainScreen: React.FC<PropsType> = (props) => {
       />
       <MenuSection
         titleText={"Меню"}
-        scroll={false}
+        scroll={true}
         titleStyle={{
           fontSize: 20,
           letterSpacing: 0.3,
@@ -47,6 +48,7 @@ const MainScreen: React.FC<PropsType> = (props) => {
         }}
         imageStyle={null}
       />
+      <ProductListSection />
     </ScrollView>
   )
 }

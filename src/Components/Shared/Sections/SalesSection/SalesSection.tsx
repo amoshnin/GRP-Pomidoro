@@ -42,7 +42,7 @@ const SalesSection: React.FC<PropsType> = (props) => {
             imageStyle={props.imageStyle}
           />
           <SaleItem
-            imageURL={`../../../../../Images/Sales/sale-1.png`}
+            imageURL={`../../../../../Images/sale-1.png`}
             saleTitle="Три пиццы по цене двух"
             saleType="Акция"
             imageStyle={props.imageStyle}

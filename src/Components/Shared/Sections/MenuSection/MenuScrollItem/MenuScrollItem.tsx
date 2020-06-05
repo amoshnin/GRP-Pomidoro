@@ -16,7 +16,7 @@ type PropsType = {
 const MenuScrollItem: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.scroll_image_wrap}>
-      <Image source={require(`../../../../../Images/Sales/menu-1.png`)} />
+      <Image source={require(`../../../../../Images/menu-1.png`)} />
       <Text style={styles.text}>{props.title}</Text>
     </View>
   )
