@@ -19,6 +19,7 @@ const MenuScreen: React.FC<PropsType> = (props) => {
       <Button
         buttonStyle={{ backgroundColor: "#96A637", borderRadius: 20 }}
         textStyle={{ color: "white" }}
+        text={"Узнать, где мой заказ"}
       />
       <MenuSection
         scroll={false}
@@ -27,25 +28,27 @@ const MenuScreen: React.FC<PropsType> = (props) => {
         containerStyle={{ marginTop: 20 }}
       />
       <SalesSection
-        titleText={"Откройте новые вкусы"}
+        titleText={"Активные акции"}
         titleStyle={{
           fontSize: 30,
-          width: 221,
         }}
         scroll_horizontal={false}
         imageStyle={{
-          width: 270,
-          height: 300,
+          width: 314,
+          height: 220,
           marginRight: 16,
+          marginBottom: 20,
         }}
       />
       <Button
         buttonStyle={{
-          backgroundColor: "#96A637",
+          backgroundColor: "#EAEAEB",
           borderRadius: 20,
-          marginTop: 30,
+          marginTop: 20,
+          marginBottom: 30,
         }}
-        textStyle={{ color: "white" }}
+        textStyle={{ color: "black" }}
+        text={"Посмотреть все акции"}
       />
     </ScrollView>
   )

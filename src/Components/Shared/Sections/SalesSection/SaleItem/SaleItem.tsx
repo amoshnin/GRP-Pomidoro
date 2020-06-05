@@ -7,7 +7,6 @@ import {
   StyleSheet,
 } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
-
 import { LinearGradient } from "expo-linear-gradient"
 
 // COMPONENTS IMPORTS //
@@ -23,6 +22,7 @@ type PropsType = {
   saleType: string
 
   imageStyle: any
+  scroll_horizontal: boolean | undefined
 }
 
 const SalesSection: React.FC<PropsType> = (props) => {
@@ -33,7 +33,7 @@ const SalesSection: React.FC<PropsType> = (props) => {
     >
       <ImageBackground
         style={{ ...styles.image, ...props.imageStyle }}
-        source={require(`../../../../../Images/sale-1.png`)}
+        source={require(`../../../../../Images/sale-1-horiz.png`)}
       />
       <View style={styles.image_text_wrap}>
         <Text style={styles.image_subtitle}>Акция</Text>

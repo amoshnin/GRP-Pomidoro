@@ -12,6 +12,8 @@ import { RectButton } from "react-native-gesture-handler"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  text: string
+
   buttonStyle?: any
   textStyle?: any
 }
@@ -20,7 +22,7 @@ const Button: React.FC<PropsType> = (props) => {
   return (
     <RectButton style={{ ...styles.container, ...props.buttonStyle }}>
       <Text style={{ ...styles.text, ...props.textStyle }} weight="bold">
-        Узнать, где мой заказ
+        {props.text}
       </Text>
     </RectButton>
   )

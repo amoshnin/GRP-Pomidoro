@@ -23,6 +23,7 @@ const MainScreen: React.FC<PropsType> = (props) => {
           backgroundColor: "#96A637",
         }}
         textStyle={{ color: "#FFFFFF" }}
+        text={"Узнать, где мой заказ"}
       />
 
       <SalesSection

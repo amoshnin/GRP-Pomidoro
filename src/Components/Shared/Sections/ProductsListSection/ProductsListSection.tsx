@@ -45,6 +45,7 @@ const ProductListSection: React.FC<PropsType> = (props) => {
         data={data}
         renderItem={({ item }) => (
           <ProductItem
+            key={item.title}
             title={item.title}
             description={item.description}
             price24={item.price24}
