@@ -17,6 +17,7 @@ import LoadingScreen from "./src/Components/LoadingScreen/LoadingScreen"
 import DashboardScreenContainer from "./src/Components/DashboardScreen/DashboardScreenContainer"
 
 import MainScreen from "./src/Components/MainScreen/MainScreenContainer"
+import MenuScreenContainer from "./src/Components/MenuScreen/MenuScreenContainer"
 import DeliveryTermsScreen from "./src/Components/DeliveryTermsScreen/DeliveryTermsScreen"
 
 // EXTRA IMPORTS //
@@ -87,6 +88,24 @@ const App: React.FC<PropsType> = (props) => {
                         size={24}
                         color="#1C1C1C"
                         onPress={() => navigation.navigate("DashboardScreen")}
+                      />
+                    }
+                  />
+                ),
+              })}
+            />
+            <Stack.Screen
+              name="MenuScreen"
+              component={MenuScreenContainer}
+              options={({ navigation, route }: any) => ({
+                header: () => (
+                  <GeneralHeader
+                    leftIcon={
+                      <AntDesign
+                        name="close"
+                        size={24}
+                        color="#1C1C1C"
+                        onPress={() => navigation.goBack()}
                       />
                     }
                   />

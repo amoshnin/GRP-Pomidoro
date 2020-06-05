@@ -11,11 +11,11 @@ import SaleItem from "./SaleItem/SaleItem"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
-  titleText: string
-  titleStyle: any
-  scroll_horizontal: boolean
+  titleText?: string
+  titleStyle?: any
+  scroll_horizontal?: boolean
 
-  imageStyle: any
+  imageStyle?: any
 }
 
 const SalesSection: React.FC<PropsType> = (props) => {

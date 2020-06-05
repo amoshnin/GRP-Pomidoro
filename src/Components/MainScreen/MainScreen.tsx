@@ -46,7 +46,7 @@ const MainScreen: React.FC<PropsType> = (props) => {
           letterSpacing: 0.3,
           width: 221,
         }}
-        imageStyle={null}
+        containerStyle={{ marginTop: 25 }}
       />
       <ProductListSection />
     </ScrollView>

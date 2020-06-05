@@ -12,8 +12,8 @@ import { RectButton } from "react-native-gesture-handler"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
-  buttonStyle: any
-  textStyle: any
+  buttonStyle?: any
+  textStyle?: any
 }
 
 const Button: React.FC<PropsType> = (props) => {
