@@ -11,6 +11,8 @@ import SaleItem from "./SaleItem/SaleItem"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  navigation: any
+
   titleText?: string
   titleStyle?: any
   scroll_horizontal?: boolean
@@ -31,21 +33,27 @@ const SalesSection: React.FC<PropsType> = (props) => {
           showsHorizontalScrollIndicator={false}
         >
           <SaleItem
+            navigation={props.navigation}
             imageURL={""}
             saleTitle="Три пиццы по цене двух"
             saleType="Акция"
+            saleDescription="На календаре Понедельник? Тогда заказывайте любую большую пиццу — получайте маленькую в подарок!"
             imageStyle={props.imageStyle}
           />
           <SaleItem
+            navigation={props.navigation}
             imageURL={""}
             saleTitle="Три пиццы по цене двух"
             saleType="Акция"
+            saleDescription="На календаре Понедельник? Тогда заказывайте любую большую пиццу — получайте маленькую в подарок!"
             imageStyle={props.imageStyle}
           />
           <SaleItem
+            navigation={props.navigation}
             imageURL={``}
             saleTitle="Три пиццы по цене двух"
             saleType="Акция"
+            saleDescription="На календаре Понедельник? Тогда заказывайте любую большую пиццу — получайте маленькую в подарок!"
             imageStyle={props.imageStyle}
           />
         </ScrollView>

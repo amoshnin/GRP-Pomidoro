@@ -4,10 +4,10 @@ import { compose } from "redux"
 import { connect } from "react-redux"
 
 // COMPONENTS IMPORTS //
-import MenuScreen from "./MenuScreen"
+import DashboardScreen from "./DashboardScreen"
 
 // EXTRA IMPORTS //
-import { AppStateType } from "../../Redux/ReduxStore"
+import { AppStateType } from "../../../Redux/ReduxStore"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -18,15 +18,17 @@ type MapDispatchToPropsType = {}
 
 /////////////////////////////////////////////////////////////////
 
-const mapStateToProps = (state: any): MapStateToPropsType => {
-  return {}
+const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
+  return {
+    navigation: props.navigation,
+  }
 }
 
-const MenuScreenContainer = compose(
+const DashboardScreenScreenContainer = compose(
   connect<MapStateToPropsType, MapDispatchToPropsType, AppStateType>(
     mapStateToProps,
     {}
   )
-)(MenuScreen)
+)(DashboardScreen)
 
-export default MenuScreenContainer
+export default DashboardScreenScreenContainer

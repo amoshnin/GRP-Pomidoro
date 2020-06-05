@@ -29,7 +29,7 @@ const DeliveryTermsScreen: React.FC<PropsType> = (props) => {
       </View>
       <ImageBackground
         style={styles.image}
-        source={require("../../Images/delivery-map.png")}
+        source={require("../../../Images/delivery-map.png")}
       >
         <View style={styles.location_icon_wrap}>
           <MaterialIcons name="location-on" size={26} color="white" />

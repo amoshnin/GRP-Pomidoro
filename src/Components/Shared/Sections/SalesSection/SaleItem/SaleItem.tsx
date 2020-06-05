@@ -3,6 +3,7 @@ import React from "react"
 import {
   View,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   ImageBackground,
   StyleSheet,
 } from "react-native"
@@ -17,35 +18,52 @@ import { MaterialIcons } from "@expo/vector-icons"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  navigation: any
   imageURL: string
   saleTitle: string
   saleType: string
+  saleDescription: string
 
   imageStyle: any
-  scroll_horizontal: boolean | undefined
 }
 
 const SalesSection: React.FC<PropsType> = (props) => {
   return (
-    <LinearGradient
-      colors={["rgba(0, 0, 0, 0.8)", "rgba(0, 0, 0, 0.16)"]}
-      style={{ ...styles.image, ...props.imageStyle }}
-    >
-      <ImageBackground
+    <TouchableWithoutFeedback>
+      <LinearGradient
+        colors={["rgba(0, 0, 0, 0.8)", "rgba(0, 0, 0, 0.16)"]}
         style={{ ...styles.image, ...props.imageStyle }}
-        source={require(`../../../../../Images/sale-1-horiz.png`)}
-      />
-      <View style={styles.image_text_wrap}>
-        <Text style={styles.image_subtitle}>Акция</Text>
-        <Text style={styles.image_title} weight="bold">
-          Три по цене двух
-        </Text>
-        <TouchableOpacity style={styles.image_action_wrap}>
-          <Text style={styles.image_action}>Посмотреть</Text>
-          <MaterialIcons name="keyboard-arrow-right" size={24} color="white" />
-        </TouchableOpacity>
-      </View>
-    </LinearGradient>
+      >
+        <ImageBackground
+          style={{ ...styles.image, ...props.imageStyle }}
+          source={require(`../../../../../Images/sale-1-horiz.png`)}
+        />
+        <View style={styles.image_text_wrap}>
+          <Text style={styles.image_subtitle}>{props.saleType}</Text>
+          <Text style={styles.image_title} weight="bold">
+            {props.saleTitle}
+          </Text>
+          <TouchableOpacity
+            style={styles.image_action_wrap}
+            onPress={() =>
+              props.navigation.navigate("IndividualSaleScreen", {
+                saleTitle: props.saleTitle as string,
+                description: props.saleDescription as string,
+                type: props.saleType as string,
+                image: props.imageURL as string,
+              })
+            }
+          >
+            <Text style={styles.image_action}>Посмотреть</Text>
+            <MaterialIcons
+              name="keyboard-arrow-right"
+              size={24}
+              color="white"
+            />
+          </TouchableOpacity>
+        </View>
+      </LinearGradient>
+    </TouchableWithoutFeedback>
   )
 }
 
@@ -61,7 +79,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 10,
     marginHorizontal: 16,
-    width: 160,
+    width: 180,
   },
 
   image_subtitle: {

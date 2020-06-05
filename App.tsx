@@ -1,6 +1,5 @@
 // PLUGINS IMPORTS //
 import React, { useEffect, useState } from "react"
-import { View, ActivityIndicator } from "react-native"
 
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
@@ -13,12 +12,13 @@ import * as Font from "expo-font"
 // COMPONENTS IMPORTS //
 import GeneralHeader from "./src/Components/Shared/Components/GeneralHeader/GeneralHeader"
 
-import LoadingScreen from "./src/Components/LoadingScreen/LoadingScreen"
-import DashboardScreenContainer from "./src/Components/DashboardScreen/DashboardScreenContainer"
+import LoadingScreen from "./src/Components/HelpersScreens/LoadingScreen/LoadingScreen"
+import DashboardScreenContainer from "./src/Components/HelpersScreens/DashboardScreen/DashboardScreenContainer"
+import IndividualSaleScreen from "./src/Components/HelpersScreens/IndividualSaleScreen/IndividualSaleScreen"
 
-import MainScreen from "./src/Components/MainScreen/MainScreenContainer"
-import MenuScreenContainer from "./src/Components/MenuScreen/MenuScreenContainer"
-import DeliveryTermsScreen from "./src/Components/DeliveryTermsScreen/DeliveryTermsScreen"
+import MainScreen from "./src/Components/GeneralScreens/MainScreen/MainScreenContainer"
+import MenuScreenContainer from "./src/Components/GeneralScreens/MenuScreen/MenuScreenContainer"
+import DeliveryTermsScreen from "./src/Components/GeneralScreens/DeliveryTermsScreen/DeliveryTermsScreen"
 
 // EXTRA IMPORTS //
 import { AntDesign } from "@expo/vector-icons"
@@ -58,6 +58,7 @@ const App: React.FC<PropsType> = (props) => {
           }}
         >
           <Stack.Navigator initialRouteName="MainScreen">
+            {/* GENERAL SCREENS */}
             <Stack.Screen
               name="DashboardScreen"
               component={DashboardScreenContainer}
@@ -129,6 +130,32 @@ const App: React.FC<PropsType> = (props) => {
                   />
                 ),
               })}
+            />
+
+            {/* HELPERS SCREENS */}
+            <Stack.Screen
+              name="IndividualSaleScreen"
+              component={IndividualSaleScreen}
+              options={({ navigation, route }: any) => ({
+                header: () => (
+                  <GeneralHeader
+                    leftIcon={
+                      <AntDesign
+                        name="close"
+                        size={24}
+                        color="#1C1C1C"
+                        onPress={() => navigation.goBack()}
+                      />
+                    }
+                  />
+                ),
+              })}
+              initialParams={{
+                saleTitle: null as string | null,
+                description: null as string | null,
+                type: null as string | null,
+                image: null as string | null,
+              }}
             />
           </Stack.Navigator>
         </NavigationContainer>

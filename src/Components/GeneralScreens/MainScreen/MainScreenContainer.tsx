@@ -7,7 +7,7 @@ import { connect } from "react-redux"
 import MainScreen from "./MainScreen"
 
 // EXTRA IMPORTS //
-import { AppStateType } from "../../Redux/ReduxStore"
+import { AppStateType } from "../../../Redux/ReduxStore"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -18,8 +18,10 @@ type MapDispatchToPropsType = {}
 
 /////////////////////////////////////////////////////////////////
 
-const mapStateToProps = (state: any): MapStateToPropsType => {
-  return {}
+const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
+  return {
+    navigation: props.navigation,
+  }
 }
 
 const MainScreenContainer = compose(

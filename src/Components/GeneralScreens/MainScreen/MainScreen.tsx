@@ -3,16 +3,18 @@ import React from "react"
 import { ScrollView, StyleSheet } from "react-native"
 
 // COMPONENTS IMPORTS //
-import SalesSection from "../Shared/Sections/SalesSection/SalesSection"
-import MenuSection from "../Shared/Sections/MenuSection/MenuSection"
-import ProductListSection from "../Shared/Sections/ProductsListSection/ProductsListSection"
+import SalesSection from "../../Shared/Sections/SalesSection/SalesSection"
+import MenuSection from "../../Shared/Sections/MenuSection/MenuSection"
+import ProductListSection from "../../Shared/Sections/ProductsListSection/ProductsListSection"
 
 // EXTRA IMPORTS //
-import Button from "../Shared/Components/Button/Button"
+import Button from "../../Shared/Components/Button/Button"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  navigation: any
+}
 
 const MainScreen: React.FC<PropsType> = (props) => {
   return (
@@ -27,6 +29,7 @@ const MainScreen: React.FC<PropsType> = (props) => {
       />
 
       <SalesSection
+        navigation={props.navigation}
         titleText={"Откройте новые вкусы"}
         titleStyle={{
           fontSize: 30,
