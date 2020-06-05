@@ -1,12 +1,12 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, Text, Image, StyleSheet } from "react-native"
+import { View, Image, StyleSheet } from "react-native"
+import Text from "../../../Components/Text/Text"
 import { RectButton } from "react-native-gesture-handler"
 
 // COMPONENTS IMPORTS //
 
 // EXTRA IMPORTS //
-import { AntDesign } from "@expo/vector-icons"
 import { Entypo } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -30,7 +30,7 @@ const ProductItem: React.FC<PropsType> = (props) => {
               <View style={styles.size_circle_divider_wrap}>
                 <View style={styles.size_circle_divider} />
               </View>
-              <Text>99 ₴</Text>
+              <Text weight="bold">99 ₴</Text>
               <RectButton style={styles.size_add_btn}>
                 <Entypo name="plus" size={16} color="white" />
               </RectButton>
@@ -40,7 +40,7 @@ const ProductItem: React.FC<PropsType> = (props) => {
               <View style={styles.size_circle_divider_wrap}>
                 <View style={styles.size_circle_divider} />
               </View>
-              <Text>164 ₴</Text>
+              <Text weight="bold">164 ₴</Text>
               <RectButton style={styles.size_add_btn}>
                 <Entypo name="plus" size={16} color="white" />
               </RectButton>
@@ -50,7 +50,7 @@ const ProductItem: React.FC<PropsType> = (props) => {
               <View style={styles.size_circle_divider_wrap}>
                 <View style={styles.size_circle_divider} />
               </View>
-              <Text>199 ₴</Text>
+              <Text weight="bold">199 ₴</Text>
               <RectButton style={styles.size_add_btn}>
                 <Entypo name="plus" size={16} color="white" />
               </RectButton>
