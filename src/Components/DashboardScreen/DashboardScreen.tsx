@@ -11,7 +11,9 @@ import { RectButton } from "react-native-gesture-handler"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  navigation: any
+}
 
 const DashboardScreen: React.FC<PropsType> = (props) => {
   return (
@@ -48,7 +50,10 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
         <Feather name="menu" size={24} color="#96A637" />
         <Text style={styles.text}>Подписка</Text>
       </RectButton>
-      <RectButton style={styles.item_wrap}>
+      <RectButton
+        style={styles.item_wrap}
+        onPress={() => props.navigation.navigate("DeliveryTermsScreen")}
+      >
         <Feather name="menu" size={24} color="#96A637" />
         <Text style={styles.text}>Условия доставки</Text>
       </RectButton>
