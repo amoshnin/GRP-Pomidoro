@@ -62,7 +62,11 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
           <Text style={styles.text}>Корзина</Text>
         </View>
       </RectButton>
-      <RectButton>
+      <RectButton
+        onPress={() => {
+          props.navigation.navigate("SalesScreen")
+        }}
+      >
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Акции</Text>

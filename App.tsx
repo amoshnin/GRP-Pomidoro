@@ -18,6 +18,7 @@ import IndividualSaleScreen from "./src/Components/HelpersScreens/IndividualSale
 
 import MainScreen from "./src/Components/GeneralScreens/MainScreen/MainScreenContainer"
 import MenuScreenContainer from "./src/Components/GeneralScreens/MenuScreen/MenuScreenContainer"
+import SalesScreenContainer from "./src/Components/GeneralScreens/SalesScreen/SalesScreenContainer"
 import DeliveryTermsScreen from "./src/Components/GeneralScreens/DeliveryTermsScreen/DeliveryTermsScreen"
 
 // EXTRA IMPORTS //
@@ -116,17 +117,35 @@ const App: React.FC<PropsType> = (props) => {
               })}
             />
             <Stack.Screen
+              name="SalesScreen"
+              component={SalesScreenContainer}
+              options={({ navigation, route }: any) => ({
+                header: () => (
+                  <GeneralHeader
+                    leftIcon={
+                      <MaterialIcons
+                        name="menu"
+                        size={24}
+                        color="#1C1C1C"
+                        onPress={() => navigation.navigate("DashboardScreen")}
+                      />
+                    }
+                  />
+                ),
+              })}
+            />
+            <Stack.Screen
               name="DeliveryTermsScreen"
               component={DeliveryTermsScreen}
               options={({ navigation, route }: any) => ({
                 header: () => (
                   <GeneralHeader
                     leftIcon={
-                      <AntDesign
-                        name="close"
+                      <MaterialIcons
+                        name="menu"
                         size={24}
                         color="#1C1C1C"
-                        onPress={() => navigation.goBack()}
+                        onPress={() => navigation.navigate("DashboardScreen")}
                       />
                     }
                   />
