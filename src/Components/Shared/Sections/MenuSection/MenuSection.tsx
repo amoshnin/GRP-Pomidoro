@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, ScrollView, Text, StyleSheet } from "react-native"
+import { View, ScrollView, StyleSheet } from "react-native"
+import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
 import MenuScrollItem from "./MenuScrollItem/MenuScrollItem"
@@ -21,7 +22,7 @@ type PropsType = {
 const MenuSection: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
-      <Text style={{ ...styles.title, ...props.titleStyle }}>
+      <Text style={{ ...styles.title, ...props.titleStyle }} weight="bold">
         {props.titleText}
       </Text>
 
@@ -62,7 +63,6 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontWeight: "bold",
     color: "#1A1824",
   },
 
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   text: {
     marginTop: 5,
     marginRight: 3,
-    fontWeight: "bold",
+
     color: "#1A1824",
     fontSize: 15,
     textAlign: "center",

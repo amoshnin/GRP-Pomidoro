@@ -2,12 +2,12 @@
 import React from "react"
 import {
   View,
-  ScrollView,
-  Text,
   TouchableOpacity,
   ImageBackground,
   StyleSheet,
 } from "react-native"
+import Text from "~/Components/Shared/Components/Text/Text"
+
 import { LinearGradient } from "expo-linear-gradient"
 
 // COMPONENTS IMPORTS //
@@ -37,7 +37,9 @@ const SalesSection: React.FC<PropsType> = (props) => {
       />
       <View style={styles.image_text_wrap}>
         <Text style={styles.image_subtitle}>Акция</Text>
-        <Text style={styles.image_title}>Три по цене двух</Text>
+        <Text style={styles.image_title} weight="bold">
+          Три по цене двух
+        </Text>
         <TouchableOpacity style={styles.image_action_wrap}>
           <Text style={styles.image_action}>Посмотреть</Text>
           <MaterialIcons name="keyboard-arrow-right" size={24} color="white" />
@@ -59,6 +61,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 10,
     marginHorizontal: 16,
+    width: 160,
   },
 
   image_subtitle: {
@@ -69,7 +72,7 @@ const styles = StyleSheet.create({
   image_title: {
     color: "white",
     fontSize: 24,
-    fontWeight: "bold",
+
     letterSpacing: 0.3,
   },
 

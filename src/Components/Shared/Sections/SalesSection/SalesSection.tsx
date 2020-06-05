@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, ScrollView, Text, StyleSheet } from "react-native"
+import { View, ScrollView, StyleSheet } from "react-native"
+import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
 import SaleItem from "./SaleItem/SaleItem"
@@ -20,7 +21,7 @@ type PropsType = {
 const SalesSection: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
-      <Text style={{ ...styles.title, ...props.titleStyle }}>
+      <Text style={{ ...styles.title, ...props.titleStyle }} weight="bold">
         {props.titleText}
       </Text>
       <View style={styles.scroll_wrap}>
@@ -61,7 +62,6 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontWeight: "bold",
     color: "#1A1824",
     letterSpacing: 0.3,
   },
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   image_title: {
     color: "white",
     fontSize: 24,
-    fontWeight: "bold",
+
     letterSpacing: 0.3,
   },
 

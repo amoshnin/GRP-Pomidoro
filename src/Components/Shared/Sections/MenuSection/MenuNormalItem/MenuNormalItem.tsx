@@ -1,6 +1,8 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { Text, Image, StyleSheet } from "react-native"
+import { Image, StyleSheet } from "react-native"
+import Text from "~/Components/Shared/Components/Text/Text"
+
 import { RectButton } from "react-native-gesture-handler"
 
 // COMPONENTS IMPORTS //
@@ -18,7 +20,9 @@ const MenuNormalItem: React.FC<PropsType> = (props) => {
   return (
     <RectButton style={styles.image_wrap}>
       <Image source={require(`../../../../../Images/menu-1.png`)} />
-      <Text style={styles.text}>{props.title}</Text>
+      <Text style={styles.text} weight="bold">
+        {props.title}
+      </Text>
     </RectButton>
   )
 }
@@ -44,7 +48,7 @@ const styles = StyleSheet.create({
   text: {
     marginTop: 5,
     marginRight: 3,
-    fontWeight: "bold",
+
     color: "#1A1824",
     fontSize: 15,
     textAlign: "center",

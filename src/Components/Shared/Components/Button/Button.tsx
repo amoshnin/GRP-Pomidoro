@@ -1,6 +1,8 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, Text, StyleSheet } from "react-native"
+import { StyleSheet } from "react-native"
+import Text from "~/Components/Shared/Components/Text/Text"
+
 import { RectButton } from "react-native-gesture-handler"
 
 // COMPONENTS IMPORTS //
@@ -17,7 +19,7 @@ type PropsType = {
 const Button: React.FC<PropsType> = (props) => {
   return (
     <RectButton style={{ ...styles.container, ...props.buttonStyle }}>
-      <Text style={{ ...styles.text, ...props.textStyle }}>
+      <Text style={{ ...styles.text, ...props.textStyle }} weight="bold">
         Узнать, где мой заказ
       </Text>
     </RectButton>
@@ -34,7 +36,6 @@ const styles = StyleSheet.create({
 
   text: {
     letterSpacing: 0.3,
-    fontWeight: "600",
   },
 })
 

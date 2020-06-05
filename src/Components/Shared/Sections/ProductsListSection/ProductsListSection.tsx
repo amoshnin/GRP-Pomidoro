@@ -14,12 +14,42 @@ type PropsType = {}
 const ProductListSection: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
-      <ProductItem />
-      <ProductItem />
-      <ProductItem />
-      <ProductItem />
-      <ProductItem />
-      <ProductItem />
+      <ProductItem
+        title={"Паперони спайс"}
+        description={
+          "Соус томатный, сыр моцарелла, паперони, перец болгарский, перец чили"
+        }
+        price24={"99 ₴"}
+        price32={"164 ₴"}
+        price40={"199 ₴"}
+      />
+      <ProductItem
+        title={"Паперони спайс"}
+        description={
+          "Соус томатный, сыр моцарелла, паперони, перец болгарский, перец чили"
+        }
+        price24={"99 ₴"}
+        price32={"164 ₴"}
+        price40={"199 ₴"}
+      />
+      <ProductItem
+        title={"Паперони спайс"}
+        description={
+          "Соус томатный, сыр моцарелла, паперони, перец болгарский, перец чили"
+        }
+        price24={"99 ₴"}
+        price32={"164 ₴"}
+        price40={"199 ₴"}
+      />
+      <ProductItem
+        title={"Паперони спайс"}
+        description={
+          "Соус томатный, сыр моцарелла, паперони, перец болгарский, перец чили"
+        }
+        price24={"99 ₴"}
+        price32={"164 ₴"}
+        price40={"199 ₴"}
+      />
     </View>
   )
 }

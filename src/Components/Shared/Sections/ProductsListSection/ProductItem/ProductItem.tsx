@@ -1,7 +1,8 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { View, Image, StyleSheet } from "react-native"
-import Text from "../../../Components/Text/Text"
+import Text from "~/Components/Shared/Components/Text/Text"
+
 import { RectButton } from "react-native-gesture-handler"
 
 // COMPONENTS IMPORTS //
@@ -11,7 +12,13 @@ import { Entypo } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  title: string
+  description: string
+  price24: string
+  price32: string
+  price40: string
+}
 
 const ProductItem: React.FC<PropsType> = (props) => {
   return (
@@ -19,10 +26,10 @@ const ProductItem: React.FC<PropsType> = (props) => {
       <View style={styles.container}>
         <Image source={require("../../../../../Images/product-1.png")} />
         <View style={styles.text_wrap}>
-          <Text style={styles.title}>Паперони спайс</Text>
-          <Text style={styles.subtitle}>
-            Соус томатный, сыр моцарелла, паперони, перец болгарский, перец чили
+          <Text style={styles.title} weight="bold">
+            {props.title}
           </Text>
+          <Text style={styles.subtitle}>{props.description}</Text>
           <Text style={styles.note}>Выберите размер для заказа:</Text>
           <View style={styles.sizes_wrap}>
             <View style={{ ...styles.size_circle, height: 64, width: 64 }}>
@@ -30,7 +37,7 @@ const ProductItem: React.FC<PropsType> = (props) => {
               <View style={styles.size_circle_divider_wrap}>
                 <View style={styles.size_circle_divider} />
               </View>
-              <Text weight="bold">99 ₴</Text>
+              <Text weight="bold">{props.price24}</Text>
               <RectButton style={styles.size_add_btn}>
                 <Entypo name="plus" size={16} color="white" />
               </RectButton>
@@ -40,7 +47,7 @@ const ProductItem: React.FC<PropsType> = (props) => {
               <View style={styles.size_circle_divider_wrap}>
                 <View style={styles.size_circle_divider} />
               </View>
-              <Text weight="bold">164 ₴</Text>
+              <Text weight="bold">{props.price32}</Text>
               <RectButton style={styles.size_add_btn}>
                 <Entypo name="plus" size={16} color="white" />
               </RectButton>
@@ -50,7 +57,7 @@ const ProductItem: React.FC<PropsType> = (props) => {
               <View style={styles.size_circle_divider_wrap}>
                 <View style={styles.size_circle_divider} />
               </View>
-              <Text weight="bold">199 ₴</Text>
+              <Text weight="bold">{props.price40}</Text>
               <RectButton style={styles.size_add_btn}>
                 <Entypo name="plus" size={16} color="white" />
               </RectButton>
@@ -75,7 +82,6 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontWeight: "bold",
     fontSize: 20,
     letterSpacing: 0.3,
   },
