@@ -1,10 +1,19 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, ScrollView, Text, Image, StyleSheet } from "react-native"
+import {
+  View,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  ImageBackground,
+  StyleSheet,
+} from "react-native"
+import { LinearGradient } from "expo-linear-gradient"
 
 // COMPONENTS IMPORTS //
 
 // EXTRA IMPORTS //
+import { MaterialIcons } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -27,33 +36,48 @@ const SalesSection: React.FC<PropsType> = (props) => {
           horizontal={props.scroll_horizontal}
           style={styles.scroll_container}
         >
-          <View style={styles.image_wrap}>
-            <Image
+          <LinearGradient
+            colors={["rgba(0, 0, 0, 0.8)", "rgba(0, 0, 0, 0.16)"]}
+            style={{ ...styles.image, ...props.imageStyle }}
+          >
+            <ImageBackground
               style={{ ...styles.image, ...props.imageStyle }}
               source={require(`../../../../../Images/Sales/sale-1.png`)}
             />
             <View style={styles.image_text_wrap}>
               <Text style={styles.image_subtitle}>Акция</Text>
+              <Text style={styles.image_title}>Три по цене двух</Text>
+              <TouchableOpacity style={styles.image_action_wrap}>
+                <Text style={styles.image_action}>Посмотреть</Text>
+                <MaterialIcons
+                  name="keyboard-arrow-right"
+                  size={24}
+                  color="white"
+                />
+              </TouchableOpacity>
             </View>
-          </View>
-          <View style={styles.image_wrap}>
-            <Image
-              style={{ ...styles.image, ...props.imageStyle }}
-              source={require(`../../../../../Images/Sales/sale-2.png`)}
-            />
-          </View>
-          <View style={styles.image_wrap}>
-            <Image
+          </LinearGradient>
+          <LinearGradient
+            colors={["rgba(0, 0, 0, 0.8)", "rgba(0, 0, 0, 0.16)"]}
+            style={{ ...styles.image, ...props.imageStyle }}
+          >
+            <ImageBackground
               style={{ ...styles.image, ...props.imageStyle }}
               source={require(`../../../../../Images/Sales/sale-1.png`)}
             />
-          </View>
-          <View style={styles.image_wrap}>
-            <Image
-              style={{ ...styles.image, ...props.imageStyle }}
-              source={require(`../../../../../Images/Sales/sale-1.png`)}
-            />
-          </View>
+            <View style={styles.image_text_wrap}>
+              <Text style={styles.image_subtitle}>Акция</Text>
+              <Text style={styles.image_title}>Три по цене двух</Text>
+              <TouchableOpacity style={styles.image_action_wrap}>
+                <Text style={styles.image_action}>Посмотреть</Text>
+                <MaterialIcons
+                  name="keyboard-arrow-right"
+                  size={24}
+                  color="white"
+                />
+              </TouchableOpacity>
+            </View>
+          </LinearGradient>
         </ScrollView>
       </View>
     </View>
@@ -80,10 +104,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 
-  image_wrap: {
-    opacity: 0.9,
-  },
-
   image: {
     backgroundColor: "#000",
     opacity: 0.8,
@@ -92,14 +112,31 @@ const styles = StyleSheet.create({
 
   image_text_wrap: {
     position: "absolute",
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
+    bottom: 10,
+    marginHorizontal: 16,
   },
 
   image_subtitle: {
-    color: "black",
+    color: "rgba(255, 255, 255, 0.6);",
+    marginVertical: 12,
+  },
+
+  image_title: {
+    color: "white",
+    fontSize: 24,
+    fontWeight: "bold",
+    letterSpacing: 0.3,
+  },
+
+  image_action_wrap: {
+    flexDirection: "row",
+    marginVertical: 10,
+  },
+
+  image_action: {
+    color: "white",
+    letterSpacing: 0.3,
+    fontSize: 16,
   },
 })
 
