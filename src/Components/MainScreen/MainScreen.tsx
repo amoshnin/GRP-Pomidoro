@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, Text, StyleSheet } from "react-native"
+import { ScrollView, StyleSheet } from "react-native"
 
 // COMPONENTS IMPORTS //
 import SalesSection from "../Shared/Sections/SalesSection/SalesSection"
@@ -15,12 +15,11 @@ type PropsType = {}
 
 const MainScreen: React.FC<PropsType> = (props) => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Button
         buttonStyle={{
           borderRadius: 20,
           backgroundColor: "#96A637",
-          marginTop: -8,
         }}
         textStyle={{ color: "#FFFFFF" }}
       />
@@ -29,7 +28,6 @@ const MainScreen: React.FC<PropsType> = (props) => {
         titleText={"Откройте новые вкусы"}
         titleStyle={{
           fontSize: 30,
-          letterSpacing: 0.3,
           width: 221,
         }}
         scroll_horizontal={true}
@@ -49,14 +47,14 @@ const MainScreen: React.FC<PropsType> = (props) => {
         }}
         imageStyle={null}
       />
-    </View>
+    </ScrollView>
   )
 }
 
 //   STYLES   //
 const styles = StyleSheet.create({
   container: {
-    marginTop: 30,
+    marginTop: 24,
   },
 })
 

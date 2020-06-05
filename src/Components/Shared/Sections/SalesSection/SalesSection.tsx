@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     color: "#1A1824",
+    letterSpacing: 0.3,
   },
 
   scroll_wrap: {
