@@ -35,6 +35,7 @@ const SalesSection: React.FC<PropsType> = (props) => {
         <ScrollView
           horizontal={props.scroll_horizontal}
           style={styles.scroll_container}
+          showsHorizontalScrollIndicator={false}
         >
           <LinearGradient
             colors={["rgba(0, 0, 0, 0.8)", "rgba(0, 0, 0, 0.16)"]}
@@ -42,7 +43,7 @@ const SalesSection: React.FC<PropsType> = (props) => {
           >
             <ImageBackground
               style={{ ...styles.image, ...props.imageStyle }}
-              source={require(`../../../../../Images/Sales/sale-1.png`)}
+              source={require(`../../../../Images/Sales/sale-1.png`)}
             />
             <View style={styles.image_text_wrap}>
               <Text style={styles.image_subtitle}>Акция</Text>
@@ -57,13 +58,14 @@ const SalesSection: React.FC<PropsType> = (props) => {
               </TouchableOpacity>
             </View>
           </LinearGradient>
+
           <LinearGradient
             colors={["rgba(0, 0, 0, 0.8)", "rgba(0, 0, 0, 0.16)"]}
             style={{ ...styles.image, ...props.imageStyle }}
           >
             <ImageBackground
               style={{ ...styles.image, ...props.imageStyle }}
-              source={require(`../../../../../Images/Sales/sale-1.png`)}
+              source={require(`../../../../Images/Sales/sale-1.png`)}
             />
             <View style={styles.image_text_wrap}>
               <Text style={styles.image_subtitle}>Акция</Text>

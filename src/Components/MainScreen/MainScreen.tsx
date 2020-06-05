@@ -3,7 +3,8 @@ import React from "react"
 import { View, Text, StyleSheet } from "react-native"
 
 // COMPONENTS IMPORTS //
-import SalesSection from "../Shared/Sections/Sales/SalesSection/SalesSection"
+import SalesSection from "../Shared/Sections/SalesSection/SalesSection"
+import MenuSection from "../Shared/Sections/MenuSection/MenuSection"
 
 // EXTRA IMPORTS //
 import Button from "../Shared/Components/Button/Button"
@@ -37,6 +38,16 @@ const MainScreen: React.FC<PropsType> = (props) => {
           height: 300,
           marginRight: 16,
         }}
+      />
+      <MenuSection
+        titleText={"Меню"}
+        scroll={true}
+        titleStyle={{
+          fontSize: 20,
+          letterSpacing: 0.3,
+          width: 221,
+        }}
+        imageStyle={null}
       />
     </View>
   )
