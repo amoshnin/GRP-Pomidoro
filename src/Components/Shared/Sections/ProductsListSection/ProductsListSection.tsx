@@ -15,6 +15,11 @@ const ProductListSection: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <ProductItem />
+      <ProductItem />
+      <ProductItem />
+      <ProductItem />
+      <ProductItem />
+      <ProductItem />
     </View>
   )
 }
@@ -22,7 +27,7 @@ const ProductListSection: React.FC<PropsType> = (props) => {
 //   STYLES   //
 const styles = StyleSheet.create({
   container: {
-    marginTop: 56.77,
+    marginTop: 23.26,
   },
 })
 
