@@ -1,10 +1,13 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { View, Text, Image, StyleSheet } from "react-native"
+import { RectButton } from "react-native-gesture-handler"
 
 // COMPONENTS IMPORTS //
 
 // EXTRA IMPORTS //
+import { AntDesign } from "@expo/vector-icons"
+import { Entypo } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -22,17 +25,35 @@ const ProductItem: React.FC<PropsType> = (props) => {
           </Text>
           <Text style={styles.note}>Выберите размер для заказа:</Text>
           <View style={styles.sizes_wrap}>
-            <View style={{ ...styles.size_circle, height: 65, width: 65 }}>
-              <Text>24 cm</Text>
-              <Text>99 R</Text>
+            <View style={{ ...styles.size_circle, height: 64, width: 64 }}>
+              <Text>24см</Text>
+              <View style={styles.size_circle_divider_wrap}>
+                <View style={styles.size_circle_divider} />
+              </View>
+              <Text>99 ₴</Text>
+              <RectButton style={styles.size_add_btn}>
+                <Entypo name="plus" size={16} color="white" />
+              </RectButton>
             </View>
-            <View style={{ ...styles.size_circle, height: 68, width: 68 }}>
-              <Text>24 cm</Text>
-              <Text>99 R</Text>
+            <View style={{ ...styles.size_circle, height: 70, width: 70 }}>
+              <Text>32см</Text>
+              <View style={styles.size_circle_divider_wrap}>
+                <View style={styles.size_circle_divider} />
+              </View>
+              <Text>164 ₴</Text>
+              <RectButton style={styles.size_add_btn}>
+                <Entypo name="plus" size={16} color="white" />
+              </RectButton>
             </View>
-            <View style={{ ...styles.size_circle, height: 71, width: 71 }}>
-              <Text>24 cm</Text>
-              <Text>99 R</Text>
+            <View style={{ ...styles.size_circle, height: 76, width: 76 }}>
+              <Text>40см</Text>
+              <View style={styles.size_circle_divider_wrap}>
+                <View style={styles.size_circle_divider} />
+              </View>
+              <Text>199 ₴</Text>
+              <RectButton style={styles.size_add_btn}>
+                <Entypo name="plus" size={16} color="white" />
+              </RectButton>
             </View>
           </View>
           <View style={styles.divider} />
@@ -84,6 +105,35 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginRight: 14,
+    paddingTop: 3,
+  },
+
+  size_add_btn: {
+    position: "absolute",
+    justifyContent: "center",
+    alignItems: "center",
+    left: "72.22%",
+    right: "-5.56%",
+    top: "-5.11%",
+    bottom: "71.77%",
+    backgroundColor: "#96A637",
+    borderRadius: 56,
+    height: 23,
+    width: 23,
+  },
+
+  size_circle_divider_wrap: {
+    flexDirection: "row",
+  },
+
+  size_circle_divider: {
+    borderWidth: 0.19,
+    opacity: 0.15,
+    marginVertical: 1.5,
+    marginHorizontal: 5,
+    borderColor: "#96A637",
+    width: "100%",
+    flex: 1,
   },
 
   divider: {
