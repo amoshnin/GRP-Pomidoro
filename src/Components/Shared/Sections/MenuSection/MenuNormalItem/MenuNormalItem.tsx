@@ -9,13 +9,16 @@ import { RectButton } from "react-native-gesture-handler"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  imageURL: string
+  title: string
+}
 
 const MenuNormalItem: React.FC<PropsType> = (props) => {
   return (
     <RectButton style={styles.image_wrap}>
       <Image source={require(`../../../../../Images/Sales/menu-1.png`)} />
-      <Text style={styles.text}>Пиццы</Text>
+      <Text style={styles.text}>{props.title}</Text>
     </RectButton>
   )
 }

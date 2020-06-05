@@ -18,6 +18,10 @@ import { MaterialIcons } from "@expo/vector-icons"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  imageURL: string
+  saleTitle: string
+  saleType: string
+
   imageStyle: any
 }
 

@@ -29,9 +29,24 @@ const SalesSection: React.FC<PropsType> = (props) => {
           style={styles.scroll_container}
           showsHorizontalScrollIndicator={false}
         >
-          <SaleItem imageStyle={props.imageStyle} />
-          <SaleItem imageStyle={props.imageStyle} />
-          <SaleItem imageStyle={props.imageStyle} />
+          <SaleItem
+            imageURL={""}
+            saleTitle="Три пиццы по цене двух"
+            saleType="Акция"
+            imageStyle={props.imageStyle}
+          />
+          <SaleItem
+            imageURL={""}
+            saleTitle="Три пиццы по цене двух"
+            saleType="Акция"
+            imageStyle={props.imageStyle}
+          />
+          <SaleItem
+            imageURL={`../../../../../Images/Sales/sale-1.png`}
+            saleTitle="Три пиццы по цене двух"
+            saleType="Акция"
+            imageStyle={props.imageStyle}
+          />
         </ScrollView>
       </View>
     </View>

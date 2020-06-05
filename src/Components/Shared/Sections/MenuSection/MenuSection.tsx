@@ -1,7 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, ScrollView, Text, Image, StyleSheet } from "react-native"
-import { RectButton } from "react-native-gesture-handler"
+import { View, ScrollView, Text, StyleSheet } from "react-native"
 
 // COMPONENTS IMPORTS //
 import MenuScrollItem from "./MenuScrollItem/MenuScrollItem"
@@ -32,23 +31,23 @@ const MenuSection: React.FC<PropsType> = (props) => {
           style={styles.scroll_content_wrap}
           showsHorizontalScrollIndicator={false}
         >
-          <MenuScrollItem />
-          <MenuScrollItem />
-          <MenuScrollItem />
-          <MenuScrollItem />
-          <MenuScrollItem />
-          <MenuScrollItem />
-          <MenuScrollItem />
-          <MenuScrollItem />
+          <MenuScrollItem title={"Пицаа"} imageURL={""} />
+          <MenuScrollItem title={"Пицаа"} imageURL={""} />
+          <MenuScrollItem title={"Пицаа"} imageURL={""} />
+          <MenuScrollItem title={"Пицаа"} imageURL={""} />
+          <MenuScrollItem title={"Пицаа"} imageURL={""} />
+          <MenuScrollItem title={"Пицаа"} imageURL={""} />
+          <MenuScrollItem title={"Пицаа"} imageURL={""} />
+          <MenuScrollItem title={"Пицаа"} imageURL={""} />
         </ScrollView>
       ) : (
         <View style={styles.content_wrap}>
-          <MenuNormalItem />
-          <MenuNormalItem />
-          <MenuNormalItem />
-          <MenuNormalItem />
-          <MenuNormalItem />
-          <MenuNormalItem />
+          <MenuNormalItem title={"Пицаа"} imageURL={""} />
+          <MenuNormalItem title={"Пицаа"} imageURL={""} />
+          <MenuNormalItem title={"Пицаа"} imageURL={""} />
+          <MenuNormalItem title={"Пицаа"} imageURL={""} />
+          <MenuNormalItem title={"Пицаа"} imageURL={""} />
+          <MenuNormalItem title={"Пицаа"} imageURL={""} />
         </View>
       )}
     </View>
