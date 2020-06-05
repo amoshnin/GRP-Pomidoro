@@ -39,7 +39,7 @@ const MainScreen: React.FC<PropsType> = (props) => {
       />
       <MenuSection
         titleText={"Меню"}
-        scroll={true}
+        scroll={false}
         titleStyle={{
           fontSize: 20,
           letterSpacing: 0.3,

@@ -1,19 +1,11 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import {
-  View,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  ImageBackground,
-  StyleSheet,
-} from "react-native"
-import { LinearGradient } from "expo-linear-gradient"
+import { View, ScrollView, Text, StyleSheet } from "react-native"
 
 // COMPONENTS IMPORTS //
+import SaleItem from "./SaleItem/SaleItem"
 
 // EXTRA IMPORTS //
-import { MaterialIcons } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -37,49 +29,9 @@ const SalesSection: React.FC<PropsType> = (props) => {
           style={styles.scroll_container}
           showsHorizontalScrollIndicator={false}
         >
-          <LinearGradient
-            colors={["rgba(0, 0, 0, 0.8)", "rgba(0, 0, 0, 0.16)"]}
-            style={{ ...styles.image, ...props.imageStyle }}
-          >
-            <ImageBackground
-              style={{ ...styles.image, ...props.imageStyle }}
-              source={require(`../../../../Images/Sales/sale-1.png`)}
-            />
-            <View style={styles.image_text_wrap}>
-              <Text style={styles.image_subtitle}>Акция</Text>
-              <Text style={styles.image_title}>Три по цене двух</Text>
-              <TouchableOpacity style={styles.image_action_wrap}>
-                <Text style={styles.image_action}>Посмотреть</Text>
-                <MaterialIcons
-                  name="keyboard-arrow-right"
-                  size={24}
-                  color="white"
-                />
-              </TouchableOpacity>
-            </View>
-          </LinearGradient>
-
-          <LinearGradient
-            colors={["rgba(0, 0, 0, 0.8)", "rgba(0, 0, 0, 0.16)"]}
-            style={{ ...styles.image, ...props.imageStyle }}
-          >
-            <ImageBackground
-              style={{ ...styles.image, ...props.imageStyle }}
-              source={require(`../../../../Images/Sales/sale-1.png`)}
-            />
-            <View style={styles.image_text_wrap}>
-              <Text style={styles.image_subtitle}>Акция</Text>
-              <Text style={styles.image_title}>Три по цене двух</Text>
-              <TouchableOpacity style={styles.image_action_wrap}>
-                <Text style={styles.image_action}>Посмотреть</Text>
-                <MaterialIcons
-                  name="keyboard-arrow-right"
-                  size={24}
-                  color="white"
-                />
-              </TouchableOpacity>
-            </View>
-          </LinearGradient>
+          <SaleItem imageStyle={props.imageStyle} />
+          <SaleItem imageStyle={props.imageStyle} />
+          <SaleItem imageStyle={props.imageStyle} />
         </ScrollView>
       </View>
     </View>

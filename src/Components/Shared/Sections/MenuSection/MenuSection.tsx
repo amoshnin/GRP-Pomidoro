@@ -4,6 +4,8 @@ import { View, ScrollView, Text, Image, StyleSheet } from "react-native"
 import { RectButton } from "react-native-gesture-handler"
 
 // COMPONENTS IMPORTS //
+import MenuScrollItem from "./MenuScrollItem/MenuScrollItem"
+import MenuNormalItem from "./MenuNormalItem/MenuNormalItem"
 
 // EXTRA IMPORTS //
 
@@ -30,69 +32,23 @@ const MenuSection: React.FC<PropsType> = (props) => {
           style={styles.scroll_content_wrap}
           showsHorizontalScrollIndicator={false}
         >
-          <View style={styles.scroll_image_wrap}>
-            <Image source={require(`../../../../Images/Sales/menu-1.png`)} />
-            <Text style={styles.text}>Пиццы</Text>
-          </View>
-
-          <View style={styles.scroll_image_wrap}>
-            <Image source={require(`../../../../Images/Sales/menu-2.png`)} />
-            <Text style={styles.text}>Суши</Text>
-          </View>
-          <View style={styles.scroll_image_wrap}>
-            <Image source={require(`../../../../Images/Sales/menu-1.png`)} />
-            <Text style={styles.text}>Вок</Text>
-          </View>
-          <View style={styles.scroll_image_wrap}>
-            <Image source={require(`../../../../Images/Sales/menu-2.png`)} />
-            <Text style={styles.text}>Салаты</Text>
-          </View>
-          <View style={styles.scroll_image_wrap}>
-            <Image source={require(`../../../../Images/Sales/menu-1.png`)} />
-            <Text style={styles.text}>Напитки</Text>
-          </View>
-          <View style={styles.scroll_image_wrap}>
-            <Image source={require(`../../../../Images/Sales/menu-2.png`)} />
-            <Text style={styles.text}>Пиццы</Text>
-          </View>
-
-          <View style={styles.scroll_image_wrap}>
-            <Image source={require(`../../../../Images/Sales/menu-1.png`)} />
-            <Text style={styles.text}>Пиццы</Text>
-          </View>
+          <MenuScrollItem />
+          <MenuScrollItem />
+          <MenuScrollItem />
+          <MenuScrollItem />
+          <MenuScrollItem />
+          <MenuScrollItem />
+          <MenuScrollItem />
+          <MenuScrollItem />
         </ScrollView>
       ) : (
         <View style={styles.content_wrap}>
-          <RectButton style={styles.image_wrap}>
-            <Image source={require(`../../../../Images/Sales/menu-1.png`)} />
-            <Text style={styles.text}>Пиццы</Text>
-          </RectButton>
-
-          <RectButton style={styles.image_wrap}>
-            <Image source={require(`../../../../Images/Sales/menu-2.png`)} />
-            <Text style={styles.text}>Суши</Text>
-          </RectButton>
-          <RectButton style={styles.image_wrap}>
-            <Image source={require(`../../../../Images/Sales/menu-1.png`)} />
-            <Text style={styles.text}>Вок</Text>
-          </RectButton>
-          <RectButton style={styles.image_wrap}>
-            <Image source={require(`../../../../Images/Sales/menu-2.png`)} />
-            <Text style={styles.text}>Салаты</Text>
-          </RectButton>
-          <RectButton style={styles.image_wrap}>
-            <Image source={require(`../../../../Images/Sales/menu-1.png`)} />
-            <Text style={styles.text}>Напитки</Text>
-          </RectButton>
-          <RectButton style={styles.image_wrap}>
-            <Image source={require(`../../../../Images/Sales/menu-2.png`)} />
-            <Text style={styles.text}>Пиццы</Text>
-          </RectButton>
-
-          <RectButton style={styles.image_wrap}>
-            <Image source={require(`../../../../Images/Sales/menu-1.png`)} />
-            <Text style={styles.text}>Пиццы</Text>
-          </RectButton>
+          <MenuNormalItem />
+          <MenuNormalItem />
+          <MenuNormalItem />
+          <MenuNormalItem />
+          <MenuNormalItem />
+          <MenuNormalItem />
         </View>
       )}
     </View>
