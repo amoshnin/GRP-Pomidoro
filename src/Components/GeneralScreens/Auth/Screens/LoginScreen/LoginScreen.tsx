@@ -97,7 +97,10 @@ const LoginScreen: React.FC<PropsType> = (props) => {
           </>
         )}
       </Formik>
-      <TouchableOpacity style={styles.bottom_text_wrap}>
+      <TouchableOpacity
+        style={styles.bottom_text_wrap}
+        onPress={() => props.navigation.navigate("RecieveNewPassScreen1")}
+      >
         <Text style={styles.subtitle}>Получите новый пароль</Text>
       </TouchableOpacity>
       <Button

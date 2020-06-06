@@ -1,7 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, TouchableOpacity, Image, StyleSheet } from "react-native"
-import { SafeAreaView } from "react-native-safe-area-context"
+import { TouchableOpacity, Image, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 import { createStackNavigator } from "@react-navigation/stack"
@@ -11,11 +10,12 @@ import LoginScreenContainer from "./Screens/LoginScreen/LoginScreenContainer"
 import RegionSelectionScreen from "./Screens/LoginScreen/RegionSelectionScreen/RegionSelectionScreen"
 
 import RegistrationScreenContainer from "./Screens/RegistrationScreen/RegistrationScreenContainer"
+import RecieveNewPassScreen1 from "./Screens/LoginScreen/RecieveNewPassScreen/RecieveNewPassScreen1/RecieveNewPassScreen1"
+import RecieveNewPassScreen2 from "./Screens/LoginScreen/RecieveNewPassScreen/RecieveNewPassScreen2/RecieveNewPassScreen2"
 import RegistrationSuccesfulScreen from "./Screens/RegistrationScreen/RegistrationSuccesfulScreen/RegistrationSuccesfulScreen"
 
 // EXTRA IMPORTS //
 import { MaterialIcons } from "@expo/vector-icons"
-import { Ionicons } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -26,6 +26,7 @@ const Auth: React.FC<PropsType> = (props) => {
 
   return (
     <Stack.Navigator initialRouteName="LoginScreen">
+      {/* LOGIN SCREENS */}
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreenContainer}
@@ -77,6 +78,54 @@ const Auth: React.FC<PropsType> = (props) => {
         })}
       />
       <Stack.Screen
+        name="RecieveNewPassScreen1"
+        component={RecieveNewPassScreen1}
+        options={({ navigation, route }: any) => ({
+          headerTitle: () => (
+            <Image source={require("../../../Images/logo.png")} />
+          ),
+          headerTitleAlign: "center",
+          headerRight: () => (
+            <TouchableOpacity style={{ ...styles.icon, marginRight: 12 }}>
+              <Text style={{ marginRight: 1 }}>Ру</Text>
+              <MaterialIcons
+                name="keyboard-arrow-down"
+                size={23}
+                color="black"
+              />
+            </TouchableOpacity>
+          ),
+          headerStyle: {
+            height: 100,
+          },
+        })}
+      />
+      <Stack.Screen
+        name="RecieveNewPassScreen2"
+        component={RecieveNewPassScreen2}
+        options={({ navigation, route }: any) => ({
+          headerTitle: () => (
+            <Image source={require("../../../Images/logo.png")} />
+          ),
+          headerTitleAlign: "center",
+          headerRight: () => (
+            <TouchableOpacity style={{ ...styles.icon, marginRight: 12 }}>
+              <Text style={{ marginRight: 1 }}>Ру</Text>
+              <MaterialIcons
+                name="keyboard-arrow-down"
+                size={23}
+                color="black"
+              />
+            </TouchableOpacity>
+          ),
+          headerStyle: {
+            height: 100,
+          },
+        })}
+      />
+
+      {/* REGISTRATION SCREENS */}
+      <Stack.Screen
         name="RegistrationScreen"
         component={RegistrationScreenContainer}
         options={({ navigation, route }: any) => ({
@@ -99,6 +148,7 @@ const Auth: React.FC<PropsType> = (props) => {
           },
         })}
       />
+
       <Stack.Screen
         name="RegistrationSuccesfulScreen"
         component={RegistrationSuccesfulScreen}

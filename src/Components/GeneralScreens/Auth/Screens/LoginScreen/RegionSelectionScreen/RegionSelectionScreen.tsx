@@ -20,15 +20,10 @@ const RegionSelectionScreen: React.FC<PropsType> = (props) => {
 
   let RegionsList = [
     "Бровары",
-
     "Петропавловская",
-
     "Чайки",
-
     "Буча",
-
     "Ирпень",
-
     "Борисполь",
   ]
 
