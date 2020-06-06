@@ -29,10 +29,12 @@ const GeneralHeader: React.FC<PropsType> = (props) => {
         {props.leftIcon}
         <TextInput style={styles.input} />
         <View style={styles.icons_wrap}>
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.icon}>
             <Feather name="shopping-cart" size={24} color="#1C1C1C" />
           </TouchableOpacity>
+
           <TouchableOpacity
+            style={styles.icon}
             onPress={() => {
               props.navigation.navigate("PrivateCabinetScreen")
             }}
@@ -66,8 +68,10 @@ const styles = StyleSheet.create({
 
   icons_wrap: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    width: 75,
+  },
+
+  icon: {
+    paddingHorizontal: 10,
   },
 })
 

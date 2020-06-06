@@ -32,6 +32,9 @@ const IndividualSaleScreen: React.FC<PropsType> = (props) => {
         {props.route.params.description}
       </Text>
       <Button
+        onPress={() => {
+          props.navigation.navigate("SalesScreen")
+        }}
         text="Посмотреть все акции"
         buttonStyle={{
           borderRadius: 20,

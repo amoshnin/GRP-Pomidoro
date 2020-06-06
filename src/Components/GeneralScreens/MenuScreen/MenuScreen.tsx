@@ -50,6 +50,9 @@ const MenuScreen: React.FC<PropsType> = (props) => {
         }}
       />
       <Button
+        onPress={() => {
+          props.navigation.navigate("SalesScreen")
+        }}
         buttonStyle={{
           backgroundColor: "#EAEAEB",
           borderRadius: 20,

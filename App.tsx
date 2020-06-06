@@ -1,5 +1,6 @@
 // PLUGINS IMPORTS //
 import React, { useEffect, useState } from "react"
+import { TouchableOpacity } from "react-native"
 
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
@@ -27,7 +28,6 @@ import DeliveryTermsScreen from "./src/Components/GeneralScreens/DeliveryTermsSc
 import { AntDesign } from "@expo/vector-icons"
 import { MaterialIcons } from "@expo/vector-icons"
 import { Ionicons } from "@expo/vector-icons"
-import { TouchableOpacity } from "react-native-gesture-handler"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -140,7 +140,7 @@ const App: React.FC<PropsType> = (props) => {
                       size={24}
                       color="#1C1C1C"
                       onPress={() => navigation.goBack()}
-                      style={{ marginLeft: 14 }}
+                      style={{ padding: 14 }}
                     />
                   </TouchableOpacity>
                 ),
@@ -198,7 +198,7 @@ const App: React.FC<PropsType> = (props) => {
                       size={24}
                       color="#1C1C1C"
                       onPress={() => navigation.goBack()}
-                      style={{ marginLeft: 14 }}
+                      style={{ padding: 14 }}
                     />
                   </TouchableOpacity>
                 ),

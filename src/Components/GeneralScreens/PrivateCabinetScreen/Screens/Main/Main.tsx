@@ -15,7 +15,9 @@ import LanguageSelection from "./LanguageSelection/LanguageSelection"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  navigation: any
+}
 
 const Main: React.FC<PropsType> = (props) => {
   return (
@@ -42,6 +44,9 @@ const Main: React.FC<PropsType> = (props) => {
       />
 
       <Button
+        onPress={() => {
+          props.navigation.navigate("OrdersScreen")
+        }}
         text={"Показавать все заказы"}
         buttonStyle={{
           borderRadius: 20,
