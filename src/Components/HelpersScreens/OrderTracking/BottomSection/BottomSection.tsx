@@ -46,7 +46,7 @@ const BottomSection: React.FC<PropsType> = (props) => {
     <SlidingUpPanel
       ref={_panel}
       draggableRange={{ top: height / 1.3, bottom: 470 }}
-      backdropOpacity={0.2}
+      backdropOpacity={0.3}
       onBottomReached={() => {
         _panel.current.hide()
       }}
