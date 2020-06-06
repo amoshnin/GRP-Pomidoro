@@ -9,23 +9,43 @@ import FakeInputComponent from "./Components/FakeInputComponent/FakeInputCompone
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  navigation: any
+}
 
 const Credentials: React.FC<PropsType> = (props) => {
   return (
     <View>
-      <FakeInputComponent title={"Имя"} content={"Илья"} />
-      <FakeInputComponent title={"Фамилия"} content={"Давыдов"} />
+      <FakeInputComponent
+        title={"Имя"}
+        content={"Илья"}
+        navigation={props.navigation}
+      />
+      <FakeInputComponent
+        title={"Фамилия"}
+        content={"Давыдов"}
+        navigation={props.navigation}
+      />
       <FakeInputComponent
         title={"Email"}
         content={"niculici.victor@gmail.com"}
+        navigation={props.navigation}
       />
       <FakeInputComponent
         title={"Номер телефона"}
         content={"+4 0767 217 315 "}
+        navigation={props.navigation}
       />
-      <FakeInputComponent title={"Регион"} content={"Москва"} />
-      <FakeInputComponent title={"Пароль"} content={"**********"} />
+      <FakeInputComponent
+        title={"Регион"}
+        content={"Москва"}
+        navigation={props.navigation}
+      />
+      <FakeInputComponent
+        title={"Пароль"}
+        content={"**********"}
+        navigation={props.navigation}
+      />
     </View>
   )
 }

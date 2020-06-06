@@ -10,7 +10,9 @@ import Button from "../../../../../Shared/Components/Button/Button"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  navigation: any
+}
 
 const CreditCard: React.FC<PropsType> = (props) => {
   return (

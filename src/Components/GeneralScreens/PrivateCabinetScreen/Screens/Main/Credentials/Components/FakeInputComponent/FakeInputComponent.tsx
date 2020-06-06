@@ -2,6 +2,7 @@
 import React from "react"
 import { View, TouchableOpacity, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import * as yup from "yup"
 
 // COMPONENTS IMPORTS //
 
@@ -10,6 +11,8 @@ import Text from "~/Components/Shared/Components/Text/Text"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  navigation: any
+
   title: string
   content: string
 }
@@ -24,7 +27,16 @@ const FakeInputComponent: React.FC<PropsType> = (props) => {
           </Text>
           <Text size={16}>{props.content}</Text>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() =>
+            props.navigation.navigate("CredentialsFieldChangeScreen", {
+              changeFunction: () => null,
+              title: `Изменить ${props.title}`,
+              placeholder: props.title,
+              validation: yup.string(),
+            })
+          }
+        >
           <Text
             weight="bold"
             color="#96A637"

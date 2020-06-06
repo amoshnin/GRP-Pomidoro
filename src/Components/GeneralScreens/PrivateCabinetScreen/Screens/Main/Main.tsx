@@ -23,8 +23,8 @@ const Main: React.FC<PropsType> = (props) => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Header />
-      <Credentials />
-      <CreditCard />
+      <Credentials navigation={props.navigation} />
+      <CreditCard navigation={props.navigation} />
       <OrdersList
         title={"История заказов"}
         titleStyle={{
