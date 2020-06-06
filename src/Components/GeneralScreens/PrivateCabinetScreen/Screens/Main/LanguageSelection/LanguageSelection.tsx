@@ -34,7 +34,7 @@ const LanguageSelection: React.FC<PropsType> = (props) => {
 //   STYLES   //
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 214,
+    marginBottom: 100,
   },
 
   button: {

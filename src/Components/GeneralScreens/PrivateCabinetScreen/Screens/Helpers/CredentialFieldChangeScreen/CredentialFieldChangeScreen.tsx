@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
-import React from "react"
-import { View, TouchableOpacity, TextInput, StyleSheet } from "react-native"
+import React, { useState } from "react"
+import { View, TextInput, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 import { Formik } from "formik"
 
@@ -16,6 +16,8 @@ type PropsType = {
 }
 
 const CredentialsFieldChangeScreen: React.FC<PropsType> = (props) => {
+  const [inputBorderColor, setInputBorderColor] = useState("#DCDCDC" as string)
+
   return (
     <View style={styles.container}>
       <Text weight="bold" size={22} style={styles.title}>
@@ -35,9 +37,13 @@ const CredentialsFieldChangeScreen: React.FC<PropsType> = (props) => {
               placeholder={props.route.params.placeholder}
               placeholderTextColor="#696969"
               onChangeText={FormikProps.handleChange("field")}
-              onBlur={FormikProps.handleBlur("field")}
+              onFocus={() => setInputBorderColor("#1A1824")}
+              onBlur={() => {
+                FormikProps.handleBlur("field")
+                setInputBorderColor("#DCDCDC")
+              }}
               value={FormikProps.values.field}
-              style={styles.input}
+              style={{ ...styles.input, borderBottomColor: inputBorderColor }}
             />
             <Text style={styles.error_message}>
               {FormikProps.touched.field && FormikProps.errors.field}
@@ -77,7 +83,6 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    borderBottomColor: "#1A1824",
     borderBottomWidth: 1,
     height: 45,
     width: 315,

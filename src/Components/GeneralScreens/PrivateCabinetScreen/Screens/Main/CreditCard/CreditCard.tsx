@@ -21,6 +21,9 @@ const CreditCard: React.FC<PropsType> = (props) => {
         Карта оплаты
       </Text>
       <Button
+        onPress={() => {
+          props.navigation.navigate("CreditCardChangeScreen")
+        }}
         buttonStyle={{
           marginTop: 16,
           marginBottom: 35,

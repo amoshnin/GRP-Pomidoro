@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   avatar_icon_wrap: {
     position: "absolute",
     right: -19,
-    backgroundColor: "rgba(0, 0, 0, 0.65)",
+    backgroundColor: "rgba(0, 0, 0, 0.75)",
     height: 40,
     width: 40,
     borderRadius: 100,
