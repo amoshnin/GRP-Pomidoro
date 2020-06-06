@@ -41,6 +41,7 @@ const App: React.FC<PropsType> = (props) => {
   const [loading, setLoading] = useState(true as boolean)
 
   const Stack = createStackNavigator()
+  console.disableYellowBox = true
 
   useEffect(() => {
     const LoadFonts = async () => {

@@ -1,12 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  TextInput,
-  StyleSheet,
-} from "react-native"
+import { View, Text, TextInput, StyleSheet } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 
 // COMPONENTS IMPORTS //
@@ -14,6 +8,7 @@ import { SafeAreaView } from "react-native-safe-area-context"
 // EXTRA IMPORTS //
 import { Feather } from "@expo/vector-icons"
 import { FontAwesome5 } from "@expo/vector-icons"
+import { BorderlessButton } from "react-native-gesture-handler"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -26,21 +21,21 @@ const GeneralHeader: React.FC<PropsType> = (props) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        {props.leftIcon}
+        <BorderlessButton>{props.leftIcon}</BorderlessButton>
         <TextInput style={styles.input} />
         <View style={styles.icons_wrap}>
-          <TouchableOpacity style={styles.icon}>
+          <BorderlessButton style={styles.icon}>
             <Feather name="shopping-cart" size={24} color="#1C1C1C" />
-          </TouchableOpacity>
+          </BorderlessButton>
 
-          <TouchableOpacity
+          <BorderlessButton
             style={styles.icon}
             onPress={() => {
               props.navigation.navigate("PrivateCabinetScreen")
             }}
           >
             <FontAwesome5 name="user" size={24} color="#1C1C1C" />
-          </TouchableOpacity>
+          </BorderlessButton>
         </View>
       </View>
     </SafeAreaView>
@@ -72,6 +67,8 @@ const styles = StyleSheet.create({
 
   icon: {
     paddingHorizontal: 10,
+    alignItems: "center",
+    justifyContent: "center",
   },
 })
 

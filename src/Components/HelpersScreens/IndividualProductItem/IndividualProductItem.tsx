@@ -27,7 +27,7 @@ const IndividualProductItem: React.FC<PropsType> = (props) => {
 
   return (
     <>
-      <Header image={image} />
+      <Header image={image} navigation={props.navigation} />
 
       <Body
         productTitle={productTitle}

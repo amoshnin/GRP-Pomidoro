@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    marginTop: 9.13,
+    marginTop: 19.13,
   },
 })
 

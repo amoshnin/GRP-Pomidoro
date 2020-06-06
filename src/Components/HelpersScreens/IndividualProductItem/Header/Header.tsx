@@ -3,7 +3,7 @@ import React from "react"
 import { Image, StyleSheet } from "react-native"
 
 import { SafeAreaView } from "react-native-safe-area-context"
-import { RectButton } from "react-native-gesture-handler"
+import { BorderlessButton } from "react-native-gesture-handler"
 
 // COMPONENTS IMPORTS //
 
@@ -14,22 +14,26 @@ import { Feather } from "@expo/vector-icons"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  navigation: any
   image: string | null
 }
 
 const Header: React.FC<PropsType> = (props) => {
   return (
     <SafeAreaView style={styles.container}>
-      <RectButton>
+      <BorderlessButton
+        style={styles.button}
+        onPress={() => props.navigation.goBack()}
+      >
         <Ionicons name="ios-arrow-back" size={24} color="black" />
-      </RectButton>
+      </BorderlessButton>
       <Image
         style={styles.image}
         source={require("../../../../Images/product-large-1.png")}
       />
-      <RectButton>
+      <BorderlessButton style={styles.button}>
         <Feather name="shopping-cart" size={24} color="black" />
-      </RectButton>
+      </BorderlessButton>
     </SafeAreaView>
   )
 }
@@ -38,13 +42,20 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginHorizontal: 27.5,
+    marginHorizontal: 10.5,
     marginTop: 21,
   },
 
   image: {
     resizeMode: "contain",
     width: 300,
+  },
+
+  button: {
+    height: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 10,
   },
 })
 
