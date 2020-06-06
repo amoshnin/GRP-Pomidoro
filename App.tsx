@@ -15,6 +15,7 @@ import GeneralHeader from "./src/Components/Shared/Components/GeneralHeader/Gene
 
 import LoadingScreen from "./src/Components/HelpersScreens/LoadingScreen/LoadingScreen"
 import DashboardScreenContainer from "./src/Components/HelpersScreens/DashboardScreen/DashboardScreenContainer"
+import Auth from "./src/Components/GeneralScreens/Auth/Auth"
 import IndividualSaleScreen from "./src/Components/HelpersScreens/IndividualSaleScreen/IndividualSaleScreen"
 
 import MainScreen from "./src/Components/GeneralScreens/MainScreen/MainScreenContainer"
@@ -62,7 +63,15 @@ const App: React.FC<PropsType> = (props) => {
             colors: { background: "#fff" },
           }}
         >
-          <Stack.Navigator initialRouteName="MainScreen">
+          <Stack.Navigator initialRouteName="Auth">
+            <Stack.Screen
+              name="Auth"
+              component={Auth}
+              options={({ navigation, route }: any) => ({
+                headerShown: false,
+              })}
+            />
+
             {/* GENERAL SCREENS */}
             <Stack.Screen
               name="DashboardScreen"

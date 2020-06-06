@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
 import React, { useState } from "react"
-import { View, TouchableOpacity, TextInput, StyleSheet } from "react-native"
+import { View, TextInput, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 import { Formik } from "formik"
 
