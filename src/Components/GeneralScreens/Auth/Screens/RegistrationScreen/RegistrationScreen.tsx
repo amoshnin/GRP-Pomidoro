@@ -16,7 +16,7 @@ type PropsType = {
   navigation: any
 }
 
-const LoginScreen: React.FC<PropsType> = (props) => {
+const RegistrationScreen: React.FC<PropsType> = (props) => {
   const [phoneNumInputBorderColor, setPhoneNumInputBorderColor] = useState(
     "#DCDCDC" as string
   )
@@ -28,7 +28,7 @@ const LoginScreen: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <Text weight="bold" size={30} style={styles.title}>
-        Вход в систему
+        Регистрация
       </Text>
       <Formik
         initialValues={{
@@ -39,6 +39,27 @@ const LoginScreen: React.FC<PropsType> = (props) => {
       >
         {(FormikProps) => (
           <>
+            <TextInput
+              placeholder="Имя пользователя"
+              placeholderTextColor="rgba(26, 24, 36, 0.5)"
+              onChangeText={FormikProps.handleChange("password")}
+              onFocus={() => setPasswordInputBorderColor("#1A1824")}
+              onBlur={() => {
+                FormikProps.handleBlur("password")
+                setPasswordInputBorderColor("#DCDCDC")
+              }}
+              textContentType="password"
+              autoCompleteType="password"
+              value={FormikProps.values.password as any}
+              style={{
+                ...styles.input,
+                borderBottomColor: passwordInputBorderColor,
+              }}
+            />
+            <Text style={styles.error_message}>
+              {FormikProps.touched.password && FormikProps.errors.password}
+            </Text>
+
             <TextInput
               placeholder="Номер телефона"
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
@@ -80,11 +101,38 @@ const LoginScreen: React.FC<PropsType> = (props) => {
             <Text style={styles.error_message}>
               {FormikProps.touched.password && FormikProps.errors.password}
             </Text>
+            <Text size={12} style={styles.pass_subtitle}>
+              Обязательно использование цифр и букв, минимальное количество
+              символов - 6
+            </Text>
+
+            <View style={styles.checkbox_wrap}>
+              <Text size={14}>Получать каждый раз новый пароль по СМС</Text>
+            </View>
+
+            <TextInput
+              placeholder="Email (не обязательно)"
+              placeholderTextColor="rgba(26, 24, 36, 0.5)"
+              onChangeText={FormikProps.handleChange("password")}
+              onFocus={() => setPasswordInputBorderColor("#1A1824")}
+              onBlur={() => {
+                FormikProps.handleBlur("password")
+                setPasswordInputBorderColor("#DCDCDC")
+              }}
+              textContentType="password"
+              autoCompleteType="password"
+              value={FormikProps.values.password as any}
+              style={{
+                ...styles.input,
+                borderBottomColor: passwordInputBorderColor,
+              }}
+            />
 
             <Button
-              text="Войти"
+              text="Зарегистрироваться"
               onPress={FormikProps.handleSubmit}
               buttonStyle={{
+                marginTop: 25,
                 alignSelf: null,
                 height: 50,
                 width: 315,
@@ -100,14 +148,12 @@ const LoginScreen: React.FC<PropsType> = (props) => {
           </>
         )}
       </Formik>
-      <TouchableOpacity style={styles.bottom_text_wrap}>
-        <Text style={styles.subtitle}>Получите новый пароль</Text>
-      </TouchableOpacity>
+
       <Button
-        text="Регистрация"
-        onPress={() => props.navigation.navigate("RegistrationScreen")}
+        text="Войти"
+        onPress={() => props.navigation.navigate("LoginScreen")}
         buttonStyle={{
-          marginTop: 28,
+          marginTop: 140,
           alignSelf: null,
           height: 50,
           width: 315,
@@ -126,12 +172,11 @@ const LoginScreen: React.FC<PropsType> = (props) => {
 //   STYLES   //
 const styles = StyleSheet.create({
   container: {
-    marginTop: 100,
+    marginTop: 29.01,
     marginHorizontal: 30,
   },
 
   title: {
-    width: 169,
     marginBottom: 12,
   },
 
@@ -154,6 +199,16 @@ const styles = StyleSheet.create({
     marginLeft: -30,
     letterSpacing: 0.3,
   },
+
+  pass_subtitle: {
+    color: "#1A1824",
+    opacity: 0.6,
+    marginBottom: 29.5,
+  },
+
+  checkbox_wrap: {
+    marginBottom: 30.5,
+  },
 })
 
-export default LoginScreen
+export default RegistrationScreen

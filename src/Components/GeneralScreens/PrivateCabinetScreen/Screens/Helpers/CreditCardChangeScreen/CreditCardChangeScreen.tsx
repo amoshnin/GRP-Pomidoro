@@ -46,7 +46,7 @@ const CredentialsFieldChangeScreen: React.FC<PropsType> = (props) => {
           <>
             <TextInput
               placeholder="Номер карты"
-              placeholderTextColor="#696969"
+              placeholderTextColor="rgba(26, 24, 36, 0.5)"
               onChangeText={FormikProps.handleChange("cardNum")}
               onFocus={() => setCardNumInputBorderColor("#1A1824")}
               onBlur={() => {
@@ -67,7 +67,7 @@ const CredentialsFieldChangeScreen: React.FC<PropsType> = (props) => {
 
             <TextInput
               placeholder="CVV/CVC"
-              placeholderTextColor="#696969"
+              placeholderTextColor="rgba(26, 24, 36, 0.5)"
               onChangeText={FormikProps.handleChange("CVV")}
               onFocus={() => setCVVInputBorderColor("#1A1824")}
               onBlur={() => {
@@ -88,7 +88,7 @@ const CredentialsFieldChangeScreen: React.FC<PropsType> = (props) => {
 
             <TextInput
               placeholder="EXP DATE"
-              placeholderTextColor="#696969"
+              placeholderTextColor="rgba(26, 24, 36, 0.5)"
               onChangeText={FormikProps.handleChange("ExpDate")}
               onFocus={() => setExpDateInputBorderColor("#1A1824")}
               onBlur={() => {

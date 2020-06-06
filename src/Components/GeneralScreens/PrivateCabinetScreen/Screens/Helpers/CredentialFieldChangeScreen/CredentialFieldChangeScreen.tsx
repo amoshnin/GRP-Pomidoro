@@ -35,7 +35,7 @@ const CredentialsFieldChangeScreen: React.FC<PropsType> = (props) => {
           <>
             <TextInput
               placeholder={props.route.params.placeholder}
-              placeholderTextColor="#696969"
+              placeholderTextColor="rgba(26, 24, 36, 0.5)"
               onChangeText={FormikProps.handleChange("field")}
               onFocus={() => setInputBorderColor("#1A1824")}
               onBlur={() => {
