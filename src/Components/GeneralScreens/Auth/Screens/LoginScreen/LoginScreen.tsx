@@ -35,7 +35,9 @@ const LoginScreen: React.FC<PropsType> = (props) => {
           phoneNum: null as number | null,
           password: null as string | null,
         }}
-        onSubmit={(values: any) => {}}
+        onSubmit={(values: any) => {
+          props.navigation.navigate("RegionSelectionScreen")
+        }}
       >
         {(FormikProps) => (
           <>

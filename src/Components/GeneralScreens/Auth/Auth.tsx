@@ -8,8 +8,9 @@ import { createStackNavigator } from "@react-navigation/stack"
 
 // COMPONENTS IMPORTS //
 import LoginScreenContainer from "./Screens/LoginScreen/LoginScreenContainer"
-import RegistrationScreenContainer from "./Screens/RegistrationScreen/RegistrationScreenContainer"
+import RegionSelectionScreen from "./Screens/LoginScreen/RegionSelectionScreen/RegionSelectionScreen"
 
+import RegistrationScreenContainer from "./Screens/RegistrationScreen/RegistrationScreenContainer"
 import RegistrationSuccesfulScreen from "./Screens/RegistrationScreen/RegistrationSuccesfulScreen/RegistrationSuccesfulScreen"
 
 // EXTRA IMPORTS //
@@ -28,6 +29,31 @@ const Auth: React.FC<PropsType> = (props) => {
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreenContainer}
+        options={({ navigation, route }: any) => ({
+          title: "",
+          headerStyle: {
+            height: 110,
+          },
+          headerRight: () => (
+            <TouchableOpacity
+              style={{
+                flexDirection: "row",
+                marginHorizontal: 25,
+              }}
+            >
+              <Text style={{ marginRight: 1 }}>Ру</Text>
+              <MaterialIcons
+                name="keyboard-arrow-down"
+                size={23}
+                color="black"
+              />
+            </TouchableOpacity>
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="RegionSelectionScreen"
+        component={RegionSelectionScreen}
         options={({ navigation, route }: any) => ({
           title: "",
           headerStyle: {
