@@ -58,9 +58,6 @@ const LoginScreen: React.FC<PropsType> = (props) => {
                 borderBottomColor: phoneNumInputBorderColor,
               }}
             />
-            <Text style={styles.error_message}>
-              {FormikProps.touched.phoneNum && FormikProps.errors.phoneNum}
-            </Text>
 
             <TextInput
               placeholder="Введите пароль"
@@ -79,9 +76,6 @@ const LoginScreen: React.FC<PropsType> = (props) => {
                 borderBottomColor: passwordInputBorderColor,
               }}
             />
-            <Text style={styles.error_message}>
-              {FormikProps.touched.password && FormikProps.errors.password}
-            </Text>
 
             <Button
               text="Войти"
@@ -109,7 +103,7 @@ const LoginScreen: React.FC<PropsType> = (props) => {
         text="Регистрация"
         onPress={() => props.navigation.navigate("RegistrationScreen")}
         buttonStyle={{
-          marginTop: 230,
+          marginTop: 270,
           alignSelf: null,
           height: 50,
           width: 315,
@@ -144,8 +138,6 @@ const styles = StyleSheet.create({
     width: 315,
     fontSize: 16,
   },
-
-  error_message: {},
 
   bottom_text_wrap: {
     flexDirection: "column",

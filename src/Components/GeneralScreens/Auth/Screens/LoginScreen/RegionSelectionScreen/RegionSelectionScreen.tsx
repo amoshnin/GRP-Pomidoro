@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, TouchableOpacity, Image, StyleSheet } from "react-native"
+import { View, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
@@ -12,9 +12,33 @@ import Text from "~/Components/Shared/Components/Text/Text"
 type PropsType = {}
 
 const RegionSelectionScreen: React.FC<PropsType> = (props) => {
-  return <View></View>
+  const RegionsList = [
+    "Бровары",
+    "Петропавловская",
+    "Чайки",
+    "Буча",
+    "Ирпень",
+    "Борисполь",
+  ]
+
+  return (
+    <View style={styles.container}>
+      <Text weight="bold" size={30} style={styles.title}>
+        Выберите ваш регион:
+      </Text>
+    </View>
+  )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    marginHorizontal: 30,
+  },
+
+  title: {
+    width: 249,
+    marginBottom: 43,
+  },
+})
 
 export default RegionSelectionScreen

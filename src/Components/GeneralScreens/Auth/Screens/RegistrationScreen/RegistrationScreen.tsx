@@ -100,7 +100,6 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
                 setPhoneNumInputBorderColor("#DCDCDC")
               }}
               keyboardType="number-pad"
-              textContentType="creditCardNumber"
               value={FormikProps.values.phoneNum as any}
               style={{
                 ...styles.input,
@@ -208,7 +207,7 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
 //   STYLES   //
 const styles = StyleSheet.create({
   container: {
-    marginTop: 60,
+    marginTop: 70,
     marginHorizontal: 30,
     flex: 1,
   },
@@ -227,17 +226,6 @@ const styles = StyleSheet.create({
   error_message: {
     color: "red",
     marginTop: 3,
-  },
-
-  bottom_text_wrap: {
-    flexDirection: "column",
-    alignItems: "center",
-    marginTop: 22,
-  },
-
-  subtitle: {
-    marginLeft: -30,
-    letterSpacing: 0.3,
   },
 
   checkbox_wrap: {

@@ -80,30 +80,23 @@ const Auth: React.FC<PropsType> = (props) => {
         name="RegistrationScreen"
         component={RegistrationScreenContainer}
         options={({ navigation, route }: any) => ({
-          header: () => (
-            <SafeAreaView style={styles.header_container}>
-              <TouchableOpacity onPress={() => navigation.goBack()}>
-                <Ionicons
-                  name="ios-arrow-back"
-                  size={24}
-                  color="black"
-                  style={styles.icon}
-                />
-              </TouchableOpacity>
-              <Image
-                source={require("../../../Images/logo.png")}
-                style={styles.logo}
-              />
-              <TouchableOpacity style={{ ...styles.icon, marginRight: 12 }}>
-                <Text style={{ marginRight: 1 }}>Ру</Text>
-                <MaterialIcons
-                  name="keyboard-arrow-down"
-                  size={23}
-                  color="black"
-                />
-              </TouchableOpacity>
-            </SafeAreaView>
+          headerTitle: () => (
+            <Image source={require("../../../Images/logo.png")} />
           ),
+          headerTitleAlign: "center",
+          headerRight: () => (
+            <TouchableOpacity style={{ ...styles.icon, marginRight: 12 }}>
+              <Text style={{ marginRight: 1 }}>Ру</Text>
+              <MaterialIcons
+                name="keyboard-arrow-down"
+                size={23}
+                color="black"
+              />
+            </TouchableOpacity>
+          ),
+          headerStyle: {
+            height: 100,
+          },
         })}
       />
       <Stack.Screen
