@@ -24,6 +24,7 @@ import MenuScreenContainer from "./src/Components/GeneralScreens/MenuScreen/Menu
 import OrdersScreenContainer from "./src/Components/GeneralScreens/OrdersScreen/OrdersScreenContainer"
 import SalesScreenContainer from "./src/Components/GeneralScreens/SalesScreen/SalesScreenContainer"
 import DeliveryTermsScreen from "./src/Components/GeneralScreens/DeliveryTermsScreen/DeliveryTermsScreen"
+import ContactsScreen from "./src/Components/GeneralScreens/ContactsScreen/ContactsScreen"
 
 // EXTRA IMPORTS //
 import { AntDesign } from "@expo/vector-icons"
@@ -63,7 +64,7 @@ const App: React.FC<PropsType> = (props) => {
             colors: { background: "#fff" },
           }}
         >
-          <Stack.Navigator initialRouteName="Auth">
+          <Stack.Navigator initialRouteName="MainScreen">
             <Stack.Screen
               name="Auth"
               component={Auth}
@@ -177,6 +178,25 @@ const App: React.FC<PropsType> = (props) => {
             <Stack.Screen
               name="DeliveryTermsScreen"
               component={DeliveryTermsScreen}
+              options={({ navigation, route }: any) => ({
+                header: () => (
+                  <GeneralHeader
+                    navigation={navigation}
+                    leftIcon={
+                      <MaterialIcons
+                        name="menu"
+                        size={24}
+                        color="#1C1C1C"
+                        onPress={() => navigation.navigate("DashboardScreen")}
+                      />
+                    }
+                  />
+                ),
+              })}
+            />
+            <Stack.Screen
+              name="ContactsScreen"
+              component={ContactsScreen}
               options={({ navigation, route }: any) => ({
                 header: () => (
                   <GeneralHeader

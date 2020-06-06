@@ -34,7 +34,7 @@ const RegionSelectionScreen: React.FC<PropsType> = (props) => {
       </Text>
       {RegionsList.map((region: string) => {
         return (
-          <View style={styles.region_wrap}>
+          <View style={styles.region_wrap} key={region}>
             <RadioButton
               value={region}
               status={checkedValue === region ? "checked" : "unchecked"}

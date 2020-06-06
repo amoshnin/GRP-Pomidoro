@@ -99,7 +99,12 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
           <Text style={styles.text}>Условия доставки</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.rect_button}>
+      <TouchableOpacity
+        style={styles.rect_button}
+        onPress={() => {
+          props.navigation.navigate("ContactsScreen")
+        }}
+      >
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Контакты</Text>
