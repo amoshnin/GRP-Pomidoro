@@ -82,6 +82,7 @@ const LoginScreen: React.FC<PropsType> = (props) => {
               onPress={FormikProps.handleSubmit}
               buttonStyle={{
                 alignSelf: null,
+                marginTop: 5,
                 height: 50,
                 width: 315,
                 borderRadius: 6,
@@ -103,7 +104,7 @@ const LoginScreen: React.FC<PropsType> = (props) => {
         text="Регистрация"
         onPress={() => props.navigation.navigate("RegistrationScreen")}
         buttonStyle={{
-          marginTop: 270,
+          marginTop: 235,
           alignSelf: null,
           height: 50,
           width: 315,
@@ -137,6 +138,7 @@ const styles = StyleSheet.create({
     height: 45,
     width: 315,
     fontSize: 16,
+    marginBottom: 20,
   },
 
   bottom_text_wrap: {
