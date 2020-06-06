@@ -18,13 +18,13 @@ import { Ionicons } from "@expo/vector-icons"
 
 type PropsType = {}
 
-const PrivateCabinerScreen: React.FC<PropsType> = (props) => {
+const PrivateCabinetScreen: React.FC<PropsType> = (props) => {
   const Stack = createStackNavigator()
 
   return (
-    <Stack.Navigator initialRouteName="PrivateCabinerScreenMain">
+    <Stack.Navigator initialRouteName="PrivateCabinetScreenMain">
       <Stack.Screen
-        name="PrivateCabinerScreenMain"
+        name="PrivateCabinetScreenMain"
         component={MainContainer}
         options={({ navigation, route }: any) => ({
           header: () => (
@@ -88,4 +88,4 @@ const PrivateCabinerScreen: React.FC<PropsType> = (props) => {
   )
 }
 
-export default PrivateCabinerScreen
+export default PrivateCabinetScreen

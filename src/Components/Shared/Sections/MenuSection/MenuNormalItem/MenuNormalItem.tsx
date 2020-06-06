@@ -12,13 +12,22 @@ import { RectButton } from "react-native-gesture-handler"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  navigation: any
+
   imageURL: string
   title: string
 }
 
 const MenuNormalItem: React.FC<PropsType> = (props) => {
   return (
-    <RectButton style={styles.image_wrap}>
+    <RectButton
+      style={styles.image_wrap}
+      onPress={() =>
+        props.navigation.navigate("ProductTypeCatalog", {
+          productName: props.title,
+        })
+      }
+    >
       <Image source={require(`../../../../../Images/menu-1.png`)} />
       <Text style={styles.text} weight="bold">
         {props.title}

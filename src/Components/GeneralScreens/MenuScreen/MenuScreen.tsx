@@ -30,6 +30,7 @@ const MenuScreen: React.FC<PropsType> = (props) => {
         text={"Узнать, где мой заказ"}
       />
       <MenuSection
+        navigation={props.navigation}
         scroll={false}
         titleText="Меню"
         titleStyle={{ fontSize: 30 }}

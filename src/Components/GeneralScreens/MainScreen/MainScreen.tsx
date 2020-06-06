@@ -49,6 +49,7 @@ const MainScreen: React.FC<PropsType> = (props) => {
         }}
       />
       <MenuSection
+        navigation={props.navigation}
         titleText={"Меню"}
         scroll={true}
         titleStyle={{

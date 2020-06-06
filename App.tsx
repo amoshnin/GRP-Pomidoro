@@ -17,6 +17,7 @@ import LoadingScreen from "./src/Components/HelpersScreens/LoadingScreen/Loading
 import DashboardScreenContainer from "./src/Components/HelpersScreens/DashboardScreen/DashboardScreenContainer"
 import Auth from "./src/Components/GeneralScreens/Auth/Auth"
 import IndividualSaleScreen from "./src/Components/HelpersScreens/IndividualSaleScreen/IndividualSaleScreen"
+import ProductTypeCatalog from "./src/Components/HelpersScreens/ProductTypeCatalogScreen/ProductTypeCatalogScreen"
 
 import MainScreen from "./src/Components/GeneralScreens/MainScreen/MainScreenContainer"
 import PrivateCabinerScreen from "./src/Components/GeneralScreens/PrivateCabinetScreen/PrivateCabinetScreen"
@@ -237,6 +238,16 @@ const App: React.FC<PropsType> = (props) => {
                 description: null as string | null,
                 saleType: null as string | null,
                 image: null as string | null,
+              }}
+            />
+            <Stack.Screen
+              name="ProductTypeCatalog"
+              component={ProductTypeCatalog}
+              options={({ navigation, route }: any) => ({
+                headerShown: false,
+              })}
+              initialParams={{
+                productName: null as string | null,
               }}
             />
           </Stack.Navigator>

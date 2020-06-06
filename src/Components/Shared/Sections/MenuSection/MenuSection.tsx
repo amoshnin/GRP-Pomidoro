@@ -12,6 +12,8 @@ import MenuNormalItem from "./MenuNormalItem/MenuNormalItem"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  navigation: any
+
   titleText?: string
   titleStyle?: any
   scroll?: boolean
@@ -33,23 +35,79 @@ const MenuSection: React.FC<PropsType> = (props) => {
           style={styles.scroll_content_wrap}
           showsHorizontalScrollIndicator={false}
         >
-          <MenuScrollItem title={"Пицаа"} imageURL={""} />
-          <MenuScrollItem title={"Пицаа"} imageURL={""} />
-          <MenuScrollItem title={"Пицаа"} imageURL={""} />
-          <MenuScrollItem title={"Пицаа"} imageURL={""} />
-          <MenuScrollItem title={"Пицаа"} imageURL={""} />
-          <MenuScrollItem title={"Пицаа"} imageURL={""} />
-          <MenuScrollItem title={"Пицаа"} imageURL={""} />
-          <MenuScrollItem title={"Пицаа"} imageURL={""} />
+          <MenuScrollItem
+            title={"Пицца"}
+            imageURL={""}
+            navigation={props.navigation}
+          />
+          <MenuScrollItem
+            title={"Пицца"}
+            imageURL={""}
+            navigation={props.navigation}
+          />
+          <MenuScrollItem
+            title={"Пицца"}
+            imageURL={""}
+            navigation={props.navigation}
+          />
+          <MenuScrollItem
+            title={"Пицца"}
+            imageURL={""}
+            navigation={props.navigation}
+          />
+          <MenuScrollItem
+            title={"Пицца"}
+            imageURL={""}
+            navigation={props.navigation}
+          />
+          <MenuScrollItem
+            title={"Пицца"}
+            imageURL={""}
+            navigation={props.navigation}
+          />
+          <MenuScrollItem
+            title={"Пицца"}
+            imageURL={""}
+            navigation={props.navigation}
+          />
+          <MenuScrollItem
+            title={"Пицца"}
+            imageURL={""}
+            navigation={props.navigation}
+          />
         </ScrollView>
       ) : (
         <View style={styles.content_wrap}>
-          <MenuNormalItem title={"Пицаа"} imageURL={""} />
-          <MenuNormalItem title={"Пицаа"} imageURL={""} />
-          <MenuNormalItem title={"Пицаа"} imageURL={""} />
-          <MenuNormalItem title={"Пицаа"} imageURL={""} />
-          <MenuNormalItem title={"Пицаа"} imageURL={""} />
-          <MenuNormalItem title={"Пицаа"} imageURL={""} />
+          <MenuNormalItem
+            title={"Пицца"}
+            imageURL={""}
+            navigation={props.navigation}
+          />
+          <MenuNormalItem
+            title={"Пицца"}
+            imageURL={""}
+            navigation={props.navigation}
+          />
+          <MenuNormalItem
+            title={"Пицца"}
+            imageURL={""}
+            navigation={props.navigation}
+          />
+          <MenuNormalItem
+            title={"Пицца"}
+            imageURL={""}
+            navigation={props.navigation}
+          />
+          <MenuNormalItem
+            title={"Пицца"}
+            imageURL={""}
+            navigation={props.navigation}
+          />
+          <MenuNormalItem
+            title={"Пицца"}
+            imageURL={""}
+            navigation={props.navigation}
+          />
         </View>
       )}
     </View>

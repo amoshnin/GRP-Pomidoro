@@ -1,6 +1,12 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, Text, Image, StyleSheet } from "react-native"
+import {
+  View,
+  Text,
+  TouchableWithoutFeedback,
+  Image,
+  StyleSheet,
+} from "react-native"
 
 // COMPONENTS IMPORTS //
 
@@ -9,16 +15,26 @@ import { View, Text, Image, StyleSheet } from "react-native"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  navigation: any
+
   imageURL: string
   title: string
 }
 
 const MenuScrollItem: React.FC<PropsType> = (props) => {
   return (
-    <View style={styles.scroll_image_wrap}>
-      <Image source={require(`../../../../../Images/menu-1.png`)} />
-      <Text style={styles.text}>{props.title}</Text>
-    </View>
+    <TouchableWithoutFeedback
+      onPress={() =>
+        props.navigation.navigate("ProductTypeCatalog", {
+          productName: props.title,
+        })
+      }
+    >
+      <View style={styles.scroll_image_wrap}>
+        <Image source={require(`../../../../../Images/menu-1.png`)} />
+        <Text style={styles.text}>{props.title}</Text>
+      </View>
+    </TouchableWithoutFeedback>
   )
 }
 
