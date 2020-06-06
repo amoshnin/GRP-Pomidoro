@@ -34,11 +34,11 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
   )
 
   const ValidationSchema = yup.object({
-    name: yup
-      .string()
-      .min(0, "Имя должно минимум иметь 1 символ")
-      .required("Имя обязательно"),
-    phoneNum: yup.number().required("Телефон обязателен"),
+    name: yup.string().required("Имя обязательно").typeError("Имя обязательно"),
+    phoneNum: yup
+      .number()
+      .required("Телефон обязателен")
+      .typeError("Телефон обязателен"),
     password: yup
       .string()
       .min(6, "Пароль слишком кототкий - минимум 6 символов")
@@ -46,8 +46,8 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
         /[a-zA-Z](?=.*[0-9])/ as any,
         "Пароль должен обязательно иметь цифры и буквы"
       )
-      .required("Пароль обязателен"),
-    email: yup.string().email("Неверный email"),
+      .required("Пароль обязателен")
+      .typeError("Пароль обязателен"),
   })
 
   return (
@@ -63,7 +63,9 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
           password: null as string | null,
           email: null as string | null,
         }}
-        onSubmit={(values: any) => {}}
+        onSubmit={(values: any) => {
+          props.navigation.navigate("RegistrationSuccesfulScreen")
+        }}
       >
         {(FormikProps) => (
           <>
@@ -161,10 +163,6 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
               }}
             />
 
-            <Text style={styles.error_message}>
-              {FormikProps.touched.email && FormikProps.errors.email}
-            </Text>
-
             <Button
               text="Зарегистрироваться"
               onPress={FormikProps.handleSubmit}
@@ -243,6 +241,7 @@ const styles = StyleSheet.create({
   },
 
   checkbox_wrap: {
+    marginTop: 10,
     flexDirection: "row",
     marginBottom: 30.5,
   },

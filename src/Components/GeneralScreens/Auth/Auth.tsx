@@ -10,6 +10,8 @@ import { createStackNavigator } from "@react-navigation/stack"
 import LoginScreenContainer from "./Screens/LoginScreen/LoginScreenContainer"
 import RegistrationScreenContainer from "./Screens/RegistrationScreen/RegistrationScreenContainer"
 
+import RegistrationSuccesfulScreen from "./Screens/RegistrationScreen/RegistrationSuccesfulScreen/RegistrationSuccesfulScreen"
+
 // EXTRA IMPORTS //
 import { MaterialIcons } from "@expo/vector-icons"
 import { Ionicons } from "@expo/vector-icons"
@@ -76,6 +78,13 @@ const Auth: React.FC<PropsType> = (props) => {
               </TouchableOpacity>
             </SafeAreaView>
           ),
+        })}
+      />
+      <Stack.Screen
+        name="RegistrationSuccesfulScreen"
+        component={RegistrationSuccesfulScreen}
+        options={({ navigation, route }: any) => ({
+          headerShown: false,
         })}
       />
     </Stack.Navigator>
