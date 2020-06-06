@@ -19,6 +19,7 @@ import Auth from "./src/Components/GeneralScreens/Auth/Auth"
 import IndividualSaleScreen from "./src/Components/HelpersScreens/IndividualSaleScreen/IndividualSaleScreen"
 import ProductTypeCatalog from "./src/Components/HelpersScreens/ProductTypeCatalogScreen/ProductTypeCatalogScreen"
 import IndividualProductItem from "./src/Components/HelpersScreens/IndividualProductItem/IndividualProductItem"
+import OrderTracking from "./src/Components/HelpersScreens/OrderTracking/OrderTracking"
 
 import MainScreen from "./src/Components/GeneralScreens/MainScreen/MainScreenContainer"
 import PrivateCabinerScreen from "./src/Components/GeneralScreens/PrivateCabinetScreen/PrivateCabinetScreen"
@@ -266,6 +267,17 @@ const App: React.FC<PropsType> = (props) => {
                 productPrice40: null as string | null,
                 productType: [] as Array<string>,
                 ingridientsList: [] as Array<string>,
+              }}
+            />
+            <Stack.Screen
+              name="OrderTracking"
+              component={OrderTracking}
+              options={({ navigation, route }: any) => ({
+                headerTitle: `Заказ №${route.params.orderID}`,
+                headerTitleAlign: "center",
+              })}
+              initialParams={{
+                orderID: "" as string,
               }}
             />
           </Stack.Navigator>

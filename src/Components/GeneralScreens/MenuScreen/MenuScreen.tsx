@@ -19,6 +19,7 @@ const MenuScreen: React.FC<PropsType> = (props) => {
   return (
     <ScrollView style={styles.container}>
       <Button
+        onPress={() => props.navigation.navigate("OrderTracking")}
         buttonStyle={{ backgroundColor: "#96A637", borderRadius: 20 }}
         rectStyle={{
           width: 315,

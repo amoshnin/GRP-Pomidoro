@@ -20,6 +20,7 @@ const MainScreen: React.FC<PropsType> = (props) => {
   return (
     <ScrollView style={styles.container}>
       <Button
+        onPress={() => props.navigation.navigate("OrderTracking")}
         buttonStyle={{
           borderRadius: 20,
           backgroundColor: "#96A637",

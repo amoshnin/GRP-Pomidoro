@@ -18,6 +18,7 @@ const SalesScreen: React.FC<PropsType> = (props) => {
   return (
     <ScrollView>
       <Button
+        onPress={() => props.navigation.navigate("OrderTracking")}
         buttonStyle={{
           backgroundColor: "#96A637",
           borderRadius: 20,
