@@ -1,9 +1,10 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, FlatList, StyleSheet } from "react-native"
+import { View, StyleSheet } from "react-native"
 
 // COMPONENTS IMPORTS //
 import ProductItem from "./ProductItem/ProductItem"
+import EmptyProductsList from "./EmptyProductsList/EmptyProductsList"
 
 // EXTRA IMPORTS //
 
@@ -41,19 +42,22 @@ const ProductListSection: React.FC<PropsType> = (props) => {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={data}
-        renderItem={({ item }) => (
-          <ProductItem
-            key={item.title}
-            title={item.title}
-            description={item.description}
-            price24={item.price24}
-            price32={item.price32}
-            price40={item.price40}
-          />
-        )}
-      />
+      {data.length > 0 ? (
+        data.map((product: any) => {
+          return (
+            <ProductItem
+              key={product.title}
+              title={product.title}
+              description={product.description}
+              price24={product.price24}
+              price32={product.price32}
+              price40={product.price40}
+            />
+          )
+        })
+      ) : (
+        <EmptyProductsList />
+      )}
     </View>
   )
 }
