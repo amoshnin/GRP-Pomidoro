@@ -19,6 +19,7 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <RectButton
+        style={styles.rect_button}
         onPress={() => {
           props.navigation.navigate("MainScreen")
         }}
@@ -29,6 +30,7 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
         </View>
       </RectButton>
       <RectButton
+        style={styles.rect_button}
         onPress={() => {
           props.navigation.navigate("PrivateCabinetScreen")
         }}
@@ -39,6 +41,7 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
         </View>
       </RectButton>
       <RectButton
+        style={styles.rect_button}
         onPress={() => {
           props.navigation.navigate("MenuScreen")
         }}
@@ -48,25 +51,26 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
           <Text style={styles.text}>Меню</Text>
         </View>
       </RectButton>
-      <RectButton>
+      <RectButton style={styles.rect_button}>
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Конструктор пиццы</Text>
         </View>
       </RectButton>
-      <RectButton>
+      <RectButton style={styles.rect_button}>
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Ваши заказы</Text>
         </View>
       </RectButton>
-      <RectButton>
+      <RectButton style={styles.rect_button}>
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Корзина</Text>
         </View>
       </RectButton>
       <RectButton
+        style={styles.rect_button}
         onPress={() => {
           props.navigation.navigate("SalesScreen")
         }}
@@ -76,13 +80,14 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
           <Text style={styles.text}>Акции</Text>
         </View>
       </RectButton>
-      <RectButton>
+      <RectButton style={styles.rect_button}>
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Подписка</Text>
         </View>
       </RectButton>
       <RectButton
+        style={styles.rect_button}
         onPress={() => props.navigation.navigate("DeliveryTermsScreen")}
       >
         <View style={styles.item_wrap}>
@@ -90,7 +95,7 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
           <Text style={styles.text}>Условия доставки</Text>
         </View>
       </RectButton>
-      <RectButton>
+      <RectButton style={styles.rect_button}>
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Контакты</Text>
@@ -105,6 +110,11 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 20,
     flexDirection: "column",
+  },
+
+  rect_button: {
+    height: 60,
+    justifyContent: "center",
   },
 
   item_wrap: {

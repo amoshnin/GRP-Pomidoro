@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { StyleSheet } from "react-native"
+import { View, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 import { RectButton } from "react-native-gesture-handler"
@@ -15,16 +15,19 @@ type PropsType = {
   text: string
 
   buttonStyle?: any
+  rectStyle?: any
   textStyle?: any
 }
 
 const Button: React.FC<PropsType> = (props) => {
   return (
-    <RectButton style={{ ...styles.container, ...props.buttonStyle }}>
-      <Text style={{ ...styles.text, ...props.textStyle }} weight="bold">
-        {props.text}
-      </Text>
-    </RectButton>
+    <View style={{ ...styles.container, ...props.buttonStyle }}>
+      <RectButton style={props.rectStyle}>
+        <Text style={{ ...styles.text, ...props.textStyle }} weight="bold">
+          {props.text}
+        </Text>
+      </RectButton>
+    </View>
   )
 }
 

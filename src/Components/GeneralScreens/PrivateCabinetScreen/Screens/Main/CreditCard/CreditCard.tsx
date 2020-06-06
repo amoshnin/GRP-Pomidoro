@@ -24,8 +24,12 @@ const CreditCard: React.FC<PropsType> = (props) => {
           marginBottom: 35,
           backgroundColor: "#96A637",
           borderRadius: 6,
+        }}
+        rectStyle={{
           width: 315,
           height: 50,
+          justifyContent: "center",
+          alignItems: "center",
         }}
         text={"Привязать карту"}
         textStyle={{ color: "white", letterSpacing: 0.3, fontSize: 16 }}

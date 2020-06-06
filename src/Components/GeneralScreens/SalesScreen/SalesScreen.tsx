@@ -20,10 +20,14 @@ const SalesScreen: React.FC<PropsType> = (props) => {
       <Button
         buttonStyle={{
           backgroundColor: "#96A637",
-          height: 40,
-          width: 315,
           borderRadius: 20,
           marginTop: 16,
+        }}
+        rectStyle={{
+          height: 40,
+          width: 315,
+          justifyContent: "center",
+          alignItems: "center",
         }}
         textStyle={{ color: "white" }}
         text={"Узнать, где мой заказ"}

@@ -22,9 +22,13 @@ const MainScreen: React.FC<PropsType> = (props) => {
       <Button
         buttonStyle={{
           borderRadius: 20,
+          backgroundColor: "#96A637",
+        }}
+        rectStyle={{
           height: 40,
           width: 315,
-          backgroundColor: "#96A637",
+          justifyContent: "center",
+          alignItems: "center",
         }}
         textStyle={{ color: "#FFFFFF" }}
         text={"Узнать, где мой заказ"}

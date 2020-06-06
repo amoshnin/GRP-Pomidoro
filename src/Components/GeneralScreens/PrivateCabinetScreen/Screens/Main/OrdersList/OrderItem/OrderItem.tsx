@@ -60,13 +60,17 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
 
-  button: {},
+  button: {
+    alignItems: "center",
+  },
 
   button_text: {
     marginTop: 17,
     paddingBottom: 3,
     color: "#96A637",
     fontSize: 16,
+    fontWeight: "bold",
+    letterSpacing: 0.3,
   },
 })
 

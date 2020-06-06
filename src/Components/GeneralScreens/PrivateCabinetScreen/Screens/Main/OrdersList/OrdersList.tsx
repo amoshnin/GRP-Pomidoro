@@ -23,7 +23,21 @@ const OrdersList: React.FC<PropsType> = (props) => {
       <OrderItem />
       <OrderItem />
 
-      <Button />
+      <Button
+        text={"Показавать все заказы"}
+        buttonStyle={{
+          borderWidth: 1,
+          borderColor: "#EAEAEB",
+          borderRadius: 20,
+          marginTop: 20,
+        }}
+        rectStyle={{
+          width: 315,
+          height: 40,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      />
     </View>
   )
 }

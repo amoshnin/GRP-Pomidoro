@@ -20,6 +20,12 @@ const MenuScreen: React.FC<PropsType> = (props) => {
     <ScrollView style={styles.container}>
       <Button
         buttonStyle={{ backgroundColor: "#96A637", borderRadius: 20 }}
+        rectStyle={{
+          width: 315,
+          height: 40,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
         textStyle={{ color: "white" }}
         text={"Узнать, где мой заказ"}
       />
@@ -49,6 +55,12 @@ const MenuScreen: React.FC<PropsType> = (props) => {
           borderRadius: 20,
           marginTop: 20,
           marginBottom: 30,
+        }}
+        rectStyle={{
+          width: 315,
+          height: 40,
+          justifyContent: "center",
+          alignItems: "center",
         }}
         textStyle={{ color: "black" }}
         text={"Посмотреть все акции"}

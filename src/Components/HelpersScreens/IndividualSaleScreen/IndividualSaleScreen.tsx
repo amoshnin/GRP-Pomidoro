@@ -36,6 +36,10 @@ const IndividualSaleScreen: React.FC<PropsType> = (props) => {
         buttonStyle={{
           paddingHorizontal: 15,
           marginTop: 22.62,
+        }}
+        rectStyle={{
+          justifyContent: "center",
+          alignItems: "center",
           width: 315,
           height: 50,
         }}
