@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
-import React from "react"
-import { View, ScrollView, StyleSheet } from "react-native"
+import React, { useRef, useEffect } from "react"
+import { View, ScrollView, Dimensions, StyleSheet } from "react-native"
+import SlidingUpPanel from "rn-sliding-up-panel"
 
 // COMPONENTS IMPORTS //
 import RouteSection from "./RouteSection/RouteSection"
@@ -34,31 +35,58 @@ const BottomSection: React.FC<PropsType> = (props) => {
     },
   ]
 
+  const _panel = useRef(null as any)
+  const { height } = Dimensions.get("window")
+
+  useEffect(() => {
+    _panel.current.show()
+  }, [])
+
   return (
-    <ScrollView style={styles.container}>
-      <RouteSection />
-      <View style={styles.divider} />
-      <OrderDataSection
-        orderID={props.route.params.orderID}
-        date={"24.03.2019"}
-        delivered={false}
-      />
-      <OrderProductsDataSection productsList={ProductsList} />
-    </ScrollView>
+    <SlidingUpPanel
+      ref={_panel}
+      draggableRange={{ top: height / 1.3, bottom: 470 }}
+      backdropOpacity={0.2}
+      onBottomReached={() => {
+        _panel.current.hide()
+      }}
+    >
+      {(dragHandler) => (
+        <View style={styles.wrapper}>
+          <View style={styles.dragHandler} {...dragHandler} />
+          <ScrollView
+            style={styles.container}
+            showsHorizontalScrollIndicator={false}
+          >
+            <RouteSection />
+            <View style={styles.divider} />
+            <OrderDataSection
+              orderID={props.route.params.orderID}
+              date={"24.03.2019"}
+              delivered={false}
+            />
+            <OrderProductsDataSection productsList={ProductsList} />
+          </ScrollView>
+        </View>
+      )}
+    </SlidingUpPanel>
   )
 }
 
 //   STYLES   //
 const styles = StyleSheet.create({
+  wrapper: {
+    borderTopRightRadius: 34,
+    borderTopLeftRadius: 34,
+    position: "absolute",
+    height: "80%",
+    width: "100%",
+  },
+
   container: {
-    flex: 1,
     borderTopRightRadius: 34,
     borderTopLeftRadius: 34,
     backgroundColor: "white",
-    position: "absolute",
-    bottom: 0,
-    height: "70%",
-    width: "100%",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -67,6 +95,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.58,
     shadowRadius: 16.0,
     elevation: 24,
+  },
+
+  dragHandler: {
+    width: 100,
+    height: 10,
+    borderRadius: 100,
+    backgroundColor: "#F9F6EF",
+    alignSelf: "center",
   },
 
   divider: {
