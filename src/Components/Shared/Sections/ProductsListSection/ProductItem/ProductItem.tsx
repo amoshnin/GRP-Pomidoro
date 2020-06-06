@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, Image, StyleSheet } from "react-native"
+import { View, Image, TouchableWithoutFeedback, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 import { RectButton } from "react-native-gesture-handler"
@@ -13,8 +13,11 @@ import { Entypo } from "@expo/vector-icons"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  navigation: any
   title: string
-  description: string
+  image: string
+  ingridientsList: Array<string>
+  productType: Array<string>
   price24: string
   price32: string
   price40: string
@@ -22,14 +25,30 @@ type PropsType = {
 
 const ProductItem: React.FC<PropsType> = (props) => {
   return (
-    <>
+    <TouchableWithoutFeedback
+      onPress={() =>
+        props.navigation.navigate("IndividualProductItem", {
+          productTitle: props.title as string,
+          image: props.image as string,
+          productPrice24: props.price24 as string,
+          productPrice32: props.price32 as string,
+          productPrice40: props.price40 as string,
+          productType: props.productType as Array<string>,
+          ingridientsList: props.ingridientsList as Array<string>,
+        })
+      }
+    >
       <View style={styles.container}>
         <Image source={require("../../../../../Images/product-1.png")} />
         <View style={styles.text_wrap}>
           <Text style={styles.title} weight="bold">
             {props.title}
           </Text>
-          <Text style={styles.subtitle}>{props.description}</Text>
+          <Text style={styles.subtitle}>
+            {props.ingridientsList.map((ingridient: string) => {
+              return `${ingridient}, `
+            })}
+          </Text>
           <Text style={styles.note}>Выберите размер для заказа:</Text>
           <View style={styles.sizes_wrap}>
             <View style={{ ...styles.size_circle, height: 64, width: 64 }}>
@@ -66,7 +85,7 @@ const ProductItem: React.FC<PropsType> = (props) => {
           <View style={styles.divider} />
         </View>
       </View>
-    </>
+    </TouchableWithoutFeedback>
   )
 }
 
@@ -89,6 +108,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 13,
     marginVertical: 9,
+    width: 213,
   },
 
   note: {

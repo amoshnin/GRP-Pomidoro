@@ -10,33 +10,53 @@ import EmptyProductsList from "./EmptyProductsList/EmptyProductsList"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  navigation: any
+}
 
 const ProductListSection: React.FC<PropsType> = (props) => {
   const data = [
     {
       title: "Паперони спайс",
-      description:
-        "Соус томатный, сыр моцарелла, паперони, перец болгарский, перец чили",
+      ingridientsList: [
+        "Соус томатный",
+        "соус томатный",
+        "соус томатный",
+        "соус томатный",
+      ],
+      productType: ["Мясо", "сыр", "салями"],
       price24: "99 ₴",
       price32: "164 ₴",
       price40: "199 ₴",
+      image: "",
     },
     {
       title: "Паперони спайс",
-      description:
-        "Соус томатный, сыр моцарелла, паперони, перец болгарский, перец чили",
+      ingridientsList: [
+        "Соус томатный",
+        "соус томатный",
+        "соус томатный",
+        "соус томатный",
+      ],
+      productType: ["Мясо", "сыр", "салями"],
       price24: "99 ₴",
       price32: "164 ₴",
       price40: "199 ₴",
+      image: "",
     },
     {
       title: "Паперони спайс",
-      description:
-        "Соус томатный, сыр моцарелла, паперони, перец болгарский, перец чили",
+      ingridientsList: [
+        "Соус томатный",
+        "соус томатный",
+        "соус томатный",
+        "соус томатный",
+      ],
+      productType: ["Мясо", "сыр", "салями"],
       price24: "99 ₴",
       price32: "164 ₴",
       price40: "199 ₴",
+      image: "",
     },
   ]
 
@@ -47,8 +67,11 @@ const ProductListSection: React.FC<PropsType> = (props) => {
           return (
             <ProductItem
               key={product.title}
+              navigation={props.navigation}
               title={product.title}
-              description={product.description}
+              image={product.image}
+              ingridientsList={product.ingridientsList}
+              productType={product.productType}
               price24={product.price24}
               price32={product.price32}
               price40={product.price40}

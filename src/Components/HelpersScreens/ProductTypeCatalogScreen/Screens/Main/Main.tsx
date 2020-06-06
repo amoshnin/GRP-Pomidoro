@@ -19,7 +19,7 @@ const Main: React.FC<PropsType> = (props) => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <Header navigation={props.navigation} route={props.route} />
-      <ProductsListSection />
+      <ProductsListSection navigation={props.navigation} />
     </ScrollView>
   )
 }

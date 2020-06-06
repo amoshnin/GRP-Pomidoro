@@ -59,7 +59,7 @@ const MainScreen: React.FC<PropsType> = (props) => {
         }}
         containerStyle={{ marginTop: 25 }}
       />
-      <ProductListSection />
+      <ProductListSection navigation={props.navigation} />
     </ScrollView>
   )
 }

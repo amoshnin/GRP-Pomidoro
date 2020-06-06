@@ -18,6 +18,7 @@ import DashboardScreenContainer from "./src/Components/HelpersScreens/DashboardS
 import Auth from "./src/Components/GeneralScreens/Auth/Auth"
 import IndividualSaleScreen from "./src/Components/HelpersScreens/IndividualSaleScreen/IndividualSaleScreen"
 import ProductTypeCatalog from "./src/Components/HelpersScreens/ProductTypeCatalogScreen/ProductTypeCatalogScreen"
+import IndividualProductItem from "./src/Components/HelpersScreens/IndividualProductItem/IndividualProductItem"
 
 import MainScreen from "./src/Components/GeneralScreens/MainScreen/MainScreenContainer"
 import PrivateCabinerScreen from "./src/Components/GeneralScreens/PrivateCabinetScreen/PrivateCabinetScreen"
@@ -248,6 +249,22 @@ const App: React.FC<PropsType> = (props) => {
               })}
               initialParams={{
                 productName: null as string | null,
+              }}
+            />
+            <Stack.Screen
+              name="IndividualProductItem"
+              component={IndividualProductItem}
+              options={({ navigation, route }: any) => ({
+                headerShown: false,
+              })}
+              initialParams={{
+                productTitle: null as string | null,
+                image: null as string | null,
+                productPrice24: null as string | null,
+                productPrice32: null as string | null,
+                productPrice40: null as string | null,
+                productType: [] as Array<string>,
+                ingridientsList: [] as Array<string>,
               }}
             />
           </Stack.Navigator>
