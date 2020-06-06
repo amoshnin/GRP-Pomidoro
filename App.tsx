@@ -25,6 +25,7 @@ import MainScreen from "./src/Components/GeneralScreens/MainScreen/MainScreenCon
 import PrivateCabinerScreen from "./src/Components/GeneralScreens/PrivateCabinetScreen/PrivateCabinetScreen"
 import MenuScreenContainer from "./src/Components/GeneralScreens/MenuScreen/MenuScreenContainer"
 import OrdersScreenContainer from "./src/Components/GeneralScreens/OrdersScreen/OrdersScreenContainer"
+import Basket from "./src/Components/GeneralScreens/Basket/Basket"
 import SalesScreenContainer from "./src/Components/GeneralScreens/SalesScreen/SalesScreenContainer"
 import DeliveryTermsScreen from "./src/Components/GeneralScreens/DeliveryTermsScreen/DeliveryTermsScreen"
 import ContactsScreen from "./src/Components/GeneralScreens/ContactsScreen/ContactsScreen"
@@ -158,6 +159,13 @@ const App: React.FC<PropsType> = (props) => {
                     />
                   </TouchableOpacity>
                 ),
+              })}
+            />
+            <Stack.Screen
+              name="BasketScreen"
+              component={Basket}
+              options={({ navigation, route }: any) => ({
+                headerShown: false,
               })}
             />
             <Stack.Screen
