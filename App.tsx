@@ -19,6 +19,7 @@ import IndividualSaleScreen from "./src/Components/HelpersScreens/IndividualSale
 import MainScreen from "./src/Components/GeneralScreens/MainScreen/MainScreenContainer"
 import PrivateCabinerScreen from "./src/Components/GeneralScreens/PrivateCabinetScreen/PrivateCabinetScreen"
 import MenuScreenContainer from "./src/Components/GeneralScreens/MenuScreen/MenuScreenContainer"
+import OrdersScreenContainer from "./src/Components/GeneralScreens/OrdersScreen/OrdersScreenContainer"
 import SalesScreenContainer from "./src/Components/GeneralScreens/SalesScreen/SalesScreenContainer"
 import DeliveryTermsScreen from "./src/Components/GeneralScreens/DeliveryTermsScreen/DeliveryTermsScreen"
 
@@ -124,6 +125,24 @@ const App: React.FC<PropsType> = (props) => {
                       />
                     }
                   />
+                ),
+              })}
+            />
+            <Stack.Screen
+              name="OrdersScreen"
+              component={OrdersScreenContainer}
+              options={({ navigation, route }: any) => ({
+                title: "",
+                headerLeft: () => (
+                  <TouchableOpacity>
+                    <Ionicons
+                      name="ios-arrow-back"
+                      size={24}
+                      color="#1C1C1C"
+                      onPress={() => navigation.goBack()}
+                      style={{ marginLeft: 14 }}
+                    />
+                  </TouchableOpacity>
                 ),
               })}
             />

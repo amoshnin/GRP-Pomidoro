@@ -1,13 +1,12 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, StyleSheet } from "react-native"
+import { View, TouchableOpacity, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
 
 // EXTRA IMPORTS //
 import { Feather } from "@expo/vector-icons"
-import { RectButton } from "react-native-gesture-handler"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -18,7 +17,7 @@ type PropsType = {
 const DashboardScreen: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
-      <RectButton
+      <TouchableOpacity
         style={styles.rect_button}
         onPress={() => {
           props.navigation.navigate("MainScreen")
@@ -28,8 +27,8 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Главная</Text>
         </View>
-      </RectButton>
-      <RectButton
+      </TouchableOpacity>
+      <TouchableOpacity
         style={styles.rect_button}
         onPress={() => {
           props.navigation.navigate("PrivateCabinetScreen")
@@ -39,8 +38,8 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Личный кабинет</Text>
         </View>
-      </RectButton>
-      <RectButton
+      </TouchableOpacity>
+      <TouchableOpacity
         style={styles.rect_button}
         onPress={() => {
           props.navigation.navigate("MenuScreen")
@@ -50,26 +49,31 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Меню</Text>
         </View>
-      </RectButton>
-      <RectButton style={styles.rect_button}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.rect_button}>
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Конструктор пиццы</Text>
         </View>
-      </RectButton>
-      <RectButton style={styles.rect_button}>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.rect_button}
+        onPress={() => {
+          props.navigation.navigate("OrdersScreen")
+        }}
+      >
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Ваши заказы</Text>
         </View>
-      </RectButton>
-      <RectButton style={styles.rect_button}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.rect_button}>
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Корзина</Text>
         </View>
-      </RectButton>
-      <RectButton
+      </TouchableOpacity>
+      <TouchableOpacity
         style={styles.rect_button}
         onPress={() => {
           props.navigation.navigate("SalesScreen")
@@ -79,14 +83,14 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Акции</Text>
         </View>
-      </RectButton>
-      <RectButton style={styles.rect_button}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.rect_button}>
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Подписка</Text>
         </View>
-      </RectButton>
-      <RectButton
+      </TouchableOpacity>
+      <TouchableOpacity
         style={styles.rect_button}
         onPress={() => props.navigation.navigate("DeliveryTermsScreen")}
       >
@@ -94,13 +98,13 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Условия доставки</Text>
         </View>
-      </RectButton>
-      <RectButton style={styles.rect_button}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.rect_button}>
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Контакты</Text>
         </View>
-      </RectButton>
+      </TouchableOpacity>
     </View>
   )
 }

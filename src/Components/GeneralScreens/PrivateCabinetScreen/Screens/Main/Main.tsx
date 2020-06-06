@@ -7,7 +7,7 @@ import Button from "../../../../Shared/Components/Button/Button"
 import Header from "./Header/Header"
 import Credentials from "./Credentials/Credentials"
 import CreditCard from "./CreditCard/CreditCard"
-import OrdersList from "../../Shared/OrdersList/OrdersList"
+import OrdersList from "../../../../Shared/Sections/OrdersList/OrdersList"
 import Bonuses from "./Bonuses/Bonuses"
 import LanguageSelection from "./LanguageSelection/LanguageSelection"
 
@@ -25,6 +25,17 @@ const Main: React.FC<PropsType> = (props) => {
       <CreditCard />
       <OrdersList
         title={"История заказов"}
+        titleStyle={{
+          marginTop: 23,
+        }}
+        orders={[
+          [
+            "Паперони спайс × 2шт",
+            "Четыре мяса × 1 шт ",
+            "Конкорд × 1 шт",
+            "Pepsi 1литр × 1 шт",
+          ],
+        ]}
         showFullList={false}
         showTiming={false}
         shwowDeliveryStatus={false}
@@ -33,9 +44,8 @@ const Main: React.FC<PropsType> = (props) => {
       <Button
         text={"Показавать все заказы"}
         buttonStyle={{
-          borderWidth: 1,
-          borderColor: "#EAEAEB",
           borderRadius: 20,
+          backgroundColor: "#EAEAEB",
           marginTop: 20,
         }}
         rectStyle={{

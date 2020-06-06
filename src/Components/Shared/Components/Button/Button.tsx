@@ -21,13 +21,17 @@ type PropsType = {
 
 const Button: React.FC<PropsType> = (props) => {
   return (
-    <View style={{ ...styles.container, ...props.buttonStyle }}>
-      <RectButton style={props.rectStyle}>
-        <Text style={{ ...styles.text, ...props.textStyle }} weight="bold">
-          {props.text}
-        </Text>
-      </RectButton>
-    </View>
+    <RectButton
+      style={{
+        ...props.rectStyle,
+        ...styles.container,
+        ...props.buttonStyle,
+      }}
+    >
+      <Text style={{ ...styles.text, ...props.textStyle }} weight="bold">
+        {props.text}
+      </Text>
+    </RectButton>
   )
 }
 

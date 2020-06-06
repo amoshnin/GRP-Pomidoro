@@ -34,16 +34,17 @@ const IndividualSaleScreen: React.FC<PropsType> = (props) => {
       <Button
         text="Посмотреть все акции"
         buttonStyle={{
-          paddingHorizontal: 15,
-          marginTop: 22.62,
+          borderRadius: 20,
+          backgroundColor: "#EAEAEB",
+          marginTop: 20,
+          marginRight: 10,
         }}
         rectStyle={{
+          width: 315,
+          height: 40,
           justifyContent: "center",
           alignItems: "center",
-          width: 315,
-          height: 50,
         }}
-        textStyle={{ marginRight: 25 }}
       />
     </View>
   )
