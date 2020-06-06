@@ -35,7 +35,7 @@ const Text: React.FC<PropsType> = (props: any) => {
 
 Text.defaultProps = {
   size: 14,
-  color: "#000",
+  color: "#1A1824",
   weight: "regular",
 }
 

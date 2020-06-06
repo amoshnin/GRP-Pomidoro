@@ -8,6 +8,8 @@ import Header from "./Header/Header"
 import Credentials from "./Credentials/Credentials"
 import CreditCard from "./CreditCard/CreditCard"
 import OrdersList from "../../Shared/OrdersList/OrdersList"
+import Bonuses from "./Bonuses/Bonuses"
+import LanguageSelection from "./LanguageSelection/LanguageSelection"
 
 // EXTRA IMPORTS //
 
@@ -25,6 +27,7 @@ const Main: React.FC<PropsType> = (props) => {
         title={"История заказов"}
         showFullList={false}
         showTiming={false}
+        shwowDeliveryStatus={false}
       />
 
       <Button
@@ -34,7 +37,6 @@ const Main: React.FC<PropsType> = (props) => {
           borderColor: "#EAEAEB",
           borderRadius: 20,
           marginTop: 20,
-          marginBottom: 36,
         }}
         rectStyle={{
           width: 315,
@@ -43,6 +45,8 @@ const Main: React.FC<PropsType> = (props) => {
           alignItems: "center",
         }}
       />
+      <Bonuses />
+      <LanguageSelection />
     </ScrollView>
   )
 }
