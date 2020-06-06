@@ -9,23 +9,32 @@ import Text from "~/Components/Shared/Components/Text/Text"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  title: string
+  productsList: Array<string>
+  buttonText: string
+
+  showTiming: boolean
+}
 
 const OrderItem: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <Text weight="bold" size={16} style={styles.title}>
-        24.03.2019 - Доставлен
+        {props.title}
       </Text>
       <View style={styles.foods_list}>
-        <Text style={styles.food_text}>Паперони спайс × 2шт</Text>
-        <Text style={styles.food_text}>Четыре мяса × 1 шт </Text>
-        <Text style={styles.food_text}>Конкорд × 1 шт </Text>
-        <Text style={styles.food_text}>Pepsi 1литр × 1 шт</Text>
+        {props.productsList.map((product: string) => {
+          return (
+            <Text style={styles.food_text} key={product}>
+              {product}
+            </Text>
+          )
+        })}
       </View>
       <View style={styles.divider} />
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.button_text}>Добавить весь заказ в корзину</Text>
+        <Text style={styles.button_text}>{props.buttonText}</Text>
       </TouchableOpacity>
     </View>
   )
@@ -49,6 +58,7 @@ const styles = StyleSheet.create({
   foods_list: {
     paddingHorizontal: 19.5,
     flexDirection: "column",
+    marginBottom: 13,
   },
 
   food_text: {

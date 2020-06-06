@@ -1,12 +1,13 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { ScrollView, StyleSheet } from "react-native"
+import Button from "../../../../Shared/Components/Button/Button"
 
 // COMPONENTS IMPORTS //
 import Header from "./Header/Header"
 import Credentials from "./Credentials/Credentials"
 import CreditCard from "./CreditCard/CreditCard"
-import OrdersList from "./OrdersList/OrdersList"
+import OrdersList from "../../Shared/OrdersList/OrdersList"
 
 // EXTRA IMPORTS //
 
@@ -20,7 +21,28 @@ const Main: React.FC<PropsType> = (props) => {
       <Header />
       <Credentials />
       <CreditCard />
-      <OrdersList />
+      <OrdersList
+        title={"История заказов"}
+        showFullList={false}
+        showTiming={false}
+      />
+
+      <Button
+        text={"Показавать все заказы"}
+        buttonStyle={{
+          borderWidth: 1,
+          borderColor: "#EAEAEB",
+          borderRadius: 20,
+          marginTop: 20,
+          marginBottom: 36,
+        }}
+        rectStyle={{
+          width: 315,
+          height: 40,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      />
     </ScrollView>
   )
 }
