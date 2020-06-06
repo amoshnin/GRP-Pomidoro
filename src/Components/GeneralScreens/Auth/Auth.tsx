@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, Image, StyleSheet } from "react-native"
+import { View, TouchableOpacity, Image, StyleSheet } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import Text from "~/Components/Shared/Components/Text/Text"
 
@@ -13,6 +13,7 @@ import RegistrationScreenContainer from "./Screens/RegistrationScreen/Registrati
 // EXTRA IMPORTS //
 import { MaterialIcons } from "@expo/vector-icons"
 import { Ionicons } from "@expo/vector-icons"
+
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {}
@@ -31,7 +32,7 @@ const Auth: React.FC<PropsType> = (props) => {
             height: 110,
           },
           headerRight: () => (
-            <View
+            <TouchableOpacity
               style={{
                 flexDirection: "row",
                 marginHorizontal: 25,
@@ -43,7 +44,7 @@ const Auth: React.FC<PropsType> = (props) => {
                 size={23}
                 color="black"
               />
-            </View>
+            </TouchableOpacity>
           ),
         })}
       />
@@ -53,24 +54,26 @@ const Auth: React.FC<PropsType> = (props) => {
         options={({ navigation, route }: any) => ({
           header: () => (
             <SafeAreaView style={styles.header_container}>
-              <Ionicons
-                name="ios-arrow-back"
-                size={24}
-                color="black"
-                style={styles.icon}
-              />
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Ionicons
+                  name="ios-arrow-back"
+                  size={24}
+                  color="black"
+                  style={styles.icon}
+                />
+              </TouchableOpacity>
               <Image
                 source={require("../../../Images/logo.png")}
                 style={styles.logo}
               />
-              <View style={{ ...styles.icon, marginRight: 12 }}>
+              <TouchableOpacity style={{ ...styles.icon, marginRight: 12 }}>
                 <Text style={{ marginRight: 1 }}>Ру</Text>
                 <MaterialIcons
                   name="keyboard-arrow-down"
                   size={23}
                   color="black"
                 />
-              </View>
+              </TouchableOpacity>
             </SafeAreaView>
           ),
         })}

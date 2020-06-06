@@ -107,7 +107,7 @@ const LoginScreen: React.FC<PropsType> = (props) => {
         text="Регистрация"
         onPress={() => props.navigation.navigate("RegistrationScreen")}
         buttonStyle={{
-          marginTop: 28,
+          marginTop: 230,
           alignSelf: null,
           height: 50,
           width: 315,
@@ -128,6 +128,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 100,
     marginHorizontal: 30,
+    flex: 1,
   },
 
   title: {

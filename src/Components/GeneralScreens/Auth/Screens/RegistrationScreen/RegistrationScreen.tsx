@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
 import React, { useState } from "react"
-import { View, TextInput, StyleSheet } from "react-native"
+import { View, ScrollView, TextInput, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 import { Checkbox } from "react-native-paper"
 import { Formik } from "formik"
@@ -34,17 +34,24 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
   )
 
   const ValidationSchema = yup.object({
-    name: yup.string().required(),
-    phoneNum: yup.number().required(),
+    name: yup
+      .string()
+      .min(0, "Имя должно минимум иметь 1 символ")
+      .required("Имя обязательно"),
+    phoneNum: yup.number().required("Телефон обязателен"),
     password: yup
       .string()
-      .min(6, "Password is too short - should be 6 chars minimum.")
-      .required("Password is required"),
-    email: yup.string().email("Invalid email"),
+      .min(6, "Пароль слишком кототкий - минимум 6 символов")
+      .matches(
+        /[a-zA-Z](?=.*[0-9])/ as any,
+        "Пароль должен обязательно иметь цифры и буквы"
+      )
+      .required("Пароль обязателен"),
+    email: yup.string().email("Неверный email"),
   })
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Text weight="bold" size={30} style={styles.title}>
         Регистрация
       </Text>
@@ -122,10 +129,6 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
             <Text style={styles.error_message}>
               {FormikProps.touched.password && FormikProps.errors.password}
             </Text>
-            <Text size={12} style={styles.pass_subtitle}>
-              Обязательно использование цифр и букв, минимальное количество
-              символов - 6
-            </Text>
 
             <View style={styles.checkbox_wrap}>
               <Checkbox
@@ -158,11 +161,16 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
               }}
             />
 
+            <Text style={styles.error_message}>
+              {FormikProps.touched.email && FormikProps.errors.email}
+            </Text>
+
             <Button
               text="Зарегистрироваться"
               onPress={FormikProps.handleSubmit}
               buttonStyle={{
                 marginTop: 25,
+                marginBottom: 20,
                 alignSelf: null,
                 height: 50,
                 width: 315,
@@ -183,7 +191,7 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
         text="Войти"
         onPress={() => props.navigation.navigate("LoginScreen")}
         buttonStyle={{
-          marginTop: 119,
+          marginBottom: 20,
           alignSelf: null,
           height: 50,
           width: 315,
@@ -195,7 +203,7 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
           letterSpacing: 0.3,
         }}
       />
-    </View>
+    </ScrollView>
   )
 }
 
@@ -204,6 +212,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 60,
     marginHorizontal: 30,
+    flex: 1,
   },
 
   title: {
@@ -217,7 +226,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
-  error_message: {},
+  error_message: {
+    color: "red",
+    marginTop: 3,
+  },
 
   bottom_text_wrap: {
     flexDirection: "column",
@@ -228,12 +240,6 @@ const styles = StyleSheet.create({
   subtitle: {
     marginLeft: -30,
     letterSpacing: 0.3,
-  },
-
-  pass_subtitle: {
-    color: "#1A1824",
-    opacity: 0.6,
-    marginBottom: 29.5,
   },
 
   checkbox_wrap: {
