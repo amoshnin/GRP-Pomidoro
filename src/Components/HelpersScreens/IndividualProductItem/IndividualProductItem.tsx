@@ -3,6 +3,7 @@ import React from "react"
 
 // COMPONENTS IMPORTS //
 import Header from "./Header/Header"
+import Body from "./Body/Body"
 
 // EXTRA IMPORTS //
 
@@ -26,7 +27,9 @@ const IndividualProductItem: React.FC<PropsType> = (props) => {
 
   return (
     <>
-      <Header
+      <Header image={image} />
+
+      <Body
         productTitle={productTitle}
         image={image}
         ingridientsList={ingridientsList}
