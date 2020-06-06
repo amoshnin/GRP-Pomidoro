@@ -1,9 +1,10 @@
 // PLUGINS IMPORTS //
 import React, { useState } from "react"
-import { View, TouchableOpacity, TextInput, StyleSheet } from "react-native"
+import { View, TextInput, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
-
+import { Checkbox } from "react-native-paper"
 import { Formik } from "formik"
+import * as yup from "yup"
 
 // COMPONENTS IMPORTS //
 
@@ -17,13 +18,30 @@ type PropsType = {
 }
 
 const RegistrationScreen: React.FC<PropsType> = (props) => {
+  const [checkedSMS, setCheckedSMS] = useState(false as boolean)
+
+  const [nameInputBorderColor, setNameInputBorderColor] = useState(
+    "#DCDCDC" as string
+  )
   const [phoneNumInputBorderColor, setPhoneNumInputBorderColor] = useState(
     "#DCDCDC" as string
   )
-
   const [passwordInputBorderColor, setPasswordInputBorderColor] = useState(
     "#DCDCDC" as string
   )
+  const [emailInputBorderColor, setEmailInputBorderColor] = useState(
+    "#DCDCDC" as string
+  )
+
+  const ValidationSchema = yup.object({
+    name: yup.string().required(),
+    phoneNum: yup.number().required(),
+    password: yup
+      .string()
+      .min(6, "Password is too short - should be 6 chars minimum.")
+      .required("Password is required"),
+    email: yup.string().email("Invalid email"),
+  })
 
   return (
     <View style={styles.container}>
@@ -31,9 +49,12 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
         Регистрация
       </Text>
       <Formik
+        validationSchema={ValidationSchema}
         initialValues={{
+          name: null as string | null,
           phoneNum: null as number | null,
-          password: null as number | null,
+          password: null as string | null,
+          email: null as string | null,
         }}
         onSubmit={(values: any) => {}}
       >
@@ -42,22 +63,22 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
             <TextInput
               placeholder="Имя пользователя"
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
-              onChangeText={FormikProps.handleChange("password")}
-              onFocus={() => setPasswordInputBorderColor("#1A1824")}
+              onChangeText={FormikProps.handleChange("name")}
+              onFocus={() => setNameInputBorderColor("#1A1824")}
               onBlur={() => {
-                FormikProps.handleBlur("password")
-                setPasswordInputBorderColor("#DCDCDC")
+                FormikProps.handleBlur("name")
+                setNameInputBorderColor("#DCDCDC")
               }}
-              textContentType="password"
-              autoCompleteType="password"
-              value={FormikProps.values.password as any}
+              textContentType="name"
+              autoCompleteType="name"
+              value={FormikProps.values.name as any}
               style={{
                 ...styles.input,
-                borderBottomColor: passwordInputBorderColor,
+                borderBottomColor: nameInputBorderColor,
               }}
             />
             <Text style={styles.error_message}>
-              {FormikProps.touched.password && FormikProps.errors.password}
+              {FormikProps.touched.name && FormikProps.errors.name}
             </Text>
 
             <TextInput
@@ -107,24 +128,33 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
             </Text>
 
             <View style={styles.checkbox_wrap}>
-              <Text size={14}>Получать каждый раз новый пароль по СМС</Text>
+              <Checkbox
+                status={checkedSMS ? "checked" : "unchecked"}
+                color="#96A637"
+                onPress={() => {
+                  setCheckedSMS(!checkedSMS)
+                }}
+              />
+              <Text size={14} style={styles.checkbox_text}>
+                Получать каждый раз новый пароль по СМС
+              </Text>
             </View>
 
             <TextInput
-              placeholder="Email (не обязательно)"
+              placeholder="Email (Необязательно)"
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
-              onChangeText={FormikProps.handleChange("password")}
-              onFocus={() => setPasswordInputBorderColor("#1A1824")}
+              onChangeText={FormikProps.handleChange("email")}
+              onFocus={() => setEmailInputBorderColor("#1A1824")}
               onBlur={() => {
-                FormikProps.handleBlur("password")
-                setPasswordInputBorderColor("#DCDCDC")
+                FormikProps.handleBlur("email")
+                setEmailInputBorderColor("#DCDCDC")
               }}
-              textContentType="password"
-              autoCompleteType="password"
-              value={FormikProps.values.password as any}
+              textContentType="emailAddress"
+              autoCompleteType="email"
+              value={FormikProps.values.email as any}
               style={{
                 ...styles.input,
-                borderBottomColor: passwordInputBorderColor,
+                borderBottomColor: emailInputBorderColor,
               }}
             />
 
@@ -153,7 +183,7 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
         text="Войти"
         onPress={() => props.navigation.navigate("LoginScreen")}
         buttonStyle={{
-          marginTop: 140,
+          marginTop: 119,
           alignSelf: null,
           height: 50,
           width: 315,
@@ -172,7 +202,7 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
 //   STYLES   //
 const styles = StyleSheet.create({
   container: {
-    marginTop: 29.01,
+    marginTop: 60,
     marginHorizontal: 30,
   },
 
@@ -207,7 +237,14 @@ const styles = StyleSheet.create({
   },
 
   checkbox_wrap: {
+    flexDirection: "row",
     marginBottom: 30.5,
+  },
+
+  checkbox_text: {
+    width: 275.5,
+    letterSpacing: 0.3,
+    marginLeft: 13,
   },
 })
 

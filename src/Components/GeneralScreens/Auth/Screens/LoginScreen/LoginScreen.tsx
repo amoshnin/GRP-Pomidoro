@@ -33,7 +33,7 @@ const LoginScreen: React.FC<PropsType> = (props) => {
       <Formik
         initialValues={{
           phoneNum: null as number | null,
-          password: null as number | null,
+          password: null as string | null,
         }}
         onSubmit={(values: any) => {}}
       >
