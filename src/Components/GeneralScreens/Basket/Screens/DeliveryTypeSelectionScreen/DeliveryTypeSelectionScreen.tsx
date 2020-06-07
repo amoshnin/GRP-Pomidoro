@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    marginTop: 39,
     letterSpacing: 0.3,
   },
 })

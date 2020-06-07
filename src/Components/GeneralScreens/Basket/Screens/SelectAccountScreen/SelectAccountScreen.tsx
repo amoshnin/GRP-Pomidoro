@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    marginTop: 25,
     width: 315,
   },
 })

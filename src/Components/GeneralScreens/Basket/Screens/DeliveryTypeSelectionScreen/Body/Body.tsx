@@ -43,6 +43,7 @@ const Body: React.FC<PropsType> = (props) => {
         return (
           <View style={styles.item_wrap}>
             <RadioButton
+              uncheckedColor="silver"
               value={selection.title}
               status={
                 checkedValue === selection.title ? "checked" : "unchecked"

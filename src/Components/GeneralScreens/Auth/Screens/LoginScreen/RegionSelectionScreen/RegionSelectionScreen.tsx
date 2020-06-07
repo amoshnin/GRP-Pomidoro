@@ -36,6 +36,7 @@ const RegionSelectionScreen: React.FC<PropsType> = (props) => {
         return (
           <View style={styles.region_wrap} key={region}>
             <RadioButton
+              uncheckedColor="silver"
               value={region}
               status={checkedValue === region ? "checked" : "unchecked"}
               color="#96A637"

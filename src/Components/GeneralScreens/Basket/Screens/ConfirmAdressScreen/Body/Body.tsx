@@ -11,7 +11,9 @@ import SlidingUpPanel from "rn-sliding-up-panel"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  navigation: any
+}
 
 const BottomSection: React.FC<PropsType> = (props) => {
   const _panel = useRef(null as any)
@@ -23,7 +25,7 @@ const BottomSection: React.FC<PropsType> = (props) => {
   return (
     <SlidingUpPanel
       ref={_panel}
-      draggableRange={{ top: 237, bottom: 135 }}
+      draggableRange={{ top: 220, bottom: 135 }}
       backdropOpacity={0.5}
       onBottomReached={() => {
         _panel.current.hide()
@@ -36,9 +38,10 @@ const BottomSection: React.FC<PropsType> = (props) => {
             ул. Засумская, 12
           </Text>
           <Button
+            onPress={() => props.navigation.navigate("PaymentMethodScreen")}
             text="Подтвердить"
             buttonStyle={{
-              marginTop: 50.5,
+              marginTop: 40,
               width: 315,
               height: 50,
               backgroundColor: "#96A637",
@@ -60,7 +63,7 @@ const BottomSection: React.FC<PropsType> = (props) => {
 const styles = StyleSheet.create({
   wrapper: {
     position: "absolute",
-    height: "80%",
+    height: "100%",
     width: "100%",
     borderTopRightRadius: 30,
     borderTopLeftRadius: 30,

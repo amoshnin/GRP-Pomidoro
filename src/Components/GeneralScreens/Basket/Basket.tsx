@@ -9,6 +9,8 @@ import SelectAccountScreen from "./Screens/SelectAccountScreen/SelectAccountScre
 import DeliveryTypeSelectionScreen from "./Screens/DeliveryTypeSelectionScreen/DeliveryTypeSelectionScreen"
 import ManualDeliveryScreen from "./Screens/ManualDeliveryScreen/ManualDeliveryScreen"
 import ConfirmAdressScreen from "./Screens/ConfirmAdressScreen/ConfirmAdressScreen"
+import PaymentMethodScreen from "./Screens/PaymentMethodScreen/PaymentMethodScreen"
+import PaymentScreen from "./Screens/PaymentScreen/PaymentScreen"
 
 // EXTRA IMPORTS //
 import GeneralHeader from "../../Shared/Components/GeneralHeader/GeneralHeader"
@@ -66,38 +68,14 @@ const PrivateCabinetScreen: React.FC<PropsType> = (props) => {
         name="SelectAccountScreen"
         component={SelectAccountScreen}
         options={({ navigation, route }: any) => ({
-          header: () => (
-            <GeneralHeader
-              navigation={navigation}
-              leftIcon={
-                <Ionicons
-                  name="ios-arrow-back"
-                  size={24}
-                  color="#1C1C1C"
-                  onPress={() => navigation.goBack()}
-                />
-              }
-            />
-          ),
+          headerTitle: "",
         })}
       />
       <Stack.Screen
         name="DeliveryTypeSelectionScreen"
         component={DeliveryTypeSelectionScreen}
         options={({ navigation, route }: any) => ({
-          header: () => (
-            <GeneralHeader
-              navigation={navigation}
-              leftIcon={
-                <Ionicons
-                  name="ios-arrow-back"
-                  size={24}
-                  color="#1C1C1C"
-                  onPress={() => navigation.goBack()}
-                />
-              }
-            />
-          ),
+          headerTitle: "",
         })}
       />
 
@@ -105,19 +83,7 @@ const PrivateCabinetScreen: React.FC<PropsType> = (props) => {
         name="ManualDeliveryScreen"
         component={ManualDeliveryScreen}
         options={({ navigation, route }: any) => ({
-          header: () => (
-            <GeneralHeader
-              navigation={navigation}
-              leftIcon={
-                <Ionicons
-                  name="ios-arrow-back"
-                  size={24}
-                  color="#1C1C1C"
-                  onPress={() => navigation.goBack()}
-                />
-              }
-            />
-          ),
+          headerTitle: "",
         })}
       />
       <Stack.Screen
@@ -125,6 +91,20 @@ const PrivateCabinetScreen: React.FC<PropsType> = (props) => {
         component={ConfirmAdressScreen}
         options={({ navigation, route }: any) => ({
           headerShown: false,
+        })}
+      />
+      <Stack.Screen
+        name="PaymentMethodScreen"
+        component={PaymentMethodScreen}
+        options={({ navigation, route }: any) => ({
+          headerTitle: "",
+        })}
+      />
+      <Stack.Screen
+        name="PaymentScreen"
+        component={PaymentScreen}
+        options={({ navigation, route }: any) => ({
+          headerTitle: "",
         })}
       />
     </Stack.Navigator>

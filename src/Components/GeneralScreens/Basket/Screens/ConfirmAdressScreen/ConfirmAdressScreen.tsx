@@ -22,7 +22,7 @@ const ConfirmAdressScreen: React.FC<PropsType> = (props) => {
         source={require("../../../../../Images/confirm-adress-map.png")}
         style={styles.image}
       />
-      <Body />
+      <Body navigation={props.navigation} />
       <View style={styles.button_wrap}>
         <BaseButton
           style={styles.button}
