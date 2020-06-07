@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
 
   text_wrap: {
     marginLeft: 13,
-    marginVertical: 22.5,
+    marginVertical: 12.5,
   },
 
   item_text: {
@@ -128,13 +128,13 @@ const styles = StyleSheet.create({
 
   btns_wrap: {
     marginHorizontal: 50,
-    marginTop: -10,
+    marginTop: 10,
   },
 
   btn_text: {
     color: "#96A637",
     marginBottom: 6,
-    marginTop: 15,
+    marginTop: 5,
   },
 
   input: {

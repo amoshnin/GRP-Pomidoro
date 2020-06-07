@@ -8,6 +8,7 @@ import Button from "~/Components/Shared/Components/Button/Button"
 import ProductsBasketList from "~/Components/Shared/Sections/ProductsBasketList/ProductsBasketList"
 
 // EXTRA IMPORTS //
+import { MaterialCommunityIcons } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -38,7 +39,13 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Text weight="bold" size={30}>
-        Заказ успешно оформлен
+        Заказ успешно оформлен{" "}
+        <MaterialCommunityIcons
+          name="check-bold"
+          size={24}
+          color="#96A637"
+          style={styles.header_icon}
+        />
       </Text>
       <Button
         text="Отследить заказ"
@@ -78,6 +85,10 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: 30,
     marginTop: 26,
+  },
+
+  header_icon: {
+    paddingLeft: 100,
   },
 
   divider: {
