@@ -15,7 +15,7 @@ type PropsType = {
 }
 
 const OrderProductsSection: React.FC<PropsType> = (props) => {
-  const [totalPrice, setTotalPrice] = useState(0 as number | undefined)
+  const [totalPrice, setTotalPrice] = useState(0 as number)
 
   useEffect(() => {
     setTotalPrice(props.productsList.reduce((a, b) => a + (b["price"] || 0), 0))

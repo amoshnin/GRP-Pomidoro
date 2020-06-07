@@ -9,31 +9,14 @@ import ProductItem from "./ProductItem/ProductItem"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  ProductsBasketList: Array<any>
+}
 
 const ProductsList: React.FC<PropsType> = (props) => {
-  const ProductsBasketList = [
-    {
-      title: "Парерони чиз",
-      image: "",
-      size: "24cm",
-      price: "99 ₴",
-      count: 2,
-      allowEdit: true,
-    },
-    {
-      title: "Парерони чиз",
-      image: "",
-      size: "24cm",
-      price: "99 ₴",
-      count: 2,
-      allowEdit: true,
-    },
-  ]
-
   return (
     <View>
-      {ProductsBasketList.map((product: any) => {
+      {props.ProductsBasketList.map((product: any) => {
         return (
           <ProductItem
             title={product.title}

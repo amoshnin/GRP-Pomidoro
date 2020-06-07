@@ -33,7 +33,7 @@ const ProductItem: React.FC<PropsType> = (props) => {
           <View style={styles.item_info}>
             <Text size={16}> {props.title}</Text>
             <Text style={styles.price_text}>
-              {props.size} | {props.price}
+              {props.size} | {props.price} ₴
             </Text>
           </View>
         </View>

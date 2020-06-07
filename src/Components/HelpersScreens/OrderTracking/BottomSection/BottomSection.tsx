@@ -76,16 +76,14 @@ const BottomSection: React.FC<PropsType> = (props) => {
 //   STYLES   //
 const styles = StyleSheet.create({
   wrapper: {
-    borderTopRightRadius: 34,
-    borderTopLeftRadius: 34,
     position: "absolute",
     height: "80%",
     width: "100%",
   },
 
   container: {
-    borderTopRightRadius: 34,
-    borderTopLeftRadius: 34,
+    borderTopRightRadius: 33,
+    borderTopLeftRadius: 33,
     backgroundColor: "white",
     shadowColor: "#000",
     shadowOffset: {
