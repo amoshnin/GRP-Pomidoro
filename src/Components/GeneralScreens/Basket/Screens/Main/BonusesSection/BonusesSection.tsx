@@ -37,7 +37,6 @@ const BonusesSection: React.FC<PropsType> = (props) => {
         <View style={styles.bottom_wrap}>
           <Text>Сколько бонусов списать:</Text>
           <TextInput
-            placeholder="345"
             style={styles.input}
             underlineColor="silver"
             theme={{ colors: { primary: "#1A1824" } }}

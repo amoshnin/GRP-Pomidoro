@@ -7,6 +7,8 @@ import MainContainer from "./Screens/Main/MainContainer"
 import DeliveryTimeSelectionScreen from "./Screens/DeliveryTimeSelectionScreen/DeliveryTimeSelectionScreen"
 import SelectAccountScreen from "./Screens/SelectAccountScreen/SelectAccountScreen"
 import DeliveryTypeSelectionScreen from "./Screens/DeliveryTypeSelectionScreen/DeliveryTypeSelectionScreen"
+import ManualDeliveryScreen from "./Screens/ManualDeliveryScreen/ManualDeliveryScreen"
+import ConfirmAdressScreen from "./Screens/ConfirmAdressScreen/ConfirmAdressScreen"
 
 // EXTRA IMPORTS //
 import GeneralHeader from "../../Shared/Components/GeneralHeader/GeneralHeader"
@@ -96,6 +98,33 @@ const PrivateCabinetScreen: React.FC<PropsType> = (props) => {
               }
             />
           ),
+        })}
+      />
+
+      <Stack.Screen
+        name="ManualDeliveryScreen"
+        component={ManualDeliveryScreen}
+        options={({ navigation, route }: any) => ({
+          header: () => (
+            <GeneralHeader
+              navigation={navigation}
+              leftIcon={
+                <Ionicons
+                  name="ios-arrow-back"
+                  size={24}
+                  color="#1C1C1C"
+                  onPress={() => navigation.goBack()}
+                />
+              }
+            />
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="ConfirmAdressScreen"
+        component={ConfirmAdressScreen}
+        options={({ navigation, route }: any) => ({
+          headerShown: false,
         })}
       />
     </Stack.Navigator>

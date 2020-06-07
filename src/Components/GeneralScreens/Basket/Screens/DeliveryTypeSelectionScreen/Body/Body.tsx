@@ -33,6 +33,10 @@ const Body: React.FC<PropsType> = (props) => {
     },
   ]
 
+  const saveInfoAndRedirect = () => {
+    props.navigation.navigate("ConfirmAdressScreen")
+  }
+
   return (
     <View style={styles.container}>
       {SelectionList.map((selection: any) => {
@@ -65,7 +69,9 @@ const Body: React.FC<PropsType> = (props) => {
             Выбрать на карте
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate("ManualDeliveryScreen")}
+        >
           <Text style={styles.btn_text} weight="bold" size={16}>
             Ввести адрес вручную
           </Text>
@@ -80,6 +86,7 @@ const Body: React.FC<PropsType> = (props) => {
       />
 
       <Button
+        onPress={saveInfoAndRedirect}
         text="Продолжить"
         buttonStyle={{
           marginTop: 36,
