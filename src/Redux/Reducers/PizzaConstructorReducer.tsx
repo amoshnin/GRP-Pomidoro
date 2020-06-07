@@ -79,6 +79,13 @@ const PizzaConstructorReducer = (
     }
   }
 
+  if (action.type === "CLEAR_PIZZA_INGREDIENTS") {
+    return {
+      ...state,
+      CurrentPizzaIngredients: [],
+    }
+  }
+
   if (action.type === "CHANGE_PIZZA_SIZE") {
     return {
       ...state,
@@ -120,6 +127,11 @@ export const ActionCreatorsList = {
     ({
       type: "REMOVE_INGREDIENT",
       ingredientName,
+    } as const),
+
+  clearIngredientsActionCreator: () =>
+    ({
+      type: "CLEAR_PIZZA_INGREDIENTS",
     } as const),
 
   changePizzaSize: (pizzaSize: number) =>
