@@ -78,6 +78,19 @@ const PizzaConstructorReducer = (
     }
   }
 
+  if (action.type === "REMOVE_FULL_INGRIDIENT") {
+    const FilteredArray = state.CurrentPizzaIngredients.filter(
+      (ingridient: any) => {
+        return ingridient.name !== action.ingredientName
+      }
+    )
+
+    return {
+      ...state,
+      CurrentPizzaIngredients: FilteredArray,
+    }
+  }
+
   if (action.type === "CLEAR_PIZZA_INGREDIENTS") {
     return {
       ...state,
@@ -128,12 +141,18 @@ export const ActionCreatorsList = {
       ingredientName,
     } as const),
 
+  removeFullIngridientActionCreator: (ingredientName: string) =>
+    ({
+      type: "REMOVE_FULL_INGRIDIENT",
+      ingredientName,
+    } as const),
+
   clearIngredientsActionCreator: () =>
     ({
       type: "CLEAR_PIZZA_INGREDIENTS",
     } as const),
 
-  changePizzaSize: (pizzaSize: number) =>
+  changePizzaSizeActionCreator: (pizzaSize: number) =>
     ({
       type: "CHANGE_PIZZA_SIZE",
       pizzaSize,

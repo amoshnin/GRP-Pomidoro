@@ -24,7 +24,7 @@ type PropsType = {
 
   containerStyle?: any
 
-  changePizzaSize: (pizzaSize: number) => void
+  changePizzaSizeActionCreator: (pizzaSize: number) => void
 }
 
 const PizzaSizesSelector: React.FC<PropsType> = (props) => {
@@ -33,7 +33,7 @@ const PizzaSizesSelector: React.FC<PropsType> = (props) => {
       <View style={{ ...styles.sizes_wrap, ...props.containerStyle }}>
         <TouchableOpacity
           onPress={() => {
-            props.changePizzaSize(24)
+            props.changePizzaSizeActionCreator(24)
           }}
         >
           <View
@@ -71,7 +71,7 @@ const PizzaSizesSelector: React.FC<PropsType> = (props) => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            props.changePizzaSize(32)
+            props.changePizzaSizeActionCreator(32)
           }}
         >
           <View
@@ -109,7 +109,7 @@ const PizzaSizesSelector: React.FC<PropsType> = (props) => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            props.changePizzaSize(40)
+            props.changePizzaSizeActionCreator(40)
           }}
         >
           <View

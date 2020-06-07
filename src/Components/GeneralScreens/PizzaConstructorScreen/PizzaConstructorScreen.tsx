@@ -6,6 +6,7 @@ import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
 import PizzaSizesSelector from "./PizzaSizesSelector/PizzaSizesSelector"
+import SelectedIngridientsListSection from "./SelectedIngridientsListSection/SelectedIngridientsListSection"
 import TopTabNavigator from "./TopTabNavigator/TopTabNavigator"
 
 // EXTRA IMPORTS //
@@ -14,10 +15,12 @@ import TopTabNavigator from "./TopTabNavigator/TopTabNavigator"
 
 type PropsType = {
   navigation: any
+  CurrentPizzaIngredients: Array<any>
   CurrentPizzaPrice: number
   CurrentPizzaSize: number
 
-  changePizzaSize: (pizzaSize: number) => void
+  changePizzaSizeActionCreator: (pizzaSize: number) => void
+  removeFullIngridientActionCreator: (ingridientName: string) => void
 }
 
 const PizzaConstructorScreen: React.FC<PropsType> = (props) => {
@@ -41,13 +44,18 @@ const PizzaConstructorScreen: React.FC<PropsType> = (props) => {
         <View style={styles.lists_wrap}>
           <View>
             <Image source={require("~/Images/pizza-constructor.png")} />
-            <View></View>
+            <SelectedIngridientsListSection
+              CurrentPizzaIngredients={props.CurrentPizzaIngredients}
+              removeFullIngridientActionCreator={
+                props.removeFullIngridientActionCreator
+              }
+            />
           </View>
           <View>
             <PizzaSizesSelector
               containerStyle={{ flexDirection: "column" }}
               CurrentPizzaSize={props.CurrentPizzaSize}
-              changePizzaSize={props.changePizzaSize}
+              changePizzaSizeActionCreator={props.changePizzaSizeActionCreator}
               price24={99}
               price32={164}
               price40={199}

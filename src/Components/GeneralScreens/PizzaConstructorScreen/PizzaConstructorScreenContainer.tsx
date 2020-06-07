@@ -15,12 +15,14 @@ import { ActionCreatorsList } from "~/Redux/Reducers/PizzaConstructorReducer"
 // TYPES
 type MapStateToPropsType = {
   navigation: any
+  CurrentPizzaIngredients: Array<any>
   CurrentPizzaPrice: number
   CurrentPizzaSize: number
 }
 
 type MapDispatchToPropsType = {
-  changePizzaSize: (pizzaSize: number) => void
+  changePizzaSizeActionCreator: (pizzaSize: number) => void
+  removeFullIngridientActionCreator: (ingridientName: string) => void
 }
 
 /////////////////////////////////////////////////////////////////
@@ -28,6 +30,8 @@ type MapDispatchToPropsType = {
 const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
   return {
     navigation: props.navigation,
+    CurrentPizzaIngredients:
+      state.PizzaConstructorState.CurrentPizzaIngredients,
     CurrentPizzaPrice: state.PizzaConstructorState.CurrentPizzaPrice,
     CurrentPizzaSize: state.PizzaConstructorState.CurrentPizzaSize,
   }
@@ -37,7 +41,10 @@ const PizzaConstructorScreenContainer = compose(
   connect<MapStateToPropsType, MapDispatchToPropsType, AppStateType>(
     mapStateToProps,
     {
-      changePizzaSize: ActionCreatorsList.changePizzaSize,
+      changePizzaSizeActionCreator:
+        ActionCreatorsList.changePizzaSizeActionCreator,
+      removeFullIngridientActionCreator:
+        ActionCreatorsList.removeFullIngridientActionCreator,
     }
   )
 )(PizzaConstructorScreen)
