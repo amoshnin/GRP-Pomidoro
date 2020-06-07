@@ -59,9 +59,9 @@ const OrderDetailsSection: React.FC<PropsType> = (props) => {
             Способ оплаты
           </Text>
           <Text size={16}>Карта ** {props.creditCardNum}</Text>
+          <View style={styles.divider} />
         </>
       ) : null}
-      <View style={styles.divider} />
     </>
   )
 }

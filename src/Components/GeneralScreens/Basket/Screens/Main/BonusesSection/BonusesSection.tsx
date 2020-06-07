@@ -53,7 +53,7 @@ const BonusesSection: React.FC<PropsType> = (props) => {
 //   STYLES   //
 const styles = StyleSheet.create({
   container: {
-    marginTop: 38.5,
+    marginTop: 20.5,
     borderColor: "silver",
     borderWidth: 1,
     borderRadius: 20,
