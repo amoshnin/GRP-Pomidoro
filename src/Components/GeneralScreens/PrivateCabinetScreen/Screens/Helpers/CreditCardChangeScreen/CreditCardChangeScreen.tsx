@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
-import React, { useState } from "react"
-import { View, TextInput, StyleSheet } from "react-native"
+import React from "react"
+import { View, StyleSheet } from "react-native"
+import { TextInput } from "react-native-paper"
 import Text from "~/Components/Shared/Components/Text/Text"
 import { Formik } from "formik"
 
@@ -16,17 +17,6 @@ type PropsType = {
 }
 
 const CredentialsFieldChangeScreen: React.FC<PropsType> = (props) => {
-  const [cardNumInputBorderColor, setCardNumInputBorderColor] = useState(
-    "#DCDCDC" as string
-  )
-
-  const [CVVInputBorderColor, setCVVInputBorderColor] = useState(
-    "#DCDCDC" as string
-  )
-  const [ExpDateInputBorderColor, setExpDateInputBorderColor] = useState(
-    "#DCDCDC" as string
-  )
-
   return (
     <View style={styles.container}>
       <Text weight="bold" size={22} style={styles.title}>
@@ -47,19 +37,15 @@ const CredentialsFieldChangeScreen: React.FC<PropsType> = (props) => {
             <TextInput
               placeholder="Номер карты"
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
+              theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("cardNum")}
-              onFocus={() => setCardNumInputBorderColor("#1A1824")}
               onBlur={() => {
                 FormikProps.handleBlur("cardNum")
-                setCardNumInputBorderColor("#DCDCDC")
               }}
               keyboardType="number-pad"
               textContentType="creditCardNumber"
               value={FormikProps.values.cardNum as any}
-              style={{
-                ...styles.input,
-                borderBottomColor: cardNumInputBorderColor,
-              }}
+              style={styles.input}
             />
             <Text style={styles.error_message}>
               {FormikProps.touched.cardNum && FormikProps.errors.cardNum}
@@ -68,19 +54,15 @@ const CredentialsFieldChangeScreen: React.FC<PropsType> = (props) => {
             <TextInput
               placeholder="CVV/CVC"
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
+              theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("CVV")}
-              onFocus={() => setCVVInputBorderColor("#1A1824")}
               onBlur={() => {
                 FormikProps.handleBlur("CVV")
-                setCVVInputBorderColor("#DCDCDC")
               }}
               keyboardType="number-pad"
               textContentType="creditCardNumber"
               value={FormikProps.values.CVV as any}
-              style={{
-                ...styles.input,
-                borderBottomColor: CVVInputBorderColor,
-              }}
+              style={styles.input}
             />
             <Text style={styles.error_message}>
               {FormikProps.touched.CVV && FormikProps.errors.CVV}
@@ -89,19 +71,15 @@ const CredentialsFieldChangeScreen: React.FC<PropsType> = (props) => {
             <TextInput
               placeholder="EXP DATE"
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
+              theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("ExpDate")}
-              onFocus={() => setExpDateInputBorderColor("#1A1824")}
               onBlur={() => {
                 FormikProps.handleBlur("ExpDate")
-                setExpDateInputBorderColor("#DCDCDC")
               }}
               keyboardType="number-pad"
               textContentType="creditCardNumber"
               value={FormikProps.values.ExpDate as any}
-              style={{
-                ...styles.input,
-                borderBottomColor: ExpDateInputBorderColor,
-              }}
+              style={styles.input}
             />
             <Text style={styles.error_message}>
               {FormikProps.touched.ExpDate && FormikProps.errors.ExpDate}
@@ -141,7 +119,7 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    borderBottomWidth: 1,
+    backgroundColor: "white",
     height: 45,
     width: 315,
     fontSize: 16,

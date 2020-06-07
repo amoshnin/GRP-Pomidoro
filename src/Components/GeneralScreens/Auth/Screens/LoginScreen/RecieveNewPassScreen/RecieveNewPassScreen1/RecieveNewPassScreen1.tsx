@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
-import React, { useState } from "react"
-import { ScrollView, TextInput, StyleSheet } from "react-native"
+import React from "react"
+import { ScrollView, StyleSheet } from "react-native"
+import { TextInput } from "react-native-paper"
 import Text from "~/Components/Shared/Components/Text/Text"
 import { Formik } from "formik"
 import * as yup from "yup"
@@ -17,10 +18,6 @@ type PropsType = {
 }
 
 const RecieveNewPassScreen: React.FC<PropsType> = (props) => {
-  const [phoneNumInputBorderColor, setPhoneNumInputBorderColor] = useState(
-    "#DCDCDC" as string
-  )
-
   const ValidationSchema = yup.object({
     phoneNum: yup
       .number()
@@ -50,18 +47,14 @@ const RecieveNewPassScreen: React.FC<PropsType> = (props) => {
             <TextInput
               placeholder="Номер телефона"
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
+              theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("phoneNum")}
-              onFocus={() => setPhoneNumInputBorderColor("#1A1824")}
               onBlur={() => {
                 FormikProps.handleBlur("phoneNum")
-                setPhoneNumInputBorderColor("#DCDCDC")
               }}
               keyboardType="number-pad"
               value={FormikProps.values.phoneNum as any}
-              style={{
-                ...styles.input,
-                borderBottomColor: phoneNumInputBorderColor,
-              }}
+              style={styles.input}
             />
             {FormikProps.touched.phoneNum && FormikProps.errors.phoneNum ? (
               <Text style={styles.error_message}>

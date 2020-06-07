@@ -50,38 +50,40 @@ const ProductItem: React.FC<PropsType> = (props) => {
             })}
           </Text>
           <Text style={styles.note}>Выберите размер для заказа:</Text>
-          <View style={styles.sizes_wrap}>
-            <View style={{ ...styles.size_circle, height: 64, width: 64 }}>
-              <Text>24см</Text>
-              <View style={styles.size_circle_divider_wrap}>
-                <View style={styles.size_circle_divider} />
+          <TouchableWithoutFeedback>
+            <View style={styles.sizes_wrap}>
+              <View style={{ ...styles.size_circle, height: 64, width: 64 }}>
+                <Text>24см</Text>
+                <View style={styles.size_circle_divider_wrap}>
+                  <View style={styles.size_circle_divider} />
+                </View>
+                <Text weight="bold">{props.price24}</Text>
+                <RectButton style={styles.size_add_btn}>
+                  <Entypo name="plus" size={16} color="white" />
+                </RectButton>
               </View>
-              <Text weight="bold">{props.price24}</Text>
-              <RectButton style={styles.size_add_btn}>
-                <Entypo name="plus" size={16} color="white" />
-              </RectButton>
-            </View>
-            <View style={{ ...styles.size_circle, height: 70, width: 70 }}>
-              <Text>32см</Text>
-              <View style={styles.size_circle_divider_wrap}>
-                <View style={styles.size_circle_divider} />
+              <View style={{ ...styles.size_circle, height: 70, width: 70 }}>
+                <Text>32см</Text>
+                <View style={styles.size_circle_divider_wrap}>
+                  <View style={styles.size_circle_divider} />
+                </View>
+                <Text weight="bold">{props.price32}</Text>
+                <RectButton style={styles.size_add_btn}>
+                  <Entypo name="plus" size={16} color="white" />
+                </RectButton>
               </View>
-              <Text weight="bold">{props.price32}</Text>
-              <RectButton style={styles.size_add_btn}>
-                <Entypo name="plus" size={16} color="white" />
-              </RectButton>
-            </View>
-            <View style={{ ...styles.size_circle, height: 76, width: 76 }}>
-              <Text>40см</Text>
-              <View style={styles.size_circle_divider_wrap}>
-                <View style={styles.size_circle_divider} />
+              <View style={{ ...styles.size_circle, height: 76, width: 76 }}>
+                <Text>40см</Text>
+                <View style={styles.size_circle_divider_wrap}>
+                  <View style={styles.size_circle_divider} />
+                </View>
+                <Text weight="bold">{props.price40}</Text>
+                <RectButton style={styles.size_add_btn}>
+                  <Entypo name="plus" size={16} color="white" />
+                </RectButton>
               </View>
-              <Text weight="bold">{props.price40}</Text>
-              <RectButton style={styles.size_add_btn}>
-                <Entypo name="plus" size={16} color="white" />
-              </RectButton>
             </View>
-          </View>
+          </TouchableWithoutFeedback>
           <View style={styles.divider} />
         </View>
       </View>

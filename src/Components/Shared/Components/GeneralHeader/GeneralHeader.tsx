@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, Text, TextInput, StyleSheet } from "react-native"
+import { View, TextInput, StyleSheet } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 
 // COMPONENTS IMPORTS //

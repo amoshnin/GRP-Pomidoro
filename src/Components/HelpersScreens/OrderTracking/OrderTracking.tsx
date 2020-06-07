@@ -17,7 +17,10 @@ type PropsType = {
 const OrderTracking: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
-      <Image source={require("../../../Images/delivery-map.png")} />
+      <Image
+        source={require("../../../Images/delivery-map.png")}
+        style={styles.image}
+      />
       <BottomSection route={props.route} />
     </View>
   )
@@ -27,6 +30,10 @@ const OrderTracking: React.FC<PropsType> = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+
+  image: {
+    width: "100%",
   },
 })
 

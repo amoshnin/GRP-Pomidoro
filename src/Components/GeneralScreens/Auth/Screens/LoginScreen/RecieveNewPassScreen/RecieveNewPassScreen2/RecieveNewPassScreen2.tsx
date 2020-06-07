@@ -1,13 +1,8 @@
 // PLUGINS IMPORTS //
-import React, { useState } from "react"
-import {
-  View,
-  ScrollView,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native"
+import React from "react"
+import { View, ScrollView, TouchableOpacity, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { TextInput } from "react-native-paper"
 import { Formik } from "formik"
 import * as yup from "yup"
 
@@ -23,10 +18,6 @@ type PropsType = {
 }
 
 const RecieveNewPassScreen: React.FC<PropsType> = (props) => {
-  const [phoneNumInputBorderColor, setPhoneNumInputBorderColor] = useState(
-    "#DCDCDC" as string
-  )
-
   const ValidationSchema = yup.object({
     code: yup
       .string()
@@ -54,17 +45,13 @@ const RecieveNewPassScreen: React.FC<PropsType> = (props) => {
             <TextInput
               placeholder="Код востоновления из СМС"
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
+              theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("code")}
-              onFocus={() => setPhoneNumInputBorderColor("#1A1824")}
               onBlur={() => {
                 FormikProps.handleBlur("code")
-                setPhoneNumInputBorderColor("#DCDCDC")
               }}
               value={FormikProps.values.code as any}
-              style={{
-                ...styles.input,
-                borderBottomColor: phoneNumInputBorderColor,
-              }}
+              style={styles.input}
             />
             {FormikProps.touched.code && FormikProps.errors.code ? (
               <Text style={styles.error_message}>
@@ -126,7 +113,7 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    borderBottomWidth: 1,
+    backgroundColor: "white",
     height: 45,
     width: 315,
     fontSize: 16,
