@@ -21,10 +21,17 @@ const GeneralHeader: React.FC<PropsType> = (props) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <BorderlessButton>{props.leftIcon}</BorderlessButton>
+        <BorderlessButton style={styles.menu_icon}>
+          {props.leftIcon}
+        </BorderlessButton>
         <TextInput style={styles.input} />
         <View style={styles.icons_wrap}>
-          <BorderlessButton style={styles.icon}>
+          <BorderlessButton
+            style={styles.icon}
+            onPress={() => {
+              props.navigation.navigate("BasketScreen")
+            }}
+          >
             <Feather name="shopping-cart" size={24} color="#1C1C1C" />
           </BorderlessButton>
 
@@ -63,6 +70,12 @@ const styles = StyleSheet.create({
 
   icons_wrap: {
     flexDirection: "row",
+  },
+
+  menu_icon: {
+    paddingHorizontal: 5,
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   icon: {

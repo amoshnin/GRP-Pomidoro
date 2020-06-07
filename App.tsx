@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React, { useEffect, useState } from "react"
-import { TouchableOpacity } from "react-native"
+import { Image, TouchableOpacity, StyleSheet } from "react-native"
+import Text from "~/Components/Shared/Components/Text/Text"
 
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
@@ -16,6 +17,7 @@ import GeneralHeader from "./src/Components/Shared/Components/GeneralHeader/Gene
 import LoadingScreen from "./src/Components/HelpersScreens/LoadingScreen/LoadingScreen"
 import DashboardScreenContainer from "./src/Components/HelpersScreens/DashboardScreen/DashboardScreenContainer"
 import Auth from "./src/Components/GeneralScreens/Auth/Auth"
+import RegistrationScreenContainer from "./src/Components/GeneralScreens/Auth/Screens/RegistrationScreen/RegistrationScreenContainer"
 import IndividualSaleScreen from "./src/Components/HelpersScreens/IndividualSaleScreen/IndividualSaleScreen"
 import ProductTypeCatalog from "./src/Components/HelpersScreens/ProductTypeCatalogScreen/ProductTypeCatalogScreen"
 import IndividualProductItem from "./src/Components/HelpersScreens/IndividualProductItem/IndividualProductItem"
@@ -75,6 +77,29 @@ const App: React.FC<PropsType> = (props) => {
               component={Auth}
               options={({ navigation, route }: any) => ({
                 headerShown: false,
+              })}
+            />
+            <Stack.Screen
+              name="RegistrationScreen"
+              component={RegistrationScreenContainer}
+              options={({ navigation, route }: any) => ({
+                headerTitle: () => (
+                  <Image source={require("./src/Images/logo.png")} />
+                ),
+                headerTitleAlign: "center",
+                headerRight: () => (
+                  <TouchableOpacity style={{ ...styles.icon, marginRight: 12 }}>
+                    <Text style={{ marginRight: 1 }}>Ру</Text>
+                    <MaterialIcons
+                      name="keyboard-arrow-down"
+                      size={23}
+                      color="black"
+                    />
+                  </TouchableOpacity>
+                ),
+                headerStyle: {
+                  height: 100,
+                },
               })}
             />
 
@@ -294,5 +319,12 @@ const App: React.FC<PropsType> = (props) => {
     </Provider>
   )
 }
+
+const styles = StyleSheet.create({
+  icon: {
+    marginTop: 8,
+    flexDirection: "row",
+  },
+})
 
 export default App

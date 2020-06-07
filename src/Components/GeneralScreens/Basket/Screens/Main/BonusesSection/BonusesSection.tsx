@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React, { useState } from "react"
-import { View, TextInput, TouchableOpacity, StyleSheet } from "react-native"
+import { View, TouchableOpacity, StyleSheet } from "react-native"
+import { TextInput } from "react-native-paper"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
@@ -38,7 +39,8 @@ const BonusesSection: React.FC<PropsType> = (props) => {
           <TextInput
             placeholder="345"
             style={styles.input}
-            keyboardType="number-pad"
+            underlineColor="silver"
+            theme={{ colors: { primary: "#1A1824" } }}
           />
           <Text style={styles.bottom_subtitle}>
             1 бонус = 1 ₴. Макс. - 70% от заказа
@@ -81,8 +83,8 @@ const styles = StyleSheet.create({
 
   input: {
     width: 265.44,
-    height: 45,
-    borderBottomWidth: 1,
+    height: 40,
+    backgroundColor: "white",
   },
 
   bottom_subtitle: {

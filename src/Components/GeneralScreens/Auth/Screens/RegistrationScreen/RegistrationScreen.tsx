@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React, { useState } from "react"
-import { View, ScrollView, TextInput, StyleSheet } from "react-native"
+import { View, ScrollView, StyleSheet } from "react-native"
+import { TextInput } from "react-native-paper"
 import Text from "~/Components/Shared/Components/Text/Text"
 import { Checkbox } from "react-native-paper"
 import { Formik } from "formik"
@@ -19,19 +20,6 @@ type PropsType = {
 
 const RegistrationScreen: React.FC<PropsType> = (props) => {
   const [checkedSMS, setCheckedSMS] = useState(false as boolean)
-
-  const [nameInputBorderColor, setNameInputBorderColor] = useState(
-    "#DCDCDC" as string
-  )
-  const [phoneNumInputBorderColor, setPhoneNumInputBorderColor] = useState(
-    "#DCDCDC" as string
-  )
-  const [passwordInputBorderColor, setPasswordInputBorderColor] = useState(
-    "#DCDCDC" as string
-  )
-  const [emailInputBorderColor, setEmailInputBorderColor] = useState(
-    "#DCDCDC" as string
-  )
 
   const ValidationSchema = yup.object({
     name: yup.string().required("Имя обязательно").typeError("Имя обязательно"),
@@ -72,19 +60,15 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
             <TextInput
               placeholder="Имя пользователя"
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
+              theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("name")}
-              onFocus={() => setNameInputBorderColor("#1A1824")}
               onBlur={() => {
                 FormikProps.handleBlur("name")
-                setNameInputBorderColor("#DCDCDC")
               }}
               textContentType="name"
               autoCompleteType="name"
               value={FormikProps.values.name as any}
-              style={{
-                ...styles.input,
-                borderBottomColor: nameInputBorderColor,
-              }}
+              style={styles.input}
             />
             <Text style={styles.error_message}>
               {FormikProps.touched.name && FormikProps.errors.name}
@@ -93,18 +77,14 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
             <TextInput
               placeholder="Номер телефона"
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
+              theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("phoneNum")}
-              onFocus={() => setPhoneNumInputBorderColor("#1A1824")}
               onBlur={() => {
                 FormikProps.handleBlur("phoneNum")
-                setPhoneNumInputBorderColor("#DCDCDC")
               }}
               keyboardType="number-pad"
               value={FormikProps.values.phoneNum as any}
-              style={{
-                ...styles.input,
-                borderBottomColor: phoneNumInputBorderColor,
-              }}
+              style={styles.input}
             />
             <Text style={styles.error_message}>
               {FormikProps.touched.phoneNum && FormikProps.errors.phoneNum}
@@ -113,19 +93,15 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
             <TextInput
               placeholder="Введите пароль"
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
+              theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("password")}
-              onFocus={() => setPasswordInputBorderColor("#1A1824")}
               onBlur={() => {
                 FormikProps.handleBlur("password")
-                setPasswordInputBorderColor("#DCDCDC")
               }}
               textContentType="password"
               autoCompleteType="password"
               value={FormikProps.values.password as any}
-              style={{
-                ...styles.input,
-                borderBottomColor: passwordInputBorderColor,
-              }}
+              style={styles.input}
             />
             <Text style={styles.error_message}>
               {FormikProps.touched.password && FormikProps.errors.password}
@@ -147,19 +123,15 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
             <TextInput
               placeholder="Email (Необязательно)"
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
+              theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("email")}
-              onFocus={() => setEmailInputBorderColor("#1A1824")}
               onBlur={() => {
                 FormikProps.handleBlur("email")
-                setEmailInputBorderColor("#DCDCDC")
               }}
               textContentType="emailAddress"
               autoCompleteType="email"
               value={FormikProps.values.email as any}
-              style={{
-                ...styles.input,
-                borderBottomColor: emailInputBorderColor,
-              }}
+              style={styles.input}
             />
 
             <Button
@@ -217,7 +189,7 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    borderBottomWidth: 1,
+    backgroundColor: "white",
     height: 45,
     width: 315,
     fontSize: 16,

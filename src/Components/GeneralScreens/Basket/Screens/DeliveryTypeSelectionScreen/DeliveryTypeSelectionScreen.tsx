@@ -3,10 +3,10 @@ import React from "react"
 import { ScrollView, StyleSheet } from "react-native"
 
 // COMPONENTS IMPORTS //
-import Header from "./Header/Header"
-import Footer from "./Footer/Footer"
+import Body from "./Body/Body"
 
 // EXTRA IMPORTS //
+import Text from "~/Components/Shared/Components/Text/Text"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -14,11 +14,13 @@ type PropsType = {
   navigation: any
 }
 
-const DeliveryTimeSelectionScreen: React.FC<PropsType> = (props) => {
+const DeliveryTypeSelectionScreen: React.FC<PropsType> = (props) => {
   return (
     <ScrollView style={styles.container}>
-      <Header />
-      <Footer navigation={props.navigation} />
+      <Text size={30} weight="bold" style={styles.title}>
+        Доставка
+      </Text>
+      <Body navigation={props.navigation} />
     </ScrollView>
   )
 }
@@ -27,6 +29,11 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: 30,
   },
+
+  title: {
+    marginTop: 39,
+    letterSpacing: 0.3,
+  },
 })
 
-export default DeliveryTimeSelectionScreen
+export default DeliveryTypeSelectionScreen

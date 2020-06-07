@@ -12,7 +12,9 @@ import Text from "~/Components/Shared/Components/Text/Text"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  navigation: any
+}
 
 const Footer: React.FC<PropsType> = (props) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
@@ -31,10 +33,14 @@ const Footer: React.FC<PropsType> = (props) => {
     setDatePicked(date)
   }
 
+  const confirmFunction = () => {
+    props.navigation.navigate("SelectAccountScreen")
+  }
+
   return (
-    <View style={styles.container}>
+    <>
       <TouchableOpacity style={styles.input} onPress={showDatePicker}>
-        <Text>{dayjs(datePicked).format("HH:mm")}</Text>
+        <Text>{datePicked ? dayjs(datePicked).format("HH:mm") : "Время"}</Text>
       </TouchableOpacity>
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
@@ -44,6 +50,7 @@ const Footer: React.FC<PropsType> = (props) => {
       />
 
       <Button
+        onPress={() => confirmFunction()}
         text="Продолжить"
         buttonStyle={{
           marginTop: 20,
@@ -55,15 +62,14 @@ const Footer: React.FC<PropsType> = (props) => {
         }}
         textStyle={{
           color: "white",
+          fontSize: 16,
         }}
       />
-    </View>
+    </>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {},
-
   input: {
     width: 315.44,
     height: 30,

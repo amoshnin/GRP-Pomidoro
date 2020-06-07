@@ -52,31 +52,7 @@ const Auth: React.FC<PropsType> = (props) => {
           ),
         })}
       />
-      <Stack.Screen
-        name="RegionSelectionScreen"
-        component={RegionSelectionScreen}
-        options={({ navigation, route }: any) => ({
-          title: "",
-          headerStyle: {
-            height: 110,
-          },
-          headerRight: () => (
-            <TouchableOpacity
-              style={{
-                flexDirection: "row",
-                marginHorizontal: 25,
-              }}
-            >
-              <Text style={{ marginRight: 1 }}>Ру</Text>
-              <MaterialIcons
-                name="keyboard-arrow-down"
-                size={23}
-                color="black"
-              />
-            </TouchableOpacity>
-          ),
-        })}
-      />
+
       <Stack.Screen
         name="RecieveNewPassScreen1"
         component={RecieveNewPassScreen1}

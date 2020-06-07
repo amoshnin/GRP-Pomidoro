@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React, { useState } from "react"
-import { View, TouchableOpacity, TextInput, StyleSheet } from "react-native"
+import { View, TouchableOpacity, StyleSheet } from "react-native"
+import { TextInput } from "react-native-paper"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 import { Formik } from "formik"
@@ -17,14 +18,6 @@ type PropsType = {
 }
 
 const LoginScreen: React.FC<PropsType> = (props) => {
-  const [phoneNumInputBorderColor, setPhoneNumInputBorderColor] = useState(
-    "#DCDCDC" as string
-  )
-
-  const [passwordInputBorderColor, setPasswordInputBorderColor] = useState(
-    "#DCDCDC" as string
-  )
-
   return (
     <View style={styles.container}>
       <Text weight="bold" size={30} style={styles.title}>
@@ -44,37 +37,29 @@ const LoginScreen: React.FC<PropsType> = (props) => {
             <TextInput
               placeholder="Номер телефона"
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
+              theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("phoneNum")}
-              onFocus={() => setPhoneNumInputBorderColor("#1A1824")}
               onBlur={() => {
                 FormikProps.handleBlur("phoneNum")
-                setPhoneNumInputBorderColor("#DCDCDC")
               }}
               keyboardType="number-pad"
               textContentType="creditCardNumber"
               value={FormikProps.values.phoneNum as any}
-              style={{
-                ...styles.input,
-                borderBottomColor: phoneNumInputBorderColor,
-              }}
+              style={styles.input}
             />
 
             <TextInput
               placeholder="Введите пароль"
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
+              theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("password")}
-              onFocus={() => setPasswordInputBorderColor("#1A1824")}
               onBlur={() => {
                 FormikProps.handleBlur("password")
-                setPasswordInputBorderColor("#DCDCDC")
               }}
               textContentType="password"
               autoCompleteType="password"
               value={FormikProps.values.password as any}
-              style={{
-                ...styles.input,
-                borderBottomColor: passwordInputBorderColor,
-              }}
+              style={styles.input}
             />
 
             <Button
@@ -137,11 +122,11 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    borderBottomWidth: 1,
     height: 45,
     width: 315,
     fontSize: 16,
     marginBottom: 20,
+    backgroundColor: "white",
   },
 
   bottom_text_wrap: {
