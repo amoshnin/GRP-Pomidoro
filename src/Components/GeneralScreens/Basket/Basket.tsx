@@ -7,11 +7,13 @@ import MainContainer from "./Screens/Main/MainContainer"
 import DeliveryTimeSelectionScreen from "./Screens/DeliveryTimeSelectionScreen/DeliveryTimeSelectionScreen"
 import SelectAccountScreen from "./Screens/SelectAccountScreen/SelectAccountScreen"
 import DeliveryTypeSelectionScreen from "./Screens/DeliveryTypeSelectionScreen/DeliveryTypeSelectionScreen"
-import ManualDeliveryScreen from "./Screens/ManualDeliveryScreen/ManualDeliveryScreen"
 import ConfirmAdressScreen from "./Screens/ConfirmAdressScreen/ConfirmAdressScreen"
 import PaymentMethodScreen from "./Screens/PaymentMethodScreen/PaymentMethodScreen"
 import PaymentScreen from "./Screens/PaymentScreen/PaymentScreen"
 import SuccesfulPaymentScreen from "./Screens/SuccesfulPaymentScreen/SuccesfulPaymentScreen"
+
+import BackCallScreen from "./Screens/Helpers/BackCallScreen/BackCallScreen"
+import ManualDeliveryScreen from "./Screens/Helpers/ManualDeliveryScreen/ManualDeliveryScreen"
 
 // EXTRA IMPORTS //
 import GeneralHeader from "../../Shared/Components/GeneralHeader/GeneralHeader"
@@ -137,6 +139,13 @@ const PrivateCabinetScreen: React.FC<PropsType> = (props) => {
               }
             />
           ),
+        })}
+      />
+      <Stack.Screen
+        name="BackCallScreen"
+        component={BackCallScreen}
+        options={({ navigation, route }: any) => ({
+          headerTitle: "",
         })}
       />
     </Stack.Navigator>

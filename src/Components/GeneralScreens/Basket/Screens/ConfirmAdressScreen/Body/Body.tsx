@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    marginTop: 42,
+    marginTop: 32,
     marginHorizontal: 32,
   },
 

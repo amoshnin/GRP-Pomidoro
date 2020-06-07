@@ -9,7 +9,9 @@ import Text from "~/Components/Shared/Components/Text/Text"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  productsCount: number
+}
 
 const Header: React.FC<PropsType> = (props) => {
   return (
@@ -17,7 +19,7 @@ const Header: React.FC<PropsType> = (props) => {
       <Text size={30} weight="bold">
         Корзина
       </Text>
-      <Text size={16}>3 items added</Text>
+      <Text size={16}>{props.productsCount} items added</Text>
     </View>
   )
 }

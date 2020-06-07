@@ -12,11 +12,12 @@ import Ingredients from "./Ingredients/Ingredients"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
-  productTitle: string | null
-  image: string | null
-  productPrice24: string | null
-  productPrice32: string | null
-  productPrice40: string | null
+  navigation: any
+  productTitle: string
+  image: string
+  productPrice24: number
+  productPrice32: number
+  productPrice40: number
   productType: Array<string>
   ingridientsList: Array<string>
 }
@@ -25,6 +26,7 @@ const Body: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <BodyHeader
+        navigation={props.navigation}
         productTitle={props.productTitle}
         productPrice24={props.productPrice24}
         productPrice32={props.productPrice32}

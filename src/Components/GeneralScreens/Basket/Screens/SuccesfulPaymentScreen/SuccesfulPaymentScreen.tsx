@@ -1,11 +1,12 @@
 // PLUGINS IMPORTS //
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { View, ScrollView, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 import Button from "~/Components/Shared/Components/Button/Button"
 
 // COMPONENTS IMPORTS //
 import ProductsBasketList from "~/Components/Shared/Sections/ProductsBasketList/ProductsBasketList"
+import OrderDetailsSection from "~/Components/Shared/Sections/OrderDetailsSection/OrderDetailsSection"
 
 // EXTRA IMPORTS //
 import { MaterialCommunityIcons } from "@expo/vector-icons"
@@ -17,6 +18,8 @@ type PropsType = {
 }
 
 const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
+  const [totalPrice, setTotalPrice] = useState(0 as number)
+
   const Products = [
     {
       title: "Парерони чиз",
@@ -36,6 +39,10 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
     },
   ]
 
+  useEffect(() => {
+    setTotalPrice(Products.reduce((a, b) => a + (b["price"] || 0), 0))
+  }, [])
+
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Text weight="bold" size={30}>
@@ -48,6 +55,7 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
         />
       </Text>
       <Button
+        onPress={() => props.navigation.navigate("OrderTracking")}
         text="Отследить заказ"
         buttonStyle={{
           marginTop: 30,
@@ -63,6 +71,7 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
         }}
       />
       <Button
+        onPress={() => props.navigation.navigate("MainScreen")}
         text="На главную"
         buttonStyle={{
           marginTop: 19,
@@ -77,6 +86,40 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
       />
       <View style={styles.divider} />
       <ProductsBasketList Products={Products} />
+      <OrderDetailsSection
+        navigation={props.navigation}
+        totalPrice={totalPrice}
+        deliveryPrice={50}
+        adress={"ул. Засумская"}
+        creditCardNum="5443"
+      />
+      <Button
+        text="Связаться с оператором"
+        buttonStyle={{
+          marginBottom: 20,
+          width: 315,
+          height: 50,
+          borderRadius: 6,
+          alignSelf: null,
+        }}
+        textStyle={{
+          fontSize: 16,
+        }}
+      />
+      <Button
+        onPress={() => props.navigation.navigate("BackCallScreen")}
+        text="Заказать обратный звонок"
+        buttonStyle={{
+          marginBottom: 20,
+          width: 315,
+          height: 50,
+          borderRadius: 6,
+          alignSelf: null,
+        }}
+        textStyle={{
+          fontSize: 16,
+        }}
+      />
     </ScrollView>
   )
 }

@@ -30,6 +30,7 @@ const IndividualProductItem: React.FC<PropsType> = (props) => {
       <Header image={image} navigation={props.navigation} />
 
       <Body
+        navigation={props.navigation}
         productTitle={productTitle}
         image={image}
         ingridientsList={ingridientsList}

@@ -16,7 +16,7 @@ type PropsType = {
 }
 
 const Body: React.FC<PropsType> = (props) => {
-  const [checkedValue, setCheckedValue] = useState(null as string | null)
+  const [checkedValue, setCheckedValue] = useState("Забрать самому" as string)
 
   const SelectionList = [
     {

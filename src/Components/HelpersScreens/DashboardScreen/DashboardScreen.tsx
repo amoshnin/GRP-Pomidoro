@@ -50,7 +50,10 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
           <Text style={styles.text}>Меню</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.rect_button}>
+      <TouchableOpacity
+        style={styles.rect_button}
+        onPress={() => props.navigation.navigate("PizzaConstructorScreen")}
+      >
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Конструктор пиццы</Text>
@@ -87,12 +90,6 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
         <View style={styles.item_wrap}>
           <Feather name="menu" size={24} color="#96A637" />
           <Text style={styles.text}>Акции</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.rect_button}>
-        <View style={styles.item_wrap}>
-          <Feather name="menu" size={24} color="#96A637" />
-          <Text style={styles.text}>Подписка</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity

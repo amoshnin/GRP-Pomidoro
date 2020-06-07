@@ -16,7 +16,9 @@ type PropsType = {
 }
 
 const Body: React.FC<PropsType> = (props) => {
-  const [checkedValue, setCheckedValue] = useState(null as string | null)
+  const [checkedValue, setCheckedValue] = useState(
+    "Карта ** 5443 (+50 ₴ к сумме)" as string | null
+  )
 
   const PaymentMethods = [
     {

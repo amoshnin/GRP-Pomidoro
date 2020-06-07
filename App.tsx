@@ -26,6 +26,7 @@ import OrderTracking from "./src/Components/HelpersScreens/OrderTracking/OrderTr
 import MainScreen from "./src/Components/GeneralScreens/MainScreen/MainScreenContainer"
 import PrivateCabinerScreen from "./src/Components/GeneralScreens/PrivateCabinetScreen/PrivateCabinetScreen"
 import MenuScreenContainer from "./src/Components/GeneralScreens/MenuScreen/MenuScreenContainer"
+import PizzaConstructorScreen from "./src/Components/GeneralScreens/PizzaConstructorScreen/PizzaConstructorScreenContainer"
 import OrdersScreenContainer from "./src/Components/GeneralScreens/OrdersScreen/OrdersScreenContainer"
 import Basket from "./src/Components/GeneralScreens/Basket/Basket"
 import SalesScreenContainer from "./src/Components/GeneralScreens/SalesScreen/SalesScreenContainer"
@@ -168,6 +169,27 @@ const App: React.FC<PropsType> = (props) => {
                 ),
               })}
             />
+
+            <Stack.Screen
+              name="PizzaConstructorScreen"
+              component={PizzaConstructorScreen}
+              options={({ navigation, route }: any) => ({
+                header: () => (
+                  <GeneralHeader
+                    navigation={navigation}
+                    leftIcon={
+                      <MaterialIcons
+                        name="menu"
+                        size={24}
+                        color="#1C1C1C"
+                        onPress={() => navigation.navigate("DashboardScreen")}
+                      />
+                    }
+                  />
+                ),
+              })}
+            />
+
             <Stack.Screen
               name="OrdersScreen"
               component={OrdersScreenContainer}
@@ -201,11 +223,11 @@ const App: React.FC<PropsType> = (props) => {
                   <GeneralHeader
                     navigation={navigation}
                     leftIcon={
-                      <MaterialIcons
-                        name="menu"
+                      <Ionicons
+                        name="ios-arrow-back"
                         size={24}
                         color="#1C1C1C"
-                        onPress={() => navigation.navigate("DashboardScreen")}
+                        onPress={() => navigation.goBack()}
                       />
                     }
                   />

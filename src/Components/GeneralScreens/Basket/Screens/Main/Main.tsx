@@ -49,7 +49,7 @@ const Main: React.FC<PropsType> = (props) => {
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <Header />
+      <Header productsCount={ProductsList.length} />
       <ProductsBasketList Products={ProductsList} />
       <OrderDetailsSection
         totalPrice={totalPrice}

@@ -3,7 +3,6 @@ import React from "react"
 import { View, TouchableOpacity, StyleSheet } from "react-native"
 import { TextInput } from "react-native-paper"
 import Text from "~/Components/Shared/Components/Text/Text"
-
 import { Formik } from "formik"
 
 // COMPONENTS IMPORTS //

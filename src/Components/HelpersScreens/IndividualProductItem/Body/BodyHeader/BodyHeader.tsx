@@ -5,17 +5,18 @@ import Text from "~/Components/Shared/Components/Text/Text"
 import { RectButton } from "react-native-gesture-handler"
 
 // COMPONENTS IMPORTS //
+import PizzaSizesHelper from "~/Components/Shared/Sections/Helpers/PizzaSizesHelper/PizzaSizesHelper"
 
 // EXTRA IMPORTS //
-import { Entypo } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
-  productTitle: string | null
-  productPrice24: string | null
-  productPrice32: string | null
-  productPrice40: string | null
+  navigation: any
+  productTitle: string
+  productPrice24: number
+  productPrice32: number
+  productPrice40: number
 }
 
 const BodyHeader: React.FC<PropsType> = (props) => {
@@ -27,38 +28,16 @@ const BodyHeader: React.FC<PropsType> = (props) => {
 
       <Text size={16}>Выберите размер для заказа</Text>
 
-      <View style={styles.sizes_wrap}>
-        <View style={{ ...styles.size_circle, height: 64, width: 64 }}>
-          <Text>24см</Text>
-          <View style={styles.size_circle_divider_wrap}>
-            <View style={styles.size_circle_divider} />
-          </View>
-          <Text weight="bold">{props.productPrice24}</Text>
-          <RectButton style={styles.size_add_btn}>
-            <Entypo name="plus" size={16} color="white" />
-          </RectButton>
-        </View>
-        <View style={{ ...styles.size_circle, height: 70, width: 70 }}>
-          <Text>32см</Text>
-          <View style={styles.size_circle_divider_wrap}>
-            <View style={styles.size_circle_divider} />
-          </View>
-          <Text weight="bold">{props.productPrice32}</Text>
-          <RectButton style={styles.size_add_btn}>
-            <Entypo name="plus" size={16} color="white" />
-          </RectButton>
-        </View>
-        <View style={{ ...styles.size_circle, height: 76, width: 76 }}>
-          <Text>40см</Text>
-          <View style={styles.size_circle_divider_wrap}>
-            <View style={styles.size_circle_divider} />
-          </View>
-          <Text weight="bold">{props.productPrice40}</Text>
-          <RectButton style={styles.size_add_btn}>
-            <Entypo name="plus" size={16} color="white" />
-          </RectButton>
-        </View>
-      </View>
+      <PizzaSizesHelper
+        navigation={props.navigation}
+        snackBarStyle={{
+          left: -200,
+        }}
+        title={props.productTitle}
+        price24={props.productPrice24}
+        price32={props.productPrice32}
+        price40={props.productPrice40}
+      />
     </View>
   )
 }
