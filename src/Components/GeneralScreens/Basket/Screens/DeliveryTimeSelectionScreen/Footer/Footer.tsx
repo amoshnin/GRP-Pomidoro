@@ -2,6 +2,7 @@
 import React, { useState } from "react"
 import { View, TouchableOpacity, StyleSheet } from "react-native"
 import DateTimePickerModal from "react-native-modal-datetime-picker"
+import dayjs from "dayjs"
 
 // COMPONENTS IMPORTS //
 
@@ -15,7 +16,7 @@ type PropsType = {}
 
 const Footer: React.FC<PropsType> = (props) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
-  const [datePicked, setDatePicked] = useState(null as string | null)
+  const [datePicked, setDatePicked] = useState("" as string | Date)
 
   const showDatePicker = () => {
     setDatePickerVisibility(true)
@@ -27,14 +28,13 @@ const Footer: React.FC<PropsType> = (props) => {
 
   const handleConfirm = (date: any) => {
     hideDatePicker()
-    // setDatePicked(date)
-    console.log(date)
+    setDatePicked(date)
   }
 
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.input} onPress={showDatePicker}>
-        <Text>{"Время"}</Text>
+        <Text>{dayjs(datePicked).format("HH:mm")}</Text>
       </TouchableOpacity>
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
