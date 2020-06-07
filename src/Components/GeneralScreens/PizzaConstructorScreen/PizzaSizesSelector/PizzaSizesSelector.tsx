@@ -17,27 +17,28 @@ import { Entypo } from "@expo/vector-icons"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  CurrentPizzaSize: number
   price24: number
   price32: number
   price40: number
 
   containerStyle?: any
+
+  changePizzaSize: (pizzaSize: number) => void
 }
 
 const PizzaSizesSelector: React.FC<PropsType> = (props) => {
-  const [selectedSize, setSelectedSize] = useState(24 as number | null)
-
   return (
     <TouchableWithoutFeedback>
       <View style={{ ...styles.sizes_wrap, ...props.containerStyle }}>
         <TouchableOpacity
           onPress={() => {
-            setSelectedSize(24)
+            props.changePizzaSize(24)
           }}
         >
           <View
             style={
-              selectedSize === 24
+              props.CurrentPizzaSize === 24
                 ? {
                     ...styles.size_circle,
                     height: 64,
@@ -51,11 +52,16 @@ const PizzaSizesSelector: React.FC<PropsType> = (props) => {
                   }
             }
           >
-            <Text color={selectedSize === 24 ? "white" : "black"}>24см</Text>
+            <Text color={props.CurrentPizzaSize === 24 ? "white" : "black"}>
+              24см
+            </Text>
             <View style={styles.size_circle_divider_wrap}>
               <View style={styles.size_circle_divider} />
             </View>
-            <Text weight="bold" color={selectedSize === 24 ? "white" : "black"}>
+            <Text
+              weight="bold"
+              color={props.CurrentPizzaSize === 24 ? "white" : "black"}
+            >
               {props.price24} ₴
             </Text>
             <RectButton style={styles.size_add_btn}>
@@ -65,12 +71,12 @@ const PizzaSizesSelector: React.FC<PropsType> = (props) => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            setSelectedSize(32)
+            props.changePizzaSize(32)
           }}
         >
           <View
             style={
-              selectedSize === 32
+              props.CurrentPizzaSize === 32
                 ? {
                     ...styles.size_circle,
                     height: 70,
@@ -84,11 +90,16 @@ const PizzaSizesSelector: React.FC<PropsType> = (props) => {
                   }
             }
           >
-            <Text color={selectedSize === 32 ? "white" : "black"}>32см</Text>
+            <Text color={props.CurrentPizzaSize === 32 ? "white" : "black"}>
+              32см
+            </Text>
             <View style={styles.size_circle_divider_wrap}>
               <View style={styles.size_circle_divider} />
             </View>
-            <Text weight="bold" color={selectedSize === 32 ? "white" : "black"}>
+            <Text
+              weight="bold"
+              color={props.CurrentPizzaSize === 32 ? "white" : "black"}
+            >
               {props.price32} ₴
             </Text>
             <RectButton style={styles.size_add_btn}>
@@ -98,12 +109,12 @@ const PizzaSizesSelector: React.FC<PropsType> = (props) => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            setSelectedSize(40)
+            props.changePizzaSize(40)
           }}
         >
           <View
             style={
-              selectedSize === 40
+              props.CurrentPizzaSize === 40
                 ? {
                     ...styles.size_circle,
                     height: 76,
@@ -113,11 +124,16 @@ const PizzaSizesSelector: React.FC<PropsType> = (props) => {
                 : { ...styles.size_circle, height: 76, width: 76 }
             }
           >
-            <Text color={selectedSize === 40 ? "white" : "black"}>40см</Text>
+            <Text color={props.CurrentPizzaSize === 40 ? "white" : "black"}>
+              40см
+            </Text>
             <View style={styles.size_circle_divider_wrap}>
               <View style={styles.size_circle_divider} />
             </View>
-            <Text weight="bold" color={selectedSize === 40 ? "white" : "black"}>
+            <Text
+              weight="bold"
+              color={props.CurrentPizzaSize === 40 ? "white" : "black"}
+            >
               {props.price40} ₴
             </Text>
             <RectButton style={styles.size_add_btn}>

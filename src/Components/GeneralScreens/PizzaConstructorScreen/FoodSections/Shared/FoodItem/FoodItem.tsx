@@ -52,7 +52,7 @@ class FoodItem extends React.Component<PropsType> {
         this.props.removeIngredientActionCreator(this.props.ingredient.name)
       this.state.count !== 0 && this.setState({ count: this.state.count - 1 })
     }
-    console.log(this.props.CurrentPizzaIngredients)
+
     return (
       <View style={styles.container}>
         <Image source={require("~/Images/constructor-item-3.png")} />

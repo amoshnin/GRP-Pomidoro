@@ -1,14 +1,13 @@
 //    *GENERAL IMPORTS*   //
 import { ThunkAction } from "redux-thunk"
 import { AppStateType, InferActionsTypes } from "../ReduxStore"
-import { accessibilityProps } from "react-native-paper/lib/typescript/src/components/MaterialCommunityIcon"
 
 ////////////////////////////////////////////////////////////////////////
 
 let initialState = {
   CurrentPizzaIngredients: [] as Array<any>,
   CurrentPizzaPrice: 0 as number,
-  CurrentPizzaSize: 0 as number,
+  CurrentPizzaSize: 24 as number,
 }
 
 export type initialStateType = typeof initialState

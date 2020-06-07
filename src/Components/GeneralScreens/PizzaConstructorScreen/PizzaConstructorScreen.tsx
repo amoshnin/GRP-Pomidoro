@@ -14,11 +14,15 @@ import TopTabNavigator from "./TopTabNavigator/TopTabNavigator"
 
 type PropsType = {
   navigation: any
+  CurrentPizzaPrice: number
+  CurrentPizzaSize: number
+
+  changePizzaSize: (pizzaSize: number) => void
+  addPizzaPrice: (addedPizzaPrice: number) => void
+  substractPizzaPrice: (substractPizzaPrice: number) => void
 }
 
 const PizzaConstructorScreen: React.FC<PropsType> = (props) => {
-  const [price, setPrice] = useState(0 as number)
-
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -33,6 +37,8 @@ const PizzaConstructorScreen: React.FC<PropsType> = (props) => {
           <View>
             <PizzaSizesSelector
               containerStyle={{ flexDirection: "column" }}
+              CurrentPizzaSize={props.CurrentPizzaSize}
+              changePizzaSize={props.changePizzaSize}
               price24={99}
               price32={164}
               price40={199}
@@ -49,7 +55,7 @@ const PizzaConstructorScreen: React.FC<PropsType> = (props) => {
           }}
           navigation={props.navigation}
           destination="BasketScreen"
-          price={price}
+          price={props.CurrentPizzaPrice}
           text="Оплатить"
         />
       </View>
