@@ -21,8 +21,6 @@ type MapStateToPropsType = {
 
 type MapDispatchToPropsType = {
   changePizzaSize: (pizzaSize: number) => void
-  addPizzaPrice: (addedPizzaPrice: number) => void
-  substractPizzaPrice: (substractPizzaPrice: number) => void
 }
 
 /////////////////////////////////////////////////////////////////
@@ -40,8 +38,6 @@ const PizzaConstructorScreenContainer = compose(
     mapStateToProps,
     {
       changePizzaSize: ActionCreatorsList.changePizzaSize,
-      addPizzaPrice: ActionCreatorsList.addPizzaPrice,
-      substractPizzaPrice: ActionCreatorsList.substractPizzaPrice,
     }
   )
 )(PizzaConstructorScreen)

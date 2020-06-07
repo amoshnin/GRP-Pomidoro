@@ -16,12 +16,16 @@ import { ActionCreatorsList } from "~/Redux/Reducers/PizzaConstructorReducer"
 type MapStateToPropsType = {
   ingredient: any
   CurrentPizzaIngredients: Array<any>
+  CurrentPizzaPrice: number
 }
 
 type MapDispatchToPropsType = {
   addIngredientActionCreator: (ingredientData: any) => void
   removeIngredientActionCreator: (ingredientName: string) => void
   clearIngredientsActionCreator: () => void
+
+  addPizzaPrice: (addedPizzaPrice: number) => void
+  substractPizzaPrice: (substractPizzaPrice: number) => void
 }
 
 /////////////////////////////////////////////////////////////////
@@ -31,6 +35,7 @@ const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
     ingredient: props.ingredient,
     CurrentPizzaIngredients:
       state.PizzaConstructorState.CurrentPizzaIngredients,
+    CurrentPizzaPrice: state.PizzaConstructorState.CurrentPizzaPrice,
   }
 }
 
@@ -43,6 +48,9 @@ const PizzaConstructorScreenContainer = compose(
         ActionCreatorsList.removeIngredientActionCreator,
       clearIngredientsActionCreator:
         ActionCreatorsList.clearIngredientsActionCreator,
+
+      addPizzaPrice: ActionCreatorsList.addPizzaPrice,
+      substractPizzaPrice: ActionCreatorsList.substractPizzaPrice,
     }
   )
 )(FoodItem)

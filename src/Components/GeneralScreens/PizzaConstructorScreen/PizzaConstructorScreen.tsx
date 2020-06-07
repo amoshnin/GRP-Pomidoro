@@ -18,8 +18,6 @@ type PropsType = {
   CurrentPizzaSize: number
 
   changePizzaSize: (pizzaSize: number) => void
-  addPizzaPrice: (addedPizzaPrice: number) => void
-  substractPizzaPrice: (substractPizzaPrice: number) => void
 }
 
 const PizzaConstructorScreen: React.FC<PropsType> = (props) => {

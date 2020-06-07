@@ -20,7 +20,6 @@ type PropsType = {
   addIngredientActionCreator: (ingredientData: any) => void
   removeIngredientActionCreator: (ingredientName: string) => void
   clearIngredientsActionCreator: () => void
-  changePizzaSize: (pizzaSize: number) => void
   addPizzaPrice: (addedPizzaPrice: number) => void
   substractPizzaPrice: (substractPizzaPrice: number) => void
 }
@@ -45,11 +44,13 @@ class FoodItem extends React.Component<PropsType> {
       })
 
       this.setState({ count: this.state.count + 1 })
+      this.props.addPizzaPrice(this.props.ingredient.price)
     }
 
     const removeIngredient = () => {
       this.state.count !== 0 &&
         this.props.removeIngredientActionCreator(this.props.ingredient.name)
+
       this.state.count !== 0 && this.setState({ count: this.state.count - 1 })
     }
 
