@@ -6,7 +6,6 @@ import Text from "~/Components/Shared/Components/Text/Text"
 // COMPONENTS IMPORTS //
 
 // EXTRA IMPORTS //
-import Button from "../../../../../Shared/Components/Button/Button"
 import { Ionicons } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -33,7 +32,7 @@ const BonusesSection: React.FC<PropsType> = (props) => {
           style={styles.icon}
         />
       </TouchableOpacity>
-      {!bottomOpened && (
+      {bottomOpened && (
         <View style={styles.bottom_wrap}>
           <Text>Сколько бонусов списать:</Text>
           <TextInput

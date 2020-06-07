@@ -43,13 +43,17 @@ const Main: React.FC<PropsType> = (props) => {
     setTotalPrice(ProductsBasketList.reduce((a, b) => a + (b["price"] || 0), 0))
   }, [])
 
+  const orderFunction = () => {
+    props.navigation.navigate("DeliveryTimeSelectionScreen")
+  }
+
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Header />
       <ProductsList ProductsBasketList={ProductsBasketList} />
       <PaymentSection totalPrice={totalPrice} />
       <BonusesSection />
-      <Footer />
+      <Footer orderFunction={orderFunction} />
     </ScrollView>
   )
 }

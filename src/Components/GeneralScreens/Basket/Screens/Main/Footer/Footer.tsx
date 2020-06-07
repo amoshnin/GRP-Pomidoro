@@ -9,12 +9,15 @@ import Button from "../../../../../Shared/Components/Button/Button"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  orderFunction: () => void
+}
 
 const Footer: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <Button
+        onPress={() => props.orderFunction()}
         text="Заказать сейчас"
         buttonStyle={{
           marginTop: 20,
