@@ -12,6 +12,7 @@ import Text from "~/Components/Shared/Components/Text/Text"
 type PropsType = {
   navigation: any
   destination: string
+  buttonStyle?: any
 
   price: number
   text: string
@@ -19,7 +20,7 @@ type PropsType = {
 
 const PayButton: React.FC<PropsType> = (props) => {
   return (
-    <View style={styles.container}>
+    <View style={{ ...styles.container, ...props.buttonStyle }}>
       <Text size={16} weight="bold" color="white">
         {props.price} ₴
       </Text>

@@ -25,7 +25,7 @@ type PropsType = {
 }
 
 const PizzaSizesSelector: React.FC<PropsType> = (props) => {
-  const [selectedSize, setSelectedSize] = useState(null as number | null)
+  const [selectedSize, setSelectedSize] = useState(24 as number | null)
 
   return (
     <TouchableWithoutFeedback>
