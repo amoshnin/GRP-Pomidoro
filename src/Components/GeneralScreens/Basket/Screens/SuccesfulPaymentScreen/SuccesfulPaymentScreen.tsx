@@ -5,6 +5,7 @@ import Text from "~/Components/Shared/Components/Text/Text"
 import Button from "~/Components/Shared/Components/Button/Button"
 
 // COMPONENTS IMPORTS //
+import ProductsBasketList from "~/Components/Shared/Sections/ProductsBasketList/ProductsBasketList"
 
 // EXTRA IMPORTS //
 
@@ -15,6 +16,25 @@ type PropsType = {
 }
 
 const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
+  const Products = [
+    {
+      title: "Парерони чиз",
+      image: "",
+      size: 24,
+      price: 99,
+      count: 2,
+      allowEdit: true,
+    },
+    {
+      title: "Парерони чиз",
+      image: "",
+      size: 24,
+      price: 99,
+      count: 2,
+      allowEdit: true,
+    },
+  ]
+
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Text weight="bold" size={30}>
@@ -23,7 +43,7 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
       <Button
         text="Отследить заказ"
         buttonStyle={{
-          marginTop: 37,
+          marginTop: 30,
           backgroundColor: "#96A637",
           width: 315,
           height: 50,
@@ -49,6 +69,7 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
         }}
       />
       <View style={styles.divider} />
+      <ProductsBasketList Products={Products} />
     </ScrollView>
   )
 }

@@ -13,7 +13,7 @@ type PropsType = {}
 
 const Header: React.FC<PropsType> = (props) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text size={30} weight="bold">
         Подтверждение заказа
       </Text>
@@ -30,6 +30,10 @@ const Header: React.FC<PropsType> = (props) => {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: 10,
+  },
+
   text_wrap: {
     marginVertical: 9,
     marginTop: 4,

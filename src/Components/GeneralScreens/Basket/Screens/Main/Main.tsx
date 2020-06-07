@@ -5,7 +5,7 @@ import { ScrollView, StyleSheet } from "react-native"
 // COMPONENTS IMPORTS //
 import Header from "./Header/Header"
 import ProductsBasketList from "~/Components/Shared/Sections/ProductsBasketList/ProductsBasketList"
-import PaymentSection from "./PaymentSection/PaymentSection"
+import OrderDetailsSection from "~/Components/Shared/Sections/OrderDetailsSection/OrderDetailsSection"
 import BonusesSection from "./BonusesSection/BonusesSection"
 import Footer from "./Footer/Footer"
 
@@ -51,7 +51,10 @@ const Main: React.FC<PropsType> = (props) => {
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Header />
       <ProductsBasketList Products={ProductsList} />
-      <PaymentSection totalPrice={totalPrice} />
+      <OrderDetailsSection
+        totalPrice={totalPrice}
+        navigation={props.navigation}
+      />
       <BonusesSection />
       <Footer orderFunction={orderFunction} />
     </ScrollView>

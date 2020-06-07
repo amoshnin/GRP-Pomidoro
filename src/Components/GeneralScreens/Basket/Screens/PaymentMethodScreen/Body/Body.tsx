@@ -1,8 +1,9 @@
 // PLUGINS IMPORTS //
 import React, { useState } from "react"
-import { View, TouchableOpacity, StyleSheet } from "react-native"
-import Text from "~/Components/Shared/Components/Text/Text"
+import { View, StyleSheet } from "react-native"
 import { RadioButton } from "react-native-paper"
+import Text from "~/Components/Shared/Components/Text/Text"
+import PayButton from "~/Components/Shared/Components/PayButton/PayButton"
 
 // COMPONENTS IMPORTS //
 
@@ -66,19 +67,12 @@ const Body: React.FC<PropsType> = (props) => {
         }
       )}
 
-      <View style={styles.button}>
-        <Text size={16} weight="bold" color="white">
-          475 ₴
-        </Text>
-
-        <TouchableOpacity
-          onPress={() => props.navigation.navigate("PaymentScreen")}
-        >
-          <Text size={16} weight="bold" color="white">
-            Перейти к оплате
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <PayButton
+        navigation={props.navigation}
+        price={429}
+        text="Перейти к оплате"
+        destination="PaymentScreen"
+      />
     </View>
   )
 }
@@ -97,16 +91,6 @@ const styles = StyleSheet.create({
   item_text_wrap: {
     marginLeft: 7,
     flexDirection: "column",
-  },
-
-  button: {
-    marginTop: 215,
-    backgroundColor: "#96A637",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 18.5,
-    paddingVertical: 15,
-    borderRadius: 6,
   },
 })
 

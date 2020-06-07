@@ -1,12 +1,13 @@
 // PLUGINS IMPORTS //
 import React, { useState, useEffect } from "react"
-import { ScrollView, StyleSheet } from "react-native"
+import { View, ScrollView, TouchableOpacity, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import PayButton from "~/Components/Shared/Components/PayButton/PayButton"
 
 // COMPONENTS IMPORTS //
 import Header from "./Header/Header"
 import ProductsBasketList from "~/Components/Shared/Sections/ProductsBasketList/ProductsBasketList"
-import OrderDetailsSection from "./OrderDetailsSection/OrderDetailsSection"
+import OrderDetailsSection from "~/Components/Shared/Sections/OrderDetailsSection/OrderDetailsSection"
 
 // EXTRA IMPORTS //
 
@@ -49,6 +50,12 @@ const PaymentScreen: React.FC<PropsType> = (props) => {
       <OrderDetailsSection
         totalPrice={totalPrice}
         navigation={props.navigation}
+      />
+      <PayButton
+        navigation={props.navigation}
+        destination="SuccesfulPaymentScreen"
+        price={429}
+        text="Оплатить"
       />
     </ScrollView>
   )
