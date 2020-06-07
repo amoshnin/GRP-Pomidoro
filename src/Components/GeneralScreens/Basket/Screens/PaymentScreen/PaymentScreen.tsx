@@ -46,7 +46,10 @@ const PaymentScreen: React.FC<PropsType> = (props) => {
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Header />
       <ProductsBasketList Products={Products} />
-      <OrderDetailsSection totalPrice={totalPrice} />
+      <OrderDetailsSection
+        totalPrice={totalPrice}
+        navigation={props.navigation}
+      />
     </ScrollView>
   )
 }

@@ -11,6 +11,7 @@ import Text from "~/Components/Shared/Components/Text/Text"
 
 type PropsType = {
   totalPrice: number
+  navigation: any
 }
 
 const OrderDetailsSection: React.FC<PropsType> = (props) => {
@@ -49,7 +50,9 @@ const OrderDetailsSection: React.FC<PropsType> = (props) => {
           475 ₴
         </Text>
 
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate("SuccesfulPaymentScreen")}
+        >
           <Text size={16} weight="bold" color="white">
             Оплатить
           </Text>

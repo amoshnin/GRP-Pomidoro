@@ -11,6 +11,7 @@ import ManualDeliveryScreen from "./Screens/ManualDeliveryScreen/ManualDeliveryS
 import ConfirmAdressScreen from "./Screens/ConfirmAdressScreen/ConfirmAdressScreen"
 import PaymentMethodScreen from "./Screens/PaymentMethodScreen/PaymentMethodScreen"
 import PaymentScreen from "./Screens/PaymentScreen/PaymentScreen"
+import SuccesfulPaymentScreen from "./Screens/SuccesfulPaymentScreen/SuccesfulPaymentScreen"
 
 // EXTRA IMPORTS //
 import GeneralHeader from "../../Shared/Components/GeneralHeader/GeneralHeader"
@@ -104,7 +105,38 @@ const PrivateCabinetScreen: React.FC<PropsType> = (props) => {
         name="PaymentScreen"
         component={PaymentScreen}
         options={({ navigation, route }: any) => ({
-          headerTitle: "",
+          header: () => (
+            <GeneralHeader
+              navigation={navigation}
+              leftIcon={
+                <Ionicons
+                  name="ios-arrow-back"
+                  size={24}
+                  color="#1C1C1C"
+                  onPress={() => navigation.goBack()}
+                />
+              }
+            />
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="SuccesfulPaymentScreen"
+        component={SuccesfulPaymentScreen}
+        options={({ navigation, route }: any) => ({
+          header: () => (
+            <GeneralHeader
+              navigation={navigation}
+              leftIcon={
+                <MaterialIcons
+                  name="menu"
+                  size={24}
+                  color="#1C1C1C"
+                  onPress={() => navigation.navigate("DashboardScreen")}
+                />
+              }
+            />
+          ),
         })}
       />
     </Stack.Navigator>
