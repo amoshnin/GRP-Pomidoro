@@ -4,7 +4,7 @@ import { ScrollView, StyleSheet } from "react-native"
 
 // COMPONENTS IMPORTS //
 import Header from "./Header/Header"
-import ProductsList from "./ProductsList/ProductsList"
+import ProductsBasketList from "~/Components/Shared/Sections/ProductsBasketList/ProductsBasketList"
 import PaymentSection from "./PaymentSection/PaymentSection"
 import BonusesSection from "./BonusesSection/BonusesSection"
 import Footer from "./Footer/Footer"
@@ -20,7 +20,7 @@ type PropsType = {
 const Main: React.FC<PropsType> = (props) => {
   const [totalPrice, setTotalPrice] = useState(0 as number)
 
-  const ProductsBasketList = [
+  const ProductsList = [
     {
       title: "Парерони чиз",
       image: "",
@@ -40,7 +40,7 @@ const Main: React.FC<PropsType> = (props) => {
   ]
 
   useEffect(() => {
-    setTotalPrice(ProductsBasketList.reduce((a, b) => a + (b["price"] || 0), 0))
+    setTotalPrice(ProductsList.reduce((a, b) => a + (b["price"] || 0), 0))
   }, [])
 
   const orderFunction = () => {
@@ -50,7 +50,7 @@ const Main: React.FC<PropsType> = (props) => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Header />
-      <ProductsList ProductsBasketList={ProductsBasketList} />
+      <ProductsBasketList Products={ProductsList} />
       <PaymentSection totalPrice={totalPrice} />
       <BonusesSection />
       <Footer orderFunction={orderFunction} />

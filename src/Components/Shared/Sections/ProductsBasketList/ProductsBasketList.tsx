@@ -3,7 +3,7 @@ import React from "react"
 import { View, StyleSheet } from "react-native"
 
 // COMPONENTS IMPORTS //
-import ProductItem from "./ProductItem/ProductItem"
+import ProductBasketItem from "./ProductBasketItem/ProductBasketItem"
 
 // EXTRA IMPORTS //
 
@@ -13,12 +13,12 @@ type PropsType = {
   Products: Array<any>
 }
 
-const ProductsList: React.FC<PropsType> = (props) => {
+const ProductsBasketList: React.FC<PropsType> = (props) => {
   return (
     <View>
       {props.Products.map((product: any) => {
         return (
-          <ProductItem
+          <ProductBasketItem
             title={product.title}
             count={product.count}
             image={product.image}
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
   container: {},
 })
 
-export default ProductsList
+export default ProductsBasketList

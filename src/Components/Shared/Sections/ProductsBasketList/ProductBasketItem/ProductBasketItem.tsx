@@ -21,14 +21,14 @@ type PropsType = {
   allowEdit: boolean
 }
 
-const ProductItem: React.FC<PropsType> = (props) => {
+const ProductBasketItem: React.FC<PropsType> = (props) => {
   return (
     <>
       <View style={styles.container}>
         <View style={styles.content_container}>
           <Image
             style={styles.image}
-            source={require("../../../../../../../Images/product-large-1.png")}
+            source={require("~/Images/product-large-1.png")}
           />
           <View style={styles.item_info}>
             <Text size={16}> {props.title}</Text>
@@ -128,4 +128,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default ProductItem
+export default ProductBasketItem

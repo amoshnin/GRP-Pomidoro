@@ -5,7 +5,7 @@ import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
 import Header from "./Header/Header"
-import ProductList from "./ProductsList/ProductsList"
+import ProductsBasketList from "~/Components/Shared/Sections/ProductsBasketList/ProductsBasketList"
 import OrderDetailsSection from "./OrderDetailsSection/OrderDetailsSection"
 
 // EXTRA IMPORTS //
@@ -45,7 +45,7 @@ const PaymentScreen: React.FC<PropsType> = (props) => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Header />
-      <ProductList Products={Products} />
+      <ProductsBasketList Products={Products} />
       <OrderDetailsSection totalPrice={totalPrice} />
     </ScrollView>
   )
