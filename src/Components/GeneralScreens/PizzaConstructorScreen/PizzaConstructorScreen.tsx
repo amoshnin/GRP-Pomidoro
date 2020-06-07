@@ -21,6 +21,17 @@ type PropsType = {
 }
 
 const PizzaConstructorScreen: React.FC<PropsType> = (props) => {
+  const pizzaPrice =
+    props.CurrentPizzaSize === 24
+      ? 99
+      : props.CurrentPizzaSize === 32
+      ? 164
+      : props.CurrentPizzaSize === 40
+      ? 199
+      : 0
+
+  const price = pizzaPrice + props.CurrentPizzaPrice
+
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -53,7 +64,7 @@ const PizzaConstructorScreen: React.FC<PropsType> = (props) => {
           }}
           navigation={props.navigation}
           destination="BasketScreen"
-          price={props.CurrentPizzaPrice}
+          price={price}
           text="Оплатить"
         />
       </View>
