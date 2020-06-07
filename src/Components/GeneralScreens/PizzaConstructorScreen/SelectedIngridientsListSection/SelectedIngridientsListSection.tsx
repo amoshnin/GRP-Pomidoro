@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { ScrollView, StyleSheet } from "react-native"
+import { View, ScrollView, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
@@ -29,20 +29,25 @@ const SelectedIngridientsListSection: React.FC<PropsType> = (props) => {
         price={0}
         image={""}
       />
-
-      {props.CurrentPizzaIngredients.map((ingridient: any) => {
-        return (
-          <SelectedIngridientItem
-            removeFullIngridientActionCreator={
-              props.removeFullIngridientActionCreator
-            }
-            name={ingridient.name}
-            count={ingridient.count}
-            price={ingridient.price}
-            image={ingridient.image}
-          />
-        )
-      })}
+      {props.CurrentPizzaIngredients.length > 0 && (
+        <>
+          <View style={styles.divider} />
+          <Text style={styles.text}>Добавки: </Text>
+          {props.CurrentPizzaIngredients.map((ingridient: any) => {
+            return (
+              <SelectedIngridientItem
+                removeFullIngridientActionCreator={
+                  props.removeFullIngridientActionCreator
+                }
+                name={ingridient.name}
+                count={ingridient.count}
+                price={ingridient.price}
+                image={ingridient.image}
+              />
+            )
+          })}
+        </>
+      )}
     </ScrollView>
   )
 }
@@ -56,6 +61,12 @@ const styles = StyleSheet.create({
 
   text: {
     letterSpacing: 0.3,
+  },
+
+  divider: {
+    borderTopColor: "silver",
+    borderTopWidth: 1,
+    marginVertical: 10,
   },
 })
 
