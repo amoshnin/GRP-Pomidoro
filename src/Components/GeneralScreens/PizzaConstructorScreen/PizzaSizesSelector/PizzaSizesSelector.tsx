@@ -25,42 +25,101 @@ type PropsType = {
 }
 
 const PizzaSizesSelector: React.FC<PropsType> = (props) => {
-  const [selectedSize, setSelectedSize] = useState(null as string | null)
+  const [selectedSize, setSelectedSize] = useState(null as number | null)
 
   return (
     <TouchableWithoutFeedback>
       <View style={{ ...styles.sizes_wrap, ...props.containerStyle }}>
-        <TouchableOpacity onPress={() => {}}>
-          <View style={{ ...styles.size_circle, height: 64, width: 64 }}>
-            <Text>24см</Text>
+        <TouchableOpacity
+          onPress={() => {
+            setSelectedSize(24)
+          }}
+        >
+          <View
+            style={
+              selectedSize === 24
+                ? {
+                    ...styles.size_circle,
+                    height: 64,
+                    width: 64,
+                    backgroundColor: "#96A637",
+                  }
+                : {
+                    ...styles.size_circle,
+                    height: 64,
+                    width: 64,
+                  }
+            }
+          >
+            <Text color={selectedSize === 24 ? "white" : "black"}>24см</Text>
             <View style={styles.size_circle_divider_wrap}>
               <View style={styles.size_circle_divider} />
             </View>
-            <Text weight="bold">{props.price24} ₴</Text>
+            <Text weight="bold" color={selectedSize === 24 ? "white" : "black"}>
+              {props.price24} ₴
+            </Text>
             <RectButton style={styles.size_add_btn}>
               <Entypo name="plus" size={16} color="white" />
             </RectButton>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
-          <View style={{ ...styles.size_circle, height: 70, width: 70 }}>
-            <Text>32см</Text>
+        <TouchableOpacity
+          onPress={() => {
+            setSelectedSize(32)
+          }}
+        >
+          <View
+            style={
+              selectedSize === 32
+                ? {
+                    ...styles.size_circle,
+                    height: 70,
+                    width: 70,
+                    backgroundColor: "#96A637",
+                  }
+                : {
+                    ...styles.size_circle,
+                    height: 70,
+                    width: 70,
+                  }
+            }
+          >
+            <Text color={selectedSize === 32 ? "white" : "black"}>32см</Text>
             <View style={styles.size_circle_divider_wrap}>
               <View style={styles.size_circle_divider} />
             </View>
-            <Text weight="bold">{props.price32} ₴</Text>
+            <Text weight="bold" color={selectedSize === 32 ? "white" : "black"}>
+              {props.price32} ₴
+            </Text>
             <RectButton style={styles.size_add_btn}>
               <Entypo name="plus" size={16} color="white" />
             </RectButton>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
-          <View style={{ ...styles.size_circle, height: 76, width: 76 }}>
-            <Text>40см</Text>
+        <TouchableOpacity
+          onPress={() => {
+            setSelectedSize(40)
+          }}
+        >
+          <View
+            style={
+              selectedSize === 40
+                ? {
+                    ...styles.size_circle,
+                    height: 76,
+                    width: 76,
+                    backgroundColor: "#96A637",
+                  }
+                : { ...styles.size_circle, height: 76, width: 76 }
+            }
+          >
+            <Text color={selectedSize === 40 ? "white" : "black"}>40см</Text>
             <View style={styles.size_circle_divider_wrap}>
               <View style={styles.size_circle_divider} />
             </View>
-            <Text weight="bold">{props.price40} ₴</Text>
+            <Text weight="bold" color={selectedSize === 40 ? "white" : "black"}>
+              {props.price40} ₴
+            </Text>
             <RectButton style={styles.size_add_btn}>
               <Entypo name="plus" size={16} color="white" />
             </RectButton>
