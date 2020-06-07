@@ -3,10 +3,14 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux"
 import thunkMiddleware from "redux-thunk"
 
 // REDUCERS IMPORTS //
+import PizzaConstructorReducer from "./Reducers/PizzaConstructorReducer"
 
 ////////////////////////////////////////////////////////////////////////
 
-let reducers = combineReducers({})
+let reducers = combineReducers({
+  // Pizza constructor scree
+  PizzaConstructorState: PizzaConstructorReducer,
+})
 
 type reducersType = typeof reducers
 export type AppStateType = ReturnType<reducersType>

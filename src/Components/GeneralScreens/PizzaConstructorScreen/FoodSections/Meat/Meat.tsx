@@ -4,7 +4,7 @@ import { View, ScrollView, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
-import FoodItem from "../Shared/FoodItem/FoodItem"
+import FoodItemContainer from "../Shared/FoodItem/FoodItemContainer"
 
 // EXTRA IMPORTS //
 
@@ -52,7 +52,8 @@ const Meat: React.FC<PropsType> = (props) => {
     <ScrollView showsVerticalScrollIndicator={false} style={styles.wrapper}>
       <View style={styles.container}>
         {IngredientsList.map((ingredient: any) => {
-          return <FoodItem ingredient={ingredient} />
+          // @ts-ignore
+          return <FoodItemContainer ingredient={ingredient} />
         })}
       </View>
     </ScrollView>

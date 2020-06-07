@@ -13,17 +13,35 @@ import { BorderlessButton } from "react-native-gesture-handler"
 
 type PropsType = {
   ingredient: any
+  CurrentPizzaIngredients: Array<any>
+  CurrentPizzaPrice: number
+  CurrentPizzaSize: number
+
+  addIngredientActionCreator: (ingredientData: any) => void
+  removeIngredientActionCreator: (ingredientName: string) => void
+  changePizzaSize: (pizzaSize: number) => void
+  addPizzaPrice: (addedPizzaPrice: number) => void
+  substractPizzaPrice: (substractPizzaPrice: number) => void
 }
 
 const FoodItem: React.FC<PropsType> = (props) => {
   const [buttonOpened, setButtonOpened] = useState(false as boolean)
   const [count, setCount] = useState(0 as number)
 
+  console.log(props.CurrentPizzaIngredients)
+
   const addIngridient = () => {
+    props.addIngredientActionCreator({
+      name: props.ingredient.name,
+      image: props.ingredient.image,
+      price: props.ingredient.price,
+      count: 1,
+    })
     setCount(count + 1)
   }
 
   const removeIngredient = () => {
+    props.removeIngredientActionCreator(props.ingredient.name)
     count !== 0 && setCount(count - 1)
   }
 
