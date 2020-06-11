@@ -72,7 +72,7 @@ const App: React.FC<PropsType> = (props) => {
             colors: { background: "#fff" },
           }}
         >
-          <Stack.Navigator initialRouteName="MainScreen">
+          <Stack.Navigator initialRouteName="Auth">
             <Stack.Screen
               name="Auth"
               component={Auth}
