@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, TouchableOpacity, StyleSheet } from "react-native"
+import { View, TouchableOpacity, Image, StyleSheet } from "react-native"
 import { TextInput } from "react-native-paper"
 import Text from "~/Components/Shared/Components/Text/Text"
 import { Formik } from "formik"
@@ -33,19 +33,29 @@ const LoginScreen: React.FC<PropsType> = (props) => {
       >
         {(FormikProps) => (
           <>
-            <TextInput
-              placeholder="Номер телефона"
-              placeholderTextColor="rgba(26, 24, 36, 0.5)"
-              theme={{ colors: { primary: "#1A1824" } }}
-              onChangeText={FormikProps.handleChange("phoneNum")}
-              onBlur={() => {
-                FormikProps.handleBlur("phoneNum")
-              }}
-              keyboardType="number-pad"
-              textContentType="creditCardNumber"
-              value={FormikProps.values.phoneNum as any}
-              style={styles.input}
-            />
+            <View>
+              <TextInput
+                placeholder="Номер телефона"
+                placeholderTextColor="rgba(26, 24, 36, 0.5)"
+                theme={{ colors: { primary: "#1A1824" } }}
+                onChangeText={FormikProps.handleChange("phoneNum")}
+                onBlur={() => {
+                  FormikProps.handleBlur("phoneNum")
+                }}
+                keyboardType="number-pad"
+                textContentType="creditCardNumber"
+                value={FormikProps.values.phoneNum as any}
+                style={{ ...styles.input, ...styles.tel_input }}
+              />
+
+              <View style={styles.tel_subtitle_wrap}>
+                <Image
+                  style={styles.icon}
+                  source={require("~/Images/Icons/icon-ukr-flag.png")}
+                />
+                <Text style={styles.tel_subtitle}>+380</Text>
+              </View>
+            </View>
 
             <TextInput
               placeholder="Введите пароль"
@@ -126,6 +136,27 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 20,
     backgroundColor: "white",
+  },
+
+  tel_input: {
+    paddingLeft: 60,
+  },
+
+  tel_subtitle_wrap: {
+    position: "absolute",
+    flexDirection: "row",
+    alignItems: "center",
+    top: 13,
+  },
+
+  tel_subtitle: {
+    color: "rgba(26, 24, 36, 1)",
+  },
+
+  icon: {
+    width: 20,
+    height: 12,
+    marginRight: 4,
   },
 
   bottom_text_wrap: {
