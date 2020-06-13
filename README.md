@@ -10,7 +10,7 @@ Using **React Native** library, **Redux** Storage library and **Django REST** fo
 > Followed the [**Flux architecture**](https://facebook.github.io/flux/) </br>
 > Link to [**Figma Design**](https://www.figma.com/file/KSX7LiudPz1ZrbsrcmIFpA/FoodDeliveryApp)
 
-Pomidoro is a mobile food-ordering and delivery marketplace
+Pomidoro is a mobile food-ordering and delivery marketplace platform, whcih allows users to order food from Pomidoro restaurant all around Ukraine.
 </br>
 
 > **Development status**: Developing...
