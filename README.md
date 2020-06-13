@@ -15,7 +15,7 @@ Using **React Native** library, **Redux** Storage library and **Django REST** fo
 
 > **Alert**: With an objective to prevent code copyright, not all code is open source in this repository. </br>
 > For more information contact project author (Artem Moshnin, tap.kap.tap@gmail.com)
-> <br/>
+
 <br></br>
 # Authors
 
