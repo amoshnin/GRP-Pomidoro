@@ -4,7 +4,8 @@
 **Pomidoro** is is a large open source **Food Delivery Application**.
 
 
-Built with on JavaScript & TypeScript. Using **React Native** library, **Redux** Storage library and Django REST framework for backend.
+Built with on JavaScript & TypeScript. 
+Using **React Native** library, **Redux** Storage library and Django REST framework for backend.
 
 > Followed the [**Flux architecture**](https://facebook.github.io/flux/)
 
