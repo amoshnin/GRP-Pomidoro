@@ -10,7 +10,6 @@ Using **React Native** library, **Redux** Storage library and **Django REST** fo
 > Followed the [**Flux architecture**](https://facebook.github.io/flux/) </br>
 > Link to [**Figma Design**](https://www.figma.com/file/KSX7LiudPz1ZrbsrcmIFpA/FoodDeliveryApp)
 
-</br>
 
 > **Development status**: Developing...
 
