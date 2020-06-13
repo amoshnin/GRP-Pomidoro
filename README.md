@@ -1,4 +1,4 @@
-# Pomidoro - Food Delivery Application (for Ukraine U+1F1FA)
+# Pomidoro - Food Delivery Application (🇺🇦)
 
 
 **Panda** is is a large open source **Social Media Application**.
