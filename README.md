@@ -13,11 +13,10 @@ Pomidoro is a mobile food-ordering and delivery marketplace platform, whcih allo
 > Link to [**Figma Design**](https://www.figma.com/file/KSX7LiudPz1ZrbsrcmIFpA/FoodDeliveryApp)
 
 
-> **Development status**: Developing...
-
 > **Alert**: With an objective to prevent code copyright, not all code is open source in this repository. </br>
 > For more information contact project author (Artem Moshnin, tap.kap.tap@gmail.com)
 
+> **Development status**: Developing...
 <br></br>
 # Authors
 
