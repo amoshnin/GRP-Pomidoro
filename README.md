@@ -17,6 +17,7 @@ Pomidoro is a mobile food-ordering and delivery marketplace platform, whcih allo
 > For more information contact project author (Artem Moshnin, tap.kap.tap@gmail.com)
 
 > **Development status**: Developing...
+
 <br></br>
 # Authors
 
