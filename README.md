@@ -1,4 +1,4 @@
-# Panda Mobile - Social Media Application
+# Pomidoro - Food Delivery Application (for Ukraine U+1F1FA)
 
 
 **Panda** is is a large open source **Social Media Application**.
