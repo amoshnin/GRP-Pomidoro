@@ -8,6 +8,7 @@ Built with on JavaScript & TypeScript. <br>
 Using **React Native** library, **Redux** Storage library and **Django REST** for backend.
 
 > Followed the [**Flux architecture**](https://facebook.github.io/flux/)
+> Link to [**Figma Design**](https://www.figma.com/file/KSX7LiudPz1ZrbsrcmIFpA/FoodDeliveryApp)
 
 </br>
 
