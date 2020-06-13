@@ -23,10 +23,7 @@ Pomidoro is a mobile food-ordering and delivery marketplace platform, whcih allo
  <img src="https://user-images.githubusercontent.com/62706319/84562253-53521300-ad53-11ea-84c2-0c2a251b3a6f.PNG"  />
  <img src="https://user-images.githubusercontent.com/62706319/84562294-c52a5c80-ad53-11ea-8ef9-6a3d62807bbe.PNG"  />
 </p>
- 
-
-
-<br></br>
+<br>
  
 # Authors
 
