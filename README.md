@@ -16,10 +16,7 @@ Built with on JavaScript & TypeScript. Using **React Native** library, **Redux**
 > For more information contact project author (Artem Moshnin, tap.kap.tap@gmail.com)
 > <br/>
 
-
-
 <br></br>
-
 # Authors
 
 > **Artem Moshnin** - Primary Full Stack Developer </br>
