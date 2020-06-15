@@ -31,7 +31,7 @@ const MenuScrollItem: React.FC<PropsType> = (props) => {
       }
     >
       <View style={styles.scroll_image_wrap}>
-        <Image source={require(`../../../../../Images/menu-1.png`)} />
+        <Image source={{ uri: props.imageURL }} />
         <Text style={styles.text}>{props.title}</Text>
       </View>
     </TouchableWithoutFeedback>

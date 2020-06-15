@@ -1,5 +1,5 @@
 // PLUGINS IMPORTS //
-import React from "react"
+import React, { useEffect } from "react"
 import { ScrollView, StyleSheet } from "react-native"
 
 // COMPONENTS IMPORTS //
@@ -9,14 +9,22 @@ import ProductListSection from "../../Shared/Sections/ProductsListSection/Produc
 
 // EXTRA IMPORTS //
 import Button from "../../Shared/Components/Button/Button"
+import { ArraySchema } from "yup"
 
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
   navigation: any
+  MenuList: Array<any>
+
+  getMenuListThunkCreator: () => void
 }
 
 const MainScreen: React.FC<PropsType> = (props) => {
+  useEffect(() => {
+    props.getMenuListThunkCreator()
+  }, [])
+
   return (
     <ScrollView style={styles.container}>
       <Button
@@ -49,17 +57,20 @@ const MainScreen: React.FC<PropsType> = (props) => {
           marginRight: 16,
         }}
       />
-      <MenuSection
-        navigation={props.navigation}
-        titleText={"Меню"}
-        scroll={true}
-        titleStyle={{
-          fontSize: 20,
-          letterSpacing: 0.3,
-          width: 221,
-        }}
-        containerStyle={{ marginTop: 25 }}
-      />
+      {props.MenuList.length > 0 && (
+        <MenuSection
+          navigation={props.navigation}
+          MenuList={props.MenuList}
+          titleText={"Меню"}
+          scroll={true}
+          titleStyle={{
+            fontSize: 20,
+            letterSpacing: 0.3,
+            width: 221,
+          }}
+          containerStyle={{ marginTop: 25 }}
+        />
+      )}
       <ProductListSection navigation={props.navigation} />
     </ScrollView>
   )

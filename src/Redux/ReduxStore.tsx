@@ -4,10 +4,14 @@ import thunkMiddleware from "redux-thunk"
 
 // REDUCERS IMPORTS //
 import PizzaConstructorReducer from "./Reducers/PizzaConstructorReducer"
+import FoodListReducer from "./Reducers/FoodListReducer"
 
 ////////////////////////////////////////////////////////////////////////
 
 let reducers = combineReducers({
+  // Food List Reducer
+  FoodListState: FoodListReducer,
+
   // Pizza constructor scree
   PizzaConstructorState: PizzaConstructorReducer,
 })

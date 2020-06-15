@@ -1,5 +1,5 @@
 // PLUGINS IMPORTS //
-import React from "react"
+import React, { useEffect } from "react"
 import { ScrollView, StyleSheet } from "react-native"
 
 // COMPONENTS IMPORTS //
@@ -13,9 +13,16 @@ import SalesSection from "../../Shared/Sections/SalesSection/SalesSection"
 
 type PropsType = {
   navigation: any
+  MenuList: Array<any>
+
+  getMenuListThunkCreator: () => void
 }
 
 const MenuScreen: React.FC<PropsType> = (props) => {
+  useEffect(() => {
+    props.getMenuListThunkCreator()
+  }, [])
+
   return (
     <ScrollView style={styles.container}>
       <Button
@@ -30,13 +37,16 @@ const MenuScreen: React.FC<PropsType> = (props) => {
         textStyle={{ color: "white" }}
         text={"Узнать, где мой заказ"}
       />
-      <MenuSection
-        navigation={props.navigation}
-        scroll={false}
-        titleText="Меню"
-        titleStyle={{ fontSize: 30 }}
-        containerStyle={{ marginTop: 20 }}
-      />
+      {props.MenuList.length > 0 && (
+        <MenuSection
+          navigation={props.navigation}
+          scroll={false}
+          MenuList={props.MenuList}
+          titleText="Меню"
+          titleStyle={{ fontSize: 30 }}
+          containerStyle={{ marginTop: 20 }}
+        />
+      )}
       <SalesSection
         navigation={props.navigation}
         titleText={"Активные акции"}

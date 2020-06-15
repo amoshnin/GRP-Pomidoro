@@ -20,6 +20,8 @@ type PropsType = {
 
   imageStyle?: any
   containerStyle?: any
+
+  MenuList: Array<any>
 }
 
 const MenuSection: React.FC<PropsType> = (props) => {
@@ -35,79 +37,27 @@ const MenuSection: React.FC<PropsType> = (props) => {
           style={styles.scroll_content_wrap}
           showsHorizontalScrollIndicator={false}
         >
-          <MenuScrollItem
-            title={"Пицца"}
-            imageURL={""}
-            navigation={props.navigation}
-          />
-          <MenuScrollItem
-            title={"Пицца"}
-            imageURL={""}
-            navigation={props.navigation}
-          />
-          <MenuScrollItem
-            title={"Пицца"}
-            imageURL={""}
-            navigation={props.navigation}
-          />
-          <MenuScrollItem
-            title={"Пицца"}
-            imageURL={""}
-            navigation={props.navigation}
-          />
-          <MenuScrollItem
-            title={"Пицца"}
-            imageURL={""}
-            navigation={props.navigation}
-          />
-          <MenuScrollItem
-            title={"Пицца"}
-            imageURL={""}
-            navigation={props.navigation}
-          />
-          <MenuScrollItem
-            title={"Пицца"}
-            imageURL={""}
-            navigation={props.navigation}
-          />
-          <MenuScrollItem
-            title={"Пицца"}
-            imageURL={""}
-            navigation={props.navigation}
-          />
+          {props.MenuList.map((menuItem: any) => {
+            return (
+              <MenuScrollItem
+                title={menuItem.name}
+                imageURL={menuItem.url}
+                navigation={props.navigation}
+              />
+            )
+          })}
         </ScrollView>
       ) : (
         <View style={styles.content_wrap}>
-          <MenuNormalItem
-            title={"Пицца"}
-            imageURL={""}
-            navigation={props.navigation}
-          />
-          <MenuNormalItem
-            title={"Пицца"}
-            imageURL={""}
-            navigation={props.navigation}
-          />
-          <MenuNormalItem
-            title={"Пицца"}
-            imageURL={""}
-            navigation={props.navigation}
-          />
-          <MenuNormalItem
-            title={"Пицца"}
-            imageURL={""}
-            navigation={props.navigation}
-          />
-          <MenuNormalItem
-            title={"Пицца"}
-            imageURL={""}
-            navigation={props.navigation}
-          />
-          <MenuNormalItem
-            title={"Пицца"}
-            imageURL={""}
-            navigation={props.navigation}
-          />
+          {props.MenuList.map((menuItem: any) => {
+            return (
+              <MenuScrollItem
+                title={menuItem.name}
+                imageURL={menuItem.url}
+                navigation={props.navigation}
+              />
+            )
+          })}
         </View>
       )}
     </View>
