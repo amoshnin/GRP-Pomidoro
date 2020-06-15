@@ -8,7 +8,7 @@ import Main from "./Main"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "../../../../../Redux/ReduxStore"
-import { getCertainGroupProductDataThunkCreator } from "~/Redux/Reducers/FoodListReducer"
+import { getCertainMenuGroupProductDataThunkCreator } from "~/Redux/Reducers/FoodListReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -20,7 +20,7 @@ type MapStateToPropsType = {
 }
 
 type MapDispatchToPropsType = {
-  getCertainGroupProductDataThunkCreator: (groupId: number) => void
+  getCertainMenuGroupProductDataThunkCreator: (groupId: number) => void
 }
 
 /////////////////////////////////////////////////////////////////
@@ -37,7 +37,7 @@ const MainContainer = compose(
   connect<MapStateToPropsType, MapDispatchToPropsType, AppStateType>(
     mapStateToProps,
     {
-      getCertainGroupProductDataThunkCreator: getCertainGroupProductDataThunkCreator,
+      getCertainMenuGroupProductDataThunkCreator: getCertainMenuGroupProductDataThunkCreator,
     }
   )
 )(Main)

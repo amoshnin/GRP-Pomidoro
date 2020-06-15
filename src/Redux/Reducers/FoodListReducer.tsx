@@ -27,7 +27,7 @@ const FoodListReducer = (
     }
   }
 
-  if (action.type === "SET_CERTAIN_GROUP_PRODUCTS_LIST") {
+  if (action.type === "SET_CERTAIN_MENU_GROUP_PRODUCTS_LIST") {
     return {
       ...state,
       CertainGroupProductData: action.certainGroupProductData,
@@ -50,9 +50,9 @@ export const ActionCreatorsList = {
       menuList,
     } as const),
 
-  setCertainGroupProductDataActionCreator: (certainGroupProductData: any) =>
+  setCertainMenuGroupProductDataActionCreator: (certainGroupProductData: any) =>
     ({
-      type: "SET_CERTAIN_GROUP_PRODUCTS_LIST",
+      type: "SET_CERTAIN_MENU_GROUP_PRODUCTS_LIST",
       certainGroupProductData,
     } as const),
 }
@@ -70,15 +70,19 @@ export const getMenuListThunkCreator = (): ThunkType => {
 }
 
 // Get menu list
-export const getCertainGroupProductDataThunkCreator = (
+export const getCertainMenuGroupProductDataThunkCreator = (
   groupId: number
 ): ThunkType => {
   return async (dispatch, getState: any) => {
-    axios.get(`http://138.201.153.220/api/menu/${groupId}`).then((res: any) => {
-      console.log(res)
-      dispatch(
-        ActionCreatorsList.setCertainGroupProductDataActionCreator(res.data)
-      )
-    })
+    axios
+      .get(`http://138.201.153.220/api/menu_group/${groupId}`)
+      .then((res: any) => {
+        console.log(res)
+        dispatch(
+          ActionCreatorsList.setCertainMenuGroupProductDataActionCreator(
+            res.data
+          )
+        )
+      })
   }
 }

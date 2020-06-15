@@ -15,7 +15,7 @@ type PropsType = {
   route: any
   CertainGroupProductData: any
 
-  getCertainGroupProductDataThunkCreator: (groupId: number) => any
+  getCertainMenuGroupProductDataThunkCreator: (groupId: number) => any
 }
 
 const Main: React.FC<PropsType> = (props) => {
@@ -23,7 +23,7 @@ const Main: React.FC<PropsType> = (props) => {
 
   useEffect(() => {
     props
-      .getCertainGroupProductDataThunkCreator(props.route.params.productId)
+      .getCertainMenuGroupProductDataThunkCreator(props.route.params.productId)
       .then(() => {
         setName(props.CertainGroupProductData.name)
       })
