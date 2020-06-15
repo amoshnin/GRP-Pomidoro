@@ -1,5 +1,5 @@
 // PLUGINS IMPORTS //
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { ScrollView } from "react-native"
 
 // COMPONENTS IMPORTS //
@@ -13,9 +13,22 @@ import ProductsListSection from "../../../../Shared/Sections/ProductsListSection
 type PropsType = {
   navigation: any
   route: any
+  CertainGroupProductData: any
+
+  getCertainGroupProductDataThunkCreator: (groupId: number) => any
 }
 
 const Main: React.FC<PropsType> = (props) => {
+  const [name, setName] = useState(null as string | null)
+
+  useEffect(() => {
+    props
+      .getCertainGroupProductDataThunkCreator(props.route.params.productId)
+      .then(() => {
+        setName(props.CertainGroupProductData.name)
+      })
+  }, [])
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <Header navigation={props.navigation} route={props.route} />
