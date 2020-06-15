@@ -7,6 +7,8 @@ import axios from "axios"
 
 let initialState = {
   MenuList: [] as Array<any>,
+
+  CertainGroupProductsList: [] as Array<any>,
 }
 
 export type initialStateType = typeof initialState
@@ -25,6 +27,12 @@ const FoodListReducer = (
     }
   }
 
+  if (action.type === "SET_CERTAIN_GROUP_PRODUCTS_LIST") {
+    return {
+      ...state,
+    }
+  }
+
   return state
 }
 
@@ -40,16 +48,37 @@ export const ActionCreatorsList = {
       type: "SET_MENU_LIST",
       menuList,
     } as const),
+
+  setCertainGroupProductsListActionCreator: (
+    certainGroupProductsList: Array<any>
+  ) =>
+    ({
+      type: "SET_CERTAIN_GROUP_PRODUCTS_LIST",
+      certainGroupProductsList,
+    } as const),
 }
 
 //    *THUNKS*   //
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 
-// Get menu list
+// Get menus list
 export const getMenuListThunkCreator = (): ThunkType => {
   return async (dispatch, getState: any) => {
     axios.get("http://138.201.153.220/api/menu_category/").then((res: any) => {
       dispatch(ActionCreatorsList.setMenuListActionCreator(res.data))
+    })
+  }
+}
+
+// Get menu list
+export const getCertainGroupProductsListThunkCreator = (
+  groupId: number
+): ThunkType => {
+  return async (dispatch, getState: any) => {
+    axios.get(`http://138.201.153.220/api/menu/${groupId}`).then((res: any) => {
+      dispatch(
+        ActionCreatorsList.setCertainGroupProductsListActionCreator(res.data)
+      )
     })
   }
 }

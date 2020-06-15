@@ -16,6 +16,7 @@ import {
 
 type PropsType = {
   navigation: any
+  id: number
 
   imageURL: string
   title: string
@@ -26,7 +27,7 @@ const MenuScrollItem: React.FC<PropsType> = (props) => {
     <TouchableWithoutFeedback
       onPress={() =>
         props.navigation.navigate("ProductTypeCatalog", {
-          productName: props.title,
+          productId: props.id,
         })
       }
     >

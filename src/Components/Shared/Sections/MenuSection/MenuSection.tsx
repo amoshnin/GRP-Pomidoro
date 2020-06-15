@@ -40,6 +40,8 @@ const MenuSection: React.FC<PropsType> = (props) => {
           {props.MenuList.map((menuItem: any) => {
             return (
               <MenuScrollItem
+                key={menuItem.raw_id}
+                id={menuItem.raw_id}
                 title={menuItem.name}
                 imageURL={menuItem.url}
                 navigation={props.navigation}
@@ -51,7 +53,9 @@ const MenuSection: React.FC<PropsType> = (props) => {
         <View style={styles.content_wrap}>
           {props.MenuList.map((menuItem: any) => {
             return (
-              <MenuScrollItem
+              <MenuNormalItem
+                key={menuItem.raw_id}
+                id={menuItem.raw_id}
                 title={menuItem.name}
                 imageURL={menuItem.url}
                 navigation={props.navigation}

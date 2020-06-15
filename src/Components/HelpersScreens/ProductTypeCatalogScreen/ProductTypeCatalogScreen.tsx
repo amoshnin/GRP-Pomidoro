@@ -39,7 +39,7 @@ const ProductTypeCatalog: React.FC<PropsType> = (props) => {
           ),
         })}
         initialParams={{
-          productName: props.route.params.productName,
+          productId: props.route.params.productId,
         }}
       />
     </Stack.Navigator>

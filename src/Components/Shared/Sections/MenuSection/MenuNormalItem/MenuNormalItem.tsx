@@ -13,6 +13,7 @@ import { RectButton } from "react-native-gesture-handler"
 
 type PropsType = {
   navigation: any
+  id: number
 
   imageURL: string
   title: string
@@ -24,7 +25,7 @@ const MenuNormalItem: React.FC<PropsType> = (props) => {
       style={styles.image_wrap}
       onPress={() =>
         props.navigation.navigate("ProductTypeCatalog", {
-          productName: props.title,
+          productId: props.id,
         })
       }
     >

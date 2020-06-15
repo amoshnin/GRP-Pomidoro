@@ -305,7 +305,7 @@ const App: React.FC<PropsType> = (props) => {
                 headerShown: false,
               })}
               initialParams={{
-                productName: null as string | null,
+                productId: null as string | null,
               }}
             />
             <Stack.Screen
