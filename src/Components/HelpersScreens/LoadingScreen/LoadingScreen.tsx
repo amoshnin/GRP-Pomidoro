@@ -13,7 +13,7 @@ type PropsType = {}
 const LoadingScreen: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
-      <ActivityIndicator />
+      <ActivityIndicator size={"large"} color="#96A637" />
     </View>
   )
 }
