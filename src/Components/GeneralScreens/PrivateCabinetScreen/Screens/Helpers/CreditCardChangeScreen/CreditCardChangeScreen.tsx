@@ -14,6 +14,12 @@ import Button from "../../../../../Shared/Components/Button/Button"
 
 type PropsType = {
   route: any
+
+  ConnectCreditCardThunkCreator: (
+    cardNum: string,
+    CVV: string,
+    ExpDate: string
+  ) => void
 }
 
 const CredentialsFieldChangeScreen: React.FC<PropsType> = (props) => {
@@ -29,7 +35,11 @@ const CredentialsFieldChangeScreen: React.FC<PropsType> = (props) => {
           ExpDate: null as number | null,
         }}
         onSubmit={(values: any) => {
-          props.route.params.changeFunction(values)
+          props.ConnectCreditCardThunkCreator(
+            values.cardNum,
+            values.CVV,
+            values.ExpDate
+          )
         }}
       >
         {(FormikProps) => (

@@ -15,7 +15,7 @@ type PropsType = {
   totalPrice: number
   deliveryPrice?: number
   adress?: string
-  creditCardNum?: string
+  cardNum?: string
 }
 
 const OrderDetailsSection: React.FC<PropsType> = (props) => {
@@ -52,13 +52,13 @@ const OrderDetailsSection: React.FC<PropsType> = (props) => {
         </>
       ) : null}
 
-      {props.creditCardNum ? (
+      {props.cardNum ? (
         <>
           <View style={styles.divider} />
           <Text size={20} weight="bold" style={styles.section_title}>
             Способ оплаты
           </Text>
-          <Text size={16}>Карта ** {props.creditCardNum}</Text>
+          <Text size={16}>Карта ** {props.cardNum}</Text>
           <View style={styles.divider} />
         </>
       ) : null}

@@ -10,7 +10,9 @@ import { Feather } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  LogoutUserThunkCreator: () => void
+}
 
 const Header: React.FC<PropsType> = (props) => {
   return (
@@ -28,7 +30,10 @@ const Header: React.FC<PropsType> = (props) => {
           </Text>
           <Text size={16}>Клиент</Text>
         </View>
-        <TouchableOpacity style={styles.logout_btn}>
+        <TouchableOpacity
+          style={styles.logout_btn}
+          onPress={() => props.LogoutUserThunkCreator()}
+        >
           <Feather name="log-in" size={24} color="#96A637" />
           <Text size={16} color="#96A637" style={styles.logout_text}>
             Выйти

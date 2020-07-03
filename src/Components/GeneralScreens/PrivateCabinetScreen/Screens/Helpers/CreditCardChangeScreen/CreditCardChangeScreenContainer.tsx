@@ -4,11 +4,11 @@ import { compose } from "redux"
 import { connect } from "react-redux"
 
 // COMPONENTS IMPORTS //
-import Main from "./Main"
+import CreditCardChangeScreen from "./CreditCardChangeScreen"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "~/Redux/ReduxStore"
-import { LogoutUserThunkCreator } from "~/Redux/Reducers/AuthReducer"
+import { ConnectCreditCardThunkCreator } from "~/Redux/Reducers/PrivateCabinetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -16,7 +16,11 @@ import { LogoutUserThunkCreator } from "~/Redux/Reducers/AuthReducer"
 type MapStateToPropsType = {}
 
 type MapDispatchToPropsType = {
-  LogoutUserThunkCreator: () => void
+  ConnectCreditCardThunkCreator: (
+    cardNum: string,
+    CVV: string,
+    ExpDate: string
+  ) => void
 }
 
 /////////////////////////////////////////////////////////////////
@@ -27,13 +31,13 @@ const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
   }
 }
 
-const MainContainer = compose(
+const CreditCardChangeScreenContainer = compose(
   connect<MapStateToPropsType, MapDispatchToPropsType, AppStateType>(
     mapStateToProps,
     {
-      LogoutUserThunkCreator: LogoutUserThunkCreator,
+      ConnectCreditCardThunkCreator: ConnectCreditCardThunkCreator,
     }
   )
-)(Main)
+)(CreditCardChangeScreen)
 
-export default MainContainer
+export default CreditCardChangeScreenContainer

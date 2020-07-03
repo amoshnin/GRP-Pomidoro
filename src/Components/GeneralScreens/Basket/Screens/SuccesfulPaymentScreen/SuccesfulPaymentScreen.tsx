@@ -91,7 +91,7 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
         totalPrice={totalPrice}
         deliveryPrice={50}
         adress={"ул. Засумская"}
-        creditCardNum="5443"
+        cardNum="5443"
       />
       <Button
         text="Связаться с оператором"

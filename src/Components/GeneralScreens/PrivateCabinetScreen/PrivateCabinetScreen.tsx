@@ -7,7 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack"
 import MainContainer from "./Screens/Main/MainContainer"
 
 import CredentialsFieldChangeScreen from "./Screens/Helpers/CredentialFieldChangeScreen/CredentialFieldChangeScreen"
-import CreditCardChangeScreen from "./Screens/Helpers/CreditCardChangeScreen/CreditCardChangeScreen"
+import CreditCardChangeScreenContainer from "./Screens/Helpers/CreditCardChangeScreen/CreditCardChangeScreenContainer"
 
 // EXTRA IMPORTS //
 import GeneralHeader from "../../Shared/Components/GeneralHeader/GeneralHeader"
@@ -68,7 +68,7 @@ const PrivateCabinetScreen: React.FC<PropsType> = (props) => {
       />
       <Stack.Screen
         name="CreditCardChangeScreen"
-        component={CreditCardChangeScreen}
+        component={CreditCardChangeScreenContainer}
         options={({ navigation, route }: any) => ({
           title: "",
           headerLeft: () => (

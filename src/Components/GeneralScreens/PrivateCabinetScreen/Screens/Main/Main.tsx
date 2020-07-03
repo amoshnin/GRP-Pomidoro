@@ -17,12 +17,14 @@ import LanguageSelection from "./LanguageSelection/LanguageSelection"
 
 type PropsType = {
   navigation: any
+
+  LogoutUserThunkCreator: () => void
 }
 
 const Main: React.FC<PropsType> = (props) => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <Header />
+      <Header LogoutUserThunkCreator={props.LogoutUserThunkCreator} />
       <Credentials navigation={props.navigation} />
       <CreditCard navigation={props.navigation} />
       <OrdersList

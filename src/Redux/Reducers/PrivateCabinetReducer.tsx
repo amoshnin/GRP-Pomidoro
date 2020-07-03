@@ -12,14 +12,14 @@ export type initialStateType = typeof initialState
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //    *REDUCER*   //
-const AuthReducer = (
+const PrivateCabinetReducer = (
   state = initialState,
   action: ActionsTypes
 ): initialStateType => {
   return state
 }
 
-export default AuthReducer
+export default PrivateCabinetReducer
 
 //////////////////////////////////////////////////////////////////////////////////////
 type ActionsTypes = InferActionsTypes<typeof ActionCreatorsList>
@@ -30,43 +30,19 @@ export const ActionCreatorsList = {}
 //    *THUNKS*   //
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 
-// Register user
-export const RegisterUserThunkCreator = (
-  name: string,
-  phoneNum: string,
-  password: string,
-  email?: string
-): ThunkType => {
-  return async (dispatch, getState: any) => {
-    await axios
-      .post("http://138.201.153.220/api/user_create/", {
-        name: name,
-        email: email,
-        phone_num: phoneNum,
-        password: password,
-      })
-      .then((res: any) => {})
-  }
-}
-
-// Login user
-export const LoginUserThunkCreator = (
-  phoneNum: string,
-  password: string
+// Logout user
+export const ConnectCreditCardThunkCreator = (
+  cardNum: string,
+  CVV: string,
+  ExpDate: string
 ): ThunkType => {
   return async (dispatch, getState: any) => {
     await axios
       .post("", {
-        phone_num: phoneNum,
-        password: password,
+        credit_card_num: cardNum,
+        CVV: CVV,
+        exp_date: ExpDate,
       })
       .then((res: any) => {})
-  }
-}
-
-// Logout user
-export const LogoutUserThunkCreator = (): ThunkType => {
-  return async (dispatch, getState: any) => {
-    await axios.post("", {}).then((res: any) => {})
   }
 }
