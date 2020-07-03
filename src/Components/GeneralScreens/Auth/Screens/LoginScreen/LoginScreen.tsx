@@ -8,12 +8,14 @@ import { Formik } from "formik"
 // COMPONENTS IMPORTS //
 
 // EXTRA IMPORTS //
-import Button from "../../../../Shared/Components/Button/Button"
+import Button from "~/Components/Shared/Components/Button/Button"
 
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
   navigation: any
+
+  LoginUserThunkCreator: (phoneNum: string, password: string) => any
 }
 
 const LoginScreen: React.FC<PropsType> = (props) => {
@@ -28,7 +30,9 @@ const LoginScreen: React.FC<PropsType> = (props) => {
           password: null as string | null,
         }}
         onSubmit={(values: any) => {
-          props.navigation.navigate("RegionSelectionScreen")
+          props
+            .LoginUserThunkCreator(values.phoneNum, values.password)
+            .then(() => props.navigation.navigate("RegionSelectionScreen"))
         }}
       >
         {(FormikProps) => (

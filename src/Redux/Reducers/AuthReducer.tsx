@@ -48,3 +48,18 @@ export const RegisterUserThunkCreator = (
       .then((res: any) => {})
   }
 }
+
+// Login user
+export const LoginUserThunkCreator = (
+  phoneNum: string,
+  password: string
+): ThunkType => {
+  return async (dispatch, getState: any) => {
+    await axios
+      .post("", {
+        phone_num: phoneNum,
+        password: password,
+      })
+      .then((res: any) => {})
+  }
+}

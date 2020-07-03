@@ -22,7 +22,7 @@ type PropsType = {
     phoneNum: string,
     password: string,
     email?: string
-  ) => void
+  ) => any
 }
 
 const RegistrationScreen: React.FC<PropsType> = (props) => {
@@ -59,13 +59,16 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
           email: null as string | null,
         }}
         onSubmit={(values: any) => {
-          props.RegisterUserThunkCreator(
-            values.name,
-            values.phoneNum,
-            values.password,
-            values.email
-          )
-          props.navigation.navigate("RegistrationSuccesfulScreen")
+          props
+            .RegisterUserThunkCreator(
+              values.name,
+              values.phoneNum,
+              values.password,
+              values.email
+            )
+            .then(() =>
+              props.navigation.navigate("RegistrationSuccesfulScreen")
+            )
         }}
       >
         {(FormikProps) => (

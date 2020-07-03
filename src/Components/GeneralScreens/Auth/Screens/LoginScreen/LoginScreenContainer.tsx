@@ -7,14 +7,16 @@ import { connect } from "react-redux"
 import LoginScreen from "./LoginScreen"
 
 // EXTRA IMPORTS //
-import { AppStateType } from "../../../../../Redux/ReduxStore"
-
+import { AppStateType } from "~/Redux/ReduxStore"
+import { LoginUserThunkCreator } from "~/Redux/Reducers/AuthReducer"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // TYPES
 type MapStateToPropsType = {}
 
-type MapDispatchToPropsType = {}
+type MapDispatchToPropsType = {
+  LoginUserThunkCreator: (phoneNum: string, password: string) => void
+}
 
 /////////////////////////////////////////////////////////////////
 
@@ -27,7 +29,9 @@ const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
 const LoginScreenContainer = compose(
   connect<MapStateToPropsType, MapDispatchToPropsType, AppStateType>(
     mapStateToProps,
-    {}
+    {
+      LoginUserThunkCreator: LoginUserThunkCreator,
+    }
   )
 )(LoginScreen)
 
