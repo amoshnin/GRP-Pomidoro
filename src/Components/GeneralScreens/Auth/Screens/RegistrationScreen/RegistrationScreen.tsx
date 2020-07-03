@@ -16,6 +16,13 @@ import Button from "../../../../Shared/Components/Button/Button"
 
 type PropsType = {
   navigation: any
+
+  RegisterUserThunkCreator: (
+    name: string,
+    phoneNum: string,
+    password: string,
+    email?: string
+  ) => void
 }
 
 const RegistrationScreen: React.FC<PropsType> = (props) => {
@@ -52,6 +59,12 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
           email: null as string | null,
         }}
         onSubmit={(values: any) => {
+          props.RegisterUserThunkCreator(
+            values.name,
+            values.phoneNum,
+            values.password,
+            values.email
+          )
           props.navigation.navigate("RegistrationSuccesfulScreen")
         }}
       >

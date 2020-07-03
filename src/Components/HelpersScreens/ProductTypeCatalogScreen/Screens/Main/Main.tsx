@@ -13,22 +13,9 @@ import ProductsListSection from "../../../../Shared/Sections/ProductsListSection
 type PropsType = {
   navigation: any
   route: any
-  CertainGroupProductData: any
-
-  getCertainMenuGroupProductDataThunkCreator: (groupId: number) => any
 }
 
 const Main: React.FC<PropsType> = (props) => {
-  const [name, setName] = useState(null as string | null)
-
-  useEffect(() => {
-    props
-      .getCertainMenuGroupProductDataThunkCreator(props.route.params.productId)
-      .then(() => {
-        setName(props.CertainGroupProductData.name)
-      })
-  }, [])
-
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <Header navigation={props.navigation} route={props.route} />

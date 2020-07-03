@@ -5,9 +5,7 @@ import axios from "axios"
 
 ////////////////////////////////////////////////////////////////////////
 
-let initialState = {
-  MenuList: [] as Array<any>,
-}
+let initialState = {}
 
 export type initialStateType = typeof initialState
 
@@ -18,13 +16,6 @@ const FoodListReducer = (
   state = initialState,
   action: ActionsTypes
 ): initialStateType => {
-  if (action.type === "SET_MENU_LIST") {
-    return {
-      ...state,
-      MenuList: action.menuList,
-    }
-  }
-
   return state
 }
 
@@ -34,24 +25,26 @@ export default FoodListReducer
 type ActionsTypes = InferActionsTypes<typeof ActionCreatorsList>
 
 //    *ACTION CREATORS*   //
-export const ActionCreatorsList = {
-  setMenuListActionCreator: (menuList: Array<any>) =>
-    ({
-      type: "SET_MENU_LIST",
-      menuList,
-    } as const),
-}
+export const ActionCreatorsList = {}
 
 //    *THUNKS*   //
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 
-// Get menus list
-export const getMenuListThunkCreator = (): ThunkType => {
+// Register user
+export const RegisterUserThunkCreator = (
+  name: string,
+  phoneNum: string,
+  password: string,
+  email?: string
+): ThunkType => {
   return async (dispatch, getState: any) => {
-    await axios.get("http://138.201.153.220/api/menu/").then((res: any) => {
-      console.log(res)
-
-      dispatch(ActionCreatorsList.setMenuListActionCreator(res.data))
-    })
+    await axios
+      .post("http://138.201.153.220/api/user_create/", {
+        name: name,
+        email: email,
+        phone_num: phoneNum,
+        password: password,
+      })
+      .then((res: any) => {})
   }
 }
