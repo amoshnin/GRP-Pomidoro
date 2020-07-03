@@ -12,6 +12,13 @@ import EmptyProductsList from "./EmptyProductsList/EmptyProductsList"
 
 type PropsType = {
   navigation: any
+
+  addItemToOrderActionCreator: (
+    name: string,
+    price: string,
+    size: string,
+    ingredients: Array<string>
+  ) => void
 }
 
 const ProductListSection: React.FC<PropsType> = (props) => {
@@ -75,6 +82,7 @@ const ProductListSection: React.FC<PropsType> = (props) => {
               price24={product.price24}
               price32={product.price32}
               price40={product.price40}
+              addItemToOrderActionCreator={props.addItemToOrderActionCreator}
             />
           )
         })

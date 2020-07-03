@@ -3,16 +3,20 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux"
 import thunkMiddleware from "redux-thunk"
 
 // REDUCERS IMPORTS //
-import PizzaConstructorReducer from "./Reducers/PizzaConstructorReducer"
-import FoodListReducer from "./Reducers/FoodListReducer"
+import PizzaConstructorReducer from "~/Redux/Reducers/PizzaConstructorReducer"
+import FoodListReducer from "~/Redux/Reducers/FoodListReducer"
+import OrderingReducer from "~/Redux/Reducers/OrderingReducer"
 
 ////////////////////////////////////////////////////////////////////////
 
 let reducers = combineReducers({
+  // Ordering Reducer
+  OrderingState: OrderingReducer,
+
   // Food List Reducer
   FoodListState: FoodListReducer,
 
-  // Pizza constructor scree
+  // Pizza constructor reducer
   PizzaConstructorState: PizzaConstructorReducer,
 })
 

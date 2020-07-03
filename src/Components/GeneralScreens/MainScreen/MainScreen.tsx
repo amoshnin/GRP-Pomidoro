@@ -5,11 +5,10 @@ import { ScrollView, StyleSheet } from "react-native"
 // COMPONENTS IMPORTS //
 import SalesSection from "../../Shared/Sections/SalesSection/SalesSection"
 import MenuSection from "../../Shared/Sections/MenuSection/MenuSection"
-import ProductListSection from "../../Shared/Sections/ProductsListSection/ProductsListSection"
+import ProductsListSectionContainer from "../../Shared/Sections/ProductsListSection/ProductsListSectionContainer"
 
 // EXTRA IMPORTS //
 import Button from "../../Shared/Components/Button/Button"
-import { ArraySchema } from "yup"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -71,7 +70,7 @@ const MainScreen: React.FC<PropsType> = (props) => {
           containerStyle={{ marginTop: 25 }}
         />
       )}
-      <ProductListSection navigation={props.navigation} />
+      <ProductsListSectionContainer navigation={props.navigation} />
     </ScrollView>
   )
 }

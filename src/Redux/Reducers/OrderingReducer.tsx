@@ -1,11 +1,12 @@
 //    *GENERAL IMPORTS*   //
 import { ThunkAction } from "redux-thunk"
 import { AppStateType, InferActionsTypes } from "../ReduxStore"
-import axios from "axios"
 
 ////////////////////////////////////////////////////////////////////////
 
-let initialState = {}
+let initialState = {
+  OrderItems: [] as Array<{}>,
+}
 
 export type initialStateType = typeof initialState
 
@@ -16,6 +17,13 @@ const OrderingReducer = (
   state = initialState,
   action: ActionsTypes
 ): initialStateType => {
+  if (action.type === "ADD_ITEM_TO_ORDER") {
+    return {
+      ...state,
+      OrderItems: [...state.OrderItems, action.orderItem],
+    }
+  }
+
   return state
 }
 
@@ -25,11 +33,23 @@ export default OrderingReducer
 type ActionsTypes = InferActionsTypes<typeof ActionCreatorsList>
 
 //    *ACTION CREATORS*   //
-export const ActionCreatorsList = {}
+export const ActionCreatorsList = {
+  addItemToOrderActionCreator: (
+    name: string,
+    price: string,
+    size: string,
+    ingredients: Array<string>
+  ) =>
+    ({
+      type: "ADD_ITEM_TO_ORDER",
+      orderItem: {
+        name: name,
+        price: price,
+        size: size,
+        ingredients: ingredients,
+      },
+    } as const),
+}
 
 //    *THUNKS*   //
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
-
-export const getMenuListThunkCreator = (): ThunkType => {
-  return async (dispatch, getState: any) => {}
-}

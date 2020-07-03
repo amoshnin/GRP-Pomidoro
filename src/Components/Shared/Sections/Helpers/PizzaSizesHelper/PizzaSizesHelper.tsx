@@ -21,12 +21,21 @@ type PropsType = {
   navigation: any
 
   title: string
+  ingridientsList: Array<string>
+
   price24: number
   price32: number
   price40: number
 
   containerStyle?: any
   snackBarStyle?: any
+
+  addItemToOrderActionCreator: (
+    name: string,
+    price: string,
+    size: string,
+    ingredients: Array<string>
+  ) => any
 }
 
 const PizzaSizesHelper: React.FC<PropsType> = (props) => {
@@ -42,8 +51,17 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
         <View style={{ ...styles.sizes_wrap, ...props.containerStyle }}>
           <TouchableOpacity
             onPress={() => {
-              onOpenSnackBar()
-              setSelectedPrice(props.price24)
+              props
+                .addItemToOrderActionCreator(
+                  props.title,
+                  String(props.price24),
+                  "24",
+                  props.ingridientsList
+                )
+                .then(() => {
+                  onOpenSnackBar()
+                  setSelectedPrice(props.price24)
+                })
             }}
           >
             <View style={{ ...styles.size_circle, height: 64, width: 64 }}>
@@ -59,8 +77,17 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              onOpenSnackBar()
-              setSelectedPrice(props.price32)
+              props
+                .addItemToOrderActionCreator(
+                  props.title,
+                  String(props.price32),
+                  "32",
+                  props.ingridientsList
+                )
+                .then(() => {
+                  onOpenSnackBar()
+                  setSelectedPrice(props.price32)
+                })
             }}
           >
             <View style={{ ...styles.size_circle, height: 70, width: 70 }}>
@@ -76,8 +103,17 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              onOpenSnackBar()
-              setSelectedPrice(props.price40)
+              props
+                .addItemToOrderActionCreator(
+                  props.title,
+                  String(props.price40),
+                  "40",
+                  props.ingridientsList
+                )
+                .then(() => {
+                  onOpenSnackBar()
+                  setSelectedPrice(props.price40)
+                })
             }}
           >
             <View style={{ ...styles.size_circle, height: 76, width: 76 }}>

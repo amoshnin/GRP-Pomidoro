@@ -26,6 +26,13 @@ type PropsType = {
   price24: number
   price32: number
   price40: number
+
+  addItemToOrderActionCreator: (
+    name: string,
+    price: string,
+    size: string,
+    ingredients: Array<string>
+  ) => void
 }
 
 const ProductItem: React.FC<PropsType> = (props) => {
@@ -63,9 +70,11 @@ const ProductItem: React.FC<PropsType> = (props) => {
               top: 215,
             }}
             title={props.title}
+            ingridientsList={props.ingridientsList}
             price24={props.price24}
             price32={props.price32}
             price40={props.price40}
+            addItemToOrderActionCreator={props.addItemToOrderActionCreator}
           />
           <View style={styles.divider} />
         </View>
