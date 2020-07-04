@@ -12,13 +12,17 @@ import { AntDesign } from "@expo/vector-icons"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
-  title: string
-  image: string
-  size: string
-  price: string
-  count: number
-
+  product: any
   allowEdit: boolean
+
+  addItemToOrderActionCreator: (
+    title: string,
+    price: string,
+    image: string,
+    size: string,
+    count: string,
+    ingredients: Array<string>
+  ) => void
 }
 
 const ProductBasketItem: React.FC<PropsType> = (props) => {
@@ -31,9 +35,9 @@ const ProductBasketItem: React.FC<PropsType> = (props) => {
             source={require("~/Images/product-large-1.png")}
           />
           <View style={styles.item_info}>
-            <Text size={16}> {props.title}</Text>
+            <Text size={16}> {props.product.title}</Text>
             <Text style={styles.price_text}>
-              {props.size} | {props.price} ₴
+              {props.product.size} | {props.product.price} ₴
             </Text>
           </View>
         </View>
@@ -47,10 +51,20 @@ const ProductBasketItem: React.FC<PropsType> = (props) => {
             <AntDesign name="minus" size={17} color="black" />
           </RectButton>
           <Text style={styles.count_text} size={16}>
-            {props.count}
+            {props.product.count}
           </Text>
           <RectButton
             style={{ ...styles.count_btn, backgroundColor: "#96A637" }}
+            onPress={() =>
+              props.addItemToOrderActionCreator(
+                props.product.title,
+                props.product.price,
+                props.product.image,
+                props.product.size,
+                props.product.count,
+                props.product.ingridientsList
+              )
+            }
           >
             <AntDesign name="plus" size={17} color="white" />
           </RectButton>

@@ -8,6 +8,7 @@ import Main from "./Main"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "~/Redux/ReduxStore"
+import { ActionCreatorsList } from "~/Redux/Reducers/OrderingReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -17,7 +18,16 @@ type MapStateToPropsType = {
   OrderItemsList: Array<{}>
 }
 
-type MapDispatchToPropsType = {}
+type MapDispatchToPropsType = {
+  addItemToOrderActionCreator: (
+    title: string,
+    price: string,
+    image: string,
+    size: string,
+    count: string,
+    ingredients: Array<string>
+  ) => void
+}
 
 /////////////////////////////////////////////////////////////////
 
@@ -31,7 +41,10 @@ const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
 const MainContainer = compose(
   connect<MapStateToPropsType, MapDispatchToPropsType, AppStateType>(
     mapStateToProps,
-    {}
+    {
+      addItemToOrderActionCreator:
+        ActionCreatorsList.addItemToOrderActionCreator,
+    }
   )
 )(Main)
 

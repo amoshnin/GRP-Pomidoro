@@ -13,19 +13,14 @@ import Ingredients from "./Ingredients/Ingredients"
 
 type PropsType = {
   navigation: any
-  productTitle: string
-  image: string
-  productPrice24: number
-  productPrice32: number
-  productPrice40: number
-  productType: Array<string>
-  ingridientsList: Array<string>
+  product: any
 
   addItemToOrderActionCreator: (
-    name: string,
+    title: string,
     price: string,
     image: string,
     size: string,
+    count: string,
     ingredients: Array<string>
   ) => any
 }
@@ -35,17 +30,13 @@ const Body: React.FC<PropsType> = (props) => {
     <View style={styles.container}>
       <BodyHeader
         navigation={props.navigation}
-        productTitle={props.productTitle}
-        ingridientsList={props.ingridientsList}
-        productPrice24={props.productPrice24}
-        productPrice32={props.productPrice32}
-        productPrice40={props.productPrice40}
+        product={props.product}
         addItemToOrderActionCreator={props.addItemToOrderActionCreator}
       />
       <View style={styles.divider} />
-      <ProductType productType={props.productType} />
+      <ProductType productType={props.product.productType} />
       <View style={styles.divider} />
-      <Ingredients ingridientsList={props.ingridientsList} />
+      <Ingredients ingridientsList={props.product.ingridientsList} />
     </View>
   )
 }

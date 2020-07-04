@@ -14,38 +14,25 @@ type PropsType = {
   route: any
 
   addItemToOrderActionCreator: (
-    name: string,
+    title: string,
     price: string,
     image: string,
     size: string,
+    count: string,
     ingredients: Array<string>
   ) => any
 }
 
 const IndividualProductItem: React.FC<PropsType> = (props) => {
-  const {
-    productTitle,
-    image,
-    productPrice24,
-    productPrice32,
-    productPrice40,
-    productType,
-    ingridientsList,
-  } = props.route.params
+  const { product } = props.route.params
 
   return (
     <>
-      <Header image={image} navigation={props.navigation} />
+      <Header image={product.image} navigation={props.navigation} />
 
       <Body
         navigation={props.navigation}
-        productTitle={productTitle}
-        image={image}
-        ingridientsList={ingridientsList}
-        productPrice24={productPrice24}
-        productPrice32={productPrice32}
-        productPrice40={productPrice40}
-        productType={productType}
+        product={product}
         addItemToOrderActionCreator={props.addItemToOrderActionCreator}
       />
     </>

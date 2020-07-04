@@ -16,6 +16,15 @@ import Footer from "./Footer/Footer"
 type PropsType = {
   navigation: any
   OrderItemsList: Array<any>
+
+  addItemToOrderActionCreator: (
+    title: string,
+    price: string,
+    image: string,
+    size: string,
+    count: string,
+    ingredients: Array<string>
+  ) => void
 }
 
 const Main: React.FC<PropsType> = (props) => {
@@ -78,7 +87,10 @@ const Main: React.FC<PropsType> = (props) => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Header productsCount={props.OrderItemsList.length} />
-      <ProductsBasketList Products={FilteredBasketList} />
+      <ProductsBasketList
+        Products={FilteredBasketList}
+        addItemToOrderActionCreator={props.addItemToOrderActionCreator}
+      />
       <OrderDetailsSection
         totalPrice={totalPrice}
         navigation={props.navigation}

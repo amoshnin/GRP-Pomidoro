@@ -306,10 +306,7 @@ const App: React.FC<PropsType> = (props) => {
                     ),
                   })}
                   initialParams={{
-                    saleTitle: null as string | null,
-                    description: null as string | null,
-                    saleType: null as string | null,
-                    image: null as string | null,
+                    product: null as any,
                   }}
                 />
                 <Stack.Screen

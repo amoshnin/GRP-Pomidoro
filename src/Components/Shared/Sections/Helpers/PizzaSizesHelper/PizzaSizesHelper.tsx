@@ -20,21 +20,17 @@ import { Entypo } from "@expo/vector-icons"
 type PropsType = {
   navigation: any
 
-  title: string
-  ingridientsList: Array<string>
-
-  price24: number
-  price32: number
-  price40: number
+  product: any
 
   containerStyle?: any
   snackBarStyle?: any
 
   addItemToOrderActionCreator: (
-    name: string,
+    title: string,
     price: string,
     image: string,
     size: string,
+    count: string,
     ingredients: Array<string>
   ) => any
 }
@@ -53,15 +49,16 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
           <TouchableOpacity
             onPress={() => {
               props.addItemToOrderActionCreator(
-                props.title,
-                String(props.price24),
+                props.product.title,
+                String(props.product.price24),
                 "",
                 "24",
-                props.ingridientsList
+                props.product.count || "0",
+                props.product.ingridientsList
               )
 
               onOpenSnackBar()
-              setSelectedPrice(props.price24)
+              setSelectedPrice(props.product.price24)
             }}
           >
             <View style={{ ...styles.size_circle, height: 64, width: 64 }}>
@@ -69,7 +66,7 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
               <View style={styles.size_circle_divider_wrap}>
                 <View style={styles.size_circle_divider} />
               </View>
-              <Text weight="bold">{props.price24} ₴</Text>
+              <Text weight="bold">{props.product.price24} ₴</Text>
               <RectButton style={styles.size_add_btn}>
                 <Entypo name="plus" size={16} color="white" />
               </RectButton>
@@ -78,15 +75,16 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
           <TouchableOpacity
             onPress={() => {
               props.addItemToOrderActionCreator(
-                props.title,
-                String(props.price32),
+                props.product.title,
+                String(props.product.price32),
                 "",
                 "32",
-                props.ingridientsList
+                props.product.count || "0",
+                props.product.ingridientsList
               )
 
               onOpenSnackBar()
-              setSelectedPrice(props.price32)
+              setSelectedPrice(props.product.price32)
             }}
           >
             <View style={{ ...styles.size_circle, height: 70, width: 70 }}>
@@ -94,7 +92,7 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
               <View style={styles.size_circle_divider_wrap}>
                 <View style={styles.size_circle_divider} />
               </View>
-              <Text weight="bold">{props.price32} ₴</Text>
+              <Text weight="bold">{props.product.price32} ₴</Text>
               <RectButton style={styles.size_add_btn}>
                 <Entypo name="plus" size={16} color="white" />
               </RectButton>
@@ -103,15 +101,16 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
           <TouchableOpacity
             onPress={() => {
               props.addItemToOrderActionCreator(
-                props.title,
-                String(props.price40),
+                props.product.title,
+                String(props.product.price40),
                 "",
                 "40",
-                props.ingridientsList
+                props.product.count || "0",
+                props.product.ingridientsList
               )
 
               onOpenSnackBar()
-              setSelectedPrice(props.price40)
+              setSelectedPrice(props.product.price40)
             }}
           >
             <View style={{ ...styles.size_circle, height: 76, width: 76 }}>
@@ -119,7 +118,7 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
               <View style={styles.size_circle_divider_wrap}>
                 <View style={styles.size_circle_divider} />
               </View>
-              <Text weight="bold">{props.price40} ₴</Text>
+              <Text weight="bold">{props.product.price40} ₴</Text>
               <RectButton style={styles.size_add_btn}>
                 <Entypo name="plus" size={16} color="white" />
               </RectButton>
@@ -131,7 +130,7 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
         <ProductSnackbarComponent
           navigation={props.navigation}
           duration={1500}
-          title={props.title}
+          title={props.product.title}
           price={selectedPrice}
           snackbarVisible={snackbarVisible}
           onDismissSnackBar={onDismissSnackBar}

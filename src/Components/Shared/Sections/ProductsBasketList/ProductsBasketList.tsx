@@ -11,6 +11,15 @@ import ProductBasketItem from "./ProductBasketItem/ProductBasketItem"
 
 type PropsType = {
   Products: Array<any>
+
+  addItemToOrderActionCreator: (
+    title: string,
+    price: string,
+    image: string,
+    size: string,
+    count: string,
+    ingredients: Array<string>
+  ) => void
 }
 
 const ProductsBasketList: React.FC<PropsType> = (props) => {
@@ -19,12 +28,9 @@ const ProductsBasketList: React.FC<PropsType> = (props) => {
       {props.Products.map((product: any) => {
         return (
           <ProductBasketItem
-            title={product.name}
-            count={product.count}
-            image={product.image}
-            price={product.price}
-            size={product.size}
+            product={product}
             allowEdit={true}
+            addItemToOrderActionCreator={props.addItemToOrderActionCreator}
           />
         )
       })}

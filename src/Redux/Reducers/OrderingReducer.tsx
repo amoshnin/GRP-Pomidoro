@@ -35,20 +35,21 @@ type ActionsTypes = InferActionsTypes<typeof ActionCreatorsList>
 //    *ACTION CREATORS*   //
 export const ActionCreatorsList = {
   addItemToOrderActionCreator: (
-    name: string,
+    title: string,
     price: string,
     image: string,
     size: string,
+    count: string,
     ingredients: Array<string>
   ) =>
     ({
       type: "ADD_ITEM_TO_ORDER",
       orderItem: {
-        name: name,
+        title: title,
         price: price,
         size: size,
         image: image,
-        count: 0,
+        count: count,
         ingredients: ingredients,
       },
     } as const),

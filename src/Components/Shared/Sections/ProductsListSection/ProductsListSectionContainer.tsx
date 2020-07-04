@@ -17,10 +17,11 @@ type MapStateToPropsType = {}
 
 type MapDispatchToPropsType = {
   addItemToOrderActionCreator: (
-    name: string,
+    title: string,
     price: string,
     image: string,
     size: string,
+    count: string,
     ingredients: Array<string>
   ) => void
 }
@@ -34,13 +35,9 @@ const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
 }
 
 const ProductsListSectionContainer = compose(
-  connect<MapStateToPropsType, MapDispatchToPropsType, AppStateType>(
-    mapStateToProps,
-    {
-      addItemToOrderActionCreator:
-        ActionCreatorsList.addItemToOrderActionCreator,
-    }
-  )
+  connect(mapStateToProps, {
+    addItemToOrderActionCreator: ActionCreatorsList.addItemToOrderActionCreator,
+  })
 )(ProductsListSection)
 
 export default ProductsListSectionContainer

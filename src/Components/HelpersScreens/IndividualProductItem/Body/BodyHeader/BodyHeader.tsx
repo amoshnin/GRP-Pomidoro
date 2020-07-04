@@ -12,17 +12,14 @@ import PizzaSizesHelper from "~/Components/Shared/Sections/Helpers/PizzaSizesHel
 
 type PropsType = {
   navigation: any
-  productTitle: string
-  ingridientsList: Array<string>
-  productPrice24: number
-  productPrice32: number
-  productPrice40: number
+  product: any
 
   addItemToOrderActionCreator: (
-    name: string,
+    title: string,
     price: string,
     image: string,
     size: string,
+    count: string,
     ingredients: Array<string>
   ) => any
 }
@@ -31,7 +28,7 @@ const BodyHeader: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <Text weight="bold" size={30} style={styles.title}>
-        {props.productTitle}
+        {props.product.title}
       </Text>
 
       <Text size={16}>Выберите размер для заказа</Text>
@@ -39,11 +36,7 @@ const BodyHeader: React.FC<PropsType> = (props) => {
       <PizzaSizesHelper
         navigation={props.navigation}
         snackBarStyle={styles.snackbar}
-        ingridientsList={props.ingridientsList}
-        title={props.productTitle}
-        price24={props.productPrice24}
-        price32={props.productPrice32}
-        price40={props.productPrice40}
+        product={props.product}
         addItemToOrderActionCreator={props.addItemToOrderActionCreator}
       />
     </View>

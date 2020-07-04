@@ -14,10 +14,11 @@ type PropsType = {
   navigation: any
 
   addItemToOrderActionCreator: (
-    name: string,
+    title: string,
     price: string,
     image: string,
     size: string,
+    count: string,
     ingredients: Array<string>
   ) => void
 }
@@ -76,13 +77,7 @@ const ProductListSection: React.FC<PropsType> = (props) => {
             <ProductItem
               key={product.title}
               navigation={props.navigation}
-              title={product.title}
-              image={product.image}
-              ingridientsList={product.ingridientsList}
-              productType={product.productType}
-              price24={product.price24}
-              price32={product.price32}
-              price40={product.price40}
+              product={product}
               addItemToOrderActionCreator={props.addItemToOrderActionCreator}
             />
           )

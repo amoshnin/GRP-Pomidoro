@@ -17,10 +17,11 @@ type MapStateToPropsType = {}
 
 type MapDispatchToPropsType = {
   addItemToOrderActionCreator: (
-    name: string,
+    title: string,
     price: string,
     image: string,
     size: string,
+    count: string,
     ingredients: Array<string>
   ) => any
 }

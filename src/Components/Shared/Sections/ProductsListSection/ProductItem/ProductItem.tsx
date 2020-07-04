@@ -1,16 +1,9 @@
 // PLUGINS IMPORTS //
 import React, { useState } from "react"
-import {
-  View,
-  Image,
-  TouchableWithoutFeedback,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native"
+import { View, Image, TouchableWithoutFeedback, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
-import ProductSnackbarComponent from "~/Components/Shared/Sections/Helpers/ProductSnackbarComponent/ProductSnackbarComponent"
 import PizzaSizesHelper from "~/Components/Shared/Sections/Helpers/PizzaSizesHelper/PizzaSizesHelper"
 
 // EXTRA IMPORTS //
@@ -19,19 +12,14 @@ import PizzaSizesHelper from "~/Components/Shared/Sections/Helpers/PizzaSizesHel
 
 type PropsType = {
   navigation: any
-  title: string
-  image: string
-  ingridientsList: Array<string>
-  productType: Array<string>
-  price24: number
-  price32: number
-  price40: number
+  product: any
 
   addItemToOrderActionCreator: (
-    name: string,
+    title: string,
     price: string,
     image: string,
     size: string,
+    count: string,
     ingredients: Array<string>
   ) => void
 }
@@ -41,13 +29,7 @@ const ProductItem: React.FC<PropsType> = (props) => {
     <TouchableWithoutFeedback
       onPress={() =>
         props.navigation.navigate("IndividualProductItem", {
-          productTitle: props.title as string,
-          image: props.image as string,
-          productPrice24: props.price24 as number,
-          productPrice32: props.price32 as number,
-          productPrice40: props.price40 as number,
-          productType: props.productType as Array<string>,
-          ingridientsList: props.ingridientsList as Array<string>,
+          product: props.product,
         })
       }
     >
@@ -55,10 +37,10 @@ const ProductItem: React.FC<PropsType> = (props) => {
         <Image source={require("../../../../../Images/product-1.png")} />
         <View style={styles.text_wrap}>
           <Text style={styles.title} weight="bold">
-            {props.title}
+            {props.product.title}
           </Text>
           <Text style={styles.subtitle}>
-            {props.ingridientsList.map((ingridient: string) => {
+            {props.product.ingridientsList.map((ingridient: string) => {
               return `${ingridient}, `
             })}
           </Text>
@@ -70,11 +52,7 @@ const ProductItem: React.FC<PropsType> = (props) => {
               position: "absolute",
               top: 215,
             }}
-            title={props.title}
-            ingridientsList={props.ingridientsList}
-            price24={props.price24}
-            price32={props.price32}
-            price40={props.price40}
+            product={props.product}
             addItemToOrderActionCreator={props.addItemToOrderActionCreator}
           />
           <View style={styles.divider} />
