@@ -25,7 +25,7 @@ type PropsType = {
 const ProductListSection: React.FC<PropsType> = (props) => {
   const data = [
     {
-      title: "Паперони спайс",
+      title: "Food",
       ingridientsList: [
         "Соус томатный",
         "соус томатный",

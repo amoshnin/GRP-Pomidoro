@@ -29,12 +29,19 @@ const Main: React.FC<PropsType> = (props) => {
     )
   }, [])
 
-  const removeDuplicates = (originalArray: any, prop: any) => {
+  const removeDuplicates = (originalArray: Array<any>, prop: any) => {
     var newArray = [] as any
     var lookupObject = {} as any
 
+    originalArray = originalArray.map((item: any) => {
+      return {
+        ...item,
+        name: item.name + item.size,
+      }
+    })
+
     for (var i in originalArray) {
-      lookupObject[originalArray[i][prop]] = originalArray[i]
+      lookupObject[originalArray[i]["name"]] = originalArray[i]
     }
 
     for (i in lookupObject) {
@@ -56,10 +63,17 @@ const Main: React.FC<PropsType> = (props) => {
         count: count,
       })
     }
-    return newArray
+    const CleanArray = newArray.map((item: any) => {
+      return {
+        ...item,
+        name: item.name.replace(item.size, ""),
+      }
+    })
+
+    return CleanArray
   }
 
-  const FilteredOperations = removeDuplicates(props.OrderItemsList, "title")
+  const FilteredOperations = removeDuplicates(props.OrderItemsList, "size")
 
   const orderFunction = () => {
     props.navigation.navigate("DeliveryTimeSelectionScreen")
