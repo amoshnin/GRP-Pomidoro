@@ -42,7 +42,7 @@ const Main: React.FC<PropsType> = (props) => {
         return prev + +current.price
       }, 0)
     )
-  }, [])
+  }, [props.OrderItemsList])
 
   const removeDuplicates = (originalArray: Array<any>, prop: any) => {
     var newArray = [] as any
