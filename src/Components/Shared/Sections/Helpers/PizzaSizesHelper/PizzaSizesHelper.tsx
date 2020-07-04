@@ -28,6 +28,7 @@ type PropsType = {
   addItemToOrderActionCreator: (
     title: string,
     price: string,
+    originalPrice: string,
     image: string,
     size: string,
     count: string,
@@ -51,6 +52,7 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
               props.addItemToOrderActionCreator(
                 props.product.title,
                 String(props.product.price24),
+                props.product.price24,
                 "",
                 "24",
                 props.product.count || "0",
@@ -77,6 +79,7 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
               props.addItemToOrderActionCreator(
                 props.product.title,
                 String(props.product.price32),
+                props.product.price32,
                 "",
                 "32",
                 props.product.count || "0",
@@ -103,6 +106,7 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
               props.addItemToOrderActionCreator(
                 props.product.title,
                 String(props.product.price40),
+                props.product.price40,
                 "",
                 "40",
                 props.product.count || "0",

@@ -18,6 +18,7 @@ type PropsType = {
   addItemToOrderActionCreator: (
     title: string,
     price: string,
+    originalPrice: string,
     image: string,
     size: string,
     count: string,
@@ -58,7 +59,8 @@ const ProductBasketItem: React.FC<PropsType> = (props) => {
             onPress={() =>
               props.addItemToOrderActionCreator(
                 props.product.title,
-                props.product.price,
+                props.product.originalPrice,
+                props.product.originalPrice,
                 props.product.image,
                 props.product.size,
                 props.product.count,

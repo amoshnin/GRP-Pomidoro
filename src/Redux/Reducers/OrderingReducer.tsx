@@ -37,6 +37,7 @@ export const ActionCreatorsList = {
   addItemToOrderActionCreator: (
     title: string,
     price: string,
+    originalPrice: string,
     image: string,
     size: string,
     count: string,
@@ -47,6 +48,7 @@ export const ActionCreatorsList = {
       orderItem: {
         title: title,
         price: price,
+        originalPrice: originalPrice,
         size: size,
         image: image,
         count: count,

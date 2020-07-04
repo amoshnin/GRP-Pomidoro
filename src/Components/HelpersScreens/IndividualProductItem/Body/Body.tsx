@@ -18,6 +18,7 @@ type PropsType = {
   addItemToOrderActionCreator: (
     title: string,
     price: string,
+    originalPrice: string,
     image: string,
     size: string,
     count: string,
