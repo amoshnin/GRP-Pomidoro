@@ -5,19 +5,19 @@ import { View, StyleSheet } from "react-native"
 // COMPONENTS IMPORTS //
 
 // EXTRA IMPORTS //
-import Button from "../../../../../Shared/Components/Button/Button"
+import Button from "~/Components/Shared/Components/Button/Button"
 
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
-  orderFunction: () => void
+  navigation: any
 }
 
 const Footer: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <Button
-        onPress={() => props.orderFunction()}
+        onPress={() => props.navigation.navigate("DeliveryTimeSelectionScreen")}
         text="Заказать сейчас"
         buttonStyle={{
           marginTop: 20,

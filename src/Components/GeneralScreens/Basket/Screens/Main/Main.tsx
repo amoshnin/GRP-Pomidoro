@@ -41,7 +41,7 @@ const Main: React.FC<PropsType> = (props) => {
     })
 
     for (var i in originalArray) {
-      lookupObject[originalArray[i]["name"]] = originalArray[i]
+      lookupObject[originalArray[i][prop]] = originalArray[i]
     }
 
     for (i in lookupObject) {
@@ -54,7 +54,7 @@ const Main: React.FC<PropsType> = (props) => {
       }, 0)
 
       const count = FilteredArray.reduce((prev: any, current: any) => {
-        return prev + +current.count
+        return prev + +1
       }, 0)
 
       newArray.push({
@@ -73,22 +73,18 @@ const Main: React.FC<PropsType> = (props) => {
     return CleanArray
   }
 
-  const FilteredOperations = removeDuplicates(props.OrderItemsList, "size")
-
-  const orderFunction = () => {
-    props.navigation.navigate("DeliveryTimeSelectionScreen")
-  }
+  const FilteredBasketList = removeDuplicates(props.OrderItemsList, "name")
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Header productsCount={props.OrderItemsList.length} />
-      <ProductsBasketList Products={FilteredOperations} />
+      <ProductsBasketList Products={FilteredBasketList} />
       <OrderDetailsSection
         totalPrice={totalPrice}
         navigation={props.navigation}
       />
       <BonusesSection />
-      <Footer orderFunction={orderFunction} />
+      <Footer navigation={props.navigation} />
     </ScrollView>
   )
 }
