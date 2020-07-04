@@ -28,6 +28,8 @@ type MapDispatchToPropsType = {
     count: string,
     ingredients: Array<string>
   ) => void
+
+  removeItemFromOrderActionCreator: (title: string, size: string) => void
 }
 
 /////////////////////////////////////////////////////////////////
@@ -45,6 +47,8 @@ const MainContainer = compose(
     {
       addItemToOrderActionCreator:
         ActionCreatorsList.addItemToOrderActionCreator,
+      removeItemFromOrderActionCreator:
+        ActionCreatorsList.removeItemFromOrderActionCreator,
     }
   )
 )(Main)

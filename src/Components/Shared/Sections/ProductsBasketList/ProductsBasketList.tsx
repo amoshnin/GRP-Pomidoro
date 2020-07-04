@@ -21,6 +21,7 @@ type PropsType = {
     count: string,
     ingredients: Array<string>
   ) => void
+  removeItemFromOrderActionCreator: (title: string, size: string) => void
 }
 
 const ProductsBasketList: React.FC<PropsType> = (props) => {
@@ -32,6 +33,9 @@ const ProductsBasketList: React.FC<PropsType> = (props) => {
             product={product}
             allowEdit={true}
             addItemToOrderActionCreator={props.addItemToOrderActionCreator}
+            removeItemFromOrderActionCreator={
+              props.removeItemFromOrderActionCreator
+            }
           />
         )
       })}

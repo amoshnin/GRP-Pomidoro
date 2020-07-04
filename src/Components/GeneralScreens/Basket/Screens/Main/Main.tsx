@@ -26,6 +26,7 @@ type PropsType = {
     count: string,
     ingredients: Array<string>
   ) => void
+  removeItemFromOrderActionCreator: (title: string, size: string) => void
 }
 
 const Main: React.FC<PropsType> = (props) => {
@@ -91,6 +92,9 @@ const Main: React.FC<PropsType> = (props) => {
       <ProductsBasketList
         Products={FilteredBasketList}
         addItemToOrderActionCreator={props.addItemToOrderActionCreator}
+        removeItemFromOrderActionCreator={
+          props.removeItemFromOrderActionCreator
+        }
       />
       <OrderDetailsSection
         totalPrice={totalPrice}

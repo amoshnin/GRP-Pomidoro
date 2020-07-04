@@ -24,6 +24,15 @@ const OrderingReducer = (
     }
   }
 
+  if (action.type == "REMOVE_ITEM_FROM_ORDER") {
+    return {
+      ...state,
+      OrderItemsList: state.OrderItemsList.filter(
+        (orderItem: any) => orderItem.title !== action.title
+      ),
+    }
+  }
+
   return state
 }
 
@@ -54,6 +63,13 @@ export const ActionCreatorsList = {
         count: count,
         ingredients: ingredients,
       },
+    } as const),
+
+  removeItemFromOrderActionCreator: (title: string, size: string) =>
+    ({
+      type: "REMOVE_ITEM_FROM_ORDER",
+      title: title,
+      size: size,
     } as const),
 }
 

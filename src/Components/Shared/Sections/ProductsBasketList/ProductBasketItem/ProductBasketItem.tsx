@@ -24,9 +24,12 @@ type PropsType = {
     count: string,
     ingredients: Array<string>
   ) => void
+  removeItemFromOrderActionCreator: (title: string, size: string) => void
 }
 
 const ProductBasketItem: React.FC<PropsType> = (props) => {
+  console.log(props.product)
+
   return (
     <>
       <View style={styles.container}>
@@ -44,10 +47,18 @@ const ProductBasketItem: React.FC<PropsType> = (props) => {
         </View>
         <View style={styles.count_wrap}>
           <RectButton
-            style={{
-              ...styles.count_btn,
-              backgroundColor: "#EAEAEB",
-            }}
+            style={[
+              styles.count_btn,
+              {
+                backgroundColor: "#EAEAEB",
+              },
+            ]}
+            onPress={() =>
+              props.removeItemFromOrderActionCreator(
+                props.product.title,
+                props.product.size
+              )
+            }
           >
             <AntDesign name="minus" size={17} color="black" />
           </RectButton>
@@ -55,7 +66,7 @@ const ProductBasketItem: React.FC<PropsType> = (props) => {
             {props.product.count}
           </Text>
           <RectButton
-            style={{ ...styles.count_btn, backgroundColor: "#96A637" }}
+            style={[styles.count_btn, { backgroundColor: "#96A637" }]}
             onPress={() =>
               props.addItemToOrderActionCreator(
                 props.product.title,
