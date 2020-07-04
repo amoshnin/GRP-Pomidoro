@@ -27,9 +27,9 @@ const OrderingReducer = (
   if (action.type == "REMOVE_ITEM_FROM_ORDER") {
     return {
       ...state,
-      OrderItemsList: state.OrderItemsList.filter(
-        (orderItem: any) => orderItem.title !== action.title
-      ),
+      OrderItemsList: state.OrderItemsList.filter((elem: any) => {
+        return !(elem.title == action.title && elem.size == action.size)
+      }),
     }
   }
 
