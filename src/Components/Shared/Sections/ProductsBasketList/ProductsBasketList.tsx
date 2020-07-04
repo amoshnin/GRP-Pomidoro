@@ -19,12 +19,12 @@ const ProductsBasketList: React.FC<PropsType> = (props) => {
       {props.Products.map((product: any) => {
         return (
           <ProductBasketItem
-            title={product.title}
+            title={product.name}
             count={product.count}
             image={product.image}
             price={product.price}
             size={product.size}
-            allowEdit={product.allowEdit}
+            allowEdit={true}
           />
         )
       })}

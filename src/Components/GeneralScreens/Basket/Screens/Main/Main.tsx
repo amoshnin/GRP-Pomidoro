@@ -15,33 +15,53 @@ import Footer from "./Footer/Footer"
 
 type PropsType = {
   navigation: any
+  OrderItemsList: Array<any>
 }
 
 const Main: React.FC<PropsType> = (props) => {
   const [totalPrice, setTotalPrice] = useState(0 as number)
 
-  const ProductsList = [
-    {
-      title: "Парерони чиз",
-      image: "",
-      size: 24,
-      price: 99,
-      count: 2,
-      allowEdit: true,
-    },
-    {
-      title: "Парерони чиз",
-      image: "",
-      size: 24,
-      price: 99,
-      count: 2,
-      allowEdit: true,
-    },
-  ]
-
   useEffect(() => {
-    setTotalPrice(ProductsList.reduce((a, b) => a + (b["price"] || 0), 0))
+    setTotalPrice(
+      props.OrderItemsList.reduce((prev: any, current: any) => {
+        return prev + +current.price
+      }, 0)
+    )
   }, [])
+
+  const removeDuplicates = (originalArray: any, prop: any) => {
+    var newArray = [] as any
+    var lookupObject = {} as any
+
+    for (var i in originalArray) {
+      lookupObject[originalArray[i][prop]] = originalArray[i]
+    }
+
+    for (i in lookupObject) {
+      const FilteredArray = originalArray
+        .filter((orderItem: any) => {
+          return orderItem.name === lookupObject[i].name
+        })
+        .filter((orderItem: any) => orderItem.size === lookupObject[i].size)
+
+      const price = FilteredArray.reduce((prev: any, current: any) => {
+        return prev + +current.price
+      }, 0)
+
+      const count = FilteredArray.reduce((prev: any, current: any) => {
+        return prev + +current.count
+      }, 0)
+
+      newArray.push({
+        ...lookupObject[i],
+        price: price,
+        count: count,
+      })
+    }
+    return newArray
+  }
+
+  const FilteredOperations = removeDuplicates(props.OrderItemsList, "title")
 
   const orderFunction = () => {
     props.navigation.navigate("DeliveryTimeSelectionScreen")
@@ -49,8 +69,8 @@ const Main: React.FC<PropsType> = (props) => {
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <Header productsCount={ProductsList.length} />
-      <ProductsBasketList Products={ProductsList} />
+      <Header productsCount={props.OrderItemsList.length} />
+      <ProductsBasketList Products={FilteredOperations} />
       <OrderDetailsSection
         totalPrice={totalPrice}
         navigation={props.navigation}

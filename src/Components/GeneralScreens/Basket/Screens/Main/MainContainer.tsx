@@ -12,7 +12,10 @@ import { AppStateType } from "../../../../../Redux/ReduxStore"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // TYPES
-type MapStateToPropsType = {}
+type MapStateToPropsType = {
+  navigation: any
+  OrderItemsList: Array<{}>
+}
 
 type MapDispatchToPropsType = {}
 
@@ -21,6 +24,7 @@ type MapDispatchToPropsType = {}
 const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
   return {
     navigation: props.navigation,
+    OrderItemsList: state.OrderingState.OrderItemsList,
   }
 }
 

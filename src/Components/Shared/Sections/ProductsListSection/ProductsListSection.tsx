@@ -16,6 +16,7 @@ type PropsType = {
   addItemToOrderActionCreator: (
     name: string,
     price: string,
+    image: string,
     size: string,
     ingredients: Array<string>
   ) => void

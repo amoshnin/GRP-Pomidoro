@@ -5,7 +5,7 @@ import { AppStateType, InferActionsTypes } from "../ReduxStore"
 ////////////////////////////////////////////////////////////////////////
 
 let initialState = {
-  OrderItems: [] as Array<{}>,
+  OrderItemsList: [] as Array<{}>,
 }
 
 export type initialStateType = typeof initialState
@@ -20,7 +20,7 @@ const OrderingReducer = (
   if (action.type === "ADD_ITEM_TO_ORDER") {
     return {
       ...state,
-      OrderItems: [...state.OrderItems, action.orderItem],
+      OrderItemsList: [...state.OrderItemsList, action.orderItem],
     }
   }
 
@@ -37,6 +37,7 @@ export const ActionCreatorsList = {
   addItemToOrderActionCreator: (
     name: string,
     price: string,
+    image: string,
     size: string,
     ingredients: Array<string>
   ) =>
@@ -46,6 +47,8 @@ export const ActionCreatorsList = {
         name: name,
         price: price,
         size: size,
+        image: image,
+        count: 0,
         ingredients: ingredients,
       },
     } as const),

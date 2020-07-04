@@ -33,6 +33,7 @@ type PropsType = {
   addItemToOrderActionCreator: (
     name: string,
     price: string,
+    image: string,
     size: string,
     ingredients: Array<string>
   ) => any
@@ -51,17 +52,16 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
         <View style={{ ...styles.sizes_wrap, ...props.containerStyle }}>
           <TouchableOpacity
             onPress={() => {
-              props
-                .addItemToOrderActionCreator(
-                  props.title,
-                  String(props.price24),
-                  "24",
-                  props.ingridientsList
-                )
-                .then(() => {
-                  onOpenSnackBar()
-                  setSelectedPrice(props.price24)
-                })
+              props.addItemToOrderActionCreator(
+                props.title,
+                String(props.price24),
+                "",
+                "24",
+                props.ingridientsList
+              )
+
+              onOpenSnackBar()
+              setSelectedPrice(props.price24)
             }}
           >
             <View style={{ ...styles.size_circle, height: 64, width: 64 }}>
@@ -77,17 +77,16 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              props
-                .addItemToOrderActionCreator(
-                  props.title,
-                  String(props.price32),
-                  "32",
-                  props.ingridientsList
-                )
-                .then(() => {
-                  onOpenSnackBar()
-                  setSelectedPrice(props.price32)
-                })
+              props.addItemToOrderActionCreator(
+                props.title,
+                String(props.price32),
+                "",
+                "32",
+                props.ingridientsList
+              )
+
+              onOpenSnackBar()
+              setSelectedPrice(props.price32)
             }}
           >
             <View style={{ ...styles.size_circle, height: 70, width: 70 }}>
@@ -103,17 +102,16 @@ const PizzaSizesHelper: React.FC<PropsType> = (props) => {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              props
-                .addItemToOrderActionCreator(
-                  props.title,
-                  String(props.price40),
-                  "40",
-                  props.ingridientsList
-                )
-                .then(() => {
-                  onOpenSnackBar()
-                  setSelectedPrice(props.price40)
-                })
+              props.addItemToOrderActionCreator(
+                props.title,
+                String(props.price40),
+                "",
+                "40",
+                props.ingridientsList
+              )
+
+              onOpenSnackBar()
+              setSelectedPrice(props.price40)
             }}
           >
             <View style={{ ...styles.size_circle, height: 76, width: 76 }}>
