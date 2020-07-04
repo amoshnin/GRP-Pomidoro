@@ -24,12 +24,14 @@ type PropsType = {
     count: string,
     ingredients: Array<string>
   ) => void
-  removeItemFromOrderActionCreator: (title: string, size: string) => void
+  removeItemFromOrderActionCreator: (
+    title: string,
+    size: string,
+    id: string
+  ) => void
 }
 
 const ProductBasketItem: React.FC<PropsType> = (props) => {
-  console.log(props.product)
-
   return (
     <>
       <View style={styles.container}>
@@ -56,7 +58,8 @@ const ProductBasketItem: React.FC<PropsType> = (props) => {
             onPress={() =>
               props.removeItemFromOrderActionCreator(
                 props.product.title,
-                props.product.size
+                props.product.size,
+                props.product.id
               )
             }
           >

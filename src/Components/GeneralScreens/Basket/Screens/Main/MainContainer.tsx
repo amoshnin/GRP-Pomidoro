@@ -29,7 +29,11 @@ type MapDispatchToPropsType = {
     ingredients: Array<string>
   ) => void
 
-  removeItemFromOrderActionCreator: (title: string, size: string) => void
+  removeItemFromOrderActionCreator: (
+    title: string,
+    size: string,
+    id: string
+  ) => void
 }
 
 /////////////////////////////////////////////////////////////////
