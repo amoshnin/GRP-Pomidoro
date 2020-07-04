@@ -20,7 +20,7 @@ import Auth from "./src/Components/GeneralScreens/Auth/Auth"
 import RegistrationScreenContainer from "./src/Components/GeneralScreens/Auth/Screens/RegistrationScreen/RegistrationScreenContainer"
 import IndividualSaleScreen from "./src/Components/HelpersScreens/IndividualSaleScreen/IndividualSaleScreen"
 import ProductTypeCatalog from "./src/Components/HelpersScreens/ProductTypeCatalogScreen/ProductTypeCatalogScreen"
-import IndividualProductItem from "./src/Components/HelpersScreens/IndividualProductItem/IndividualProductItem"
+import IndividualProductItemContainer from "./src/Components/HelpersScreens/IndividualProductItem/IndividualProductItemContainer"
 import OrderTracking from "./src/Components/HelpersScreens/OrderTracking/OrderTracking"
 
 import MainScreen from "./src/Components/GeneralScreens/MainScreen/MainScreenContainer"
@@ -324,7 +324,7 @@ const App: React.FC<PropsType> = (props) => {
                 />
                 <Stack.Screen
                   name="IndividualProductItem"
-                  component={IndividualProductItem}
+                  component={IndividualProductItemContainer}
                   options={({ navigation, route }: any) => ({
                     headerShown: false,
                   })}

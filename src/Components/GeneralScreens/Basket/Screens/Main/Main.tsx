@@ -38,11 +38,9 @@ const Main: React.FC<PropsType> = (props) => {
     }
 
     for (i in lookupObject) {
-      const FilteredArray = originalArray
-        .filter((orderItem: any) => {
-          return orderItem.name === lookupObject[i].name
-        })
-        .filter((orderItem: any) => orderItem.size === lookupObject[i].size)
+      const FilteredArray = originalArray.filter((orderItem: any) => {
+        return orderItem.name === lookupObject[i].name
+      })
 
       const price = FilteredArray.reduce((prev: any, current: any) => {
         return prev + +current.price

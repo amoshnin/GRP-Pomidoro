@@ -12,6 +12,14 @@ import Body from "./Body/Body"
 type PropsType = {
   navigation: any
   route: any
+
+  addItemToOrderActionCreator: (
+    name: string,
+    price: string,
+    image: string,
+    size: string,
+    ingredients: Array<string>
+  ) => any
 }
 
 const IndividualProductItem: React.FC<PropsType> = (props) => {
@@ -38,6 +46,7 @@ const IndividualProductItem: React.FC<PropsType> = (props) => {
         productPrice32={productPrice32}
         productPrice40={productPrice40}
         productType={productType}
+        addItemToOrderActionCreator={props.addItemToOrderActionCreator}
       />
     </>
   )

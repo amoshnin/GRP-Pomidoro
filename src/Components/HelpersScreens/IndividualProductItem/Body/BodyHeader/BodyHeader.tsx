@@ -2,7 +2,6 @@
 import React from "react"
 import { View, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
-import { RectButton } from "react-native-gesture-handler"
 
 // COMPONENTS IMPORTS //
 import PizzaSizesHelper from "~/Components/Shared/Sections/Helpers/PizzaSizesHelper/PizzaSizesHelper"
@@ -14,9 +13,18 @@ import PizzaSizesHelper from "~/Components/Shared/Sections/Helpers/PizzaSizesHel
 type PropsType = {
   navigation: any
   productTitle: string
+  ingridientsList: Array<string>
   productPrice24: number
   productPrice32: number
   productPrice40: number
+
+  addItemToOrderActionCreator: (
+    name: string,
+    price: string,
+    image: string,
+    size: string,
+    ingredients: Array<string>
+  ) => any
 }
 
 const BodyHeader: React.FC<PropsType> = (props) => {
@@ -30,13 +38,13 @@ const BodyHeader: React.FC<PropsType> = (props) => {
 
       <PizzaSizesHelper
         navigation={props.navigation}
-        snackBarStyle={{
-          left: -200,
-        }}
+        snackBarStyle={styles.snackbar}
+        ingridientsList={props.ingridientsList}
         title={props.productTitle}
         price24={props.productPrice24}
         price32={props.productPrice32}
         price40={props.productPrice40}
+        addItemToOrderActionCreator={props.addItemToOrderActionCreator}
       />
     </View>
   )
@@ -95,6 +103,10 @@ const styles = StyleSheet.create({
     borderColor: "#96A637",
     width: "100%",
     flex: 1,
+  },
+
+  snackbar: {
+    left: -200,
   },
 })
 

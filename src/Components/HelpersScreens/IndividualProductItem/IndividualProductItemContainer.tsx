@@ -4,35 +4,41 @@ import { compose } from "redux"
 import { connect } from "react-redux"
 
 // COMPONENTS IMPORTS //
-import Main from "./Main"
+import IndividualProductItem from "./IndividualProductItem"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "~/Redux/ReduxStore"
+import { ActionCreatorsList } from "~/Redux/Reducers/OrderingReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // TYPES
-type MapStateToPropsType = {
-  navigation: any
-  OrderItemsList: Array<{}>
-}
+type MapStateToPropsType = {}
 
-type MapDispatchToPropsType = {}
+type MapDispatchToPropsType = {
+  addItemToOrderActionCreator: (
+    name: string,
+    price: string,
+    image: string,
+    size: string,
+    ingredients: Array<string>
+  ) => any
+}
 
 /////////////////////////////////////////////////////////////////
 
 const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
-  return {
-    navigation: props.navigation,
-    OrderItemsList: state.OrderingState.OrderItemsList,
-  }
+  return {}
 }
 
-const MainContainer = compose(
+const IndividualProductItemContainer = compose(
   connect<MapStateToPropsType, MapDispatchToPropsType, AppStateType>(
     mapStateToProps,
-    {}
+    {
+      addItemToOrderActionCreator:
+        ActionCreatorsList.addItemToOrderActionCreator,
+    }
   )
-)(Main)
+)(IndividualProductItem)
 
-export default MainContainer
+export default IndividualProductItemContainer
