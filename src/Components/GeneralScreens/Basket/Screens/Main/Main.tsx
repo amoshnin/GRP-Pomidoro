@@ -123,7 +123,7 @@ const Main: React.FC<PropsType> = (props) => {
         navigation={props.navigation}
       />
       <BonusesSection
-        OrderBonusesUsed={2}
+        OrderBonusesUsed={props.UserCredentials.bonusesCount}
         bonusesUsedCount={props.OrderBonusesUsed}
         setBonusesCountActionCreator={props.setBonusesCountActionCreator}
       />

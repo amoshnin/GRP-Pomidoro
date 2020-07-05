@@ -2,6 +2,7 @@
 import React from "react"
 import { View, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import dayjs from "dayjs"
 
 // COMPONENTS IMPORTS //
 
@@ -9,7 +10,9 @@ import Text from "~/Components/Shared/Components/Text/Text"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  DeliveryTime: string
+}
 
 const Header: React.FC<PropsType> = (props) => {
   return (
@@ -22,7 +25,7 @@ const Header: React.FC<PropsType> = (props) => {
         <Text size={20} weight="bold" style={styles.subtitle}>
           Время доставки
         </Text>
-        <Text>Сегодня в 11:00</Text>
+        <Text>{dayjs(props.DeliveryTime).format("dddd HH:mm")}</Text>
       </View>
       <View style={styles.divider} />
     </View>

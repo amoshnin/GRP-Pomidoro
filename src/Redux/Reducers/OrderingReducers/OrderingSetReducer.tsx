@@ -10,6 +10,8 @@ let initialState = {
 
   DeliveryTime: null as string | Date | null,
   DeliveryType: {} as object,
+
+  PaymentMethod: null as string | null,
 }
 
 export type initialStateType = typeof initialState
@@ -59,6 +61,13 @@ const OrderingSetReducer = (
     return {
       ...state,
       DeliveryType: action.orderDeliveryType,
+    }
+  }
+
+  if (action.type === "SET_PAYMENT_METHOD") {
+    return {
+      ...state,
+      PaymentMethod: action.paymentMethod,
     }
   }
 
@@ -122,6 +131,12 @@ export const ActionCreatorsList = {
     ({
       type: "SET_ORDER_DELIVERY_TYPE",
       orderDeliveryType,
+    } as const),
+
+  setPaymentMethodActionCreator: (paymentMethod: string) =>
+    ({
+      type: "SET_PAYMENT_METHOD",
+      paymentMethod,
     } as const),
 }
 

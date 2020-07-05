@@ -23,9 +23,7 @@ type PropsType = {
 }
 
 const Body: React.FC<PropsType> = (props) => {
-  const [checkedValue, setCheckedValue] = useState(
-    "ул. Засумская, 12" as string
-  )
+  const [checkedValue, setCheckedValue] = useState("Забрать самому" as string)
   const [comment, setComment] = useState(null as string | null)
 
   useEffect(() => {
@@ -36,8 +34,8 @@ const Body: React.FC<PropsType> = (props) => {
 
   const SelectionList = [
     {
-      description: "Забрать самому",
-      title: "ул. Засумская, 12",
+      title: "Забрать самому",
+      description: "Ближайший фелиал - ул. Засумская, 12",
     },
     ...props.savedAdresses,
   ]

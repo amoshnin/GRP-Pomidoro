@@ -35,14 +35,26 @@ const Footer: React.FC<PropsType> = (props) => {
     setDatePicked(date)
   }
 
+  const [isClicked, setIsClicked] = useState(false as boolean)
   const confirmFunction = () => {
-    props.setOrderDeliveryTimeActionCreator(datePicked)
-    props.navigation.navigate("SelectAccountScreen")
+    setIsClicked(true)
+    if (datePicked) {
+      setIsClicked(false)
+      props.setOrderDeliveryTimeActionCreator(datePicked)
+      props.navigation.navigate("SelectAccountScreen")
+    }
   }
 
   return (
     <>
-      <TouchableOpacity style={styles.input} onPress={showDatePicker}>
+      <TouchableOpacity
+        style={[
+          styles.input,
+          !datePicked &&
+            isClicked && { borderBottomColor: "red", borderBottomWidth: 1.2 },
+        ]}
+        onPress={showDatePicker}
+      >
         <Text>{datePicked ? dayjs(datePicked).format("HH:mm") : "Время"}</Text>
       </TouchableOpacity>
       <DateTimePickerModal

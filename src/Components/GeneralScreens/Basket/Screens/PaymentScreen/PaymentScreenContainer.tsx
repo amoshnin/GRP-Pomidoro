@@ -4,36 +4,25 @@ import { compose } from "redux"
 import { connect } from "react-redux"
 
 // COMPONENTS IMPORTS //
-import Main from "./Main"
+import PaymentScreen from "./PaymentScreen"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "~/Redux/ReduxStore"
 
 import { ActionCreatorsList } from "~/Redux/Reducers/OrderingReducers/OrderingSetReducer"
-import { getUserFullInfoThunkCreator } from "~/Redux/Reducers/PrivateCabinetReducers/PrivateCabinerGetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // TYPES
 type MapStateToPropsType = {
   navigation: any
+
+  DeliveryTime: string
   OrderItemsList: Array<{
     date: string
     deliveryStatus: string
     products: Array<{ title: string; count: string | number }>
   }>
-  UserCredentials: {
-    name: string | null
-    surname: string | null
-    email: string | null
-    phoneNum: string | null
-    region: string | null
-    password: string | null
-    avatar: string | null
-    userType: string | null
-    bonusesCount: string | null
-  }
-  OrderBonusesUsed: string
 }
 
 type MapDispatchToPropsType = {
@@ -51,9 +40,6 @@ type MapDispatchToPropsType = {
     size: string,
     id: string
   ) => void
-  setBonusesCountActionCreator: (bonusesCount: string) => void
-
-  getUserFullInfoThunkCreator: () => void
 }
 
 /////////////////////////////////////////////////////////////////
@@ -61,13 +47,13 @@ type MapDispatchToPropsType = {
 const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
   return {
     navigation: props.navigation,
-    UserCredentials: state.PrivateCabinetGetState.UserCredentials,
+
+    DeliveryTime: state.OrderingSetState.DeliveryTime,
     OrderItemsList: state.OrderingSetState.OrderItemsList,
-    OrderBonusesUsed: state.OrderingSetState.OrderBonusesUsed,
   }
 }
 
-const MainContainer = compose(
+const PaymentScreenContainer = compose(
   connect<MapStateToPropsType, MapDispatchToPropsType, AppStateType>(
     mapStateToProps,
     {
@@ -75,11 +61,8 @@ const MainContainer = compose(
         ActionCreatorsList.addItemToOrderActionCreator,
       removeItemFromOrderActionCreator:
         ActionCreatorsList.removeItemFromOrderActionCreator,
-      setBonusesCountActionCreator:
-        ActionCreatorsList.setBonusesCountActionCreator,
-      getUserFullInfoThunkCreator: getUserFullInfoThunkCreator,
     }
   )
-)(Main)
+)(PaymentScreen)
 
-export default MainContainer
+export default PaymentScreenContainer

@@ -13,7 +13,15 @@ import Body from "./Body/Body"
 
 type PropsType = {
   navigation: any
-  OrderItemsList: Array<{}>
+
+  cardNum: string
+  OrderItemsList: Array<{
+    date: string
+    deliveryStatus: string
+    products: Array<{ title: string; count: string | number }>
+  }>
+
+  setPaymentMethodActionCreator: (paymentMethod: string) => void
 }
 
 const PaymentMethodScreen: React.FC<PropsType> = (props) => {
@@ -33,7 +41,12 @@ const PaymentMethodScreen: React.FC<PropsType> = (props) => {
         Способ оплаты
       </Text>
       <Header totalPrice={totalPrice} />
-      <Body navigation={props.navigation} totalPrice={totalPrice} />
+      <Body
+        navigation={props.navigation}
+        totalPrice={totalPrice}
+        cardNum={props.cardNum}
+        setPaymentMethodActionCreator={props.setPaymentMethodActionCreator}
+      />
     </View>
   )
 }

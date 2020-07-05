@@ -13,18 +13,24 @@ import PayButton from "~/Components/Shared/Components/PayButton/PayButton"
 
 type PropsType = {
   navigation: any
+
   totalPrice: number
+  cardNum: string
+
+  setPaymentMethodActionCreator: (paymentMethod: string) => void
 }
 
 const Body: React.FC<PropsType> = (props) => {
   const [checkedValue, setCheckedValue] = useState(
-    "Карта ** 5443 (+50 ₴ к сумме)" as string | null
+    `Наличными курьеру` as string | null
   )
 
   const PaymentMethods = [
     {
-      title: "Карта ** 5443 (+50 ₴ к сумме)",
-      description: "Курьер принесет с собой POS терминал ",
+      title: props.cardNum
+        ? `Карта ** ${props.cardNum} (+50 ₴ к сумме)`
+        : `Добавить карту`,
+      description: props.cardNum && "Курьер принесет с собой POS терминал",
     },
     {
       title: "Наличными курьеру",
@@ -33,10 +39,6 @@ const Body: React.FC<PropsType> = (props) => {
     {
       title: "Картой курьеру",
       description: "Курьер принесет с собой POS терминал",
-    },
-    {
-      title: "Оплатить другой картой",
-      description: null,
     },
   ]
 
@@ -54,7 +56,9 @@ const Body: React.FC<PropsType> = (props) => {
                 }
                 color="#96A637"
                 onPress={() => {
-                  setCheckedValue(paymentMethod.title)
+                  paymentMethod.title === "Добавить карту"
+                    ? props.navigation.navigate("PrivateCabinetScreen")
+                    : setCheckedValue(paymentMethod.title)
                 }}
               />
               <View style={styles.item_text_wrap}>
@@ -75,6 +79,9 @@ const Body: React.FC<PropsType> = (props) => {
         price={props.totalPrice}
         text="Перейти к оплате"
         destination="PaymentScreen"
+        saveFunction={() =>
+          props.setPaymentMethodActionCreator(checkedValue as string)
+        }
       />
     </View>
   )

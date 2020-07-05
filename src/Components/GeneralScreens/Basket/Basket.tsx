@@ -9,7 +9,7 @@ import SelectAccountScreen from "./Screens/SelectAccountScreen/SelectAccountScre
 import DeliveryTypeSelectionScreenContainer from "./Screens/DeliveryTypeSelectionScreen/DeliveryTypeSelectionScreenContainer"
 import ConfirmAdressScreen from "./Screens/ConfirmAdressScreen/ConfirmAdressScreen"
 import PaymentMethodScreenContainer from "./Screens/PaymentMethodScreen/PaymentMethodScreenContainer"
-import PaymentScreen from "./Screens/PaymentScreen/PaymentScreen"
+import PaymentScreenContainer from "./Screens/PaymentScreen/PaymentScreenContainer"
 import SuccesfulPaymentScreen from "./Screens/SuccesfulPaymentScreen/SuccesfulPaymentScreen"
 
 import BackCallScreen from "./Screens/Helpers/BackCallScreen/BackCallScreen"
@@ -111,7 +111,7 @@ const PrivateCabinetScreen: React.FC<PropsType> = (props) => {
       />
       <Stack.Screen
         name="PaymentScreen"
-        component={PaymentScreen}
+        component={PaymentScreenContainer}
         options={({ navigation, route }: any) => ({
           header: () => (
             <GeneralHeader

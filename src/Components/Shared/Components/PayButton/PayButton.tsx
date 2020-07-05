@@ -16,6 +16,7 @@ type PropsType = {
 
   price: number
   text: string
+  saveFunction?: any
 }
 
 const PayButton: React.FC<PropsType> = (props) => {
@@ -26,7 +27,12 @@ const PayButton: React.FC<PropsType> = (props) => {
       </Text>
 
       <TouchableOpacity
-        onPress={() => props.navigation.navigate(props.destination)}
+        onPress={() => {
+          if (props.saveFunction) {
+            props.saveFunction()
+          }
+          props.navigation.navigate(props.destination)
+        }}
       >
         <Text size={16} weight="bold" color="white">
           {props.text}

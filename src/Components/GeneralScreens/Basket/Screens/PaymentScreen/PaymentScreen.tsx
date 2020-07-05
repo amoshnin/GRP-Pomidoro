@@ -15,38 +15,98 @@ import OrderDetailsSection from "~/Components/Shared/Sections/OrderDetailsSectio
 
 type PropsType = {
   navigation: any
+
+  DeliveryTime: string
+  OrderItemsList: Array<{
+    date: string
+    deliveryStatus: string
+    products: Array<{ title: string; count: string | number }>
+  }>
+
+  addItemToOrderActionCreator: (
+    title: string,
+    price: string,
+    originalPrice: string,
+    image: string,
+    size: string,
+    count: string,
+    ingredients: Array<string>
+  ) => void
+
+  removeItemFromOrderActionCreator: (
+    title: string,
+    size: string,
+    id: string
+  ) => void
 }
 
 const PaymentScreen: React.FC<PropsType> = (props) => {
   const [totalPrice, setTotalPrice] = useState(0 as number)
 
-  const Products = [
-    {
-      title: "Парерони чиз",
-      image: "",
-      size: 24,
-      price: 99,
-      count: 2,
-      allowEdit: true,
-    },
-    {
-      title: "Парерони чиз",
-      image: "",
-      size: 24,
-      price: 99,
-      count: 2,
-      allowEdit: true,
-    },
-  ]
+  const removeDuplicates = (originalArray: Array<any>, prop: any) => {
+    var newArray = [] as any
+    var lookupObject = {} as any
+
+    originalArray = originalArray.map((item: any) => {
+      return {
+        ...item,
+        name: item.name + item.size,
+      }
+    })
+
+    for (var i in originalArray) {
+      lookupObject[originalArray[i][prop]] = originalArray[i]
+    }
+
+    for (i in lookupObject) {
+      const FilteredArray = originalArray.filter((orderItem: any) => {
+        return orderItem.name === lookupObject[i].name
+      })
+
+      const price = FilteredArray.reduce((prev: any, current: any) => {
+        return prev + +current.price
+      }, 0)
+
+      const count = FilteredArray.reduce((prev: any, current: any) => {
+        return prev + +1
+      }, 0)
+
+      newArray.push({
+        ...lookupObject[i],
+        price: price,
+        count: count,
+      })
+    }
+    const CleanedArray = newArray.map((item: any) => {
+      return {
+        ...item,
+        name: item.name.replace(item.size, ""),
+      }
+    })
+
+    return CleanedArray
+  }
 
   useEffect(() => {
-    setTotalPrice(Products.reduce((a, b) => a + (b["price"] || 0), 0))
+    setTotalPrice(
+      props.OrderItemsList.reduce((prev: any, current: any) => {
+        return prev + +current.price
+      }, 0)
+    )
   }, [])
+
+  const CleanedOrdersArray = removeDuplicates(props.OrderItemsList, "price")
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <Header />
-      <ProductsBasketList Products={Products} />
+      <Header DeliveryTime={props.DeliveryTime} />
+      <ProductsBasketList
+        Products={CleanedOrdersArray}
+        addItemToOrderActionCreator={props.addItemToOrderActionCreator}
+        removeItemFromOrderActionCreator={
+          props.removeItemFromOrderActionCreator
+        }
+      />
       <OrderDetailsSection
         totalPrice={totalPrice}
         navigation={props.navigation}
@@ -54,7 +114,7 @@ const PaymentScreen: React.FC<PropsType> = (props) => {
       <PayButton
         navigation={props.navigation}
         destination="SuccesfulPaymentScreen"
-        price={429}
+        price={totalPrice}
         text="Оплатить"
       />
     </ScrollView>
