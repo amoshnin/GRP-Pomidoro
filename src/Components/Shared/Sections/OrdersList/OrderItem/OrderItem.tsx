@@ -11,7 +11,7 @@ import Text from "~/Components/Shared/Components/Text/Text"
 
 type PropsType = {
   title: string
-  productsList: Array<string>
+  productsList: Array<{ title: string; count: string | number }>
   buttonText: string
 
   showTiming: boolean
@@ -24,13 +24,17 @@ const OrderItem: React.FC<PropsType> = (props) => {
         {props.title}
       </Text>
       <View style={styles.foods_list}>
-        {props.productsList.map((product: string) => {
-          return (
-            <Text style={styles.food_text} key={product}>
-              {product}
-            </Text>
-          )
-        })}
+        {props.productsList &&
+          props.productsList.length > 0 &&
+          props.productsList.map(
+            (product: { title: string; count: string | number }) => {
+              return (
+                <Text style={styles.food_text} key={product.title}>
+                  {product.title}
+                </Text>
+              )
+            }
+          )}
       </View>
       <View style={styles.divider} />
       <TouchableOpacity style={styles.button}>

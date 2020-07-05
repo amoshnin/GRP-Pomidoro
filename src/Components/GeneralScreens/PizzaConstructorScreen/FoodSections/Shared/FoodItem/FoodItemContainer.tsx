@@ -8,7 +8,7 @@ import FoodItem from "./FoodItem"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "~/Redux/ReduxStore"
-import { ActionCreatorsList } from "~/Redux/Reducers/PizzaConstructorReducer"
+import { ActionCreatorsList } from "~/Redux/Reducers/PizzaConstructorReducers/PizzaConstructorSetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -34,8 +34,8 @@ const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
   return {
     ingredient: props.ingredient,
     CurrentPizzaIngredients:
-      state.PizzaConstructorState.CurrentPizzaIngredients,
-    CurrentPizzaPrice: state.PizzaConstructorState.CurrentPizzaPrice,
+      state.PizzaConstructorSetState.CurrentPizzaIngredients,
+    CurrentPizzaPrice: state.PizzaConstructorSetState.CurrentPizzaPrice,
   }
 }
 

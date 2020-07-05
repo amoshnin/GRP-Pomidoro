@@ -8,7 +8,9 @@ import Main from "./Main"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "~/Redux/ReduxStore"
+
 import { ActionCreatorsList } from "~/Redux/Reducers/OrderingReducers/OrderingSetReducer"
+import { getUserFullInfoThunkCreator } from "~/Redux/Reducers/PrivateCabinetReducers/PrivateCabinerGetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -34,6 +36,8 @@ type MapDispatchToPropsType = {
     size: string,
     id: string
   ) => void
+
+  getUserFullInfoThunkCreator: () => void
 }
 
 /////////////////////////////////////////////////////////////////
@@ -41,7 +45,7 @@ type MapDispatchToPropsType = {
 const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
   return {
     navigation: props.navigation,
-    OrderItemsList: state.OrderingState.OrderItemsList,
+    OrderItemsList: state.OrderingSetState.OrderItemsList,
   }
 }
 
@@ -53,6 +57,7 @@ const MainContainer = compose(
         ActionCreatorsList.addItemToOrderActionCreator,
       removeItemFromOrderActionCreator:
         ActionCreatorsList.removeItemFromOrderActionCreator,
+      getUserFullInfoThunkCreator: getUserFullInfoThunkCreator,
     }
   )
 )(Main)

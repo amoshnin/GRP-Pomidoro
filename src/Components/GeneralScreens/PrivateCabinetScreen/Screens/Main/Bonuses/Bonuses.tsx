@@ -41,7 +41,6 @@ const Bonuses: React.FC<PropsType> = (props) => {
 //   STYLES   //
 const styles = StyleSheet.create({
   container: {
-    marginTop: 36,
     marginBottom: 35,
   },
 

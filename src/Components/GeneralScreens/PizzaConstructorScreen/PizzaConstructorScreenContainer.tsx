@@ -8,7 +8,7 @@ import PizzaConstructorScreen from "./PizzaConstructorScreen"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "../../../Redux/ReduxStore"
-import { ActionCreatorsList } from "~/Redux/Reducers/PizzaConstructorReducer"
+import { ActionCreatorsList } from "~/Redux/Reducers/PizzaConstructorReducers/PizzaConstructorSetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -31,9 +31,9 @@ const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
   return {
     navigation: props.navigation,
     CurrentPizzaIngredients:
-      state.PizzaConstructorState.CurrentPizzaIngredients,
-    CurrentPizzaPrice: state.PizzaConstructorState.CurrentPizzaPrice,
-    CurrentPizzaSize: state.PizzaConstructorState.CurrentPizzaSize,
+      state.PizzaConstructorSetState.CurrentPizzaIngredients,
+    CurrentPizzaPrice: state.PizzaConstructorSetState.CurrentPizzaPrice,
+    CurrentPizzaSize: state.PizzaConstructorSetState.CurrentPizzaSize,
   }
 }
 

@@ -27,7 +27,7 @@ type MapDispatchToPropsType = {
 const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
   return {
     navigation: props.navigation,
-    MenuList: state.FoodListState.MenuList,
+    MenuList: state.FoodListGetState.MenuList,
   }
 }
 

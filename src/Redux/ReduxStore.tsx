@@ -3,21 +3,25 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux"
 import thunkMiddleware from "redux-thunk"
 
 // REDUCERS IMPORTS //
-import PizzaConstructorReducer from "~/Redux/Reducers/PizzaConstructorReducer"
-import FoodListReducer from "~/Redux/Reducers/FoodListReducers/FoodListGetReducer"
-import OrderingReducer from "~/Redux/Reducers/OrderingReducer"
+import PrivateCabinetGetReducer from "~/Redux/Reducers/PrivateCabinetReducers/PrivateCabinerGetReducer"
+import OrderingSetReducer from "~/Redux/Reducers/OrderingReducers/OrderingSetReducer"
+import FoodListGetReducer from "~/Redux/Reducers/FoodListReducers/FoodListGetReducer"
+import PizzaConstructorSetReducer from "~/Redux/Reducers/PizzaConstructorReducers/PizzaConstructorSetReducer"
 
 ////////////////////////////////////////////////////////////////////////
 
 let reducers = combineReducers({
+  // Private cabinet
+  PrivateCabinetGetState: PrivateCabinetGetReducer,
+
   // Ordering Reducer
-  OrderingState: OrderingReducer,
+  OrderingSetState: OrderingSetReducer,
 
   // Food List Reducer
-  FoodListState: FoodListReducer,
+  FoodListGetState: FoodListGetReducer,
 
   // Pizza constructor reducer
-  PizzaConstructorState: PizzaConstructorReducer,
+  PizzaConstructorSetState: PizzaConstructorSetReducer,
 })
 
 type reducersType = typeof reducers

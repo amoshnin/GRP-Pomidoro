@@ -31,10 +31,15 @@ type PropsType = {
     size: string,
     id: string
   ) => void
+  getUserFullInfoThunkCreator: () => void
 }
 
 const Main: React.FC<PropsType> = (props) => {
   const [totalPrice, setTotalPrice] = useState(0 as number)
+
+  useEffect(() => {
+    props.getUserFullInfoThunkCreator()
+  }, [])
 
   useEffect(() => {
     setTotalPrice(
