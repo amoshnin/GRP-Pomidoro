@@ -12,14 +12,22 @@ import { AppStateType } from "../../../Redux/ReduxStore"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // TYPES
-type MapStateToPropsType = {}
+type MapStateToPropsType = {
+  OrdersList: Array<{
+    date: string
+    deliveryStatus: string
+    products: Array<{ title: string; count: string | number }>
+  }>
+}
 
 type MapDispatchToPropsType = {}
 
 /////////////////////////////////////////////////////////////////
 
 const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
-  return {}
+  return {
+    OrdersList: state.PrivateCabinetGetState.OrdersList,
+  }
 }
 
 const OrdersScreenContainer = compose(

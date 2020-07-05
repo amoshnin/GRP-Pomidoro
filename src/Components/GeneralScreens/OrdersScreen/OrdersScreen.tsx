@@ -10,7 +10,11 @@ import OrdersList from "../../Shared/Sections/OrdersList/OrdersList"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
-  navigation: any
+  OrdersList: Array<{
+    date: string
+    deliveryStatus: string
+    products: Array<{ title: string; count: string | number }>
+  }>
 }
 
 const OrdersScreen: React.FC<PropsType> = (props) => {
@@ -22,20 +26,7 @@ const OrdersScreen: React.FC<PropsType> = (props) => {
           fontSize: 30,
           letterSpacing: 0.3,
         }}
-        orders={[
-          [
-            "Паперони спайс × 2шт",
-            "Четыре мяса × 1 шт ",
-            "Конкорд × 1 шт",
-            "Pepsi 1литр × 1 шт",
-          ],
-          [
-            "Паперони спайс × 2шт",
-            "Четыре мяса × 1 шт ",
-            "Конкорд × 1 шт",
-            "Pepsi 1литр × 1 шт",
-          ],
-        ]}
+        orders={props.OrdersList}
         shwowDeliveryStatus={true}
         showTiming={true}
         showFullList={true}

@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, StyleSheet } from "react-native"
+import { View, Image, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
@@ -31,25 +31,23 @@ const OrdersList: React.FC<PropsType> = (props) => {
       </Text>
 
       {props.orders.length > 0 ? (
-        props.orders.map(
-          (order: {
-            date: string
-            deliveryStatus: string
-            products: Array<{ title: string; count: string | number }>
-          }) => {
-            return (
-              <OrderItem
-                title={`${order.date} - ${order.deliveryStatus}`}
-                productsList={order.products}
-                buttonText={"Добавить весь заказ в корзину"}
-                showTiming={props.showTiming}
-              />
-            )
-          }
-        )
+        props.orders.map((order: any) => {
+          return (
+            <OrderItem
+              title={"24.03.2019 - Доставлен"}
+              productsList={order}
+              buttonText={"Добавить весь заказ в корзину"}
+              showTiming={props.showTiming}
+            />
+          )
+        })
       ) : (
-        <View style={styles.container}>
-          <Text weight="bold" size={20} style={styles.title}>
+        <View style={[styles.container, { marginTop: 120 }]}>
+          <Image
+            style={styles.image}
+            source={require("~/Images/orders-empty.png")}
+          />
+          <Text weight="bold" size={30} style={styles.title}>
             Пока нет заказов
           </Text>
           <Text style={styles.subtitle} size={16}>
