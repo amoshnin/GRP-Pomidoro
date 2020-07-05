@@ -5,6 +5,7 @@ import Text from "~/Components/Shared/Components/Text/Text"
 import Constants from "expo-constants"
 import * as ImagePicker from "expo-image-picker"
 import * as Permissions from "expo-permissions"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -53,6 +54,8 @@ const Header: React.FC<PropsType> = (props) => {
     }
   }
 
+  const { t } = useTranslation()
+
   return (
     <View style={styles.container}>
       <View style={styles.avatar_wrap}>
@@ -81,7 +84,7 @@ const Header: React.FC<PropsType> = (props) => {
         >
           <Feather name="log-in" size={24} color="#96A637" />
           <Text size={16} color="#96A637" style={styles.logout_text}>
-            Выйти
+            {t("PrivateCabinetScreen.Header.Выйти")}
           </Text>
         </TouchableOpacity>
       </View>
