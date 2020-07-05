@@ -101,6 +101,8 @@ const Body: React.FC<PropsType> = (props) => {
         placeholder="Дополнительные комментарии"
         style={styles.input}
         theme={{ colors: { primary: "#1A1824" } }}
+        value={comment as string}
+        onChangeText={(text: string) => setComment(text)}
       />
 
       <Button

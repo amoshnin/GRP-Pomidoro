@@ -10,9 +10,9 @@ let initialState = {
   OrderBonusesUsed: null as string | null,
 
   DeliveryTime: null as string | Date | null,
-  DeliveryType: {} as {
-    adress: string
-    comment: string
+  DeliveryType: {
+    adress: null as string | null,
+    comment: null as string | null,
   },
 
   PaymentMethod: null as string | null,
@@ -27,6 +27,22 @@ const OrderingSetReducer = (
   state = initialState,
   action: ActionsTypes
 ): initialStateType => {
+  if (action.type === "CLEAR_BASKET_INFORMATION") {
+    return {
+      ...state,
+      OrderItemsList: [],
+      OrderBonusesUsed: null,
+
+      DeliveryTime: null,
+      DeliveryType: {
+        adress: null,
+        comment: null,
+      },
+
+      PaymentMethod: null,
+    }
+  }
+
   if (action.type === "ADD_ITEM_TO_ORDER") {
     return {
       ...state,
@@ -85,6 +101,11 @@ type ActionsTypes = InferActionsTypes<typeof ActionCreatorsList>
 
 //    *ACTION CREATORS*   //
 export const ActionCreatorsList = {
+  clearBasketInformation: () =>
+    ({
+      type: "CLEAR_BASKET_INFORMATION",
+    } as const),
+
   addItemToOrderActionCreator: (
     title: string,
     price: string,
@@ -160,6 +181,8 @@ export const SendOrderDataThunkCreator = (): ThunkType => {
         DeliveryType: state.OrderingSetState.DeliveryType,
         PaymentMethod: state.OrderingSetState.PaymentMethod,
       })
-      .then((res: any) => {})
+      .then((res: any) => {
+        dispatch(ActionCreatorsList.clearBasketInformation())
+      })
   }
 }
