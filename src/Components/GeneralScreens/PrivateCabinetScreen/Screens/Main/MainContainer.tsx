@@ -8,7 +8,9 @@ import Main from "./Main"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "~/Redux/ReduxStore"
+
 import { getUserFullInfoThunkCreator } from "~/Redux/Reducers/PrivateCabinetReducers/PrivateCabinerGetReducer"
+import { UpdateAvatarThunkCreator } from "~/Redux/Reducers/PrivateCabinetReducers/PrivateCabinetSetReducer"
 import { LogoutUserThunkCreator } from "~/Redux/Reducers/AuthReducers/AuthSetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -28,11 +30,11 @@ type MapStateToPropsType = {
     bonusesCount: string | null
   }
 
-  CreditCardsList: Array<{
+  CreditCard: {
     cardNum: string
     CVV: string
     ExpDate: string
-  }>
+  }
 
   OrdersList: Array<{
     date: string
@@ -43,6 +45,7 @@ type MapStateToPropsType = {
 
 type MapDispatchToPropsType = {
   getUserFullInfoThunkCreator: () => void
+  UpdateAvatarThunkCreator: (avatar: Blob) => void
   LogoutUserThunkCreator: () => void
 }
 
@@ -52,7 +55,7 @@ const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
   return {
     navigation: props.navigation,
     UserCredentials: state.PrivateCabinetGetState.UserCredentials,
-    CreditCardsList: state.PrivateCabinetGetState.CreditCardsList,
+    CreditCard: state.PrivateCabinetGetState.CreditCard,
     OrdersList: state.PrivateCabinetGetState.OrdersList,
   }
 }
@@ -62,6 +65,7 @@ const MainContainer = compose(
     mapStateToProps,
     {
       getUserFullInfoThunkCreator: getUserFullInfoThunkCreator,
+      UpdateAvatarThunkCreator: UpdateAvatarThunkCreator,
       LogoutUserThunkCreator: LogoutUserThunkCreator,
     }
   )

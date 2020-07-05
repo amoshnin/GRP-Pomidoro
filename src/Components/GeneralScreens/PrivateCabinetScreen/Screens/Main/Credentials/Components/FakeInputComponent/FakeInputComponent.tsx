@@ -13,8 +13,10 @@ import * as yup from "yup"
 type PropsType = {
   navigation: any
 
-  title: string
-  content: string
+  title?: string
+  content?: string
+  boldText?: string
+  onPress?: any
 }
 
 const FakeInputComponent: React.FC<PropsType> = (props) => {
@@ -22,19 +24,26 @@ const FakeInputComponent: React.FC<PropsType> = (props) => {
     <>
       <View style={styles.container}>
         <View>
-          <Text color="#1A1824" style={{ opacity: 0.5 }}>
-            {props.title}
-          </Text>
-          <Text size={16}>{props.content}</Text>
+          {props.title && (
+            <Text color="#1A1824" style={{ opacity: 0.5 }}>
+              {props.title}
+            </Text>
+          )}
+          {props.boldText && (
+            <Text style={styles.bold_text}>{props.boldText}</Text>
+          )}
+          {props.children && <Text size={16}>{props.content}</Text>}
         </View>
         <TouchableOpacity
           onPress={() =>
-            props.navigation.navigate("CredentialsFieldChangeScreen", {
-              changeFunction: () => null,
-              title: `Изменить ${props.title}`,
-              placeholder: props.title,
-              validation: yup.string(),
-            })
+            props.onPress
+              ? props.onPress()
+              : props.navigation.navigate("CredentialsFieldChangeScreen", {
+                  changeFunction: () => null,
+                  title: `Изменить ${props.title}`,
+                  placeholder: props.title,
+                  validation: yup.string(),
+                })
           }
         >
           <Text
@@ -62,6 +71,12 @@ const styles = StyleSheet.create({
 
   button_text: {
     letterSpacing: 0.3,
+  },
+
+  bold_text: {
+    fontWeight: "bold",
+    fontSize: 16,
+    paddingBottom: 5,
   },
 
   divider: {

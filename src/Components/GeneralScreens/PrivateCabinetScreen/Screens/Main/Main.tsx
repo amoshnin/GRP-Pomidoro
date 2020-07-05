@@ -29,11 +29,11 @@ type PropsType = {
     bonusesCount: string | null
   }
 
-  CreditCardsList: Array<{
+  CreditCard: {
     cardNum: string
     CVV: string
     ExpDate: string
-  }>
+  }
 
   OrdersList: Array<{
     date: string
@@ -62,7 +62,7 @@ const Main: React.FC<PropsType> = (props) => {
         navigation={props.navigation}
         UserCredentials={props.UserCredentials}
       />
-      <CreditCard navigation={props.navigation} />
+      <CreditCard navigation={props.navigation} CreditCard={props.CreditCard} />
       {props.OrdersList && props.OrdersList.length > 0 && (
         <OrdersList
           navigation={props.navigation}

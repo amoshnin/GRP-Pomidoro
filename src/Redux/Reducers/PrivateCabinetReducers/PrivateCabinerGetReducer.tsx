@@ -18,11 +18,11 @@ let initialState = {
     bonusesCount: null as string | null,
   },
 
-  CreditCardsList: [] as Array<{
+  CreditCard: {} as {
     cardNum: string
     CVV: string
     ExpDate: string
-  }>,
+  },
 
   OrdersList: [] as Array<{
     date: string
@@ -60,7 +60,7 @@ const OrderingGetReducer = (
   if (action.type === "SET_USER_CREDIT_CARDS_LIST") {
     return {
       ...state,
-      CreditCardsList: action.creditCardsList,
+      CreditCard: action.CreditCard,
     }
   }
 
@@ -105,12 +105,14 @@ export const ActionCreatorsList = {
       bonusesCount,
     } as const),
 
-  setUserCreditCardsList: (
-    creditCardsList: Array<{ cardNum: string; CVV: string; ExpDate: string }>
-  ) =>
+  setUserCreditCard: (CreditCard: {
+    cardNum: string
+    CVV: string
+    ExpDate: string
+  }) =>
     ({
       type: "SET_USER_CREDIT_CARDS_LIST",
-      creditCardsList,
+      CreditCard,
     } as const),
 
   setUserOrdersList: (
@@ -147,9 +149,7 @@ export const getUserFullInfoThunkCreator = (): ThunkType => {
         )
       )
 
-      dispatch(
-        ActionCreatorsList.setUserCreditCardsList(res.data.creditCardsList)
-      )
+      dispatch(ActionCreatorsList.setUserCreditCard(res.data.CreditCard))
 
       dispatch(ActionCreatorsList.setUserOrdersList(res.data.ordersList))
     })
