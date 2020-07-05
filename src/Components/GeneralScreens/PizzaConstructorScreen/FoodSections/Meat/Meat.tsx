@@ -1,7 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { View, ScrollView, StyleSheet } from "react-native"
-import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
 import FoodItemContainer from "../Shared/FoodItem/FoodItemContainer"
@@ -11,6 +10,7 @@ import FoodItemContainer from "../Shared/FoodItem/FoodItemContainer"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  navigation: any
   route: any
 }
 
@@ -52,8 +52,12 @@ const Meat: React.FC<PropsType> = (props) => {
     <ScrollView showsVerticalScrollIndicator={false} style={styles.wrapper}>
       <View style={styles.container}>
         {IngredientsList.map((ingredient: any) => {
-          // @ts-ignore
-          return <FoodItemContainer ingredient={ingredient} />
+          return (
+            <FoodItemContainer
+              ingredient={ingredient}
+              navigation={props.navigation}
+            />
+          )
         })}
       </View>
     </ScrollView>

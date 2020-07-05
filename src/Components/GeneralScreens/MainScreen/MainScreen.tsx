@@ -35,38 +35,39 @@ const MainScreen: React.FC<PropsType> = (props) => {
 
   return (
     <ScrollView style={styles.container}>
-      <Button
-        onPress={() => props.navigation.navigate("OrderTracking")}
-        buttonStyle={{
-          borderRadius: 20,
-          backgroundColor: "#96A637",
-        }}
-        rectStyle={{
-          height: 40,
-          width: 315,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-        textStyle={{ color: "#FFFFFF" }}
-        text={"Узнать, где мой заказ"}
-      />
-
       {props.SalesList && props.SalesList.length > 0 && (
-        <SalesSection
-          navigation={props.navigation}
-          titleText={"Откройте новые вкусы"}
-          SalesList={props.SalesList}
-          titleStyle={{
-            fontSize: 30,
-            width: 221,
-          }}
-          scroll_horizontal={true}
-          imageStyle={{
-            width: 270,
-            height: 300,
-            marginRight: 16,
-          }}
-        />
+        <>
+          <Button
+            onPress={() => props.navigation.navigate("OrderTracking")}
+            buttonStyle={{
+              borderRadius: 20,
+              backgroundColor: "#96A637",
+            }}
+            rectStyle={{
+              height: 40,
+              width: 315,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            textStyle={{ color: "#FFFFFF" }}
+            text={"Узнать, где мой заказ"}
+          />
+          <SalesSection
+            navigation={props.navigation}
+            titleText={"Откройте новые вкусы"}
+            SalesList={props.SalesList}
+            titleStyle={{
+              fontSize: 30,
+              width: 221,
+            }}
+            scroll_horizontal={true}
+            imageStyle={{
+              width: 270,
+              height: 300,
+              marginRight: 16,
+            }}
+          />
+        </>
       )}
       {props.MenuList.length > 0 && (
         <MenuSection

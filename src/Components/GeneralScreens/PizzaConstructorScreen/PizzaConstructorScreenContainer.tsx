@@ -8,7 +8,8 @@ import PizzaConstructorScreen from "./PizzaConstructorScreen"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "../../../Redux/ReduxStore"
-import { ActionCreatorsList } from "~/Redux/Reducers/PizzaConstructorReducers/PizzaConstructorSetReducer"
+import { ActionCreatorsList as PizzaConstructorActionCreatorsList } from "~/Redux/Reducers/PizzaConstructorReducers/PizzaConstructorSetReducer"
+import { ActionCreatorsList as OrderingSetReducerActionCreatorsList } from "~/Redux/Reducers/OrderingReducers/OrderingSetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -23,6 +24,16 @@ type MapStateToPropsType = {
 type MapDispatchToPropsType = {
   changePizzaSizeActionCreator: (pizzaSize: number) => void
   removeFullIngridientActionCreator: (ingridientName: string) => void
+  clearConstructorPizzaInfoActionCreator: () => void
+  addItemToOrderActionCreator: (
+    title: string,
+    price: string,
+    originalPrice: string,
+    image: string,
+    size: string,
+    count: string,
+    ingredients: Array<string>
+  ) => void
 }
 
 /////////////////////////////////////////////////////////////////
@@ -42,9 +53,13 @@ const PizzaConstructorScreenContainer = compose(
     mapStateToProps,
     {
       changePizzaSizeActionCreator:
-        ActionCreatorsList.changePizzaSizeActionCreator,
+        PizzaConstructorActionCreatorsList.changePizzaSizeActionCreator,
       removeFullIngridientActionCreator:
-        ActionCreatorsList.removeFullIngridientActionCreator,
+        PizzaConstructorActionCreatorsList.removeFullIngridientActionCreator,
+      clearConstructorPizzaInfoActionCreator:
+        PizzaConstructorActionCreatorsList.clearConstructorPizzaInfoActionCreator,
+      addItemToOrderActionCreator:
+        OrderingSetReducerActionCreatorsList.addItemToOrderActionCreator,
     }
   )
 )(PizzaConstructorScreen)

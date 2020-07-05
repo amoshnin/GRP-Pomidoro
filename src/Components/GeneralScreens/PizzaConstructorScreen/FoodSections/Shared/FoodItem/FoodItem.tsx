@@ -1,5 +1,5 @@
 // PLUGINS IMPORTS //
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { View, TouchableOpacity, Image, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 
@@ -12,6 +12,7 @@ import { BorderlessButton } from "react-native-gesture-handler"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  navigation: any
   ingredient: any
   CurrentPizzaIngredients: Array<any>
   CurrentPizzaPrice: number
@@ -24,83 +25,75 @@ type PropsType = {
   substractPizzaPrice: (substractPizzaPrice: number) => void
 }
 
-class FoodItem extends React.Component<PropsType> {
-  state = {
-    buttonOpened: false as boolean,
-    count: 0 as number,
+const FoodItem: React.FC<PropsType> = (props) => {
+  const [buttonOpened, setButtonOpened] = useState(false as boolean)
+  const [count, setCount] = useState(0 as number)
+
+  useEffect(() => {
+    props.navigation.addListener("blur", () => {
+      props.clearIngredientsActionCreator()
+      setCount(0)
+    })
+  }, [props.navigation])
+
+  const addIngridient = () => {
+    props.addIngredientActionCreator({
+      name: props.ingredient.name,
+      image: props.ingredient.image,
+      price: props.ingredient.price,
+      count: 1,
+    })
+
+    setCount(count + 1)
+    props.addPizzaPrice(props.ingredient.price)
   }
 
-  componentWillUnmount() {
-    this.props.clearIngredientsActionCreator()
+  const removeIngredient = () => {
+    count !== 0 && props.removeIngredientActionCreator(props.ingredient.name)
+
+    count !== 0 && setCount(count - 1)
   }
 
-  render() {
-    const addIngridient = () => {
-      this.props.addIngredientActionCreator({
-        name: this.props.ingredient.name,
-        image: this.props.ingredient.image,
-        price: this.props.ingredient.price,
-        count: 1,
-      })
-
-      this.setState({ count: this.state.count + 1 })
-      this.props.addPizzaPrice(this.props.ingredient.price)
-    }
-
-    const removeIngredient = () => {
-      this.state.count !== 0 &&
-        this.props.removeIngredientActionCreator(this.props.ingredient.name)
-
-      this.state.count !== 0 && this.setState({ count: this.state.count - 1 })
-    }
-
-    return (
-      <View style={styles.container}>
-        <Image source={require("~/Images/constructor-item-3.png")} />
-        <Text size={16} style={styles.name}>
-          {this.props.ingredient.name}
-        </Text>
-        <Text style={styles.price}>{this.props.ingredient.price} ₴</Text>
-        <View>
-          {!this.state.buttonOpened ? (
-            <TouchableOpacity
-              onPress={() =>
-                this.setState({
-                  buttonOpened: true,
-                })
-              }
-            >
-              <Text weight="bold" color="#96A637" style={styles.btn}>
-                Добавить
-              </Text>
-            </TouchableOpacity>
-          ) : (
-            <View style={styles.btns_wrap}>
-              <BorderlessButton>
-                <Entypo
-                  name="minus"
-                  size={19}
-                  color="#96A637"
-                  onPress={removeIngredient}
-                />
-              </BorderlessButton>
-              <Text size={14.3} weight="bold">
-                {this.state.count}
-              </Text>
-              <BorderlessButton>
-                <Entypo
-                  name="plus"
-                  size={19}
-                  color="#96A637"
-                  onPress={addIngridient}
-                />
-              </BorderlessButton>
-            </View>
-          )}
-        </View>
+  return (
+    <View style={styles.container}>
+      <Image source={require("~/Images/constructor-item-3.png")} />
+      <Text size={16} style={styles.name}>
+        {props.ingredient.name}
+      </Text>
+      <Text style={styles.price}>{props.ingredient.price} ₴</Text>
+      <View>
+        {!buttonOpened ? (
+          <TouchableOpacity onPress={() => setButtonOpened(true)}>
+            <Text weight="bold" color="#96A637" style={styles.btn}>
+              Добавить
+            </Text>
+          </TouchableOpacity>
+        ) : (
+          <View style={styles.btns_wrap}>
+            <BorderlessButton>
+              <Entypo
+                name="minus"
+                size={19}
+                color="#96A637"
+                onPress={removeIngredient}
+              />
+            </BorderlessButton>
+            <Text size={14.3} weight="bold">
+              {count}
+            </Text>
+            <BorderlessButton>
+              <Entypo
+                name="plus"
+                size={19}
+                color="#96A637"
+                onPress={addIngridient}
+              />
+            </BorderlessButton>
+          </View>
+        )}
       </View>
-    )
-  }
+    </View>
+  )
 }
 
 //   STYLES   //

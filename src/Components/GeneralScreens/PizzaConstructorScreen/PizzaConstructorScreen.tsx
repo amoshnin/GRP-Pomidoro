@@ -8,6 +8,7 @@ import Text from "~/Components/Shared/Components/Text/Text"
 import PizzaSizesSelector from "./PizzaSizesSelector/PizzaSizesSelector"
 import SelectedIngridientsListSection from "./SelectedIngridientsListSection/SelectedIngridientsListSection"
 import TopTabNavigator from "./TopTabNavigator/TopTabNavigator"
+import { string } from "yup"
 
 // EXTRA IMPORTS //
 
@@ -21,6 +22,16 @@ type PropsType = {
 
   changePizzaSizeActionCreator: (pizzaSize: number) => void
   removeFullIngridientActionCreator: (ingridientName: string) => void
+  clearConstructorPizzaInfoActionCreator: () => void
+  addItemToOrderActionCreator: (
+    title: string,
+    price: string,
+    originalPrice: string,
+    image: string,
+    size: string,
+    count: string,
+    ingredients: Array<string>
+  ) => any
 }
 
 const PizzaConstructorScreen: React.FC<PropsType> = (props) => {
@@ -74,6 +85,19 @@ const PizzaConstructorScreen: React.FC<PropsType> = (props) => {
           destination="BasketScreen"
           price={price}
           text="Оплатить"
+          saveFunction={() => {
+            props.addItemToOrderActionCreator(
+              "Пицца на заказ",
+              String(price),
+              String(price),
+              "",
+              String(props.CurrentPizzaSize),
+              "1",
+              props.CurrentPizzaIngredients
+            )
+
+            props.clearConstructorPizzaInfoActionCreator()
+          }}
         />
       </View>
     </ScrollView>

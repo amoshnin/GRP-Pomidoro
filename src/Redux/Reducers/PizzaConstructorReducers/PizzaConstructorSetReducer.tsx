@@ -1,6 +1,7 @@
 //    *GENERAL IMPORTS*   //
 import { ThunkAction } from "redux-thunk"
-import { AppStateType, InferActionsTypes } from "../../ReduxStore"
+import { AppStateType, InferActionsTypes } from "~/Redux/ReduxStore"
+import axios from "axios"
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -19,6 +20,15 @@ const PizzaConstructorReducer = (
   state = initialState,
   action: ActionsTypes
 ): initialStateType => {
+  if (action.type === "CLEAR_CONSTRUCTOR_PIZZA_INFO") {
+    return {
+      ...state,
+      CurrentPizzaIngredients: [] as Array<any>,
+      CurrentPizzaPrice: 0 as number,
+      CurrentPizzaSize: 24 as number,
+    }
+  }
+
   if (action.type === "ADD_INGREDIENT") {
     const arr = state.CurrentPizzaIngredients
 
@@ -129,6 +139,11 @@ type ActionsTypes = InferActionsTypes<typeof ActionCreatorsList>
 
 //    *ACTION CREATORS*   //
 export const ActionCreatorsList = {
+  clearConstructorPizzaInfoActionCreator: () =>
+    ({
+      type: "CLEAR_CONSTRUCTOR_PIZZA_INFO",
+    } as const),
+
   addIngredientActionCreator: (ingredientData: any) =>
     ({
       type: "ADD_INGREDIENT",
@@ -173,3 +188,10 @@ export const ActionCreatorsList = {
 
 //    *THUNKS*   //
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
+
+// Make constructed pizza order
+export const MakeConstructedPizzaOrderThunkCreator = (): ThunkType => {
+  return async (dispatch, getState: any) => {
+    await axios.post("", {}).then((res: any) => {})
+  }
+}

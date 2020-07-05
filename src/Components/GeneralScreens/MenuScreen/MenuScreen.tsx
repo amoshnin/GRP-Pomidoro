@@ -34,64 +34,69 @@ const MenuScreen: React.FC<PropsType> = (props) => {
 
   return (
     <ScrollView style={styles.container}>
-      <Button
-        onPress={() => props.navigation.navigate("OrderTracking")}
-        buttonStyle={{ backgroundColor: "#96A637", borderRadius: 20 }}
-        rectStyle={{
-          width: 315,
-          height: 40,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-        textStyle={{ color: "white" }}
-        text={"Узнать, где мой заказ"}
-      />
       {props.MenuList.length > 0 && (
-        <MenuSection
-          navigation={props.navigation}
-          scroll={false}
-          MenuList={props.MenuList}
-          titleText="Меню"
-          titleStyle={{ fontSize: 30 }}
-          containerStyle={{ marginTop: 20 }}
-        />
+        <>
+          <Button
+            onPress={() => props.navigation.navigate("OrderTracking")}
+            buttonStyle={{ backgroundColor: "#96A637", borderRadius: 20 }}
+            rectStyle={{
+              width: 315,
+              height: 40,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            textStyle={{ color: "white" }}
+            text={"Узнать, где мой заказ"}
+          />
+          <MenuSection
+            navigation={props.navigation}
+            scroll={false}
+            MenuList={props.MenuList}
+            titleText="Меню"
+            titleStyle={{ fontSize: 30 }}
+            containerStyle={{ marginTop: 20 }}
+          />
+        </>
       )}
       {props.SalesList && props.SalesList.length > 0 && (
-        <SalesSection
-          navigation={props.navigation}
-          titleText={"Активные акции"}
-          SalesList={props.SalesList}
-          titleStyle={{
-            fontSize: 30,
-          }}
-          scroll_horizontal={false}
-          imageStyle={{
-            width: 314,
-            height: 220,
-            marginRight: 16,
-            marginBottom: 20,
-          }}
-        />
+        <>
+          <SalesSection
+            navigation={props.navigation}
+            titleText={"Активные акции"}
+            SalesList={props.SalesList}
+            titleStyle={{
+              fontSize: 30,
+            }}
+            scroll_horizontal={false}
+            imageStyle={{
+              width: 314,
+              height: 220,
+              marginRight: 16,
+              marginBottom: 20,
+            }}
+          />
+
+          <Button
+            onPress={() => {
+              props.navigation.navigate("SalesScreen")
+            }}
+            buttonStyle={{
+              backgroundColor: "#EAEAEB",
+              borderRadius: 20,
+              marginTop: 20,
+              marginBottom: 30,
+            }}
+            rectStyle={{
+              width: 315,
+              height: 40,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            textStyle={{ color: "black" }}
+            text={"Посмотреть все акции"}
+          />
+        </>
       )}
-      <Button
-        onPress={() => {
-          props.navigation.navigate("SalesScreen")
-        }}
-        buttonStyle={{
-          backgroundColor: "#EAEAEB",
-          borderRadius: 20,
-          marginTop: 20,
-          marginBottom: 30,
-        }}
-        rectStyle={{
-          width: 315,
-          height: 40,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-        textStyle={{ color: "black" }}
-        text={"Посмотреть все акции"}
-      />
     </ScrollView>
   )
 }
