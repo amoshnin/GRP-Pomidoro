@@ -8,7 +8,7 @@ import RegistrationScreen from "./RegistrationScreen"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "~/Redux/ReduxStore"
-import { RegisterUserThunkCreator } from "~/Redux/Reducers/AuthReducer"
+import { RegisterUserThunkCreator } from "~/Redux/Reducers/AuthReducers/AuthSetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

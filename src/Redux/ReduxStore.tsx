@@ -4,7 +4,7 @@ import thunkMiddleware from "redux-thunk"
 
 // REDUCERS IMPORTS //
 import PizzaConstructorReducer from "~/Redux/Reducers/PizzaConstructorReducer"
-import FoodListReducer from "~/Redux/Reducers/FoodListReducer"
+import FoodListReducer from "~/Redux/Reducers/FoodListReducers/FoodListGetReducer"
 import OrderingReducer from "~/Redux/Reducers/OrderingReducer"
 
 ////////////////////////////////////////////////////////////////////////

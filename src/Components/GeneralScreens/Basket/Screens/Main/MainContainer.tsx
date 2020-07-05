@@ -8,7 +8,7 @@ import Main from "./Main"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "~/Redux/ReduxStore"
-import { ActionCreatorsList } from "~/Redux/Reducers/OrderingReducer"
+import { ActionCreatorsList } from "~/Redux/Reducers/OrderingReducers/OrderingSetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

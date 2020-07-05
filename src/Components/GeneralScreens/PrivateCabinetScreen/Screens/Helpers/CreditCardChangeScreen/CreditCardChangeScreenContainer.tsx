@@ -8,7 +8,7 @@ import CreditCardChangeScreen from "./CreditCardChangeScreen"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "~/Redux/ReduxStore"
-import { ConnectCreditCardThunkCreator } from "~/Redux/Reducers/PrivateCabinetReducer"
+import { ConnectCreditCardThunkCreator } from "~/Redux/Reducers/PrivateCabinetReducers/PrivateCabinetSetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

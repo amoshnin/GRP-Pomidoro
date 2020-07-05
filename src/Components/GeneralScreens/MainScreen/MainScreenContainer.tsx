@@ -8,7 +8,7 @@ import MainScreen from "./MainScreen"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "../../../Redux/ReduxStore"
-import { getMenuListThunkCreator } from "~/Redux/Reducers/FoodListReducer"
+import { getMenuListThunkCreator } from "~/Redux/Reducers/FoodListReducers/FoodListGetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -8,7 +8,7 @@ import LoginScreen from "./LoginScreen"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "~/Redux/ReduxStore"
-import { LoginUserThunkCreator } from "~/Redux/Reducers/AuthReducer"
+import { LoginUserThunkCreator } from "~/Redux/Reducers/AuthReducers/AuthSetReducer"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // TYPES
