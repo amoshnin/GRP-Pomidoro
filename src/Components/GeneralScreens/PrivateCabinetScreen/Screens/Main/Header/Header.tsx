@@ -2,6 +2,9 @@
 import React from "react"
 import { View, TouchableOpacity, Image, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import Constants from "expo-constants"
+import * as ImagePicker from "expo-image-picker"
+import * as Permissions from "expo-permissions"
 
 // COMPONENTS IMPORTS //
 
@@ -24,9 +27,32 @@ type PropsType = {
   }
 
   LogoutUserThunkCreator: () => void
+  UpdateAvatarThunkCreator: (avatar: Blob) => void
 }
 
 const Header: React.FC<PropsType> = (props) => {
+  const PickImage = async () => {
+    if (Constants.platform?.ios) {
+      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL)
+      if (status !== "granted") {
+        alert("Sorry, we need camera roll permissions to make this work!")
+      }
+    }
+
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    })
+    if (!result.cancelled) {
+      const response = await fetch(result.uri)
+      const blob = await response.blob()
+
+      props.UpdateAvatarThunkCreator(blob)
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.avatar_wrap}>
@@ -38,7 +64,7 @@ const Header: React.FC<PropsType> = (props) => {
         ) : (
           <Text style={styles.avatar_text}>ID</Text>
         )}
-        <TouchableOpacity style={styles.avatar_icon_wrap}>
+        <TouchableOpacity style={styles.avatar_icon_wrap} onPress={PickImage}>
           <Feather name="camera" size={18} color="white" />
         </TouchableOpacity>
       </View>

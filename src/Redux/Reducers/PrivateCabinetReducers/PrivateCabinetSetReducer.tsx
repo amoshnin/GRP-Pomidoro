@@ -30,7 +30,7 @@ export const ActionCreatorsList = {}
 //    *THUNKS*   //
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 
-// Logout user
+// Connect credit card
 export const ConnectCreditCardThunkCreator = (
   cardNum: string,
   CVV: string,
@@ -44,5 +44,12 @@ export const ConnectCreditCardThunkCreator = (
         exp_date: ExpDate,
       })
       .then((res: any) => {})
+  }
+}
+
+// Update avatar
+export const UpdateAvatarThunkCreator = (avatar: Blob): ThunkType => {
+  return async (dispatch, getState: any) => {
+    await axios.post("", { avatar: avatar }).then((res: any) => {})
   }
 }

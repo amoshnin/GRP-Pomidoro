@@ -42,6 +42,7 @@ type PropsType = {
   }>
 
   getUserFullInfoThunkCreator: () => void
+  UpdateAvatarThunkCreator: (avatar: Blob) => void
   LogoutUserThunkCreator: () => void
 }
 
@@ -55,6 +56,7 @@ const Main: React.FC<PropsType> = (props) => {
       <Header
         LogoutUserThunkCreator={props.LogoutUserThunkCreator}
         UserCredentials={props.UserCredentials}
+        UpdateAvatarThunkCreator={props.UpdateAvatarThunkCreator}
       />
       <Credentials
         navigation={props.navigation}
