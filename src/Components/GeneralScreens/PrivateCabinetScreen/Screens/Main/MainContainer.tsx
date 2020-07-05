@@ -23,6 +23,7 @@ type MapStateToPropsType = {
     phoneNum: string | null
     region: string | null
     password: string | null
+    avatar: string | null
     userType: string | null
     bonusesCount: string | null
   }

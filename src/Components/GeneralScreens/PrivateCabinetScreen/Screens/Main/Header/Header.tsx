@@ -1,6 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, TouchableOpacity, StyleSheet } from "react-native"
+import { View, TouchableOpacity, Image, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
@@ -11,6 +11,18 @@ import { Feather } from "@expo/vector-icons"
 /////////////////////////////////////////////////////////////////////////////
 
 type PropsType = {
+  UserCredentials: {
+    name: string | null
+    surname: string | null
+    email: string | null
+    phoneNum: string | null
+    region: string | null
+    password: string | null
+    avatar: string | null
+    userType: string | null
+    bonusesCount: string | null
+  }
+
   LogoutUserThunkCreator: () => void
 }
 
@@ -18,7 +30,14 @@ const Header: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.avatar_wrap}>
-        <Text style={styles.avatar_text}>ИД</Text>
+        {props.UserCredentials.avatar ? (
+          <Image
+            style={styles.avatar_img}
+            source={{ uri: props.UserCredentials.avatar }}
+          />
+        ) : (
+          <Text style={styles.avatar_text}>ID</Text>
+        )}
         <TouchableOpacity style={styles.avatar_icon_wrap}>
           <Feather name="camera" size={18} color="white" />
         </TouchableOpacity>
@@ -26,9 +45,9 @@ const Header: React.FC<PropsType> = (props) => {
       <View style={styles.text_wrap}>
         <View>
           <Text weight="bold" size={30}>
-            Илья
+            {props.UserCredentials.name}
           </Text>
-          <Text size={16}>Клиент</Text>
+          <Text size={16}>{props.UserCredentials.userType}</Text>
         </View>
         <TouchableOpacity
           style={styles.logout_btn}
@@ -48,6 +67,12 @@ const Header: React.FC<PropsType> = (props) => {
 const styles = StyleSheet.create({
   container: {
     marginBottom: 28,
+  },
+
+  avatar_img: {
+    height: 110,
+    width: 110,
+    borderRadius: 20,
   },
 
   avatar_wrap: {

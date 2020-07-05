@@ -24,6 +24,7 @@ type PropsType = {
     phoneNum: string | null
     region: string | null
     password: string | null
+    avatar: string | null
     userType: string | null
     bonusesCount: string | null
   }
@@ -51,8 +52,14 @@ const Main: React.FC<PropsType> = (props) => {
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <Header LogoutUserThunkCreator={props.LogoutUserThunkCreator} />
-      <Credentials navigation={props.navigation} />
+      <Header
+        LogoutUserThunkCreator={props.LogoutUserThunkCreator}
+        UserCredentials={props.UserCredentials}
+      />
+      <Credentials
+        navigation={props.navigation}
+        UserCredentials={props.UserCredentials}
+      />
       <CreditCard navigation={props.navigation} />
       {props.OrdersList && props.OrdersList.length > 0 && (
         <OrdersList
@@ -60,7 +67,7 @@ const Main: React.FC<PropsType> = (props) => {
           OrdersList={props.OrdersList}
         />
       )}
-      <Bonuses />
+      <Bonuses bonusesCount={props.UserCredentials.bonusesCount} />
       <LanguageSelection />
     </ScrollView>
   )

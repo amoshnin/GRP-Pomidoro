@@ -13,6 +13,7 @@ let initialState = {
     phoneNum: null as string | null,
     region: null as string | null,
     password: null as string | null,
+    avatar: null as string | null,
     userType: null as string | null,
     bonusesCount: null as string | null,
   },
@@ -49,6 +50,7 @@ const OrderingGetReducer = (
         phoneNum: action.phoneNum,
         region: action.region,
         password: action.password,
+        avatar: action.avatar,
         userType: action.userType,
         bonusesCount: action.bonusesCount,
       },
@@ -86,6 +88,7 @@ export const ActionCreatorsList = {
     phoneNum: string,
     region: string,
     password: string,
+    avatar: string,
     userType: string,
     bonusesCount: string
   ) =>
@@ -97,6 +100,7 @@ export const ActionCreatorsList = {
       phoneNum,
       region,
       password,
+      avatar,
       userType,
       bonusesCount,
     } as const),
@@ -137,6 +141,7 @@ export const getUserFullInfoThunkCreator = (): ThunkType => {
           res.data.phoneNum,
           res.data.region,
           res.data.password,
+          res.data.avatar,
           res.data.userType,
           res.data.bonusesCount
         )

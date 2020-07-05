@@ -9,7 +9,9 @@ import Text from "~/Components/Shared/Components/Text/Text"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  bonusesCount: string | number | null
+}
 
 const Bonuses: React.FC<PropsType> = (props) => {
   return (
@@ -22,7 +24,7 @@ const Bonuses: React.FC<PropsType> = (props) => {
           У вас
         </Text>
         <Text weight="bold" size={30}>
-          1512
+          {props.bonusesCount || "0"}
         </Text>
         <Text size={16} style={styles.text}>
           бонусов

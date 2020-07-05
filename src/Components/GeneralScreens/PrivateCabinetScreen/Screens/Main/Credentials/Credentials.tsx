@@ -11,41 +11,66 @@ import FakeInputComponent from "./Components/FakeInputComponent/FakeInputCompone
 
 type PropsType = {
   navigation: any
+
+  UserCredentials: {
+    name: string | null
+    surname: string | null
+    email: string | null
+    phoneNum: string | null
+    region: string | null
+    password: string | null
+    avatar: string | null
+    userType: string | null
+    bonusesCount: string | null
+  }
 }
 
 const Credentials: React.FC<PropsType> = (props) => {
   return (
     <View>
-      <FakeInputComponent
-        title={"Имя"}
-        content={"Илья"}
-        navigation={props.navigation}
-      />
-      <FakeInputComponent
-        title={"Фамилия"}
-        content={"Давыдов"}
-        navigation={props.navigation}
-      />
-      <FakeInputComponent
-        title={"Email"}
-        content={"niculici.victor@gmail.com"}
-        navigation={props.navigation}
-      />
-      <FakeInputComponent
-        title={"Номер телефона"}
-        content={"+4 0767 217 315 "}
-        navigation={props.navigation}
-      />
-      <FakeInputComponent
-        title={"Регион"}
-        content={"Москва"}
-        navigation={props.navigation}
-      />
-      <FakeInputComponent
-        title={"Пароль"}
-        content={"**********"}
-        navigation={props.navigation}
-      />
+      {props.UserCredentials.name && (
+        <FakeInputComponent
+          title={"Имя"}
+          content={props.UserCredentials.name as string}
+          navigation={props.navigation}
+        />
+      )}
+      {props.UserCredentials.surname && (
+        <FakeInputComponent
+          title={"Фамилия"}
+          content={props.UserCredentials.surname as string}
+          navigation={props.navigation}
+        />
+      )}
+
+      {props.UserCredentials.email && (
+        <FakeInputComponent
+          title={"Email"}
+          content={props.UserCredentials.email as string}
+          navigation={props.navigation}
+        />
+      )}
+      {props.UserCredentials.phoneNum && (
+        <FakeInputComponent
+          title={"Номер телефона"}
+          content={props.UserCredentials.phoneNum as string}
+          navigation={props.navigation}
+        />
+      )}
+      {props.UserCredentials.region && (
+        <FakeInputComponent
+          title={"Регион"}
+          content={props.UserCredentials.region as string}
+          navigation={props.navigation}
+        />
+      )}
+      {props.UserCredentials.password && (
+        <FakeInputComponent
+          title={"Пароль"}
+          content={props.UserCredentials.password as string}
+          navigation={props.navigation}
+        />
+      )}
     </View>
   )
 }
