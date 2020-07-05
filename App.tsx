@@ -6,7 +6,6 @@ import Text from "~/Components/Shared/Components/Text/Text"
 import AsyncStorage from "@react-native-community/async-storage"
 
 import { useTranslation } from "react-i18next"
-const { i18n } = useTranslation()
 import "~/Translations/Translations"
 
 import { NavigationContainer } from "@react-navigation/native"
@@ -55,6 +54,7 @@ const App: React.FC<PropsType> = (props) => {
   const Stack = createStackNavigator()
   console.disableYellowBox = true
 
+  const { i18n } = useTranslation()
   useEffect(() => {
     const LoadInitialData = async () => {
       await Font.loadAsync({
@@ -64,12 +64,7 @@ const App: React.FC<PropsType> = (props) => {
       })
 
       const language = await AsyncStorage.getItem("selectedLanguage")
-
-      language === "Русский"
-        ? await i18n.changeLanguage("ru")
-        : language === "Украинский"
-        ? await i18n.changeLanguage("ua")
-        : null
+      await i18n.changeLanguage(language || "ru")
 
       setLoading(false)
     }

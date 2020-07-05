@@ -1,7 +1,8 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { Text, ActivityIndicator, StyleSheet } from "react-native"
+import { ActivityIndicator, StyleSheet } from "react-native"
 import Dialog, { DialogContent } from "react-native-popup-dialog"
+import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
 
