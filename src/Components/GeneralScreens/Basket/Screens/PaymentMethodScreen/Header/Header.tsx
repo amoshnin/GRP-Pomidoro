@@ -9,14 +9,16 @@ import Text from "~/Components/Shared/Components/Text/Text"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  totalPrice: number
+}
 
 const Header: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <Text size={16}>Денег к оплате</Text>
       <Text size={30} weight="bold" style={styles.price_text}>
-        425 ₴
+        {props.totalPrice} ₴
       </Text>
     </View>
   )

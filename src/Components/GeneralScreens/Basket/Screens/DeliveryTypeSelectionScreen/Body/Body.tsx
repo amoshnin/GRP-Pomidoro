@@ -23,7 +23,9 @@ type PropsType = {
 }
 
 const Body: React.FC<PropsType> = (props) => {
-  const [checkedValue, setCheckedValue] = useState("Забрать самому" as string)
+  const [checkedValue, setCheckedValue] = useState(
+    "ул. Засумская, 12" as string
+  )
   const [comment, setComment] = useState(null as string | null)
 
   useEffect(() => {
@@ -34,8 +36,8 @@ const Body: React.FC<PropsType> = (props) => {
 
   const SelectionList = [
     {
-      title: "Забрать самому",
-      description: "Ближайший филиал – ул. Засумская, 12",
+      description: "Забрать самому",
+      title: "ул. Засумская, 12",
     },
     ...props.savedAdresses,
   ]
@@ -45,7 +47,9 @@ const Body: React.FC<PropsType> = (props) => {
       adress: checkedValue,
       comment: comment as string,
     })
-    props.navigation.navigate("ConfirmAdressScreen")
+    props.navigation.navigate("ConfirmAdressScreen", {
+      adress: checkedValue,
+    })
   }
 
   return (

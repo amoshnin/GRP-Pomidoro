@@ -13,6 +13,8 @@ import SlidingUpPanel from "rn-sliding-up-panel"
 
 type PropsType = {
   navigation: any
+
+  adress: string
 }
 
 const BottomSection: React.FC<PropsType> = (props) => {
@@ -35,7 +37,7 @@ const BottomSection: React.FC<PropsType> = (props) => {
         <View style={styles.container}>
           <Text size={16}>Подтвердите адрес</Text>
           <Text size={20} weight="bold" style={styles.title}>
-            ул. Засумская, 12
+            {props.adress}
           </Text>
           <Button
             onPress={() => props.navigation.navigate("PaymentMethodScreen")}

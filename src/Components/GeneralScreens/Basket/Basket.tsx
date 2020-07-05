@@ -8,7 +8,7 @@ import DeliveryTimeSelectionScreenContainer from "./Screens/DeliveryTimeSelectio
 import SelectAccountScreen from "./Screens/SelectAccountScreen/SelectAccountScreen"
 import DeliveryTypeSelectionScreenContainer from "./Screens/DeliveryTypeSelectionScreen/DeliveryTypeSelectionScreenContainer"
 import ConfirmAdressScreen from "./Screens/ConfirmAdressScreen/ConfirmAdressScreen"
-import PaymentMethodScreen from "./Screens/PaymentMethodScreen/PaymentMethodScreen"
+import PaymentMethodScreenContainer from "./Screens/PaymentMethodScreen/PaymentMethodScreenContainer"
 import PaymentScreen from "./Screens/PaymentScreen/PaymentScreen"
 import SuccesfulPaymentScreen from "./Screens/SuccesfulPaymentScreen/SuccesfulPaymentScreen"
 
@@ -98,10 +98,13 @@ const PrivateCabinetScreen: React.FC<PropsType> = (props) => {
         options={({ navigation, route }: any) => ({
           headerShown: false,
         })}
+        initialParams={{
+          adress: null as string | null,
+        }}
       />
       <Stack.Screen
         name="PaymentMethodScreen"
-        component={PaymentMethodScreen}
+        component={PaymentMethodScreenContainer}
         options={({ navigation, route }: any) => ({
           headerTitle: "",
         })}

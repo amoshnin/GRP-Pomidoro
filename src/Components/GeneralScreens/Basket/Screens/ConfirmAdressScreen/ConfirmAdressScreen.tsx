@@ -13,6 +13,7 @@ import { BaseButton } from "react-native-gesture-handler"
 
 type PropsType = {
   navigation: any
+  route: any
 }
 
 const ConfirmAdressScreen: React.FC<PropsType> = (props) => {
@@ -22,7 +23,7 @@ const ConfirmAdressScreen: React.FC<PropsType> = (props) => {
         source={require("../../../../../Images/confirm-adress-map.png")}
         style={styles.image}
       />
-      <Body navigation={props.navigation} />
+      <Body navigation={props.navigation} adress={props.route.params.adress} />
       <View style={styles.button_wrap}>
         <BaseButton
           style={styles.button}

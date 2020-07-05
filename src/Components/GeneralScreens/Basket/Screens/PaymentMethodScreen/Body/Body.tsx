@@ -13,6 +13,7 @@ import PayButton from "~/Components/Shared/Components/PayButton/PayButton"
 
 type PropsType = {
   navigation: any
+  totalPrice: number
 }
 
 const Body: React.FC<PropsType> = (props) => {
@@ -71,7 +72,7 @@ const Body: React.FC<PropsType> = (props) => {
 
       <PayButton
         navigation={props.navigation}
-        price={429}
+        price={props.totalPrice}
         text="Перейти к оплате"
         destination="PaymentScreen"
       />
