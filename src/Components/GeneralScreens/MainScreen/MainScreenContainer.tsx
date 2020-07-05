@@ -9,17 +9,26 @@ import MainScreen from "./MainScreen"
 // EXTRA IMPORTS //
 import { AppStateType } from "../../../Redux/ReduxStore"
 import { getMenuListThunkCreator } from "~/Redux/Reducers/FoodListReducers/FoodListGetReducer"
+import { getSalesListThunkCreator } from "~/Redux/Reducers/ExtraInfoReducers/ExtraInfoGetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // TYPES
 type MapStateToPropsType = {
   navigation: any
+
   MenuList: Array<any>
+  SalesList: Array<{
+    title: string
+    image: string
+    description: string
+    type: string
+  }>
 }
 
 type MapDispatchToPropsType = {
   getMenuListThunkCreator: () => void
+  getSalesListThunkCreator: () => void
 }
 
 /////////////////////////////////////////////////////////////////
@@ -27,7 +36,9 @@ type MapDispatchToPropsType = {
 const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
   return {
     navigation: props.navigation,
+
     MenuList: state.FoodListGetState.MenuList,
+    SalesList: state.ExtraInfoGetState.SalesList,
   }
 }
 
@@ -36,6 +47,7 @@ const MainScreenContainer = compose(
     mapStateToProps,
     {
       getMenuListThunkCreator: getMenuListThunkCreator,
+      getSalesListThunkCreator: getSalesListThunkCreator,
     }
   )
 )(MainScreen)

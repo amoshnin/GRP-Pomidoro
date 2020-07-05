@@ -13,6 +13,12 @@ import SaleItem from "./SaleItem/SaleItem"
 type PropsType = {
   navigation: any
 
+  SalesList: Array<{
+    title: string
+    image: string
+    description: string
+    type: string
+  }>
   titleText?: string
   titleStyle?: any
   scroll_horizontal?: boolean
@@ -32,30 +38,25 @@ const SalesSection: React.FC<PropsType> = (props) => {
           style={styles.scroll_container}
           showsHorizontalScrollIndicator={false}
         >
-          <SaleItem
-            navigation={props.navigation}
-            imageURL={""}
-            saleTitle="Три пиццы по цене двух"
-            saleType="Акция"
-            saleDescription="На календаре Понедельник? Тогда заказывайте любую большую пиццу — получайте маленькую в подарок!"
-            imageStyle={props.imageStyle}
-          />
-          <SaleItem
-            navigation={props.navigation}
-            imageURL={""}
-            saleTitle="Три пиццы по цене двух"
-            saleType="Акция"
-            saleDescription="На календаре Понедельник? Тогда заказывайте любую большую пиццу — получайте маленькую в подарок!"
-            imageStyle={props.imageStyle}
-          />
-          <SaleItem
-            navigation={props.navigation}
-            imageURL={``}
-            saleTitle="Три пиццы по цене двух"
-            saleType="Акция"
-            saleDescription="На календаре Понедельник? Тогда заказывайте любую большую пиццу — получайте маленькую в подарок!"
-            imageStyle={props.imageStyle}
-          />
+          {props.SalesList?.map(
+            (sale: {
+              title: string
+              image: string
+              description: string
+              type: string
+            }) => {
+              return (
+                <SaleItem
+                  navigation={props.navigation}
+                  imageURL={sale.image}
+                  saleTitle={sale.title}
+                  saleType={sale.type}
+                  saleDescription={sale.description}
+                  imageStyle={props.imageStyle}
+                />
+              )
+            }
+          )}
         </ScrollView>
       </View>
     </View>

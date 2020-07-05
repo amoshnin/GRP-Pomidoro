@@ -14,14 +14,23 @@ import Button from "../../Shared/Components/Button/Button"
 
 type PropsType = {
   navigation: any
+
   MenuList: Array<any>
+  SalesList: Array<{
+    title: string
+    image: string
+    description: string
+    type: string
+  }>
 
   getMenuListThunkCreator: () => void
+  getSalesListThunkCreator: () => void
 }
 
 const MainScreen: React.FC<PropsType> = (props) => {
   useEffect(() => {
     props.getMenuListThunkCreator()
+    props.getSalesListThunkCreator()
   }, [])
 
   return (
@@ -42,20 +51,23 @@ const MainScreen: React.FC<PropsType> = (props) => {
         text={"Узнать, где мой заказ"}
       />
 
-      <SalesSection
-        navigation={props.navigation}
-        titleText={"Откройте новые вкусы"}
-        titleStyle={{
-          fontSize: 30,
-          width: 221,
-        }}
-        scroll_horizontal={true}
-        imageStyle={{
-          width: 270,
-          height: 300,
-          marginRight: 16,
-        }}
-      />
+      {props.SalesList && props.SalesList.length > 0 && (
+        <SalesSection
+          navigation={props.navigation}
+          titleText={"Откройте новые вкусы"}
+          SalesList={props.SalesList}
+          titleStyle={{
+            fontSize: 30,
+            width: 221,
+          }}
+          scroll_horizontal={true}
+          imageStyle={{
+            width: 270,
+            height: 300,
+            marginRight: 16,
+          }}
+        />
+      )}
       {props.MenuList.length > 0 && (
         <MenuSection
           navigation={props.navigation}

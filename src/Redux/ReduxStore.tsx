@@ -3,6 +3,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux"
 import thunkMiddleware from "redux-thunk"
 
 // REDUCERS IMPORTS //
+import ExtraInfoGetReducer from "~/Redux/Reducers/ExtraInfoReducers/ExtraInfoGetReducer"
 import PrivateCabinetGetReducer from "~/Redux/Reducers/PrivateCabinetReducers/PrivateCabinerGetReducer"
 import OrderingSetReducer from "~/Redux/Reducers/OrderingReducers/OrderingSetReducer"
 import FoodListGetReducer from "~/Redux/Reducers/FoodListReducers/FoodListGetReducer"
@@ -11,6 +12,9 @@ import PizzaConstructorSetReducer from "~/Redux/Reducers/PizzaConstructorReducer
 ////////////////////////////////////////////////////////////////////////
 
 let reducers = combineReducers({
+  // Extra info get state
+  ExtraInfoGetState: ExtraInfoGetReducer,
+
   // Private cabinet
   PrivateCabinetGetState: PrivateCabinetGetReducer,
 

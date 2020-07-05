@@ -13,14 +13,23 @@ import SalesSection from "../../Shared/Sections/SalesSection/SalesSection"
 
 type PropsType = {
   navigation: any
+
   MenuList: Array<any>
+  SalesList: Array<{
+    title: string
+    image: string
+    description: string
+    type: string
+  }>
 
   getMenuListThunkCreator: () => void
+  getSalesListThunkCreator: () => void
 }
 
 const MenuScreen: React.FC<PropsType> = (props) => {
   useEffect(() => {
     props.getMenuListThunkCreator()
+    props.getSalesListThunkCreator()
   }, [])
 
   return (
@@ -47,20 +56,23 @@ const MenuScreen: React.FC<PropsType> = (props) => {
           containerStyle={{ marginTop: 20 }}
         />
       )}
-      <SalesSection
-        navigation={props.navigation}
-        titleText={"Активные акции"}
-        titleStyle={{
-          fontSize: 30,
-        }}
-        scroll_horizontal={false}
-        imageStyle={{
-          width: 314,
-          height: 220,
-          marginRight: 16,
-          marginBottom: 20,
-        }}
-      />
+      {props.SalesList && props.SalesList.length > 0 && (
+        <SalesSection
+          navigation={props.navigation}
+          titleText={"Активные акции"}
+          SalesList={props.SalesList}
+          titleStyle={{
+            fontSize: 30,
+          }}
+          scroll_horizontal={false}
+          imageStyle={{
+            width: 314,
+            height: 220,
+            marginRight: 16,
+            marginBottom: 20,
+          }}
+        />
+      )}
       <Button
         onPress={() => {
           props.navigation.navigate("SalesScreen")

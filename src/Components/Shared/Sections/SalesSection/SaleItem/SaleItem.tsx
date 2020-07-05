@@ -27,7 +27,7 @@ type PropsType = {
   imageStyle: any
 }
 
-const SalesSection: React.FC<PropsType> = (props) => {
+const SaleItem: React.FC<PropsType> = (props) => {
   return (
     <TouchableWithoutFeedback>
       <LinearGradient
@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default SalesSection
+export default SaleItem
