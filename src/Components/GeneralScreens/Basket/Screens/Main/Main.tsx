@@ -10,6 +10,7 @@ import BonusesSection from "./BonusesSection/BonusesSection"
 import Footer from "./Footer/Footer"
 
 // EXTRA IMPORTS //
+import { removeDuplicates } from "~/Components/Shared/Helpers/RemoveDuplicatesFunction"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -61,50 +62,6 @@ const Main: React.FC<PropsType> = (props) => {
       }, 0)
     )
   }, [props.OrderItemsList])
-
-  const removeDuplicates = (originalArray: Array<any>, prop: any) => {
-    var newArray = [] as any
-    var lookupObject = {} as any
-
-    originalArray = originalArray.map((item: any) => {
-      return {
-        ...item,
-        name: item.name + item.size,
-      }
-    })
-
-    for (var i in originalArray) {
-      lookupObject[originalArray[i][prop]] = originalArray[i]
-    }
-
-    for (i in lookupObject) {
-      const FilteredArray = originalArray.filter((orderItem: any) => {
-        return orderItem.name === lookupObject[i].name
-      })
-
-      const price = FilteredArray.reduce((prev: any, current: any) => {
-        return prev + +current.price
-      }, 0)
-
-      const count = FilteredArray.reduce((prev: any, current: any) => {
-        return prev + +1
-      }, 0)
-
-      newArray.push({
-        ...lookupObject[i],
-        price: price,
-        count: count,
-      })
-    }
-    const CleanArray = newArray.map((item: any) => {
-      return {
-        ...item,
-        name: item.name.replace(item.size, ""),
-      }
-    })
-
-    return CleanArray
-  }
 
   const FilteredBasketList = removeDuplicates(props.OrderItemsList, "name")
 
