@@ -1,5 +1,5 @@
 // PLUGINS IMPORTS //
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { View, TouchableOpacity, StyleSheet } from "react-native"
 import { RadioButton, TextInput } from "react-native-paper"
 import Text from "~/Components/Shared/Components/Text/Text"
@@ -13,27 +13,38 @@ import Button from "~/Components/Shared/Components/Button/Button"
 
 type PropsType = {
   navigation: any
+
+  savedAdresses: Array<string>
+  addAdressThunkCreator: (adress: string) => void
+  setDeliveryTypeActionCreator: (orderDeliveryType: {
+    adress: string
+    comment: string
+  }) => void
 }
 
 const Body: React.FC<PropsType> = (props) => {
   const [checkedValue, setCheckedValue] = useState("Забрать самому" as string)
+  const [comment, setComment] = useState(null as string | null)
+
+  useEffect(() => {
+    props.navigation.addListener("blur", () => {
+      setComment(null)
+    })
+  }, [])
 
   const SelectionList = [
     {
       title: "Забрать самому",
       description: "Ближайший филиал – ул. Засумская, 12",
     },
-    {
-      title: "Киев, ул. Чигорина д.49 ",
-      description: "",
-    },
-    {
-      title: "Киев, ул. О. Довбуша 37",
-      description: "",
-    },
+    ...props.savedAdresses,
   ]
 
   const saveInfoAndRedirect = () => {
+    props.setDeliveryTypeActionCreator({
+      adress: checkedValue,
+      comment: comment as string,
+    })
     props.navigation.navigate("ConfirmAdressScreen")
   }
 
@@ -71,7 +82,11 @@ const Body: React.FC<PropsType> = (props) => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate("ManualDeliveryScreen")}
+          onPress={() =>
+            props.navigation.navigate("ManualDeliveryScreen", {
+              saveFunction: props.addAdressThunkCreator,
+            })
+          }
         >
           <Text style={styles.btn_text} weight="bold" size={16}>
             Ввести адрес вручную

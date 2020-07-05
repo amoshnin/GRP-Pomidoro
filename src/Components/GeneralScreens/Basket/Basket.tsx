@@ -6,7 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack"
 import MainContainer from "./Screens/Main/MainContainer"
 import DeliveryTimeSelectionScreenContainer from "./Screens/DeliveryTimeSelectionScreen/DeliveryTimeSelectionScreenContainer"
 import SelectAccountScreen from "./Screens/SelectAccountScreen/SelectAccountScreen"
-import DeliveryTypeSelectionScreen from "./Screens/DeliveryTypeSelectionScreen/DeliveryTypeSelectionScreen"
+import DeliveryTypeSelectionScreenContainer from "./Screens/DeliveryTypeSelectionScreen/DeliveryTypeSelectionScreenContainer"
 import ConfirmAdressScreen from "./Screens/ConfirmAdressScreen/ConfirmAdressScreen"
 import PaymentMethodScreen from "./Screens/PaymentMethodScreen/PaymentMethodScreen"
 import PaymentScreen from "./Screens/PaymentScreen/PaymentScreen"
@@ -76,7 +76,7 @@ const PrivateCabinetScreen: React.FC<PropsType> = (props) => {
       />
       <Stack.Screen
         name="DeliveryTypeSelectionScreen"
-        component={DeliveryTypeSelectionScreen}
+        component={DeliveryTypeSelectionScreenContainer}
         options={({ navigation, route }: any) => ({
           headerTitle: "",
         })}
@@ -88,6 +88,9 @@ const PrivateCabinetScreen: React.FC<PropsType> = (props) => {
         options={({ navigation, route }: any) => ({
           headerTitle: "",
         })}
+        initialParams={{
+          saveFunction: () => console.log(),
+        }}
       />
       <Stack.Screen
         name="ConfirmAdressScreen"

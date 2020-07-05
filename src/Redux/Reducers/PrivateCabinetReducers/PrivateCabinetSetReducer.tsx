@@ -53,3 +53,10 @@ export const UpdateAvatarThunkCreator = (avatar: Blob): ThunkType => {
     await axios.post("", { avatar: avatar }).then((res: any) => {})
   }
 }
+
+// Add adress
+export const addAdressThunkCreator = (adress: string): ThunkType => {
+  return async (dispatch, getState: any) => {
+    await axios.post("", { adress: adress }).then((res: any) => {})
+  }
+}

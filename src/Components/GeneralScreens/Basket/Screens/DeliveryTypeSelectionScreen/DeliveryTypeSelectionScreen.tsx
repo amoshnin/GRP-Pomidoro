@@ -12,6 +12,13 @@ import Text from "~/Components/Shared/Components/Text/Text"
 
 type PropsType = {
   navigation: any
+
+  savedAdresses: Array<string>
+  addAdressThunkCreator: (adress: string) => void
+  setDeliveryTypeActionCreator: (orderDeliveryType: {
+    adress: string
+    comment: string
+  }) => void
 }
 
 const DeliveryTypeSelectionScreen: React.FC<PropsType> = (props) => {
@@ -20,7 +27,12 @@ const DeliveryTypeSelectionScreen: React.FC<PropsType> = (props) => {
       <Text size={30} weight="bold" style={styles.title}>
         Доставка
       </Text>
-      <Body navigation={props.navigation} />
+      <Body
+        navigation={props.navigation}
+        savedAdresses={props.savedAdresses}
+        addAdressThunkCreator={props.addAdressThunkCreator}
+        setDeliveryTypeActionCreator={props.setDeliveryTypeActionCreator}
+      />
     </ScrollView>
   )
 }

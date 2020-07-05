@@ -1,5 +1,5 @@
 // PLUGINS IMPORTS //
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { ScrollView, StyleSheet } from "react-native"
 import { TextInput } from "react-native-paper"
 
@@ -13,10 +13,20 @@ import Button from "~/Components/Shared/Components/Button/Button"
 
 type PropsType = {
   navigation: any
+  route: any
 }
 
 const ManualDeliveryScreen: React.FC<PropsType> = (props) => {
+  const [newAdress, setNewAdress] = useState(null as string | null)
+
+  useEffect(() => {
+    props.navigation.addListener("blur", () => {
+      setNewAdress(null)
+    })
+  }, [props.navigation])
+
   const saveAdress = () => {
+    props.route.params.saveFunction(newAdress)
     props.navigation.goBack()
   }
 
@@ -30,6 +40,8 @@ const ManualDeliveryScreen: React.FC<PropsType> = (props) => {
         placeholder="Поле ввода"
         style={styles.input}
         theme={{ colors: { primary: "#1A1824" } }}
+        onChangeText={(text: string) => setNewAdress(text)}
+        value={newAdress as string}
       />
       <Button
         onPress={saveAdress}

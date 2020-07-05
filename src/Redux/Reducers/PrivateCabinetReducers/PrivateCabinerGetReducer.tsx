@@ -16,6 +16,7 @@ let initialState = {
     avatar: null as string | null,
     userType: null as string | null,
     bonusesCount: null as string | null,
+    savedAdresses: [] as Array<string>,
   },
 
   CreditCard: {} as {
@@ -53,6 +54,7 @@ const OrderingGetReducer = (
         avatar: action.avatar,
         userType: action.userType,
         bonusesCount: action.bonusesCount,
+        savedAdresses: action.savedAdresses,
       },
     }
   }
@@ -90,7 +92,8 @@ export const ActionCreatorsList = {
     password: string,
     avatar: string,
     userType: string,
-    bonusesCount: string
+    bonusesCount: string,
+    savedAdresses: Array<string>
   ) =>
     ({
       type: "SET_USER_CREDENTIALS",
@@ -103,6 +106,7 @@ export const ActionCreatorsList = {
       avatar,
       userType,
       bonusesCount,
+      savedAdresses,
     } as const),
 
   setUserCreditCard: (CreditCard: {
@@ -145,7 +149,8 @@ export const getUserFullInfoThunkCreator = (): ThunkType => {
           res.data.password,
           res.data.avatar,
           res.data.userType,
-          res.data.bonusesCount
+          res.data.bonusesCount,
+          res.data.savedAdresses
         )
       )
 
