@@ -38,20 +38,21 @@ type PropsType = {
     size: string,
     id: string
   ) => void
+
+  SendOrderDataThunkCreator: () => any
 }
 
 const PaymentScreen: React.FC<PropsType> = (props) => {
   const [totalPrice, setTotalPrice] = useState(0 as number)
 
+  const CleanedOrdersArray = removeDuplicates(props.OrderItemsList, "price")
   useEffect(() => {
     setTotalPrice(
-      props.OrderItemsList.reduce((prev: any, current: any) => {
+      CleanedOrdersArray.reduce((prev: any, current: any) => {
         return prev + +current.price
       }, 0)
     )
-  }, [])
-
-  const CleanedOrdersArray = removeDuplicates(props.OrderItemsList, "price")
+  }, [CleanedOrdersArray])
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -72,6 +73,11 @@ const PaymentScreen: React.FC<PropsType> = (props) => {
         destination="SuccesfulPaymentScreen"
         price={totalPrice}
         text="Оплатить"
+        saveFunction={() => {
+          props.SendOrderDataThunkCreator().then(() => {
+            props.navigation.navigate("SuccesfulPaymentScreen")
+          })
+        }}
       />
     </ScrollView>
   )

@@ -1,6 +1,7 @@
 //    *GENERAL IMPORTS*   //
 import { ThunkAction } from "redux-thunk"
 import { AppStateType, InferActionsTypes } from "../../ReduxStore"
+import axios from "axios"
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -9,7 +10,10 @@ let initialState = {
   OrderBonusesUsed: null as string | null,
 
   DeliveryTime: null as string | Date | null,
-  DeliveryType: {} as object,
+  DeliveryType: {} as {
+    adress: string
+    comment: string
+  },
 
   PaymentMethod: null as string | null,
 }
@@ -142,3 +146,20 @@ export const ActionCreatorsList = {
 
 //    *THUNKS*   //
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
+
+// Send order data
+export const SendOrderDataThunkCreator = (): ThunkType => {
+  return async (dispatch, getState: any) => {
+    const state = getState()
+
+    await axios
+      .post("", {
+        OrderItemsList: state.OrderingSetState.OrderItemsList,
+        OrderBonusesUsed: state.OrderingSetState.OrderBonusesUsed,
+        DeliveryTime: state.OrderingSetState.DeliveryTime,
+        DeliveryType: state.OrderingSetState.DeliveryType,
+        PaymentMethod: state.OrderingSetState.PaymentMethod,
+      })
+      .then((res: any) => {})
+  }
+}

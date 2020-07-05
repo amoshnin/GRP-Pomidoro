@@ -8,6 +8,8 @@ import Button from "~/Components/Shared/Components/Button/Button"
 import ProductsBasketList from "~/Components/Shared/Sections/ProductsBasketList/ProductsBasketList"
 import OrderDetailsSection from "~/Components/Shared/Sections/OrderDetailsSection/OrderDetailsSection"
 
+import { removeDuplicates } from "~/Components/Shared/Helpers/RemoveDuplicatesFunction"
+
 // EXTRA IMPORTS //
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 
@@ -15,33 +17,46 @@ import { MaterialCommunityIcons } from "@expo/vector-icons"
 
 type PropsType = {
   navigation: any
+
+  OrderBonusesUsed: string
+  DeliveryType: {
+    adress: string
+    comment: string
+  }
+  PaymentMethod: string
+
+  OrderItemsList: Array<{
+    date: string
+    deliveryStatus: string
+    products: Array<{ title: string; count: string | number }>
+  }>
+
+  addItemToOrderActionCreator: (
+    title: string,
+    price: string,
+    originalPrice: string,
+    image: string,
+    size: string,
+    count: string,
+    ingredients: Array<string>
+  ) => void
+
+  removeItemFromOrderActionCreator: (
+    title: string,
+    size: string,
+    id: string
+  ) => void
 }
 
 const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
   const [totalPrice, setTotalPrice] = useState(0 as number)
-
-  const Products = [
-    {
-      title: "Парерони чиз",
-      image: "",
-      size: 24,
-      price: 99,
-      count: 2,
-      allowEdit: true,
-    },
-    {
-      title: "Парерони чиз",
-      image: "",
-      size: 24,
-      price: 99,
-      count: 2,
-      allowEdit: true,
-    },
-  ]
+  const CleanedOrdersList = removeDuplicates(props.OrderItemsList, "price")
 
   useEffect(() => {
-    setTotalPrice(Products.reduce((a, b) => a + (b["price"] || 0), 0))
-  }, [])
+    setTotalPrice(
+      CleanedOrdersList.reduce((a: any, b: any) => a + (b["price"] || 0), 0)
+    )
+  }, [CleanedOrdersList])
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -85,13 +100,20 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
         }}
       />
       <View style={styles.divider} />
-      <ProductsBasketList Products={Products} />
+      <ProductsBasketList
+        Products={CleanedOrdersList}
+        addItemToOrderActionCreator={props.addItemToOrderActionCreator}
+        removeItemFromOrderActionCreator={
+          props.removeItemFromOrderActionCreator
+        }
+      />
       <OrderDetailsSection
         navigation={props.navigation}
         totalPrice={totalPrice}
-        deliveryPrice={50}
-        adress={"ул. Засумская"}
-        cardNum="5443"
+        bonusesCount={Number(props.OrderBonusesUsed)}
+        deliveryPrice={0}
+        adress={props.DeliveryType.adress}
+        cardNum={props.PaymentMethod}
       />
       <Button
         text="Связаться с оператором"
@@ -105,6 +127,7 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
         textStyle={{
           fontSize: 16,
         }}
+        onPress={() => {}}
       />
       <Button
         onPress={() => props.navigation.navigate("BackCallScreen")}

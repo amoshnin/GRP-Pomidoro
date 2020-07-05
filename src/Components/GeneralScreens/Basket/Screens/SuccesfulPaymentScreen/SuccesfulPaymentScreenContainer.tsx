@@ -4,15 +4,12 @@ import { compose } from "redux"
 import { connect } from "react-redux"
 
 // COMPONENTS IMPORTS //
-import PaymentScreen from "./PaymentScreen"
+import SuccesfulPaymentScreen from "./SuccesfulPaymentScreen"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "~/Redux/ReduxStore"
 
-import {
-  ActionCreatorsList,
-  SendOrderDataThunkCreator,
-} from "~/Redux/Reducers/OrderingReducers/OrderingSetReducer"
+import { ActionCreatorsList } from "~/Redux/Reducers/OrderingReducers/OrderingSetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -20,7 +17,13 @@ import {
 type MapStateToPropsType = {
   navigation: any
 
-  DeliveryTime: string
+  OrderBonusesUsed: string
+  DeliveryType: {
+    adress: string
+    comment: string
+  }
+  PaymentMethod: string
+
   OrderItemsList: Array<{
     date: string
     deliveryStatus: string
@@ -44,8 +47,6 @@ type MapDispatchToPropsType = {
     size: string,
     id: string
   ) => void
-
-  SendOrderDataThunkCreator: () => void
 }
 
 /////////////////////////////////////////////////////////////////
@@ -54,12 +55,14 @@ const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
   return {
     navigation: props.navigation,
 
-    DeliveryTime: state.OrderingSetState.DeliveryTime,
+    OrderBonusesUsed: state.OrderingSetState.OrderBonusesUsed,
+    DeliveryType: state.OrderingSetState.DeliveryType,
+    PaymentMethod: state.OrderingSetState.PaymentMethod,
     OrderItemsList: state.OrderingSetState.OrderItemsList,
   }
 }
 
-const PaymentScreenContainer = compose(
+const SuccesfulPaymentScreenContainer = compose(
   connect<MapStateToPropsType, MapDispatchToPropsType, AppStateType>(
     mapStateToProps,
     {
@@ -67,9 +70,8 @@ const PaymentScreenContainer = compose(
         ActionCreatorsList.addItemToOrderActionCreator,
       removeItemFromOrderActionCreator:
         ActionCreatorsList.removeItemFromOrderActionCreator,
-      SendOrderDataThunkCreator: SendOrderDataThunkCreator,
     }
   )
-)(PaymentScreen)
+)(SuccesfulPaymentScreen)
 
-export default PaymentScreenContainer
+export default SuccesfulPaymentScreenContainer

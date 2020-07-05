@@ -13,6 +13,7 @@ type PropsType = {
   navigation: any
 
   totalPrice: number
+  bonusesCount?: number
   deliveryPrice?: number
   adress?: string
   cardNum?: string
@@ -25,9 +26,14 @@ const OrderDetailsSection: React.FC<PropsType> = (props) => {
         <Text weight="bold" size={16} style={styles.text}>
           Итого к оплате
         </Text>
-        <Text weight="bold" size={16} style={styles.text}>
-          {props.totalPrice} ₴
-        </Text>
+        <View>
+          <Text weight="bold" size={16} style={styles.text}>
+            {props.totalPrice} ₴
+          </Text>
+          {props.bonusesCount ? (
+            <Text style={styles.text}>и {props.bonusesCount} бонусов</Text>
+          ) : null}
+        </View>
       </View>
       {props.deliveryPrice ? (
         <>
@@ -58,7 +64,7 @@ const OrderDetailsSection: React.FC<PropsType> = (props) => {
           <Text size={20} weight="bold" style={styles.section_title}>
             Способ оплаты
           </Text>
-          <Text size={16}>Карта ** {props.cardNum}</Text>
+          <Text size={16}>{props.cardNum}</Text>
           <View style={styles.divider} />
         </>
       ) : null}
