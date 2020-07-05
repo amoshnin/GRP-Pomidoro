@@ -21,18 +21,17 @@ type PropsType = {
 const BonusesSection: React.FC<PropsType> = (props) => {
   const [bottomOpened, setBottomOpened] = useState(false as boolean)
 
-  useEffect(() => {
-    if (
-      Number(props.bonusesUsedCount || 0) > Number(props.OrderBonusesUsed || 0)
-    ) {
-      props.setBonusesCountActionCreator(
-        props.bonusesUsedCount?.slice(0, 1) as any
-      )
-    }
-  }, [props.bonusesUsedCount])
-
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        Number(props.bonusesUsedCount || 0) >
+          Number(props.OrderBonusesUsed || 0) && {
+          borderColor: "red",
+          borderWidth: 2,
+        },
+      ]}
+    >
       <TouchableOpacity
         style={styles.top_wrap}
         onPress={() => setBottomOpened(!bottomOpened)}
@@ -60,18 +59,25 @@ const BonusesSection: React.FC<PropsType> = (props) => {
             theme={{ colors: { primary: "#1A1824" } }}
             value={props.bonusesUsedCount as string}
             onChangeText={(text: string) =>
-              props.bonusesUsedCount
-                ? text.length < props.bonusesUsedCount.length
-                  ? props.setBonusesCountActionCreator(text)
-                  : Number(props.bonusesUsedCount) <=
-                      Number(props.OrderBonusesUsed) &&
-                    props.setBonusesCountActionCreator(text)
-                : props.setBonusesCountActionCreator(text)
+              props.setBonusesCountActionCreator(text)
             }
           />
-          <Text style={styles.bottom_subtitle}>
-            1 бонус = 1 ₴. Макс. - 70% от заказа
-          </Text>
+          {Number(props.bonusesUsedCount || 0) >
+          Number(props.OrderBonusesUsed || 0) ? (
+            <Text
+              style={{
+                ...styles.bottom_subtitle,
+                color: "crimson",
+                fontWeight: "bold",
+              }}
+            >
+              Количество бонусов превышено{" "}
+            </Text>
+          ) : (
+            <Text style={styles.bottom_subtitle}>
+              1 бонус = 1 ₴. Макс. - 70% от заказа
+            </Text>
+          )}
         </View>
       )}
     </View>

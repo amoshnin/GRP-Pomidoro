@@ -123,13 +123,17 @@ const Main: React.FC<PropsType> = (props) => {
         navigation={props.navigation}
       />
       <BonusesSection
-        OrderBonusesUsed={props.UserCredentials.bonusesCount}
+        OrderBonusesUsed={2}
         bonusesUsedCount={props.OrderBonusesUsed}
         setBonusesCountActionCreator={props.setBonusesCountActionCreator}
       />
       <Footer
         navigation={props.navigation}
-        allowProceed={FilteredBasketList.length > 0}
+        allowProceed={
+          FilteredBasketList.length > 0 &&
+          Number(props.UserCredentials.bonusesCount || 0) >=
+            Number(props.OrderBonusesUsed || 0)
+        }
       />
     </ScrollView>
   )
