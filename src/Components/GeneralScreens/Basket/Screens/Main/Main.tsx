@@ -16,6 +16,17 @@ import Footer from "./Footer/Footer"
 type PropsType = {
   navigation: any
   OrderItemsList: Array<any>
+  UserCredentials: {
+    name: string | null
+    surname: string | null
+    email: string | null
+    phoneNum: string | null
+    region: string | null
+    password: string | null
+    avatar: string | null
+    userType: string | null
+    bonusesCount: string | null
+  }
 
   addItemToOrderActionCreator: (
     title: string,
@@ -36,6 +47,9 @@ type PropsType = {
 
 const Main: React.FC<PropsType> = (props) => {
   const [totalPrice, setTotalPrice] = useState(0 as number)
+  const [bonusesUsedCount, setBonusesUsedCount] = useState(
+    null as string | null
+  )
 
   useEffect(() => {
     props.getUserFullInfoThunkCreator()
@@ -109,7 +123,11 @@ const Main: React.FC<PropsType> = (props) => {
         totalPrice={totalPrice}
         navigation={props.navigation}
       />
-      <BonusesSection />
+      <BonusesSection
+        bonusesCount={props.UserCredentials.bonusesCount}
+        bonusesUsedCount={bonusesUsedCount}
+        setBonusesUsedCount={setBonusesUsedCount}
+      />
       <Footer navigation={props.navigation} />
     </ScrollView>
   )

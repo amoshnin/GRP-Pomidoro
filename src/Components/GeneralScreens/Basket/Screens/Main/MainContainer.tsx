@@ -18,6 +18,17 @@ import { getUserFullInfoThunkCreator } from "~/Redux/Reducers/PrivateCabinetRedu
 type MapStateToPropsType = {
   navigation: any
   OrderItemsList: Array<{}>
+  UserCredentials: {
+    name: string | null
+    surname: string | null
+    email: string | null
+    phoneNum: string | null
+    region: string | null
+    password: string | null
+    avatar: string | null
+    userType: string | null
+    bonusesCount: string | null
+  }
 }
 
 type MapDispatchToPropsType = {
@@ -45,6 +56,7 @@ type MapDispatchToPropsType = {
 const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
   return {
     navigation: props.navigation,
+    UserCredentials: state.PrivateCabinetGetState.UserCredentials,
     OrderItemsList: state.OrderingSetState.OrderItemsList,
   }
 }

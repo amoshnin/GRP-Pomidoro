@@ -1,8 +1,10 @@
 // PLUGINS IMPORTS //
-import React, { useState } from "react"
-import { View, TouchableOpacity, StyleSheet } from "react-native"
+import React, { useState, useEffect } from "react"
+import { View, TouchableOpacity, StyleSheet, processColor } from "react-native"
 import { TextInput } from "react-native-paper"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { Formik } from "formik"
+import * as yup from "yup"
 
 // COMPONENTS IMPORTS //
 
@@ -11,10 +13,23 @@ import { Ionicons } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
 
-type PropsType = {}
+type PropsType = {
+  bonusesCount: string | number | null
+
+  bonusesUsedCount: string | null
+  setBonusesUsedCount: (bonusesUsedCount: string) => void
+}
 
 const BonusesSection: React.FC<PropsType> = (props) => {
   const [bottomOpened, setBottomOpened] = useState(false as boolean)
+
+  console.log(props.bonusesCount || 0)
+  console.log(props.bonusesUsedCount || 0)
+  useEffect(() => {
+    if (Number(props.bonusesUsedCount || 0) > Number(props.bonusesCount || 0)) {
+      props.setBonusesUsedCount(props.bonusesUsedCount?.slice(0, 1) as any)
+    }
+  }, [props.bonusesUsedCount])
 
   return (
     <View style={styles.container}>
@@ -23,7 +38,7 @@ const BonusesSection: React.FC<PropsType> = (props) => {
         onPress={() => setBottomOpened(!bottomOpened)}
       >
         <Text weight="bold" style={styles.title}>
-          Потратить бонусы (У вас 365)
+          Потратить бонусы (У вас {props.bonusesCount || "0"})
         </Text>
 
         <Ionicons
@@ -36,10 +51,21 @@ const BonusesSection: React.FC<PropsType> = (props) => {
       {bottomOpened && (
         <View style={styles.bottom_wrap}>
           <Text>Сколько бонусов списать:</Text>
+
           <TextInput
             style={styles.input}
+            placeholder="0"
             underlineColor="silver"
+            keyboardType="numeric"
             theme={{ colors: { primary: "#1A1824" } }}
+            value={props.bonusesUsedCount as string}
+            onChangeText={(text: string) =>
+              text.length < props.bonusesUsedCount.length
+                ? props.setBonusesUsedCount(text)
+                : Number(props.bonusesUsedCount) <=
+                    Number(props.bonusesCount) &&
+                  props.setBonusesUsedCount(text)
+            }
           />
           <Text style={styles.bottom_subtitle}>
             1 бонус = 1 ₴. Макс. - 70% от заказа
