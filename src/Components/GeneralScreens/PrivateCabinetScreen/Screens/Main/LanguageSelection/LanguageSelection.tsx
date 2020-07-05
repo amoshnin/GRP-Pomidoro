@@ -1,7 +1,8 @@
 // PLUGINS IMPORTS //
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { View, TouchableOpacity, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import AsyncStorage from "@react-native-community/async-storage"
 
 // COMPONENTS IMPORTS //
 import LanguageSelectionPopup from "~/Components/Shared/Components/Popups/LanguageSelectPopup/LanguageSelectPopup"
@@ -15,6 +16,16 @@ type PropsType = {}
 
 const LanguageSelection: React.FC<PropsType> = (props) => {
   const [popupVisible, setPopupVisible] = useState(false as boolean)
+  const [language, setLanguage] = useState("ru" as string)
+
+  useEffect(() => {
+    const getData = async () => {
+      const language = await AsyncStorage.getItem("selectedLanguage")
+      setLanguage(language || "ru")
+    }
+
+    getData()
+  }, [popupVisible])
 
   return (
     <>
@@ -26,7 +37,7 @@ const LanguageSelection: React.FC<PropsType> = (props) => {
           style={styles.button}
           onPress={() => setPopupVisible(true)}
         >
-          <Text>Русский</Text>
+          <Text>{language === "ru" ? "Русский" : "Український"}</Text>
           <MaterialIcons
             name="keyboard-arrow-down"
             size={25}
@@ -53,8 +64,6 @@ const styles = StyleSheet.create({
     marginTop: 6,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    width: 80,
   },
 
   icon: {
