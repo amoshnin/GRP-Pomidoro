@@ -1,13 +1,12 @@
 // PLUGINS IMPORTS //
 import React, { useEffect } from "react"
 import { ScrollView, StyleSheet } from "react-native"
-import Button from "../../../../Shared/Components/Button/Button"
 
 // COMPONENTS IMPORTS //
 import Header from "./Header/Header"
 import Credentials from "./Credentials/Credentials"
 import CreditCard from "./CreditCard/CreditCard"
-import OrdersList from "../../../../Shared/Sections/OrdersList/OrdersList"
+import OrdersList from "./OrdersList/OrdersList"
 import Bonuses from "./Bonuses/Bonuses"
 import LanguageSelection from "./LanguageSelection/LanguageSelection"
 
@@ -56,37 +55,10 @@ const Main: React.FC<PropsType> = (props) => {
       <Credentials navigation={props.navigation} />
       <CreditCard navigation={props.navigation} />
       {props.OrdersList && props.OrdersList.length > 0 && (
-        <>
-          <OrdersList
-            title={"История заказов"}
-            titleStyle={{
-              marginTop: 23,
-            }}
-            orders={props.OrdersList}
-            showFullList={false}
-            showTiming={false}
-            shwowDeliveryStatus={false}
-          />
-
-          <Button
-            onPress={() => {
-              props.navigation.navigate("OrdersScreen")
-            }}
-            text={"Показавать все заказы"}
-            buttonStyle={{
-              borderRadius: 20,
-              backgroundColor: "#EAEAEB",
-              marginTop: 20,
-              marginBottom: 36,
-            }}
-            rectStyle={{
-              width: 315,
-              height: 40,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          />
-        </>
+        <OrdersList
+          navigation={props.navigation}
+          OrdersList={props.OrdersList}
+        />
       )}
       <Bonuses />
       <LanguageSelection />
