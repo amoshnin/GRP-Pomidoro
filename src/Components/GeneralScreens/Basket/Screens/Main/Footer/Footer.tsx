@@ -11,13 +11,18 @@ import Button from "~/Components/Shared/Components/Button/Button"
 
 type PropsType = {
   navigation: any
+
+  allowProceed: boolean
 }
 
 const Footer: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <Button
-        onPress={() => props.navigation.navigate("DeliveryTimeSelectionScreen")}
+        onPress={() =>
+          props.allowProceed &&
+          props.navigation.navigate("DeliveryTimeSelectionScreen")
+        }
         text="Заказать сейчас"
         buttonStyle={{
           marginTop: 20,
@@ -41,6 +46,7 @@ const Footer: React.FC<PropsType> = (props) => {
         textStyle={{
           color: "black",
         }}
+        onPress={() => {}}
       />
     </View>
   )

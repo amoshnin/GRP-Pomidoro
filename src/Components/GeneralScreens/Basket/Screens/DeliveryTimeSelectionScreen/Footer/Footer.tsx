@@ -14,6 +14,8 @@ import Text from "~/Components/Shared/Components/Text/Text"
 
 type PropsType = {
   navigation: any
+
+  setOrderDeliveryTimeActionCreator: (orderDeliveryTime: string | Date) => void
 }
 
 const Footer: React.FC<PropsType> = (props) => {
@@ -34,6 +36,7 @@ const Footer: React.FC<PropsType> = (props) => {
   }
 
   const confirmFunction = () => {
+    props.setOrderDeliveryTimeActionCreator(datePicked)
     props.navigation.navigate("SelectAccountScreen")
   }
 

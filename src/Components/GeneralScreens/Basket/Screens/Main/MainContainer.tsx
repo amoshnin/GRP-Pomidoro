@@ -29,6 +29,7 @@ type MapStateToPropsType = {
     userType: string | null
     bonusesCount: string | null
   }
+  OrderBonusesUsed: string
 }
 
 type MapDispatchToPropsType = {
@@ -41,12 +42,12 @@ type MapDispatchToPropsType = {
     count: string,
     ingredients: Array<string>
   ) => void
-
   removeItemFromOrderActionCreator: (
     title: string,
     size: string,
     id: string
   ) => void
+  setBonusesCountActionCreator: (bonusesCount: string) => void
 
   getUserFullInfoThunkCreator: () => void
 }
@@ -58,6 +59,7 @@ const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
     navigation: props.navigation,
     UserCredentials: state.PrivateCabinetGetState.UserCredentials,
     OrderItemsList: state.OrderingSetState.OrderItemsList,
+    OrderBonusesUsed: state.OrderingSetState.OrderBonusesUsed,
   }
 }
 
@@ -69,6 +71,8 @@ const MainContainer = compose(
         ActionCreatorsList.addItemToOrderActionCreator,
       removeItemFromOrderActionCreator:
         ActionCreatorsList.removeItemFromOrderActionCreator,
+      setBonusesCountActionCreator:
+        ActionCreatorsList.setBonusesCountActionCreator,
       getUserFullInfoThunkCreator: getUserFullInfoThunkCreator,
     }
   )

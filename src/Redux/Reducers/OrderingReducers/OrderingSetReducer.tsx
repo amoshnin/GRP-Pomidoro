@@ -6,6 +6,7 @@ import { AppStateType, InferActionsTypes } from "../../ReduxStore"
 
 let initialState = {
   OrderItemsList: [] as Array<{}>,
+  OrderBonusesUsed: null as string | null,
 }
 
 export type initialStateType = typeof initialState
@@ -34,6 +35,13 @@ const OrderingSetReducer = (
           elem.id == action.id
         )
       }),
+    }
+  }
+
+  if (action.type === "SET_BONUSES_COUNT") {
+    return {
+      ...state,
+      OrderBonusesUsed: action.bonusesCount,
     }
   }
 
@@ -76,6 +84,18 @@ export const ActionCreatorsList = {
       title: title,
       size: size,
       id: id,
+    } as const),
+
+  setBonusesCountActionCreator: (bonusesCount: string) =>
+    ({
+      type: "SET_BONUSES_COUNT",
+      bonusesCount,
+    } as const),
+
+  setOrderDeliveryTimeActionCreator: (orderDeliveryTime: string | Date) =>
+    ({
+      type: "SET_ORDER_DELIVERY_TIME",
+      orderDeliveryTime,
     } as const),
 }
 

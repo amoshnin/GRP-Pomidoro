@@ -27,6 +27,7 @@ type PropsType = {
     userType: string | null
     bonusesCount: string | null
   }
+  OrderBonusesUsed: string
 
   addItemToOrderActionCreator: (
     title: string,
@@ -42,14 +43,12 @@ type PropsType = {
     size: string,
     id: string
   ) => void
+  setBonusesCountActionCreator: (bonusesCount: string) => void
   getUserFullInfoThunkCreator: () => void
 }
 
 const Main: React.FC<PropsType> = (props) => {
   const [totalPrice, setTotalPrice] = useState(0 as number)
-  const [bonusesUsedCount, setBonusesUsedCount] = useState(
-    null as string | null
-  )
 
   useEffect(() => {
     props.getUserFullInfoThunkCreator()
@@ -124,11 +123,14 @@ const Main: React.FC<PropsType> = (props) => {
         navigation={props.navigation}
       />
       <BonusesSection
-        bonusesCount={props.UserCredentials.bonusesCount}
-        bonusesUsedCount={bonusesUsedCount}
-        setBonusesUsedCount={setBonusesUsedCount}
+        OrderBonusesUsed={props.UserCredentials.bonusesCount}
+        bonusesUsedCount={props.OrderBonusesUsed}
+        setBonusesCountActionCreator={props.setBonusesCountActionCreator}
       />
-      <Footer navigation={props.navigation} />
+      <Footer
+        navigation={props.navigation}
+        allowProceed={FilteredBasketList.length > 0}
+      />
     </ScrollView>
   )
 }

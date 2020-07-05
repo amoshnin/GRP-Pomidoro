@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack"
 
 // COMPONENTS IMPORTS //
 import MainContainer from "./Screens/Main/MainContainer"
-import DeliveryTimeSelectionScreen from "./Screens/DeliveryTimeSelectionScreen/DeliveryTimeSelectionScreen"
+import DeliveryTimeSelectionScreenContainer from "./Screens/DeliveryTimeSelectionScreen/DeliveryTimeSelectionScreenContainer"
 import SelectAccountScreen from "./Screens/SelectAccountScreen/SelectAccountScreen"
 import DeliveryTypeSelectionScreen from "./Screens/DeliveryTypeSelectionScreen/DeliveryTypeSelectionScreen"
 import ConfirmAdressScreen from "./Screens/ConfirmAdressScreen/ConfirmAdressScreen"
@@ -50,7 +50,7 @@ const PrivateCabinetScreen: React.FC<PropsType> = (props) => {
       />
       <Stack.Screen
         name="DeliveryTimeSelectionScreen"
-        component={DeliveryTimeSelectionScreen}
+        component={DeliveryTimeSelectionScreenContainer}
         options={({ navigation, route }: any) => ({
           header: () => (
             <GeneralHeader

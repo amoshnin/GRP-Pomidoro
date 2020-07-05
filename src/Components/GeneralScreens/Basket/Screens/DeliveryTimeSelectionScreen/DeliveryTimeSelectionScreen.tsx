@@ -12,13 +12,20 @@ import Footer from "./Footer/Footer"
 
 type PropsType = {
   navigation: any
+
+  setOrderDeliveryTimeActionCreator: (orderDeliveryTime: string | Date) => void
 }
 
 const DeliveryTimeSelectionScreen: React.FC<PropsType> = (props) => {
   return (
     <ScrollView style={styles.container}>
       <Header />
-      <Footer navigation={props.navigation} />
+      <Footer
+        navigation={props.navigation}
+        setOrderDeliveryTimeActionCreator={
+          props.setOrderDeliveryTimeActionCreator
+        }
+      />
     </ScrollView>
   )
 }
