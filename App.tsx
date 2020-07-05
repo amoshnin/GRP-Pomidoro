@@ -3,6 +3,12 @@ import React, { useEffect, useState } from "react"
 import { Image, TouchableOpacity, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 
+import AsyncStorage from "@react-native-community/async-storage"
+
+import { useTranslation } from "react-i18next"
+const { i18n } = useTranslation()
+import "~/Translations/Translations"
+
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 
@@ -50,17 +56,25 @@ const App: React.FC<PropsType> = (props) => {
   console.disableYellowBox = true
 
   useEffect(() => {
-    const LoadFonts = async () => {
+    const LoadInitialData = async () => {
       await Font.loadAsync({
         light: require("./assets/Fonts/Montserrat-Light.ttf"),
         regular: require("./assets/Fonts/Montserrat-Regular.ttf"),
         bold: require("./assets/Fonts/Montserrat-Bold.ttf"),
       })
 
+      const language = await AsyncStorage.getItem("selectedLanguage")
+
+      language === "Русский"
+        ? await i18n.changeLanguage("ru")
+        : language === "Украинский"
+        ? await i18n.changeLanguage("ua")
+        : null
+
       setLoading(false)
     }
 
-    LoadFonts()
+    LoadInitialData()
   }, [])
 
   return (
