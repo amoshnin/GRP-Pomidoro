@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React, { useEffect } from "react"
 import { ScrollView, StyleSheet } from "react-native"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 import Button from "../../Shared/Components/Button/Button"
@@ -27,6 +28,7 @@ type PropsType = {
 }
 
 const MenuScreen: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
   useEffect(() => {
     props.getMenuListThunkCreator()
     props.getSalesListThunkCreator()
@@ -46,13 +48,13 @@ const MenuScreen: React.FC<PropsType> = (props) => {
               alignItems: "center",
             }}
             textStyle={{ color: "white" }}
-            text={"Узнать, где мой заказ"}
+            text={t("GeneralPhrases.УзнатьГдеМойЗаказ")}
           />
           <MenuSection
             navigation={props.navigation}
             scroll={false}
             MenuList={props.MenuList}
-            titleText="Меню"
+            titleText={t("Dashboard.Меню")}
             titleStyle={{ fontSize: 30 }}
             containerStyle={{ marginTop: 20 }}
           />
@@ -62,7 +64,7 @@ const MenuScreen: React.FC<PropsType> = (props) => {
         <>
           <SalesSection
             navigation={props.navigation}
-            titleText={"Активные акции"}
+            titleText={t("MenuScreen.АктивныеАкции")}
             SalesList={props.SalesList}
             titleStyle={{
               fontSize: 30,
@@ -93,7 +95,7 @@ const MenuScreen: React.FC<PropsType> = (props) => {
               alignItems: "center",
             }}
             textStyle={{ color: "black" }}
-            text={"Посмотреть все акции"}
+            text={t("MenuScreen.ПосмотретьВсеАкции")}
           />
         </>
       )}

@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React, { useEffect } from "react"
 import { ScrollView, StyleSheet } from "react-native"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 import SalesSection from "../../Shared/Sections/SalesSection/SalesSection"
@@ -8,7 +9,7 @@ import MenuSection from "../../Shared/Sections/MenuSection/MenuSection"
 import ProductsListSectionContainer from "../../Shared/Sections/ProductsListSection/ProductsListSectionContainer"
 
 // EXTRA IMPORTS //
-import Button from "../../Shared/Components/Button/Button"
+import Button from "~/Components/Shared/Components/Button/Button"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -28,6 +29,7 @@ type PropsType = {
 }
 
 const MainScreen: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
   useEffect(() => {
     props.getMenuListThunkCreator()
     props.getSalesListThunkCreator()
@@ -50,11 +52,11 @@ const MainScreen: React.FC<PropsType> = (props) => {
               alignItems: "center",
             }}
             textStyle={{ color: "#FFFFFF" }}
-            text={"Узнать, где мой заказ"}
+            text={t("GeneralPhrases.УзнатьГдеМойЗаказ")}
           />
           <SalesSection
             navigation={props.navigation}
-            titleText={"Откройте новые вкусы"}
+            titleText={t("SalesScreen.ОткройтеНовыеВкусы")}
             SalesList={props.SalesList}
             titleStyle={{
               fontSize: 30,
@@ -73,7 +75,7 @@ const MainScreen: React.FC<PropsType> = (props) => {
         <MenuSection
           navigation={props.navigation}
           MenuList={props.MenuList}
-          titleText={"Меню"}
+          titleText={t("Dashboard.Меню")}
           scroll={true}
           titleStyle={{
             fontSize: 20,
