@@ -45,7 +45,7 @@ export const RegisterUserThunkCreator = (
         phone_num: phoneNum,
         password: password,
       })
-      .then((res: any) => console.log(res))
+      .then((res: any) => {})
   }
 }
 
@@ -60,7 +60,7 @@ export const LoginUserThunkCreator = (
         phone_num: phoneNum,
         password: password,
       })
-      .then((res: any) => console.log(res))
+      .then((res: any) => {})
   }
 }
 
