@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
   text: {
     marginTop: 5,
     marginRight: 3,
+    width: 90,
 
     color: "#1A1824",
     fontSize: 15,

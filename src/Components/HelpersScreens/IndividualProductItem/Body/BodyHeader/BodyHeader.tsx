@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { View, StyleSheet } from "react-native"
+import { useTranslation } from "react-i18next"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
@@ -26,13 +27,15 @@ type PropsType = {
 }
 
 const BodyHeader: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <View style={styles.container}>
       <Text weight="bold" size={30} style={styles.title}>
         {props.product.name}
       </Text>
 
-      <Text size={16}>Выберите размер для заказа</Text>
+      <Text size={16}> {t("MenuScreen.ProductItem.ВыберитеРазмер")}:</Text>
 
       <PizzaSizesHelper
         navigation={props.navigation}
