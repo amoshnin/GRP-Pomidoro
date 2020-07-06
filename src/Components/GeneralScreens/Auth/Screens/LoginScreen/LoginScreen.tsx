@@ -2,10 +2,11 @@
 import React from "react"
 import { View, TouchableOpacity, Image, StyleSheet } from "react-native"
 import { TextInput } from "react-native-paper"
-import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 import { Formik } from "formik"
 
 // COMPONENTS IMPORTS //
+import Text from "~/Components/Shared/Components/Text/Text"
 
 // EXTRA IMPORTS //
 import Button from "~/Components/Shared/Components/Button/Button"
@@ -19,10 +20,12 @@ type PropsType = {
 }
 
 const LoginScreen: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <View style={styles.container}>
       <Text weight="bold" size={30} style={styles.title}>
-        Вход в систему
+        {t("Auth.LoginScreen.ВходСистему")}
       </Text>
       <Formik
         initialValues={{
@@ -39,7 +42,7 @@ const LoginScreen: React.FC<PropsType> = (props) => {
           <>
             <View>
               <TextInput
-                placeholder="Номер телефона"
+                placeholder={t("Auth.SharedFields.НомерТелефона")}
                 placeholderTextColor="rgba(26, 24, 36, 0.5)"
                 theme={{ colors: { primary: "#1A1824" } }}
                 onChangeText={FormikProps.handleChange("phoneNum")}
@@ -62,7 +65,7 @@ const LoginScreen: React.FC<PropsType> = (props) => {
             </View>
 
             <TextInput
-              placeholder="Введите пароль"
+              placeholder={t("Auth.SharedFields.ВведитеПароль")}
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
               theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("password")}
@@ -76,7 +79,7 @@ const LoginScreen: React.FC<PropsType> = (props) => {
             />
 
             <Button
-              text="Войти"
+              text={t("Auth.LoginScreen.Войти")}
               onPress={FormikProps.handleSubmit}
               buttonStyle={{
                 alignSelf: null,
@@ -99,10 +102,12 @@ const LoginScreen: React.FC<PropsType> = (props) => {
         style={styles.bottom_text_wrap}
         onPress={() => props.navigation.navigate("RecieveNewPassScreen1")}
       >
-        <Text style={styles.subtitle}>Получите новый пароль</Text>
+        <Text style={styles.subtitle}>
+          {t("Auth.LoginScreen.ПолучитеНовыйПароль")}
+        </Text>
       </TouchableOpacity>
       <Button
-        text="Регистрация"
+        text={t("Auth.RegisterScreen.Регистрация")}
         onPress={() => props.navigation.navigate("RegistrationScreen")}
         buttonStyle={{
           marginTop: 235,

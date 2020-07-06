@@ -48,7 +48,7 @@ import { Ionicons } from "@expo/vector-icons"
 type PropsType = {}
 
 const App: React.FC<PropsType> = (props) => {
-  const [isAuthentificated, setIsAuthentificated] = useState(true as boolean)
+  const [isAuthentificated, setIsAuthentificated] = useState(false as boolean)
   const [loading, setLoading] = useState(true as boolean)
 
   const Stack = createStackNavigator()

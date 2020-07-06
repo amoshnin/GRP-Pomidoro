@@ -2,14 +2,15 @@
 import React from "react"
 import { ScrollView, StyleSheet } from "react-native"
 import { TextInput } from "react-native-paper"
-import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 import { Formik } from "formik"
 import * as yup from "yup"
 
 // COMPONENTS IMPORTS //
+import Button from "~/Components/Shared/Components/Button/Button"
+import Text from "~/Components/Shared/Components/Text/Text"
 
 // EXTRA IMPORTS //
-import Button from "../../../../../../Shared/Components/Button/Button"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -18,20 +19,22 @@ type PropsType = {
 }
 
 const RecieveNewPassScreen: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   const ValidationSchema = yup.object({
     phoneNum: yup
       .number()
-      .required("Телефон обязателен")
-      .typeError("Телефон обязателен и должен только быть числом"),
+      .required(t("GeneralPhrases.Validation.ТелефонОбязателен"))
+      .typeError(t("GeneralPhrases.Validation.ТелефонОбязателен")),
   })
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Text weight="bold" size={30} style={styles.title}>
-        Получить новый пароль
+        {t("Auth.LoginScreen.RecieveNewPassScreen.ПолучитьНовыйПароль")}
       </Text>
       <Text style={styles.subtitle}>
-        Введите номер телефона, введенный вами при регистрации
+        {t("Auth.LoginScreen.RecieveNewPassScreen.PPПолучитьНовыйПароль")}
       </Text>
       <Formik
         validationSchema={ValidationSchema}
@@ -45,7 +48,7 @@ const RecieveNewPassScreen: React.FC<PropsType> = (props) => {
         {(FormikProps) => (
           <>
             <TextInput
-              placeholder="Номер телефона"
+              placeholder={t("Auth.LoginScreen.НомерТелефона")}
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
               theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("phoneNum")}
@@ -63,7 +66,7 @@ const RecieveNewPassScreen: React.FC<PropsType> = (props) => {
             ) : null}
 
             <Button
-              text="Продолжить"
+              text={t("GeneralPhrases.Продолжить")}
               onPress={FormikProps.handleSubmit}
               buttonStyle={{
                 marginTop: 25,

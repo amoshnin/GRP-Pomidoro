@@ -2,12 +2,13 @@
 import React, { useState } from "react"
 import { View, StyleSheet } from "react-native"
 import { RadioButton } from "react-native-paper"
-import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
+import Text from "~/Components/Shared/Components/Text/Text"
+import Button from "~/Components/Shared/Components/Button/Button"
 
 // EXTRA IMPORTS //
-import Button from "../../../../../Shared/Components/Button/Button"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -17,6 +18,7 @@ type PropsType = {
 
 const RegionSelectionScreen: React.FC<PropsType> = (props) => {
   const [checkedValue, setCheckedValue] = useState(null as string | null)
+  const { t } = useTranslation()
 
   let RegionsList = [
     "Бровары",
@@ -30,7 +32,7 @@ const RegionSelectionScreen: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <Text weight="bold" size={30} style={styles.title}>
-        Выберите ваш регион:
+        {t("Auth.LoginScreen.RegionSelectionScreen.ВыберитеВашРегион")}
       </Text>
       {RegionsList.map((region: string) => {
         return (
@@ -51,7 +53,7 @@ const RegionSelectionScreen: React.FC<PropsType> = (props) => {
         )
       })}
       <Button
-        text="Продолжить"
+        text={t("GeneralPhrases.Продолжить")}
         onPress={() => props.navigation.navigate("MainScreen")}
         buttonStyle={{
           marginTop: 22.5,

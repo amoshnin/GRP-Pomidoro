@@ -2,15 +2,16 @@
 import React, { useState } from "react"
 import { View, ScrollView, Image, StyleSheet } from "react-native"
 import { TextInput } from "react-native-paper"
-import Text from "~/Components/Shared/Components/Text/Text"
 import { Checkbox } from "react-native-paper"
+import { useTranslation } from "react-i18next"
 import { Formik } from "formik"
 import * as yup from "yup"
 
 // COMPONENTS IMPORTS //
+import Text from "~/Components/Shared/Components/Text/Text"
+import Button from "~/Components/Shared/Components/Button/Button"
 
 // EXTRA IMPORTS //
-import Button from "../../../../Shared/Components/Button/Button"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -27,28 +28,32 @@ type PropsType = {
 
 const RegistrationScreen: React.FC<PropsType> = (props) => {
   const [checkedSMS, setCheckedSMS] = useState(false as boolean)
+  const { t } = useTranslation()
 
   const ValidationSchema = yup.object({
-    name: yup.string().required("Имя обязательно").typeError("Имя обязательно"),
+    name: yup
+      .string()
+      .required(t("GeneralPhrases.Validation.ИмяОбязательно"))
+      .typeError(t("GeneralPhrases.Validation.ИмяОбязательно")),
     phoneNum: yup
       .number()
-      .required("Телефон обязателен")
-      .typeError("Телефон обязателен"),
+      .required(t("GeneralPhrases.Validation.ТелефонОбязателен"))
+      .typeError(t("GeneralPhrases.Validation.ТелефонОбязателен")),
     password: yup
       .string()
-      .min(6, "Пароль слишком кототкий - минимум 6 символов")
+      .min(6, t("GeneralPhrases.Validation.PPShortPassword"))
       .matches(
         /[a-zA-Z](?=.*[0-9])/ as any,
-        "Пароль должен обязательно иметь цифры и буквы"
+        t("GeneralPhrases.Validation.PPPassCharValid")
       )
-      .required("Пароль обязателен")
-      .typeError("Пароль обязателен"),
+      .required(t("GeneralPhrases.Validation.ПарольОбязателен"))
+      .typeError(t("GeneralPhrases.Validation.ПарольОбязателен")),
   })
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Text weight="bold" size={30} style={styles.title}>
-        Регистрация
+        {t("Auth.RegisterScreen.Регистрация")}
       </Text>
       <Formik
         validationSchema={ValidationSchema}
@@ -91,7 +96,7 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
             </Text>
             <View>
               <TextInput
-                placeholder="Номер телефона"
+                placeholder={t("Auth.SharedFields.НомерТелефона")}
                 placeholderTextColor="rgba(26, 24, 36, 0.5)"
                 theme={{ colors: { primary: "#1A1824" } }}
                 onChangeText={FormikProps.handleChange("phoneNum")}

@@ -1,15 +1,16 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { View, ScrollView, TouchableOpacity, StyleSheet } from "react-native"
-import Text from "~/Components/Shared/Components/Text/Text"
 import { TextInput } from "react-native-paper"
+import { useTranslation } from "react-i18next"
 import { Formik } from "formik"
 import * as yup from "yup"
 
 // COMPONENTS IMPORTS //
+import Button from "~/Components/Shared/Components/Button/Button"
+import Text from "~/Components/Shared/Components/Text/Text"
 
 // EXTRA IMPORTS //
-import Button from "../../../../../../Shared/Components/Button/Button"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -18,19 +19,23 @@ type PropsType = {
 }
 
 const RecieveNewPassScreen: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   const ValidationSchema = yup.object({
     code: yup
       .string()
-      .required("Телефон обязателен")
-      .typeError("Телефон обязателен"),
+      .required(t("GeneralPhrases.Validation.СМСКодОбязателен"))
+      .typeError(t("GeneralPhrases.Validation.СМСКодОбязателен")),
   })
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Text weight="bold" size={30} style={styles.title}>
-        Получить новый пароль
+        {t("Auth.LoginScreen.RecieveNewPassScreen.ПолучитьНовыйПароль")}
       </Text>
-      <Text style={styles.subtitle}>Введите код полученый в СМС</Text>
+      <Text style={styles.subtitle}>
+        {t("Auth.LoginScreen.RecieveNewPassScreen.PPВведитеКодСмс")}
+      </Text>
       <Formik
         validationSchema={ValidationSchema}
         initialValues={{
@@ -43,7 +48,9 @@ const RecieveNewPassScreen: React.FC<PropsType> = (props) => {
         {(FormikProps) => (
           <>
             <TextInput
-              placeholder="Код востоновления из СМС"
+              placeholder={t(
+                "Auth.LoginScreen.RecieveNewPassScreen.КодВостоновлениеСмс"
+              )}
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
               theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("code")}
@@ -60,7 +67,7 @@ const RecieveNewPassScreen: React.FC<PropsType> = (props) => {
             ) : null}
 
             <Button
-              text="Войти"
+              text={t("Auth.LoginScreen.Войти")}
               onPress={FormikProps.handleSubmit}
               buttonStyle={{
                 marginTop: 25,
@@ -84,10 +91,12 @@ const RecieveNewPassScreen: React.FC<PropsType> = (props) => {
       <View style={styles.timer_wrap}>
         <TouchableOpacity>
           <Text style={styles.button_text} weight="bold" size={16}>
-            Отправить СМС еще раз
+            {t("Auth.LoginScreen.RecieveNewPassScreen.ОтправитьСмсЕщеРаз")}
           </Text>
         </TouchableOpacity>
-        <Text style={styles.timer_text}>будет доступно через 3:45</Text>
+        <Text style={styles.timer_text}>
+          {t("Auth.LoginScreen.RecieveNewPassScreen.БудетДоступноЧерез")} 3:45
+        </Text>
       </View>
     </ScrollView>
   )
