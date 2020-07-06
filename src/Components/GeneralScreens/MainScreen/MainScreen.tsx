@@ -41,16 +41,8 @@ const MainScreen: React.FC<PropsType> = (props) => {
         <>
           <Button
             onPress={() => props.navigation.navigate("OrderTracking")}
-            buttonStyle={{
-              borderRadius: 20,
-              backgroundColor: "#96A637",
-            }}
-            rectStyle={{
-              height: 40,
-              width: 315,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
+            buttonStyle={styles.header_button}
+            rectStyle={styles.header_button_rect}
             textStyle={{ color: "#FFFFFF" }}
             text={t("GeneralPhrases.УзнатьГдеМойЗаказ")}
           />
@@ -58,16 +50,9 @@ const MainScreen: React.FC<PropsType> = (props) => {
             navigation={props.navigation}
             titleText={t("SalesScreen.ОткройтеНовыеВкусы")}
             SalesList={props.SalesList}
-            titleStyle={{
-              fontSize: 30,
-              width: 221,
-            }}
+            titleStyle={styles.section_title}
             scroll_horizontal={true}
-            imageStyle={{
-              width: 270,
-              height: 300,
-              marginRight: 16,
-            }}
+            imageStyle={styles.sales_image_block}
           />
         </>
       )}
@@ -77,11 +62,7 @@ const MainScreen: React.FC<PropsType> = (props) => {
           MenuList={props.MenuList}
           titleText={t("Dashboard.Меню")}
           scroll={true}
-          titleStyle={{
-            fontSize: 20,
-            letterSpacing: 0.3,
-            width: 221,
-          }}
+          titleStyle={styles.section_title}
           containerStyle={{ marginTop: 25 }}
         />
       )}
@@ -94,6 +75,30 @@ const MainScreen: React.FC<PropsType> = (props) => {
 const styles = StyleSheet.create({
   container: {
     marginTop: 24,
+  },
+
+  header_button: {
+    borderRadius: 20,
+    backgroundColor: "#96A637",
+  },
+
+  header_button_rect: {
+    height: 40,
+    width: 315,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  section_title: {
+    fontSize: 20,
+    letterSpacing: 0.3,
+    width: 221,
+  },
+
+  sales_image_block: {
+    width: 270,
+    height: 300,
+    marginRight: 16,
   },
 })
 

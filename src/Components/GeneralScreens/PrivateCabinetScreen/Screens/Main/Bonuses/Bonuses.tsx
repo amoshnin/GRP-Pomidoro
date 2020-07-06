@@ -24,7 +24,7 @@ const Bonuses: React.FC<PropsType> = (props) => {
       </Text>
       <View style={styles.box_wrap}>
         <Text size={16} style={styles.text}>
-          {t("PrivateCabinetScreen.Bonuses.УВас")}
+          У вас
         </Text>
         <Text weight="bold" size={30}>
           {props.bonusesCount || "0"}
