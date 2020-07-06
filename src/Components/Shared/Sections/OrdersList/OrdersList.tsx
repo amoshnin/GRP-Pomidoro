@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
 
   title: {
     letterSpacing: 0.3,
+    textAlign: "center",
   },
 
   subtitle: {

@@ -42,7 +42,7 @@ const LanguageSelectPopup: React.FC<PropsType> = (props) => {
 
   return (
     <Dialog
-      width={320}
+      width={340}
       dialogStyle={styles.wrapper}
       visible={props.popupVisible}
       onTouchOutside={() => {
@@ -55,7 +55,10 @@ const LanguageSelectPopup: React.FC<PropsType> = (props) => {
             styles.button,
             selectedLanguage === "ru" && { backgroundColor: "#96A637" },
           ]}
-          onPress={() => chooseLanguage("ru")}
+          onPress={() => {
+            chooseLanguage("ru")
+            props.setPopupVisible(false)
+          }}
         >
           <Text
             weight="bold"
@@ -69,7 +72,10 @@ const LanguageSelectPopup: React.FC<PropsType> = (props) => {
             styles.button,
             selectedLanguage === "ua" && { backgroundColor: "#96A637" },
           ]}
-          onPress={() => chooseLanguage("ua")}
+          onPress={() => {
+            chooseLanguage("ua")
+            props.setPopupVisible(false)
+          }}
         >
           <Text
             weight="bold"
@@ -85,7 +91,7 @@ const LanguageSelectPopup: React.FC<PropsType> = (props) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    height: 200,
+    height: 140,
   },
 
   container: {

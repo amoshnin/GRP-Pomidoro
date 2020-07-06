@@ -60,7 +60,7 @@ export const LoginUserThunkCreator = (
         phone_num: phoneNum,
         password: password,
       })
-      .then((res: any) => {})
+      .then((res: any) => console.log(res))
   }
 }
 
