@@ -25,15 +25,15 @@ const BottomSection: React.FC<PropsType> = (props) => {
         <ScrollView showsHorizontalScrollIndicator={false} horizontal>
           <Image
             style={styles.image}
-            source={require("../../../../Images/cafeImg-1.png")}
+            source={require("~/Images/cafeImg-1.png")}
           />
           <Image
             style={styles.image}
-            source={require("../../../../Images/cafeImg-2.png")}
+            source={require("~/Images/cafeImg-2.png")}
           />
           <Image
             style={styles.image}
-            source={require("../../../../Images/cafeImg-3.png")}
+            source={require("~/Images/cafeImg-3.png")}
           />
         </ScrollView>
         <Text style={styles.schedule_text} size={13}>

@@ -73,18 +73,8 @@ const Footer: React.FC<PropsType> = (props) => {
       <Button
         onPress={() => confirmFunction()}
         text={t("GeneralPhrases.Продолжить")}
-        buttonStyle={{
-          marginTop: 20,
-          width: 315,
-          height: 50,
-          backgroundColor: "#96A637",
-          borderRadius: 6,
-          alignSelf: null,
-        }}
-        textStyle={{
-          color: "white",
-          fontSize: 16,
-        }}
+        buttonStyle={styles.button}
+        textStyle={styles.button_text}
       />
     </>
   )
@@ -96,6 +86,19 @@ const styles = StyleSheet.create({
     height: 30,
     borderBottomWidth: 1,
     borderBottomColor: "gray",
+  },
+
+  button: {
+    marginTop: 20,
+    width: 315,
+    height: 50,
+    backgroundColor: "#96A637",
+    borderRadius: 6,
+  },
+
+  button_text: {
+    color: "white",
+    fontSize: 16,
   },
 })
 

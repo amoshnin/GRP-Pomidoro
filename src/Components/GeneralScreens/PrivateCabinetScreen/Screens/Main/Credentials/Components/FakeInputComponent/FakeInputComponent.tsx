@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { View, TouchableOpacity, StyleSheet } from "react-native"
+import { useTranslation } from "react-i18next"
 import Text from "~/Components/Shared/Components/Text/Text"
 import * as yup from "yup"
 
@@ -20,6 +21,8 @@ type PropsType = {
 }
 
 const FakeInputComponent: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <>
       <View style={styles.container}>
@@ -40,7 +43,7 @@ const FakeInputComponent: React.FC<PropsType> = (props) => {
               ? props.onPress()
               : props.navigation.navigate("CredentialsFieldChangeScreen", {
                   changeFunction: () => null,
-                  title: `Изменить ${props.title}`,
+                  title: `${t("GeneralPhrases.Изменить")} ${props.title}`,
                   placeholder: props.title,
                   validation: yup.string(),
                 })
@@ -52,7 +55,7 @@ const FakeInputComponent: React.FC<PropsType> = (props) => {
             size={16}
             style={styles.button_text}
           >
-            Изменить
+            {t("GeneralPhrases.Изменить")}
           </Text>
         </TouchableOpacity>
       </View>

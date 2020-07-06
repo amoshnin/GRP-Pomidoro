@@ -1,5 +1,6 @@
 // PLUGINS IMPORTS //
 import React from "react"
+import { StyleSheet } from "react-native"
 import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
@@ -27,9 +28,7 @@ const OrdersListsSection: React.FC<PropsType> = (props) => {
     <>
       <OrdersList
         title={t("PrivateCabinetScreen.OrdersList.ИсторияЗаказов")}
-        titleStyle={{
-          marginTop: 23,
-        }}
+        titleStyle={styles.section_title}
         orders={props.OrdersList}
         showFullList={false}
         showTiming={false}
@@ -41,21 +40,31 @@ const OrdersListsSection: React.FC<PropsType> = (props) => {
           props.navigation.navigate("OrdersScreen")
         }}
         text={t("PrivateCabinetScreen.OrdersList.ПоказатьВсеЗаказы")}
-        buttonStyle={{
-          borderRadius: 20,
-          backgroundColor: "#EAEAEB",
-          marginTop: 20,
-          marginBottom: 36,
-        }}
-        rectStyle={{
-          width: 315,
-          height: 40,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+        buttonStyle={styles.button}
+        rectStyle={styles.button_rect}
       />
     </>
   )
 }
+
+const styles = StyleSheet.create({
+  section_title: {
+    marginTop: 23,
+  },
+
+  button: {
+    borderRadius: 20,
+    backgroundColor: "#EAEAEB",
+    marginTop: 20,
+    marginBottom: 36,
+  },
+
+  button_rect: {
+    width: 315,
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+})
 
 export default OrdersListsSection

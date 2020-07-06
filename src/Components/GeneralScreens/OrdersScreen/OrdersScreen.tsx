@@ -25,10 +25,7 @@ const OrdersScreen: React.FC<PropsType> = (props) => {
     <ScrollView style={styles.container}>
       <OrdersList
         title={t("OrdersScreen.Заказы")}
-        titleStyle={{
-          fontSize: 30,
-          letterSpacing: 0.3,
-        }}
+        titleStyle={styles.section_title}
         orders={props.OrdersList}
         shwowDeliveryStatus={true}
         showTiming={true}
@@ -42,6 +39,11 @@ const OrdersScreen: React.FC<PropsType> = (props) => {
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 30.19,
+  },
+
+  section_title: {
+    fontSize: 30,
+    letterSpacing: 0.3,
   },
 })
 
