@@ -2,6 +2,7 @@
 import React from "react"
 import { View, ImageBackground, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -13,18 +14,16 @@ import { MaterialIcons } from "@expo/vector-icons"
 type PropsType = {}
 
 const DeliveryTermsScreen: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.text_wrapper}>
         <Text weight="bold" size={30} style={styles.title}>
-          Условия доставки
+          {t("DeliveryTerms.УсловияДоставки")}
         </Text>
         <Text style={styles.text} size={16}>
-          Мы осуществляем доставку Пиццы и Суши в такие города, как Бровары, а
-          также Калиновка, Княжичи, Требухов и близлежащие поселки {"\n"} {"\n"}
-          Доставка по Броварам — БЕСПЛАТНАЯ {"\n"} {"\n"}
-          Горяченькую пиццу и свежие суши доставит наш курьер на нашем
-          собственном транспорте 🙂
+          {t("DeliveryTerms.PPDeliveryTerms")}
         </Text>
       </View>
       <ImageBackground

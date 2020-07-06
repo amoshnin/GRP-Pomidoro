@@ -2,6 +2,7 @@
 import React from "react"
 import { View, ImageBackground, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -13,6 +14,8 @@ import { MaterialIcons } from "@expo/vector-icons"
 type PropsType = {}
 
 const UpperSection: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <ImageBackground
       style={styles.image}
@@ -20,7 +23,7 @@ const UpperSection: React.FC<PropsType> = (props) => {
     >
       <View style={styles.title_wrap}>
         <Text size={30} weight="bold" style={styles.title}>
-          Контакты
+          {t("ContactsScreen.Контакты")}
         </Text>
       </View>
       <View style={styles.icon_wrap}>

@@ -2,6 +2,7 @@
 import React from "react"
 import { View, ScrollView, Image, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -12,10 +13,12 @@ import Text from "~/Components/Shared/Components/Text/Text"
 type PropsType = {}
 
 const BottomSection: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <View style={styles.container}>
       <View style={styles.text_wrap}>
-        <Text>Адрес:</Text>
+        <Text>{t("ContactsScreen.Адрес")}:</Text>
         <Text weight="bold" size={20} style={styles.title}>
           г. Бровары, улица Черновола, 9
         </Text>
@@ -34,11 +37,10 @@ const BottomSection: React.FC<PropsType> = (props) => {
           />
         </ScrollView>
         <Text style={styles.schedule_text} size={13}>
-          Мы работаем ежедневно с 10:00 до 22:30, и доставляем Вам горячую пиццу
-          и свежие суши
+          {t("ContactsScreen.PPWorkInfo")}
         </Text>
         <View style={styles.divider} />
-        <Text size={16}>Связаться с нами:</Text>
+        <Text size={16}>{t("ContactsScreen.ContactUs")}:</Text>
         <Text size={20} weight="bold" style={styles.phone_text}>
           +38 (096) 683 07 07
         </Text>

@@ -1,9 +1,10 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { ScrollView, StyleSheet } from "react-native"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
-import OrdersList from "../../Shared/Sections/OrdersList/OrdersList"
+import OrdersList from "~/Components/Shared/Sections/OrdersList/OrdersList"
 
 // EXTRA IMPORTS //
 
@@ -18,10 +19,12 @@ type PropsType = {
 }
 
 const OrdersScreen: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <ScrollView style={styles.container}>
       <OrdersList
-        title={"Заказы"}
+        title={t("OrdersScreen.Заказы")}
         titleStyle={{
           fontSize: 30,
           letterSpacing: 0.3,
