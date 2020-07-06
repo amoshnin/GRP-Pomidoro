@@ -39,7 +39,7 @@ const LanguageSelection: React.FC<PropsType> = (props) => {
           style={styles.button}
           onPress={() => setPopupVisible(true)}
         >
-          <Text>{language === "ua" ? "Русский" : "Український"}</Text>
+          <Text>{language === "ru" ? "Русский" : "Український"}</Text>
           <MaterialIcons
             name="keyboard-arrow-down"
             size={25}

@@ -24,19 +24,20 @@ const LanguageSelectPopup: React.FC<PropsType> = (props) => {
   )
 
   const { i18n } = useTranslation()
-  const setData = async () => {
-    const language = await AsyncStorage.getItem("selectedLanguage")
-    setSelectedLanguage(language)
-    await i18n.changeLanguage(selectedLanguage as string)
-  }
-
-  const chooseLanguage = async (language: string) => {
-    await AsyncStorage.setItem("selectedLanguage", language)
-    setData()
+  const chooseLanguage = async (language?: string) => {
+    language && (await AsyncStorage.setItem("selectedLanguage", language))
+    await i18n.changeLanguage(
+      (await AsyncStorage.getItem("selectedLanguage")) as string
+    )
+    setSelectedLanguage(await AsyncStorage.getItem("selectedLanguage"))
   }
 
   useEffect(() => {
-    setData()
+    chooseLanguage()
+  }, [props.popupVisible])
+
+  useEffect(() => {
+    chooseLanguage()
   }, [])
 
   return (
@@ -52,20 +53,6 @@ const LanguageSelectPopup: React.FC<PropsType> = (props) => {
         <TouchableOpacity
           style={[
             styles.button,
-            selectedLanguage === "ua" && { backgroundColor: "#96A637" },
-          ]}
-          onPress={() => chooseLanguage("ua")}
-        >
-          <Text
-            weight="bold"
-            color={selectedLanguage === "ua" ? "white" : "black"}
-          >
-            Русский
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            styles.button,
             selectedLanguage === "ru" && { backgroundColor: "#96A637" },
           ]}
           onPress={() => chooseLanguage("ru")}
@@ -73,6 +60,20 @@ const LanguageSelectPopup: React.FC<PropsType> = (props) => {
           <Text
             weight="bold"
             color={selectedLanguage === "ru" ? "white" : "black"}
+          >
+            Русский
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[
+            styles.button,
+            selectedLanguage === "ua" && { backgroundColor: "#96A637" },
+          ]}
+          onPress={() => chooseLanguage("ua")}
+        >
+          <Text
+            weight="bold"
+            color={selectedLanguage === "ua" ? "white" : "black"}
           >
             Український
           </Text>

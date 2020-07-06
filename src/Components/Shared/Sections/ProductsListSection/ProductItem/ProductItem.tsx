@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
-import React, { useState } from "react"
+import React from "react"
 import { View, Image, TouchableWithoutFeedback, StyleSheet } from "react-native"
+import { useTranslation } from "react-i18next"
 import Text from "~/Components/Shared/Components/Text/Text"
 
 // COMPONENTS IMPORTS //
@@ -26,6 +27,8 @@ type PropsType = {
 }
 
 const ProductItem: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <TouchableWithoutFeedback
       onPress={() =>
@@ -45,7 +48,9 @@ const ProductItem: React.FC<PropsType> = (props) => {
               return `${ingridient}, `
             })}
           </Text>
-          <Text style={styles.note}>Выберите размер для заказа:</Text>
+          <Text style={styles.note}>
+            {t("MenuScreen.ProductItem.ВыберитеРазмер")}:
+          </Text>
           <PizzaSizesHelper
             navigation={props.navigation}
             snackBarStyle={{
