@@ -2,11 +2,11 @@
 import React from "react"
 import { View, TouchableOpacity, Image, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
 // EXTRA IMPORTS //
-import { Feather } from "@expo/vector-icons"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -15,6 +15,8 @@ type PropsType = {
 }
 
 const DashboardScreen: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -28,7 +30,7 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
             style={styles.icon}
             source={require("~/Images/Icons/icon-logo.png")}
           />
-          <Text style={styles.text}>Главная</Text>
+          <Text style={styles.text}>{t("Dashboard.Главная")}</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity
@@ -42,7 +44,7 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
             style={styles.icon}
             source={require("~/Images/Icons/icon-user.png")}
           />
-          <Text style={styles.text}>Личный кабинет</Text>
+          <Text style={styles.text}>{t("Dashboard.ЛичныйКабинет")}</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity
@@ -56,7 +58,7 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
             style={styles.icon}
             source={require("~/Images/Icons/icon-menu.png")}
           />
-          <Text style={styles.text}>Меню</Text>
+          <Text style={styles.text}>{t("Dashboard.Меню")}</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity
@@ -68,7 +70,7 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
             style={styles.big_icon}
             source={require("~/Images/Icons/icon-pizza-constructor.png")}
           />
-          <Text style={styles.text}>Конструктор пиццы</Text>
+          <Text style={styles.text}>{t("Dashboard.КонструкторПиццы")}</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity
@@ -82,7 +84,7 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
             style={styles.big_icon}
             source={require("~/Images/Icons/icon-orders.png")}
           />
-          <Text style={styles.text}>Ваши заказы</Text>
+          <Text style={styles.text}>{t("Dashboard.ВашиЗаказы")}</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity
@@ -96,7 +98,7 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
             style={styles.icon}
             source={require("~/Images/Icons/icon-basket.png")}
           />
-          <Text style={styles.text}>Корзина</Text>
+          <Text style={styles.text}>{t("Dashboard.Корзина")}</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity
@@ -110,7 +112,7 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
             style={styles.icon}
             source={require("~/Images/Icons/icon-star.png")}
           />
-          <Text style={styles.text}>Акции</Text>
+          <Text style={styles.text}>{t("Dashboard.Акции")}</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity
@@ -122,7 +124,7 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
             style={styles.big_icon}
             source={require("~/Images/Icons/icon-delivery.png")}
           />
-          <Text style={styles.text}>Условия доставки</Text>
+          <Text style={styles.text}>{t("Dashboard.УсловияДоставки")}</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity
@@ -136,7 +138,7 @@ const DashboardScreen: React.FC<PropsType> = (props) => {
             style={styles.big_icon}
             source={require("~/Images/Icons/icon-contacts.png")}
           />
-          <Text style={styles.text}>Контакты</Text>
+          <Text style={styles.text}>{t("Dashboard.Контакты")}</Text>
         </View>
       </TouchableOpacity>
     </View>
