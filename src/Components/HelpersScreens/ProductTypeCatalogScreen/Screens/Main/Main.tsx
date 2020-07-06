@@ -1,5 +1,5 @@
 // PLUGINS IMPORTS //
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { ScrollView } from "react-native"
 
 // COMPONENTS IMPORTS //
@@ -33,6 +33,12 @@ const Main: React.FC<PropsType> = (props) => {
 
   useEffect(() => {
     props.getCertainCategoryFoodsListThunkCreator(productId)
+  }, [])
+
+  useEffect(() => {
+    props.navigation.addListener("blur", () => {
+      props.getCertainCategoryFoodsListThunkCreator("3")
+    })
   }, [])
 
   return (

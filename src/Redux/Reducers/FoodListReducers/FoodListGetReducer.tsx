@@ -84,5 +84,10 @@ export const getCertainCategoryFoodsListThunkCreator = (
           ActionCreatorsList.setCertainCategoryFoodsListActionCreator(res.data)
         )
       })
+      .catch(() => {
+        dispatch(
+          ActionCreatorsList.setCertainCategoryFoodsListActionCreator([])
+        )
+      })
   }
 }

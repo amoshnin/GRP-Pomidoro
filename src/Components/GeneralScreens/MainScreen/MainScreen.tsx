@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next"
 // COMPONENTS IMPORTS //
 import SalesSection from "../../Shared/Sections/SalesSection/SalesSection"
 import MenuSection from "../../Shared/Sections/MenuSection/MenuSection"
-import ProductsListSectionContainer from "../../Shared/Sections/ProductsListSection/ProductsListSectionContainer"
+import ProductsListSection from "~/Components/Shared/Sections/ProductsListSection/ProductsListSection"
 
 // EXTRA IMPORTS //
 import Button from "~/Components/Shared/Components/Button/Button"
@@ -24,6 +24,19 @@ type PropsType = {
     type: string
   }>
 
+  CurrentCategoryFoodsList: Array<any>
+
+  getCertainCategoryFoodsListThunkCreator: (rawId: string) => void
+  addItemToOrderActionCreator: (
+    title: string,
+    price: string,
+    originalPrice: string,
+    image: string,
+    size: string,
+    count: string,
+    ingredients: Array<string>
+  ) => void
+
   getMenuListThunkCreator: () => void
   getSalesListThunkCreator: () => void
 }
@@ -33,6 +46,7 @@ const MainScreen: React.FC<PropsType> = (props) => {
   useEffect(() => {
     props.getMenuListThunkCreator()
     props.getSalesListThunkCreator()
+    props.getCertainCategoryFoodsListThunkCreator("3")
   }, [])
 
   return (
@@ -66,7 +80,11 @@ const MainScreen: React.FC<PropsType> = (props) => {
           containerStyle={{ marginTop: 25 }}
         />
       )}
-      <ProductsListSectionContainer navigation={props.navigation} />
+      <ProductsListSection
+        navigation={props.navigation}
+        productsList={props.CurrentCategoryFoodsList}
+        addItemToOrderActionCreator={props.addItemToOrderActionCreator}
+      />
     </ScrollView>
   )
 }

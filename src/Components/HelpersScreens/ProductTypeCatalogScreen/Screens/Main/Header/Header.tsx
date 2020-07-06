@@ -21,7 +21,9 @@ const Header: React.FC<PropsType> = (props) => {
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.button_wrap}
-        onPress={() => props.navigation.navigate("MenuScreen")}
+        onPress={() =>
+          props.navigation.goBack() || props.navigation.navigate("MainScreen")
+        }
       >
         <Ionicons name="ios-arrow-back" size={22} color="black" />
         <Text size={16}>Меню</Text>
