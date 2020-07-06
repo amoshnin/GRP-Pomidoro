@@ -1,11 +1,13 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { View, StyleSheet } from "react-native"
-import Text from "~/Components/Shared/Components/Text/Text"
-import Button from "../../../../../Shared/Components/Button/Button"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 import FakeInputComponent from "../Credentials/Components/FakeInputComponent/FakeInputComponent"
+
+import Text from "~/Components/Shared/Components/Text/Text"
+import Button from "~/Components/Shared/Components/Button/Button"
 
 // EXTRA IMPORTS //
 
@@ -22,10 +24,12 @@ type PropsType = {
 }
 
 const CreditCard: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <View style={styles.container}>
       <Text weight="bold" size={20} style={styles.title}>
-        Карта оплаты
+        {t("PrivateCabinetScreen.CreditCard.КартаОплаты")}
       </Text>
       {Object.values(props.CreditCard).length > 0 ? (
         <View style={styles.card_wrap}>
@@ -54,7 +58,7 @@ const CreditCard: React.FC<PropsType> = (props) => {
             justifyContent: "center",
             alignItems: "center",
           }}
-          text={"Привязать карту"}
+          text={t("PrivateCabinetScreen.CreditCard.ПривязатьКарту")}
           textStyle={{ color: "white", letterSpacing: 0.3, fontSize: 16 }}
         />
       )}

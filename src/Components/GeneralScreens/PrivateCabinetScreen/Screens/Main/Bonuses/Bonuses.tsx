@@ -2,6 +2,7 @@
 import React from "react"
 import { View, TouchableOpacity, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -14,26 +15,30 @@ type PropsType = {
 }
 
 const Bonuses: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <View style={styles.container}>
       <Text weight="bold" size={20} style={styles.title}>
-        Бонусы
+        {t("PrivateCabinetScreen.Bonuses.Бонусы")}
       </Text>
       <View style={styles.box_wrap}>
         <Text size={16} style={styles.text}>
-          У вас
+          {t("PrivateCabinetScreen.Bonuses.УВас")}
         </Text>
         <Text weight="bold" size={30}>
           {props.bonusesCount || "0"}
         </Text>
         <Text size={16} style={styles.text}>
-          бонусов
+          {t("PrivateCabinetScreen.Bonuses.Бонусов")}
         </Text>
 
         <View style={styles.divider} />
 
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.button_text}> Узнать как потратить</Text>
+          <Text style={styles.button_text}>
+            {t("PrivateCabinetScreen.Bonuses.УзнатьКакПотратить")}
+          </Text>
         </TouchableOpacity>
       </View>
     </View>

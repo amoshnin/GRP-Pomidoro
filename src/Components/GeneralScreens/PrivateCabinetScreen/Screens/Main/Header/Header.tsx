@@ -32,6 +32,7 @@ type PropsType = {
 }
 
 const Header: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
   const PickImage = async () => {
     if (Constants.platform?.ios) {
       const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL)
@@ -53,8 +54,6 @@ const Header: React.FC<PropsType> = (props) => {
       props.UpdateAvatarThunkCreator(blob)
     }
   }
-
-  const { t } = useTranslation()
 
   return (
     <View style={styles.container}>

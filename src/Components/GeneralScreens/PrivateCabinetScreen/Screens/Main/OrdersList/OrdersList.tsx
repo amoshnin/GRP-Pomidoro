@@ -1,8 +1,8 @@
 // PLUGINS IMPORTS //
 import React from "react"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
-
 import OrdersList from "~/Components/Shared/Sections/OrdersList/OrdersList"
 import Button from "~/Components/Shared/Components/Button/Button"
 
@@ -21,10 +21,12 @@ type PropsType = {
 }
 
 const OrdersListsSection: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <>
       <OrdersList
-        title={"История заказов"}
+        title={t("PrivateCabinetScreen.OrdersList.ИсторияЗаказов")}
         titleStyle={{
           marginTop: 23,
         }}
@@ -38,7 +40,7 @@ const OrdersListsSection: React.FC<PropsType> = (props) => {
         onPress={() => {
           props.navigation.navigate("OrdersScreen")
         }}
-        text={"Показавать все заказы"}
+        text={t("PrivateCabinetScreen.OrdersList.ПоказатьВсеЗаказы")}
         buttonStyle={{
           borderRadius: 20,
           backgroundColor: "#EAEAEB",

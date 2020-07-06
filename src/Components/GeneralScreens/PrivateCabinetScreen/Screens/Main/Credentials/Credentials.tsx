@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React from "react"
-import { View, StyleSheet } from "react-native"
+import { View } from "react-native"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 import FakeInputComponent from "./Components/FakeInputComponent/FakeInputComponent"
@@ -26,18 +27,20 @@ type PropsType = {
 }
 
 const Credentials: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <View>
       {props.UserCredentials.name && (
         <FakeInputComponent
-          title={"Имя"}
+          title={t("PrivateCabinetScreen.Credentials.Имя")}
           content={props.UserCredentials.name as string}
           navigation={props.navigation}
         />
       )}
       {props.UserCredentials.surname && (
         <FakeInputComponent
-          title={"Фамилия"}
+          title={t("PrivateCabinetScreen.Credentials.Фамилия")}
           content={props.UserCredentials.surname as string}
           navigation={props.navigation}
         />
@@ -45,28 +48,28 @@ const Credentials: React.FC<PropsType> = (props) => {
 
       {props.UserCredentials.email && (
         <FakeInputComponent
-          title={"Email"}
+          title={t("PrivateCabinetScreen.Credentials.Email")}
           content={props.UserCredentials.email as string}
           navigation={props.navigation}
         />
       )}
       {props.UserCredentials.phoneNum && (
         <FakeInputComponent
-          title={"Номер телефона"}
+          title={t("PrivateCabinetScreen.Credentials.НомерТелефона")}
           content={props.UserCredentials.phoneNum as string}
           navigation={props.navigation}
         />
       )}
       {props.UserCredentials.region && (
         <FakeInputComponent
-          title={"Регион"}
+          title={t("PrivateCabinetScreen.Credentials.Регион")}
           content={props.UserCredentials.region as string}
           navigation={props.navigation}
         />
       )}
       {props.UserCredentials.password && (
         <FakeInputComponent
-          title={"Пароль"}
+          title={t("PrivateCabinetScreen.Credentials.Пароль")}
           content={props.UserCredentials.password as string}
           navigation={props.navigation}
         />
@@ -74,8 +77,5 @@ const Credentials: React.FC<PropsType> = (props) => {
     </View>
   )
 }
-
-//   STYLES   //
-const styles = StyleSheet.create({})
 
 export default Credentials
