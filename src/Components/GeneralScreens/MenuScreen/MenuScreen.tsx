@@ -40,13 +40,8 @@ const MenuScreen: React.FC<PropsType> = (props) => {
         <>
           <Button
             onPress={() => props.navigation.navigate("OrderTracking")}
-            buttonStyle={{ backgroundColor: "#96A637", borderRadius: 20 }}
-            rectStyle={{
-              width: 315,
-              height: 40,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
+            buttonStyle={styles.header_button}
+            rectStyle={styles.header_button_rect}
             textStyle={{ color: "white" }}
             text={t("GeneralPhrases.УзнатьГдеМойЗаказ")}
           />
@@ -55,7 +50,7 @@ const MenuScreen: React.FC<PropsType> = (props) => {
             scroll={false}
             MenuList={props.MenuList}
             titleText={t("Dashboard.Меню")}
-            titleStyle={{ fontSize: 30 }}
+            titleStyle={styles.section_title}
             containerStyle={{ marginTop: 20 }}
           />
         </>
@@ -66,35 +61,18 @@ const MenuScreen: React.FC<PropsType> = (props) => {
             navigation={props.navigation}
             titleText={t("MenuScreen.АктивныеАкции")}
             SalesList={props.SalesList}
-            titleStyle={{
-              fontSize: 30,
-            }}
+            titleStyle={styles.section_title}
             scroll_horizontal={false}
-            imageStyle={{
-              width: 314,
-              height: 220,
-              marginRight: 16,
-              marginBottom: 20,
-            }}
+            imageStyle={styles.sale_image_block}
           />
 
           <Button
             onPress={() => {
               props.navigation.navigate("SalesScreen")
             }}
-            buttonStyle={{
-              backgroundColor: "#EAEAEB",
-              borderRadius: 20,
-              marginTop: 20,
-              marginBottom: 30,
-            }}
-            rectStyle={{
-              width: 315,
-              height: 40,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            textStyle={{ color: "black" }}
+            buttonStyle={styles.sales_button}
+            rectStyle={styles.sales_button_rect}
+            textStyle={styles.sales_button_text}
             text={t("MenuScreen.ПосмотретьВсеАкции")}
           />
         </>
@@ -107,6 +85,47 @@ const MenuScreen: React.FC<PropsType> = (props) => {
 const styles = StyleSheet.create({
   container: {
     marginTop: 24,
+  },
+
+  header_button: {
+    backgroundColor: "#96A637",
+    borderRadius: 20,
+  },
+
+  header_button_rect: {
+    width: 315,
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  section_title: {
+    fontSize: 30,
+  },
+
+  sale_image_block: {
+    width: 314,
+    height: 220,
+    marginRight: 16,
+    marginBottom: 20,
+  },
+
+  sales_button: {
+    backgroundColor: "#EAEAEB",
+    borderRadius: 20,
+    marginTop: 20,
+    marginBottom: 30,
+  },
+
+  sales_button_rect: {
+    width: 315,
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  sales_button_text: {
+    color: "black",
   },
 })
 

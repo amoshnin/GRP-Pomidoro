@@ -48,9 +48,11 @@ type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 // Get menus list
 export const getMenuListThunkCreator = (): ThunkType => {
   return async (dispatch, getState: any) => {
-    await axios.get("http://138.201.153.220/api/menu/").then((res: any) => {
-      console.log(res)
-      dispatch(ActionCreatorsList.setMenuListActionCreator(res.data))
-    })
+    await axios
+      .get("http://138.201.153.220/api/menu_category/")
+      .then((res: any) => {
+        console.log(res)
+        dispatch(ActionCreatorsList.setMenuListActionCreator(res.data))
+      })
   }
 }
