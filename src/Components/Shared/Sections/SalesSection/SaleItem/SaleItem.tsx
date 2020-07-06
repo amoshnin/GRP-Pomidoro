@@ -9,6 +9,7 @@ import {
 } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 import { LinearGradient } from "expo-linear-gradient"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -28,6 +29,8 @@ type PropsType = {
 }
 
 const SaleItem: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <TouchableWithoutFeedback>
       <LinearGradient
@@ -54,7 +57,9 @@ const SaleItem: React.FC<PropsType> = (props) => {
               })
             }
           >
-            <Text style={styles.image_action}>Посмотреть</Text>
+            <Text style={styles.image_action}>
+              {t("SalesScreen.Посмотреть")}
+            </Text>
             <MaterialIcons
               name="keyboard-arrow-right"
               size={24}

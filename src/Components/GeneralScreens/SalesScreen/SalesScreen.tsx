@@ -2,10 +2,11 @@
 import React, { useEffect } from "react"
 import { ScrollView, View, Image, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
-import Button from "../../Shared/Components/Button/Button"
-import SalesSection from "../../Shared/Sections/SalesSection/SalesSection"
+import Button from "~/Components/Shared/Components/Button/Button"
+import SalesSection from "~/Components/Shared/Sections/SalesSection/SalesSection"
 
 // EXTRA IMPORTS //
 
@@ -29,11 +30,12 @@ const SalesScreen: React.FC<PropsType> = (props) => {
     props.getSalesListThunkCreator()
   }, [])
 
+  const { t } = useTranslation()
+
   return (
     <ScrollView>
       {props.SalesList && props.SalesList.length > 1 ? (
         <>
-          {" "}
           <Button
             onPress={() => props.navigation.navigate("OrderTracking")}
             buttonStyle={{
@@ -48,12 +50,12 @@ const SalesScreen: React.FC<PropsType> = (props) => {
               alignItems: "center",
             }}
             textStyle={{ color: "white" }}
-            text={"Узнать, где мой заказ"}
+            text={t("GeneralPhrases.УзнатьГдеМойЗаказ")}
           />
           <SalesSection
             navigation={props.navigation}
             SalesList={props.SalesList}
-            titleText={"Все акции"}
+            titleText={t("SalesScreen.ВсеАкции")}
             titleStyle={{
               fontSize: 30,
             }}
@@ -73,10 +75,10 @@ const SalesScreen: React.FC<PropsType> = (props) => {
             source={require("~/Images/orders-empty.png")}
           />
           <Text weight="bold" size={30} style={styles.title}>
-            Пока нет акций
+            {t("SalesScreen.EmptyCase.EmptyCaseTitle")}
           </Text>
           <Text style={styles.subtitle} size={16}>
-            Иследуйте наши блюда и заказывайие с доставкой
+            {t("SalesScreen.EmptyCase.PPEmptyCaseSubtitle")}
           </Text>
         </View>
       )}
