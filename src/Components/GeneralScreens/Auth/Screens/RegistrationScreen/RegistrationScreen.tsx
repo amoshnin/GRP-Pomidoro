@@ -79,7 +79,7 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
         {(FormikProps) => (
           <>
             <TextInput
-              placeholder="Имя пользователя"
+              placeholder={t("Auth.SharedFields.ИмяПользователя")}
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
               theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("name")}
@@ -122,7 +122,7 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
             </Text>
 
             <TextInput
-              placeholder="Введите пароль"
+              placeholder={t("Auth.SharedFields.ВведитеПароль")}
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
               theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("password")}
@@ -147,12 +147,14 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
                 }}
               />
               <Text size={14} style={styles.checkbox_text}>
-                Получать каждый раз новый пароль по СМС
+                {t("Auth.RegisterScreen.PPRecievePassBySMS")}
               </Text>
             </View>
 
             <TextInput
-              placeholder="Email (Необязательно)"
+              placeholder={`${t("PrivateCabinetScreen.Credentials.Email")} (${t(
+                "GeneralPhrases.Validation.Необязательно"
+              )})`}
               placeholderTextColor="rgba(26, 24, 36, 0.5)"
               theme={{ colors: { primary: "#1A1824" } }}
               onChangeText={FormikProps.handleChange("email")}
@@ -166,7 +168,7 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
             />
 
             <Button
-              text="Зарегистрироваться"
+              text={t("Auth.RegisterScreen.Зарегистрироваться")}
               onPress={FormikProps.handleSubmit}
               buttonStyle={{
                 marginTop: 25,
@@ -188,7 +190,7 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
       </Formik>
 
       <Button
-        text="Войти"
+        text={t("Auth.LoginScreen.Войти")}
         onPress={() => props.navigation.navigate("LoginScreen")}
         buttonStyle={{
           marginBottom: 20,

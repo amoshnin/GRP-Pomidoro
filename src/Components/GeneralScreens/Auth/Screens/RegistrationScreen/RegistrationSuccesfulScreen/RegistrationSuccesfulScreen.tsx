@@ -1,13 +1,13 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { View, Image, StyleSheet } from "react-native"
-
-import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
+import Text from "~/Components/Shared/Components/Text/Text"
+import Button from "~/Components/Shared/Components/Button/Button"
 
 // EXTRA IMPORTS //
-import Button from "../../../../../Shared/Components/Button/Button"
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -16,17 +16,23 @@ type PropsType = {
 }
 
 const RegistrationSuccesfulScreen: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <View style={styles.container}>
       <Image source={require("../../../../../../Images/succesful.png")} />
       <Text size={30} weight="bold" style={styles.title}>
-        Регистрация прошла успешно
+        {t(
+          "Auth.RegisterScreen.SuccesfulRegistrationScreen.PPSuccesfulRegisterTitle"
+        )}
       </Text>
       <Text size={16} style={styles.text}>
-        Теперь вы можете воспользоваться всеми преимуществами приложения
+        {t(
+          "Auth.RegisterScreen.SuccesfulRegistrationScreen.PPSuccesfulRegisterSubtitle"
+        )}
       </Text>
       <Button
-        text="Войти"
+        text={t("Auth.LoginScreen.Войти")}
         onPress={() => props.navigation.navigate("LoginScreen")}
         textStyle={{
           color: "white",
