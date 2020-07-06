@@ -3,6 +3,7 @@ import React from "react"
 import { StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 import Meat from "../FoodSections/Meat/Meat"
@@ -17,6 +18,7 @@ type PropsType = {}
 
 const TopTabNavigator: React.FC<PropsType> = (props) => {
   const Tab = createMaterialTopTabNavigator()
+  const { t } = useTranslation()
 
   return (
     <Tab.Navigator
@@ -39,7 +41,7 @@ const TopTabNavigator: React.FC<PropsType> = (props) => {
           tabBarLabel: ({ focused }) =>
             focused ? (
               <Text weight="bold" size={14.1} style={styles.text}>
-                Мясо
+                {t("PizzaConstructorScreen.TabNavigator.Мясо")}
               </Text>
             ) : (
               <Text
@@ -47,7 +49,7 @@ const TopTabNavigator: React.FC<PropsType> = (props) => {
                 size={14.1}
                 style={{ ...styles.text, opacity: 0.5 }}
               >
-                Мясо
+                {t("PizzaConstructorScreen.TabNavigator.Мясо")}
               </Text>
             ),
         }}
@@ -59,7 +61,7 @@ const TopTabNavigator: React.FC<PropsType> = (props) => {
           tabBarLabel: ({ focused }) =>
             focused ? (
               <Text weight="bold" size={14.1} style={styles.text}>
-                Соусы
+                {t("PizzaConstructorScreen.TabNavigator.Соусы")}
               </Text>
             ) : (
               <Text
@@ -67,7 +69,7 @@ const TopTabNavigator: React.FC<PropsType> = (props) => {
                 size={14.1}
                 style={{ ...styles.text, opacity: 0.5 }}
               >
-                Соусы
+                {t("PizzaConstructorScreen.TabNavigator.Соусы")}
               </Text>
             ),
         }}
@@ -79,7 +81,7 @@ const TopTabNavigator: React.FC<PropsType> = (props) => {
           tabBarLabel: ({ focused }) =>
             focused ? (
               <Text weight="bold" size={14.1} style={styles.text}>
-                Овощные
+                {t("PizzaConstructorScreen.TabNavigator.Овощные")}
               </Text>
             ) : (
               <Text
@@ -90,7 +92,7 @@ const TopTabNavigator: React.FC<PropsType> = (props) => {
                   opacity: 0.5,
                 }}
               >
-                Овощные
+                {t("PizzaConstructorScreen.TabNavigator.Овощные")}
               </Text>
             ),
         }}
@@ -102,7 +104,7 @@ const TopTabNavigator: React.FC<PropsType> = (props) => {
           tabBarLabel: ({ focused }) =>
             focused ? (
               <Text weight="bold" size={14.1} style={styles.text}>
-                Сыры
+                {t("PizzaConstructorScreen.TabNavigator.Сыры")}
               </Text>
             ) : (
               <Text
@@ -110,7 +112,7 @@ const TopTabNavigator: React.FC<PropsType> = (props) => {
                 size={14.1}
                 style={{ ...styles.text, opacity: 0.5 }}
               >
-                Сыры
+                {t("PizzaConstructorScreen.TabNavigator.Сыры")}
               </Text>
             ),
         }}

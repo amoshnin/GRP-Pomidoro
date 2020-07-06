@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react"
 import { View, TouchableOpacity, Image, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -28,6 +29,7 @@ type PropsType = {
 const FoodItem: React.FC<PropsType> = (props) => {
   const [buttonOpened, setButtonOpened] = useState(false as boolean)
   const [count, setCount] = useState(0 as number)
+  const { t } = useTranslation()
 
   useEffect(() => {
     props.navigation.addListener("blur", () => {
@@ -65,7 +67,7 @@ const FoodItem: React.FC<PropsType> = (props) => {
         {!buttonOpened ? (
           <TouchableOpacity onPress={() => setButtonOpened(true)}>
             <Text weight="bold" color="#96A637" style={styles.btn}>
-              Добавить
+              {t("PizzaConstructorScreen.Добавить")}
             </Text>
           </TouchableOpacity>
         ) : (

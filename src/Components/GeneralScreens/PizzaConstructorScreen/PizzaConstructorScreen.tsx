@@ -1,14 +1,14 @@
 // PLUGINS IMPORTS //
-import React, { useState } from "react"
+import React from "react"
 import { View, ScrollView, Image, StyleSheet } from "react-native"
 import PayButton from "~/Components/Shared/Components/PayButton/PayButton"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 import PizzaSizesSelector from "./PizzaSizesSelector/PizzaSizesSelector"
 import SelectedIngridientsListSection from "./SelectedIngridientsListSection/SelectedIngridientsListSection"
 import TopTabNavigator from "./TopTabNavigator/TopTabNavigator"
-import { string } from "yup"
 
 // EXTRA IMPORTS //
 
@@ -46,11 +46,13 @@ const PizzaConstructorScreen: React.FC<PropsType> = (props) => {
 
   const price = pizzaPrice + props.CurrentPizzaPrice
 
+  const { t } = useTranslation()
+
   return (
     <ScrollView>
       <View style={styles.container}>
         <Text weight="bold" size={20}>
-          Конструктор пиццы
+          {t("PizzaConstructorScreen.КонструкторПиццы")}
         </Text>
         <View style={styles.lists_wrap}>
           <View>
@@ -84,7 +86,7 @@ const PizzaConstructorScreen: React.FC<PropsType> = (props) => {
           navigation={props.navigation}
           destination="BasketScreen"
           price={price}
-          text="Оплатить"
+          text={t("GeneralPhrases.Оплатить")}
           saveFunction={() => {
             props.addItemToOrderActionCreator(
               "Пицца на заказ",
