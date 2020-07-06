@@ -4,6 +4,7 @@ import { View, StyleSheet } from "react-native"
 import { RadioButton } from "react-native-paper"
 import Text from "~/Components/Shared/Components/Text/Text"
 import PayButton from "~/Components/Shared/Components/PayButton/PayButton"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -21,24 +22,28 @@ type PropsType = {
 }
 
 const Body: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
   const [checkedValue, setCheckedValue] = useState(
-    `Наличными курьеру` as string | null
+    t("OrderingProcess.PaymemtMethods.НаличнымиКурьеру") as string | null
   )
 
   const PaymentMethods = [
     {
       title: props.cardNum
-        ? `Карта ** ${props.cardNum} (+50 ₴ к сумме)`
-        : `Добавить карту`,
-      description: props.cardNum && "Курьер принесет с собой POS терминал",
+        ? `${t("OrderingProcess.PaymemtMethods.Карта")} ** ${
+            props.cardNum
+          } (+50 ₴ ${t("OrderingProcess.PaymemtMethods.кСумме")})`
+        : t("OrderingProcess.PaymemtMethods.ДобавитьКарту"),
+      description:
+        props.cardNum && t("OrderingProcess.PaymemtMethods.PPКартаSubtitle"),
     },
     {
-      title: "Наличными курьеру",
+      title: t("OrderingProcess.PaymemtMethods.НаличнымиКурьеру"),
       description: null,
     },
     {
-      title: "Картой курьеру",
-      description: "Курьер принесет с собой POS терминал",
+      title: t("OrderingProcess.PaymemtMethods.КартойКурьеру"),
+      description: t("OrderingProcess.PaymemtMethods.PPКартойКурьеруSubtitle"),
     },
   ]
 
@@ -56,7 +61,8 @@ const Body: React.FC<PropsType> = (props) => {
                 }
                 color="#96A637"
                 onPress={() => {
-                  paymentMethod.title === "Добавить карту"
+                  paymentMethod.title ===
+                  t("OrderingProcess.PaymemtMethods.ДобавитьКарту")
                     ? props.navigation.navigate("PrivateCabinetScreen")
                     : setCheckedValue(paymentMethod.title)
                 }}

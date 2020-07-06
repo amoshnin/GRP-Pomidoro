@@ -1,7 +1,8 @@
 // PLUGINS IMPORTS //
 import React, { useState } from "react"
-import { View, TouchableOpacity, StyleSheet } from "react-native"
+import { TouchableOpacity, StyleSheet } from "react-native"
 import DateTimePickerModal from "react-native-modal-datetime-picker"
+import { useTranslation } from "react-i18next"
 import dayjs from "dayjs"
 
 // COMPONENTS IMPORTS //
@@ -21,6 +22,7 @@ type PropsType = {
 const Footer: React.FC<PropsType> = (props) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
   const [datePicked, setDatePicked] = useState("" as string | Date)
+  const { t } = useTranslation()
 
   const showDatePicker = () => {
     setDatePickerVisibility(true)
@@ -55,7 +57,11 @@ const Footer: React.FC<PropsType> = (props) => {
         ]}
         onPress={showDatePicker}
       >
-        <Text>{datePicked ? dayjs(datePicked).format("HH:mm") : "Время"}</Text>
+        <Text>
+          {datePicked
+            ? dayjs(datePicked).format("HH:mm")
+            : t("OrderingProcess.DeliveryTimeSelectionScreen.Время")}
+        </Text>
       </TouchableOpacity>
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
@@ -66,7 +72,7 @@ const Footer: React.FC<PropsType> = (props) => {
 
       <Button
         onPress={() => confirmFunction()}
-        text="Продолжить"
+        text={t("GeneralPhrases.Продолжить")}
         buttonStyle={{
           marginTop: 20,
           width: 315,

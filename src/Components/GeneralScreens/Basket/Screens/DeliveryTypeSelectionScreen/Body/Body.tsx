@@ -2,10 +2,11 @@
 import React, { useState, useEffect } from "react"
 import { View, TouchableOpacity, StyleSheet } from "react-native"
 import { RadioButton, TextInput } from "react-native-paper"
-import Text from "~/Components/Shared/Components/Text/Text"
-import Button from "~/Components/Shared/Components/Button/Button"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
+import Text from "~/Components/Shared/Components/Text/Text"
+import Button from "~/Components/Shared/Components/Button/Button"
 
 // EXTRA IMPORTS //
 
@@ -23,7 +24,10 @@ type PropsType = {
 }
 
 const Body: React.FC<PropsType> = (props) => {
-  const [checkedValue, setCheckedValue] = useState("Забрать самому" as string)
+  const { t } = useTranslation()
+  const [checkedValue, setCheckedValue] = useState(
+    t("OrderingProcess.DeliveryTypeSelectionScreen.ЗабратьСамому") as string
+  )
   const [comment, setComment] = useState(null as string | null)
 
   useEffect(() => {
@@ -34,8 +38,8 @@ const Body: React.FC<PropsType> = (props) => {
 
   const SelectionList = [
     {
-      title: "Забрать самому",
-      description: "Ближайший фелиал - ул. Засумская, 12",
+      title: t("OrderingProcess.DeliveryTypeSelectionScreen.ЗабратьСамому"),
+      description: "ул. Засумская, 12",
     },
     ...props.savedAdresses,
   ]
@@ -80,7 +84,7 @@ const Body: React.FC<PropsType> = (props) => {
       <View style={styles.btns_wrap}>
         <TouchableOpacity>
           <Text style={styles.btn_text} weight="bold" size={16}>
-            Выбрать на карте
+            {t("OrderingProcess.DeliveryTypeSelectionScreen.ВыбратьНаКарте")}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -91,14 +95,18 @@ const Body: React.FC<PropsType> = (props) => {
           }
         >
           <Text style={styles.btn_text} weight="bold" size={16}>
-            Ввести адрес вручную
+            {t(
+              "OrderingProcess.DeliveryTypeSelectionScreen.ВвестеАдресВручную"
+            )}
           </Text>
         </TouchableOpacity>
       </View>
 
       <TextInput
         multiline
-        placeholder="Дополнительные комментарии"
+        placeholder={t(
+          "OrderingProcess.DeliveryTypeSelectionScreen.Комментарии"
+        )}
         style={styles.input}
         theme={{ colors: { primary: "#1A1824" } }}
         value={comment as string}
@@ -107,7 +115,7 @@ const Body: React.FC<PropsType> = (props) => {
 
       <Button
         onPress={saveInfoAndRedirect}
-        text="Продолжить"
+        text={t("GeneralPhrases.Продолжить")}
         buttonStyle={{
           marginTop: 36,
           width: 315,

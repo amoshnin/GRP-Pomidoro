@@ -4,6 +4,7 @@ import { View, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 import Button from "~/Components/Shared/Components/Button/Button"
 import SlidingUpPanel from "rn-sliding-up-panel"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -18,6 +19,7 @@ type PropsType = {
 }
 
 const BottomSection: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
   const _panel = useRef(null as any)
 
   useEffect(() => {
@@ -35,13 +37,15 @@ const BottomSection: React.FC<PropsType> = (props) => {
     >
       <View style={styles.wrapper}>
         <View style={styles.container}>
-          <Text size={16}>Подтвердите адрес</Text>
+          <Text size={16}>
+            {t("OrderingProcess.DeliveryTypeSelectionScreen.ПодтвердитеАдрес")}
+          </Text>
           <Text size={20} weight="bold" style={styles.title}>
             {props.adress}
           </Text>
           <Button
             onPress={() => props.navigation.navigate("PaymentMethodScreen")}
-            text="Подтвердить"
+            text={t("GeneralPhrases.Подтвердить")}
             buttonStyle={{
               marginTop: 40,
               width: 315,

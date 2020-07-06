@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React, { useState, useEffect } from "react"
 import { View, ScrollView, StyleSheet } from "react-native"
+import { useTranslation } from "react-i18next"
 import Text from "~/Components/Shared/Components/Text/Text"
 import Button from "~/Components/Shared/Components/Button/Button"
 
@@ -51,6 +52,7 @@ type PropsType = {
 const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
   const [totalPrice, setTotalPrice] = useState(0 as number)
   const CleanedOrdersList = removeDuplicates(props.OrderItemsList, "price")
+  const { t } = useTranslation()
 
   useEffect(() => {
     setTotalPrice(
@@ -61,7 +63,7 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Text weight="bold" size={30}>
-        Заказ успешно оформлен{" "}
+        {t("OrderingProcess.SuccesfulPaymentScreen.ЗаказУспешноОформлен")}{" "}
         <MaterialCommunityIcons
           name="check-bold"
           size={24}
@@ -71,7 +73,7 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
       </Text>
       <Button
         onPress={() => props.navigation.navigate("OrderTracking")}
-        text="Отследить заказ"
+        text={t("OrderingProcess.SuccesfulPaymentScreen.ОтследитьЗаказ")}
         buttonStyle={{
           marginTop: 30,
           backgroundColor: "#96A637",
@@ -87,7 +89,7 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
       />
       <Button
         onPress={() => props.navigation.navigate("MainScreen")}
-        text="На главную"
+        text={t("OrderingProcess.SuccesfulPaymentScreen.НаГлавную")}
         buttonStyle={{
           marginTop: 19,
           width: 315,
@@ -116,7 +118,7 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
         cardNum={props.PaymentMethod}
       />
       <Button
-        text="Связаться с оператором"
+        text={t("OrderingProcess.SuccesfulPaymentScreen.СвязатьсяОператором")}
         buttonStyle={{
           marginBottom: 20,
           width: 315,
@@ -131,7 +133,9 @@ const SuccesfulPaymentScreen: React.FC<PropsType> = (props) => {
       />
       <Button
         onPress={() => props.navigation.navigate("BackCallScreen")}
-        text="Заказать обратный звонок"
+        text={t(
+          "OrderingProcess.SuccesfulPaymentScreen.ЗаказатьОбратныйЗвонок"
+        )}
         buttonStyle={{
           marginBottom: 20,
           width: 315,

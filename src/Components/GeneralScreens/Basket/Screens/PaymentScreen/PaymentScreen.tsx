@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react"
 import { ScrollView, StyleSheet } from "react-native"
 import PayButton from "~/Components/Shared/Components/PayButton/PayButton"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 import Header from "./Header/Header"
@@ -44,6 +45,7 @@ type PropsType = {
 
 const PaymentScreen: React.FC<PropsType> = (props) => {
   const [totalPrice, setTotalPrice] = useState(0 as number)
+  const { t } = useTranslation()
 
   const CleanedOrdersArray = removeDuplicates(props.OrderItemsList, "price")
   useEffect(() => {
@@ -72,7 +74,7 @@ const PaymentScreen: React.FC<PropsType> = (props) => {
         navigation={props.navigation}
         destination="SuccesfulPaymentScreen"
         price={totalPrice}
-        text="Оплатить"
+        text={t("GeneralPhrases.Оплатить")}
         saveFunction={() => {
           props.SendOrderDataThunkCreator().then(() => {
             props.navigation.navigate("SuccesfulPaymentScreen")

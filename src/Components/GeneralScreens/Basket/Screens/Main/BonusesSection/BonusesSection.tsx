@@ -1,8 +1,9 @@
 // PLUGINS IMPORTS //
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { View, TouchableOpacity, StyleSheet } from "react-native"
 import { TextInput } from "react-native-paper"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -20,6 +21,7 @@ type PropsType = {
 
 const BonusesSection: React.FC<PropsType> = (props) => {
   const [bottomOpened, setBottomOpened] = useState(false as boolean)
+  const { t } = useTranslation()
 
   return (
     <View
@@ -37,7 +39,8 @@ const BonusesSection: React.FC<PropsType> = (props) => {
         onPress={() => setBottomOpened(!bottomOpened)}
       >
         <Text weight="bold" style={styles.title}>
-          Потратить бонусы (У вас {props.OrderBonusesUsed || "0"})
+          {t("OrderingProcess.Basket.Bonuses.ПотратитьБонусы")} (У вас{" "}
+          {props.OrderBonusesUsed || "0"})
         </Text>
 
         <Ionicons
@@ -49,7 +52,9 @@ const BonusesSection: React.FC<PropsType> = (props) => {
       </TouchableOpacity>
       {bottomOpened && (
         <View style={styles.bottom_wrap}>
-          <Text>Сколько бонусов списать:</Text>
+          <Text>
+            {t("OrderingProcess.Basket.Bonuses.СколькоБонусовСписать")}:
+          </Text>
 
           <TextInput
             style={styles.input}
@@ -71,7 +76,7 @@ const BonusesSection: React.FC<PropsType> = (props) => {
                 fontWeight: "bold",
               }}
             >
-              Количество бонусов превышено{" "}
+              {t("OrderingProcess.Basket.Bonuses.КоличествоБонусовПревышено")}{" "}
             </Text>
           ) : (
             <Text style={styles.bottom_subtitle}>

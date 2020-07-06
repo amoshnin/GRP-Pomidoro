@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { ScrollView, StyleSheet } from "react-native"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -15,14 +16,16 @@ type PropsType = {
 }
 
 const SelectAccountScreen: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <ScrollView style={styles.container}>
       <Text size={20} weight="bold" style={styles.title}>
-        Выберите один из вариантов, чтобы заказать
+        {t("OrderingProcess.SelectAccountScreen.Title")}
       </Text>
       <Button
         onPress={() => props.navigation.navigate("RegistrationScreen")}
-        text="Зарегистрироваться в системе"
+        text={t("Auth.RegisterScreen.Зарегистрироваться")}
         buttonStyle={{
           marginTop: 38,
           width: 315,
@@ -38,7 +41,7 @@ const SelectAccountScreen: React.FC<PropsType> = (props) => {
       />
       <Button
         onPress={() => props.navigation.navigate("Auth")}
-        text="Войти"
+        text={t("Auth.LoginScreen.Войти")}
         buttonStyle={{
           marginTop: 15,
           width: 315,
@@ -53,7 +56,7 @@ const SelectAccountScreen: React.FC<PropsType> = (props) => {
       />
       <Button
         onPress={() => props.navigation.navigate("DeliveryTypeSelectionScreen")}
-        text="Оформление без регистрации"
+        text={t("OrderingProcess.SelectAccountScreen.ОформлениеБезРегистрации")}
         buttonStyle={{
           marginTop: 10,
           width: 315,

@@ -3,6 +3,7 @@ import React from "react"
 import { View, Image, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
 import { TouchableOpacity, RectButton } from "react-native-gesture-handler"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -32,6 +33,8 @@ type PropsType = {
 }
 
 const ProductBasketItem: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <>
       <View style={styles.container}>
@@ -89,7 +92,7 @@ const ProductBasketItem: React.FC<PropsType> = (props) => {
       {props.allowEdit && (
         <TouchableOpacity>
           <Text size={16} weight="bold" color="#96A637" style={styles.btn_text}>
-            Изменить состав
+            {t("OrderingProcess.Basket.ИзменитьСостав")}
           </Text>
         </TouchableOpacity>
       )}

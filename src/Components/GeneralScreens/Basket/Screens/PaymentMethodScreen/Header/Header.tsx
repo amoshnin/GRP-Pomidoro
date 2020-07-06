@@ -2,6 +2,7 @@
 import React from "react"
 import { View, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -14,9 +15,11 @@ type PropsType = {
 }
 
 const Header: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <View style={styles.container}>
-      <Text size={16}>Денег к оплате</Text>
+      <Text size={16}>{t("OrderingProcess.Fields.ДенегКОплате")}</Text>
       <Text size={30} weight="bold" style={styles.price_text}>
         {props.totalPrice} ₴
       </Text>

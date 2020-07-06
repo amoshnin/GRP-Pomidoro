@@ -2,6 +2,7 @@
 import React from "react"
 import { View, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -12,14 +13,15 @@ import Text from "~/Components/Shared/Components/Text/Text"
 type PropsType = {}
 
 const Header: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <View style={styles.container}>
       <Text size={30} weight="bold">
-        Выберите время доставки
+        {t("OrderingProcess.DeliveryTimeSelectionScreen.ChooseDeliveryTime")}
       </Text>
       <Text size={16} style={styles.subtitle}>
-        Еда начнет готовиться в наилучшее время перед достакой, для того, чтобы
-        ваш заказ был доставлен к вам свежим.
+        {t("OrderingProcess.DeliveryTimeSelectionScreen.PPChooseDeliveryTime")}
       </Text>
     </View>
   )

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react"
 import { View, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 import Header from "./Header/Header"
@@ -26,6 +27,7 @@ type PropsType = {
 
 const PaymentMethodScreen: React.FC<PropsType> = (props) => {
   const [totalPrice, setTotalPrice] = useState(0 as number)
+  const { t } = useTranslation()
 
   useEffect(() => {
     setTotalPrice(
@@ -38,7 +40,7 @@ const PaymentMethodScreen: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <Text size={30} weight="bold">
-        Способ оплаты
+        {t("OrderingProcess.Fields.СпособОплаты")}
       </Text>
       <Header totalPrice={totalPrice} />
       <Body

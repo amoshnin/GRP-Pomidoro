@@ -2,6 +2,7 @@
 import React from "react"
 import { View, StyleSheet } from "react-native"
 import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -20,11 +21,13 @@ type PropsType = {
 }
 
 const OrderDetailsSection: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <>
       <View style={{ ...styles.container, ...styles.item_container }}>
         <Text weight="bold" size={16} style={styles.text}>
-          Итого к оплате
+          {t("OrderingProcess.Fields.ИтогоКОплате")}
         </Text>
         <View>
           <Text weight="bold" size={16} style={styles.text}>
@@ -40,7 +43,7 @@ const OrderDetailsSection: React.FC<PropsType> = (props) => {
           <View style={styles.divider} />
           <View style={styles.item_container}>
             <Text weight="bold" size={16} style={styles.text}>
-              К оплате за доставку
+              {t("OrderingProcess.Fields.ОплатаЗаДоставку")}
             </Text>
             <Text weight="bold" size={16} style={styles.text}>
               {props.deliveryPrice} ₴
@@ -52,7 +55,7 @@ const OrderDetailsSection: React.FC<PropsType> = (props) => {
         <>
           <View style={styles.divider} />
           <Text size={20} weight="bold" style={styles.section_title}>
-            Адрес доставки
+            {t("OrderingProcess.Fields.АдресДоставки")}
           </Text>
           <Text size={16}>{props.adress}</Text>
         </>
@@ -62,7 +65,7 @@ const OrderDetailsSection: React.FC<PropsType> = (props) => {
         <>
           <View style={styles.divider} />
           <Text size={20} weight="bold" style={styles.section_title}>
-            Способ оплаты
+            {t("OrderingProcess.Fields.СпособОплаты")}
           </Text>
           <Text size={16}>{props.cardNum}</Text>
           <View style={styles.divider} />

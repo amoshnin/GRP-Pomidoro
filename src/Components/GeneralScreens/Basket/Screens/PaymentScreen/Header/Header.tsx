@@ -1,10 +1,11 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { View, StyleSheet } from "react-native"
-import Text from "~/Components/Shared/Components/Text/Text"
+import { useTranslation } from "react-i18next"
 import dayjs from "dayjs"
 
 // COMPONENTS IMPORTS //
+import Text from "~/Components/Shared/Components/Text/Text"
 
 // EXTRA IMPORTS //
 
@@ -15,15 +16,17 @@ type PropsType = {
 }
 
 const Header: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <View style={styles.container}>
       <Text size={30} weight="bold">
-        Подтверждение заказа
+        {t("OrderingProcess.PaymentScreen.ПодтверждениеЗаказа")}
       </Text>
       <View style={styles.divider} />
       <View style={styles.text_wrap}>
         <Text size={20} weight="bold" style={styles.subtitle}>
-          Время доставки
+          {t("OrderingProcess.PaymentScreen.ВремяДоставки")}
         </Text>
         <Text>{dayjs(props.DeliveryTime).format("dddd HH:mm")}</Text>
       </View>

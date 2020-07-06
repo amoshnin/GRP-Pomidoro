@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { View, StyleSheet } from "react-native"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 
@@ -16,6 +17,8 @@ type PropsType = {
 }
 
 const Footer: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <View style={styles.container}>
       <Button
@@ -23,7 +26,7 @@ const Footer: React.FC<PropsType> = (props) => {
           props.allowProceed &&
           props.navigation.navigate("DeliveryTimeSelectionScreen")
         }
-        text="Заказать сейчас"
+        text={t("OrderingProcess.Basket.ЗаказатьСейчас")}
         buttonStyle={{
           marginTop: 20,
           width: 315,
@@ -36,7 +39,7 @@ const Footer: React.FC<PropsType> = (props) => {
         }}
       />
       <Button
-        text="Заказать на другое время"
+        text={t("OrderingProcess.Basket.ЗаказатьНаДругоеВремя")}
         buttonStyle={{
           marginTop: 19,
           width: 315,

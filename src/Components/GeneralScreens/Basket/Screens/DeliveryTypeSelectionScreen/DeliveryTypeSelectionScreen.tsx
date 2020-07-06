@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React from "react"
 import { ScrollView, StyleSheet } from "react-native"
+import { useTranslation } from "react-i18next"
 
 // COMPONENTS IMPORTS //
 import Body from "./Body/Body"
@@ -22,10 +23,12 @@ type PropsType = {
 }
 
 const DeliveryTypeSelectionScreen: React.FC<PropsType> = (props) => {
+  const { t } = useTranslation()
+
   return (
     <ScrollView style={styles.container}>
       <Text size={30} weight="bold" style={styles.title}>
-        Доставка
+        {t("OrderingProcess.DeliveryTypeSelectionScreen.Доставка")}
       </Text>
       <Body
         navigation={props.navigation}
