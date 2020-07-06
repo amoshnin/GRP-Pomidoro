@@ -16,7 +16,10 @@ type PropsType = {
 
   CurrentCategoryFoodsList: Array<any>
 
-  getCertainCategoryFoodsListThunkCreator: (rawId: string) => void
+  getCertainCategoryFoodsListThunkCreator: (
+    rawId: string,
+    limit?: string
+  ) => void
   addItemToOrderActionCreator: (
     title: string,
     price: string,

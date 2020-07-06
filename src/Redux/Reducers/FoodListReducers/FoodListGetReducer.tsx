@@ -73,7 +73,8 @@ export const getMenuListThunkCreator = (): ThunkType => {
 
 // Get certain categoru food list
 export const getCertainCategoryFoodsListThunkCreator = (
-  rawId: string
+  rawId: string,
+  limitCount?: string
 ): ThunkType => {
   return async (dispatch, getState: any) => {
     await axios

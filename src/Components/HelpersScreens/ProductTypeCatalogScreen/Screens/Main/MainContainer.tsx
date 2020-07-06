@@ -22,7 +22,10 @@ type MapStateToPropsType = {
 }
 
 type MapDispatchToPropsType = {
-  getCertainCategoryFoodsListThunkCreator: (rawId: string) => void
+  getCertainCategoryFoodsListThunkCreator: (
+    rawId: string,
+    limit?: string
+  ) => void
   addItemToOrderActionCreator: (
     title: string,
     price: string,

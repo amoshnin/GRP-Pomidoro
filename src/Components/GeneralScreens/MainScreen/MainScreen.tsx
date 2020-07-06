@@ -26,7 +26,10 @@ type PropsType = {
 
   CurrentCategoryFoodsList: Array<any>
 
-  getCertainCategoryFoodsListThunkCreator: (rawId: string) => void
+  getCertainCategoryFoodsListThunkCreator: (
+    rawId: string,
+    limit?: string
+  ) => void
   addItemToOrderActionCreator: (
     title: string,
     price: string,
@@ -46,7 +49,7 @@ const MainScreen: React.FC<PropsType> = (props) => {
   useEffect(() => {
     props.getMenuListThunkCreator()
     props.getSalesListThunkCreator()
-    props.getCertainCategoryFoodsListThunkCreator("3")
+    props.getCertainCategoryFoodsListThunkCreator("3", "10")
   }, [])
 
   return (
