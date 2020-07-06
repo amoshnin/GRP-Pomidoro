@@ -12,6 +12,7 @@ import EmptyProductsList from "./EmptyProductsList/EmptyProductsList"
 
 type PropsType = {
   navigation: any
+  productsList: Array<any>
 
   addItemToOrderActionCreator: (
     title: string,
@@ -25,55 +26,10 @@ type PropsType = {
 }
 
 const ProductListSection: React.FC<PropsType> = (props) => {
-  const data = [
-    {
-      title: "Food",
-      ingridientsList: [
-        "Соус томатный",
-        "соус томатный",
-        "соус томатный",
-        "соус томатный",
-      ],
-      productType: ["Мясо", "сыр", "салями"],
-      price24: 99,
-      price32: 164,
-      price40: 199,
-      image: "",
-    },
-    {
-      title: "Паперони спайс",
-      ingridientsList: [
-        "Соус томатный",
-        "соус томатный",
-        "соус томатный",
-        "соус томатный",
-      ],
-      productType: ["Мясо", "сыр", "салями"],
-      price24: 99,
-      price32: 164,
-      price40: 199,
-      image: "",
-    },
-    {
-      title: "Паперони спайс",
-      ingridientsList: [
-        "Соус томатный",
-        "соус томатный",
-        "соус томатный",
-        "соус томатный",
-      ],
-      productType: ["Мясо", "сыр", "салями"],
-      price24: 99,
-      price32: 164,
-      price40: 199,
-      image: "",
-    },
-  ]
-
   return (
     <View style={styles.container}>
-      {data.length > 0 ? (
-        data.map((product: any) => {
+      {props.productsList && props.productsList.length > 0 ? (
+        props.productsList.map((product: any) => {
           return (
             <ProductItem
               key={product.title}

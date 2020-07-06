@@ -41,12 +41,14 @@ const ProductItem: React.FC<PropsType> = (props) => {
         <Image source={require("../../../../../Images/product-1.png")} />
         <View style={styles.text_wrap}>
           <Text style={styles.title} weight="bold">
-            {props.product.title}
+            {props.product.name}
           </Text>
           <Text style={styles.subtitle}>
-            {props.product.ingridientsList.map((ingridient: string) => {
-              return `${ingridient}, `
-            })}
+            {props.product.ingridientsList &&
+              props.product.ingridientsList.length &&
+              props.product.ingridientsList.map((ingridient: string) => {
+                return `${ingridient}, `
+              })}
           </Text>
           <Text style={styles.note}>
             {t("MenuScreen.ProductItem.ВыберитеРазмер")}:

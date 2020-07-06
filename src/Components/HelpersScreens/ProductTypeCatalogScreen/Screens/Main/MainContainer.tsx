@@ -7,7 +7,9 @@ import { connect } from "react-redux"
 import Main from "./Main"
 
 // EXTRA IMPORTS //
-import { AppStateType } from "../../../../../Redux/ReduxStore"
+import { AppStateType } from "~/Redux/ReduxStore"
+import { ActionCreatorsList } from "~/Redux/Reducers/OrderingReducers/OrderingSetReducer"
+import { getCertainCategoryFoodsListThunkCreator } from "~/Redux/Reducers/FoodListReducers/FoodListGetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -15,9 +17,22 @@ import { AppStateType } from "../../../../../Redux/ReduxStore"
 type MapStateToPropsType = {
   navigation: any
   route: any
+
+  CurrentCategoryFoodsList: Array<any>
 }
 
-type MapDispatchToPropsType = {}
+type MapDispatchToPropsType = {
+  getCertainCategoryFoodsListThunkCreator: (rawId: string) => void
+  addItemToOrderActionCreator: (
+    title: string,
+    price: string,
+    originalPrice: string,
+    image: string,
+    size: string,
+    count: string,
+    ingredients: Array<string>
+  ) => void
+}
 
 /////////////////////////////////////////////////////////////////
 
@@ -25,13 +40,19 @@ const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
   return {
     navigation: props.navigation,
     route: props.route,
+
+    CurrentCategoryFoodsList: state.FoodListGetState.CurrentCategoryFoodsList,
   }
 }
 
 const MainContainer = compose(
   connect<MapStateToPropsType, MapDispatchToPropsType, AppStateType>(
     mapStateToProps,
-    {}
+    {
+      addItemToOrderActionCreator:
+        ActionCreatorsList.addItemToOrderActionCreator,
+      getCertainCategoryFoodsListThunkCreator: getCertainCategoryFoodsListThunkCreator,
+    }
   )
 )(Main)
 

@@ -7,6 +7,7 @@ import axios from "axios"
 
 let initialState = {
   MenuList: [] as Array<any>,
+  CurrentCategoryFoodsList: [] as Array<any>,
 }
 
 export type initialStateType = typeof initialState
@@ -25,6 +26,13 @@ const FoodListReducer = (
     }
   }
 
+  if (action.type === "SET_CERTAIN_CATEGORY_FOODS_LIST") {
+    return {
+      ...state,
+      CurrentCategoryFoodsList: action.categoryFoodsList,
+    }
+  }
+
   return state
 }
 
@@ -39,6 +47,12 @@ export const ActionCreatorsList = {
     ({
       type: "SET_MENU_LIST",
       menuList,
+    } as const),
+
+  setCertainCategoryFoodsListActionCreator: (categoryFoodsList: Array<any>) =>
+    ({
+      type: "SET_CERTAIN_CATEGORY_FOODS_LIST",
+      categoryFoodsList,
     } as const),
 }
 
@@ -58,12 +72,17 @@ export const getMenuListThunkCreator = (): ThunkType => {
 }
 
 // Get certain categoru food list
-export const getCertainCategoryFoodListThunkCreator = (
+export const getCertainCategoryFoodsListThunkCreator = (
   rawId: string
 ): ThunkType => {
   return async (dispatch, getState: any) => {
     await axios
-      .get("http://138.201.153.220/api/menu_group/")
-      .then((res: any) => {})
+      .get(`http://138.201.153.220/api/menu/?group_id=${rawId}`)
+      .then((res: any) => {
+        console.log(res.data)
+        dispatch(
+          ActionCreatorsList.setCertainCategoryFoodsListActionCreator(res.data)
+        )
+      })
   }
 }
