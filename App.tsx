@@ -64,7 +64,7 @@ const App: React.FC<PropsType> = (props) => {
       })
 
       const language = await AsyncStorage.getItem("selectedLanguage")
-      await i18n.changeLanguage(language || "ru")
+      await i18n.changeLanguage(language as string)
 
       setLoading(false)
     }

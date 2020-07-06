@@ -20,7 +20,7 @@ type PropsType = {
 
 const LanguageSelectPopup: React.FC<PropsType> = (props) => {
   const [selectedLanguage, setSelectedLanguage] = useState(
-    "ru" as string | null
+    null as string | null
   )
 
   const { i18n } = useTranslation()
@@ -52,20 +52,6 @@ const LanguageSelectPopup: React.FC<PropsType> = (props) => {
         <TouchableOpacity
           style={[
             styles.button,
-            selectedLanguage === "ru" && { backgroundColor: "#96A637" },
-          ]}
-          onPress={() => chooseLanguage("ru")}
-        >
-          <Text
-            weight="bold"
-            color={selectedLanguage === "ru" ? "white" : "black"}
-          >
-            Русский
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            styles.button,
             selectedLanguage === "ua" && { backgroundColor: "#96A637" },
           ]}
           onPress={() => chooseLanguage("ua")}
@@ -73,6 +59,20 @@ const LanguageSelectPopup: React.FC<PropsType> = (props) => {
           <Text
             weight="bold"
             color={selectedLanguage === "ua" ? "white" : "black"}
+          >
+            Русский
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[
+            styles.button,
+            selectedLanguage === "ru" && { backgroundColor: "#96A637" },
+          ]}
+          onPress={() => chooseLanguage("ru")}
+        >
+          <Text
+            weight="bold"
+            color={selectedLanguage === "ru" ? "white" : "black"}
           >
             Український
           </Text>
