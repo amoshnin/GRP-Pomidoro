@@ -35,9 +35,14 @@ const Body: React.FC<PropsType> = (props) => {
         addItemToOrderActionCreator={props.addItemToOrderActionCreator}
       />
       <View style={styles.divider} />
-      <ProductType productType={props.product.productType} />
+      {props.product.productType && props.product.productType.length > 0 && (
+        <ProductType productType={props.product.productType} />
+      )}
       <View style={styles.divider} />
-      <Ingredients ingridientsList={props.product.ingridientsList} />
+      {props.product.ingridientsList &&
+        props.product.ingridientsList.length > 0 && (
+          <Ingredients ingridientsList={props.product.ingridientsList} />
+        )}
     </View>
   )
 }

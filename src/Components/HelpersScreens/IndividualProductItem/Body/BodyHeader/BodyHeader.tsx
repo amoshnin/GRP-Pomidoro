@@ -29,7 +29,7 @@ const BodyHeader: React.FC<PropsType> = (props) => {
   return (
     <View style={styles.container}>
       <Text weight="bold" size={30} style={styles.title}>
-        {props.product.title}
+        {props.product.name}
       </Text>
 
       <Text size={16}>Выберите размер для заказа</Text>
