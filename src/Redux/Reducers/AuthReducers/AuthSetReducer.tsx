@@ -1,6 +1,7 @@
 //    *GENERAL IMPORTS*   //
 import { ThunkAction } from "redux-thunk"
 import { AppStateType, InferActionsTypes } from "../../ReduxStore"
+import AsyncStorage from "@react-native-community/async-storage"
 import axios from "axios"
 
 ////////////////////////////////////////////////////////////////////////
@@ -56,11 +57,13 @@ export const LoginUserThunkCreator = (
 ): ThunkType => {
   return async (dispatch, getState: any) => {
     await axios
-      .post("", {
-        phone_num: phoneNum,
-        password: password,
+      .post("http://138.201.153.220/api/auth/login/", {
+        username: "PomAdmin",
+        password: "Bi647MhCFcjX",
       })
-      .then((res: any) => {})
+      .then(async (res: any) => {
+        await AsyncStorage.setItem("token", res.data.key)
+      })
   }
 }
 
