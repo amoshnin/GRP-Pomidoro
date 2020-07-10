@@ -1,6 +1,7 @@
 // PLUGINS IMPORTS //
 import React, { useState, useEffect } from "react"
 import { TouchableOpacity, Image, StyleSheet } from "react-native"
+import { useTranslation } from "react-i18next"
 import AsyncStorage from "@react-native-community/async-storage"
 import Text from "~/Components/Shared/Components/Text/Text"
 
@@ -8,11 +9,12 @@ import { createStackNavigator } from "@react-navigation/stack"
 
 // COMPONENTS IMPORTS //
 import LoginScreenContainer from "./Screens/LoginScreen/LoginScreenContainer"
+import RecieveNewPassScreen1 from "./Screens/LoginScreen/RecieveNewPassScreen/RecieveNewPassScreen1/RecieveNewPassScreen1"
+import RecieveNewPassScreen2 from "./Screens/LoginScreen/RecieveNewPassScreen/RecieveNewPassScreen2/RecieveNewPassScreen2"
 import RegionSelectionScreen from "./Screens/LoginScreen/RegionSelectionScreen/RegionSelectionScreen"
 
 import RegistrationScreenContainer from "./Screens/RegistrationScreen/RegistrationScreenContainer"
-import RecieveNewPassScreen1 from "./Screens/LoginScreen/RecieveNewPassScreen/RecieveNewPassScreen1/RecieveNewPassScreen1"
-import RecieveNewPassScreen2 from "./Screens/LoginScreen/RecieveNewPassScreen/RecieveNewPassScreen2/RecieveNewPassScreen2"
+import SmsVerificationScreenContainer from "./Screens/RegistrationScreen/SmsVerificationScreen/SmsVerificationScreenContainer"
 import RegistrationSuccesfulScreen from "./Screens/RegistrationScreen/RegistrationSuccesfulScreen/RegistrationSuccesfulScreen"
 
 // EXTRA IMPORTS //
@@ -36,6 +38,8 @@ const Auth: React.FC<PropsType> = (props) => {
 
     getData()
   }, [popupVisible])
+
+  const { t } = useTranslation()
 
   return (
     <>
@@ -159,7 +163,16 @@ const Auth: React.FC<PropsType> = (props) => {
             headerStyle: styles.header,
           })}
         />
-
+        <Stack.Screen
+          name="SmsVerificationScreen"
+          component={SmsVerificationScreenContainer}
+          options={({ navigation, route }: any) => ({
+            title: t(
+              "Auth.RegisterScreen.SmsVerificationScreen.ВерификацияТелефона"
+            ),
+            headerTitleAlign: "center",
+          })}
+        />
         <Stack.Screen
           name="RegistrationSuccesfulScreen"
           component={RegistrationSuccesfulScreen}

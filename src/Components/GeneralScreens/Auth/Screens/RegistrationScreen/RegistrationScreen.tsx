@@ -18,7 +18,7 @@ import Button from "~/Components/Shared/Components/Button/Button"
 type PropsType = {
   navigation: any
 
-  RegisterUserThunkCreator: (
+  sendRegisterDataThunkCreator: (
     name: string,
     phoneNum: string,
     password: string,
@@ -65,15 +65,13 @@ const RegistrationScreen: React.FC<PropsType> = (props) => {
         }}
         onSubmit={(values: any) => {
           props
-            .RegisterUserThunkCreator(
+            .sendRegisterDataThunkCreator(
               values.name,
               values.phoneNum,
               values.password,
               values.email
             )
-            .then(() =>
-              props.navigation.navigate("RegistrationSuccesfulScreen")
-            )
+            .then(() => props.navigation.navigate("SmsVerificationScreen"))
         }}
       >
         {(FormikProps) => (

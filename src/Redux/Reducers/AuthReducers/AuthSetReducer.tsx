@@ -3,6 +3,7 @@ import { ThunkAction } from "redux-thunk"
 import { AppStateType, InferActionsTypes } from "../../ReduxStore"
 import AsyncStorage from "@react-native-community/async-storage"
 import axios from "axios"
+import { GetSMSVerificationCodeThunkCreator } from "~/Redux/Reducers/AuthReducers/AuthGetReducer"
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -32,7 +33,7 @@ export const ActionCreatorsList = {}
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 
 // Register user
-export const RegisterUserThunkCreator = (
+export const sendRegisterDataThunkCreator = (
   name: string,
   phoneNum: string,
   password: string,
@@ -46,7 +47,9 @@ export const RegisterUserThunkCreator = (
         phone_num: phoneNum,
         password: password,
       })
-      .then((res: any) => {})
+      .then((res: any) => {
+        dispatch(GetSMSVerificationCodeThunkCreator())
+      })
   }
 }
 

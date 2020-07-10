@@ -4,41 +4,35 @@ import { compose } from "redux"
 import { connect } from "react-redux"
 
 // COMPONENTS IMPORTS //
-import RegistrationScreen from "./RegistrationScreen"
+import SmsVerificationScreen from "./SmsVerificationScreen"
 
 // EXTRA IMPORTS //
 import { AppStateType } from "~/Redux/ReduxStore"
-import { sendRegisterDataThunkCreator } from "~/Redux/Reducers/AuthReducers/AuthSetReducer"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // TYPES
-type MapStateToPropsType = {}
-
-type MapDispatchToPropsType = {
-  sendRegisterDataThunkCreator: (
-    name: string,
-    phoneNum: string,
-    password: string,
-    email?: string
-  ) => void
+type MapStateToPropsType = {
+  navigation: any
+  SMSVerificationCode: string
 }
+
+type MapDispatchToPropsType = {}
 
 /////////////////////////////////////////////////////////////////
 
 const mapStateToProps = (state: any, props: any): MapStateToPropsType => {
   return {
     navigation: props.navigation,
+    SMSVerificationCode: state.AuthGetState.SMSVerificationCode,
   }
 }
 
 const RegistrationScreenContainer = compose(
   connect<MapStateToPropsType, MapDispatchToPropsType, AppStateType>(
     mapStateToProps,
-    {
-      sendRegisterDataThunkCreator: sendRegisterDataThunkCreator,
-    }
+    {}
   )
-)(RegistrationScreen)
+)(SmsVerificationScreen)
 
 export default RegistrationScreenContainer

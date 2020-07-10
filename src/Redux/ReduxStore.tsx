@@ -3,6 +3,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux"
 import thunkMiddleware from "redux-thunk"
 
 // REDUCERS IMPORTS //
+import AuthGetReducer from "./Reducers/AuthReducers/AuthGetReducer"
 import ExtraInfoGetReducer from "~/Redux/Reducers/ExtraInfoReducers/ExtraInfoGetReducer"
 import PrivateCabinetGetReducer from "~/Redux/Reducers/PrivateCabinetReducers/PrivateCabinerGetReducer"
 import OrderingSetReducer from "~/Redux/Reducers/OrderingReducers/OrderingSetReducer"
@@ -12,6 +13,9 @@ import PizzaConstructorSetReducer from "~/Redux/Reducers/PizzaConstructorReducer
 ////////////////////////////////////////////////////////////////////////
 
 let reducers = combineReducers({
+  // Authentification
+  AuthGetState: AuthGetReducer,
+
   // Extra info get state
   ExtraInfoGetState: ExtraInfoGetReducer,
 

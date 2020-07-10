@@ -34,6 +34,7 @@
     "react-native-gesture-handler": "~1.6.0",
     "react-native-modal-datetime-picker": "^8.7.1",
     "react-native-paper": "^3.10.1",
+    "react-native-pin-code": "^0.5.3",
     "react-native-popup-dialog": "^0.18.3",
     "react-native-reanimated": "~1.7.0",
     "react-native-safe-area-context": "0.7.3",
