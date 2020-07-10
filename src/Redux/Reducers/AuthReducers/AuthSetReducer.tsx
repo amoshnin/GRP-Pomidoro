@@ -53,6 +53,13 @@ export const sendRegisterDataThunkCreator = (
   }
 }
 
+// Register user
+export const registerUserThunkCreator = (): ThunkType => {
+  return async (dispatch, getState: any) => {
+    await axios.post(" ", {})
+  }
+}
+
 // Login user
 export const LoginUserThunkCreator = (
   phoneNum: string,

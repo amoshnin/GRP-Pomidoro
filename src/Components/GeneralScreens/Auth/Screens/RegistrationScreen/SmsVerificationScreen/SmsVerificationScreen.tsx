@@ -15,6 +15,8 @@ import Button from "~/Components/Shared/Components/Button/Button"
 type PropsType = {
   navigation: any
   SMSVerificationCode: string
+
+  registerUserThunkCreator: () => any
 }
 
 const SmsVerificationScreen: React.FC<PropsType> = (props) => {
@@ -31,7 +33,9 @@ const SmsVerificationScreen: React.FC<PropsType> = (props) => {
 
   const VerifyCode = () => {
     if (props.SMSVerificationCode === value) {
-      props.navigation.navigate("RegistrationSuccesfulScreen")
+      props.registerUserThunkCreator().then(() => {
+        props.navigation.navigate("RegistrationSuccesfulScreen")
+      })
     } else {
       setWrongPass(true)
     }
