@@ -41,13 +41,14 @@ export const sendRegisterDataThunkCreator = (
 ): ThunkType => {
   return async (dispatch, getState: any) => {
     await axios
-      .post("http://138.201.153.220/api/user_create/", {
+      .post("http://138.201.153.220/api/redoc/#operation/user_create", {
         name: name,
         email: email,
         phone_num: phoneNum,
         password: password,
       })
       .then((res: any) => {
+        console.log(res)
         dispatch(GetSMSVerificationCodeThunkCreator())
       })
   }
