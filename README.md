@@ -18,7 +18,7 @@ Watch the [demo video](https://youtu.be/VV9sbFn8IoY) on my [YouTube channel](htt
 > - The rate of change of the tree’s width represents the time complexity of our function (m):
 
 <div align="center">
-  <img src="./assets/Pomidoro-W.png" height="300"/>
+  <img src="./Pomidoro-W.png" height="300"/>
 </div>
 
 ### Folders structure
