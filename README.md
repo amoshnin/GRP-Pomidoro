@@ -5,7 +5,7 @@
 
 It is built for iOS and Android using React Native using TypeScript programming language. **Redux** was used as the storage management library.
 Main features include:
-- [x] Manual personalized construction of food combinations (for example: combining any quantity/size of pizza ingredients)
+- [x] Manual personalized construction of food combinations (ex: combining quantity/size of pizza ingredients)
 - [x] Food/Drinks ordering with automatic synchronization with database
 
 <div align="center">
