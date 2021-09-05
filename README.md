@@ -10,6 +10,19 @@
 React Native application is built fully using JavaScript and TypeScript languages with **Redux** as the storage management library.
 This food delivery application includes 
 
+<details>
+  <summary>
+  Supplementary images of final application
+  </summary>
+  
+   <p float="center">
+ <img src="https://user-images.githubusercontent.com/62706319/84562206-f5bdc680-ad52-11ea-8544-d652ed9e8906.PNG"  />
+ <img src="https://user-images.githubusercontent.com/62706319/84562253-53521300-ad53-11ea-84c2-0c2a251b3a6f.PNG"  />
+ <img src="https://user-images.githubusercontent.com/62706319/84562563-92816380-ad55-11ea-97ec-61ac88599a95.PNG"  />
+ <img src="https://user-images.githubusercontent.com/62706319/84562294-c52a5c80-ad53-11ea-8ef9-6a3d62807bbe.PNG"  />
+</p>
+</details>
+
 ### Folders structure
 
 - `RN-PomidoroClient`: react user interface.
@@ -25,20 +38,12 @@ This food delivery application includes
 
 > **Development status**: Developing...
 </br>
- <p float="center">
- <img src="https://user-images.githubusercontent.com/62706319/84562206-f5bdc680-ad52-11ea-8544-d652ed9e8906.PNG"  />
- <img src="https://user-images.githubusercontent.com/62706319/84562253-53521300-ad53-11ea-84c2-0c2a251b3a6f.PNG"  />
- <img src="https://user-images.githubusercontent.com/62706319/84562563-92816380-ad55-11ea-97ec-61ac88599a95.PNG"  />
- <img src="https://user-images.githubusercontent.com/62706319/84562294-c52a5c80-ad53-11ea-8ef9-6a3d62807bbe.PNG"  />
-</p>
 <br>
- 
 # Authors
 
 > **Artem Moshnin** - Main Full Stack Developer
 > **Email:** swift.uix@gmail.com
 > **LinkedIn:** [click](https://www.linkedin.com/in/artem77/)
-
 </br>
 
 
