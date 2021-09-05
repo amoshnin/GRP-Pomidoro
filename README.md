@@ -19,5 +19,5 @@ Main features include:
 
 # Authors
 
-> **Artem Moshnin** - Head Full Stack Developer
+> **Artem Moshnin** - Head Full Stack Developer <br/>
 > **Email:** swift.uix@gmail.com
