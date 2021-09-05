@@ -1,9 +1,8 @@
 # GRP-Pomidoro
 Mobile  food ordering and home delivery marketplace platform.  🍜 🤩 Built with TypeScript (React Native, Redux &amp; Django REST) 
 
-<h1 align="center">Recursion Tree Visualizer</h1>
-
-<p align="center">Tool for visualizing any generic recursive function written in JavaScript or Python.</p>
+<h1 align="center">Pomidoro - Food Delivery Application </h1>
+<p align="center">Food delivery mobile application built for iOS and Android with React Native</p>
 
 ## Overview
 
@@ -26,11 +25,6 @@ Watch the [demo video](https://youtu.be/VV9sbFn8IoY) on my [YouTube channel](htt
 - `RN-PomidoroClient`: react user interface.
 - `RN-PomidoroCourier`: server to execute user-defined code remotely.
 
-## Acknowledgements
-
-# Pomidoro - Food Delivery Application 
-
-**Pomidoro** is is a **Food Delivery Application**.
 Built with JavaScript and TypeScript. <br>
 Using **React Native** library, **Redux** Storage library and **Django REST** for backend.
 Pomidoro is a mobile food-ordering and delivery marketplace platform, whcih allows you to order food from your phone, throughout Ukraine  and have it delivered to your door.
